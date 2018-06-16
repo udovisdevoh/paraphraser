@@ -69,5 +69,11 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="ParaphrasingInterfaces\ParaphrasingInterfaces.csproj">
+      <Project>{62290bc4-c27b-4927-9553-e09d9d7a6439}</Project>
+      <Name>ParaphrasingInterfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

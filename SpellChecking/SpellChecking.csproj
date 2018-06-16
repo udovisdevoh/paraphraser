@@ -69,5 +69,11 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="SpellCheckingInterfaces\SpellCheckingInterfaces.csproj">
+      <Project>{2c71b30c-c3bc-4efa-8144-e8fc8476a78f}</Project>
+      <Name>SpellCheckingInterfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{62290BC4-C27B-4927-9553-E09D9D7A6439}</ProjectGuid>
+    <ProjectGuid>{2C71B30C-C3BC-4EFA-8144-E8FC8476A78F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ParaphrasingInterfaces</RootNamespace>
-    <AssemblyName>ParaphrasingInterfaces</AssemblyName>
+    <RootNamespace>SpellCheckingInterfaces</RootNamespace>
+    <AssemblyName>SpellCheckingInterfaces</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
