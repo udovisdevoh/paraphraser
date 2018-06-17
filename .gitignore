@@ -8,3 +8,7 @@
 /LanguageDetection/LanguageDetectionInterfaces/obj
 /Paraphrasing/ParaphrasingInterfaces/obj
 /SpellChecking/SpellCheckingInterfaces/obj
+/SearchApi/SearchApiTests/obj
+/SearchApi/SearchApiInterfaces/obj
+/SearchApi/obj
+/SearchApi/.vs
