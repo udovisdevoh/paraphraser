@@ -14,3 +14,5 @@
 /SearchApi/.vs
 /MarkovMatrix/obj
 /MarkovMatrix/.vs
+/MarkovMatrix/MarkovMatrixInterfaces/obj
+/MarkovMatrix/MarkovMatrixTests/obj
