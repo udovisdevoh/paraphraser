@@ -7,7 +7,7 @@
     <ProjectGuid>{78F39194-74D8-4848-B2D6-FC26FCCFF4AE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MarkovMatrixInterfaces</RootNamespace>
+    <RootNamespace>MarkovMatrices</RootNamespace>
     <AssemblyName>MarkovMatrixInterfaces</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IMarkovMatrix.cs" />
+    <Compile Include="IMarkovMatrixBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
