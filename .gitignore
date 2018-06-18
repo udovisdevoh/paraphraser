@@ -23,3 +23,8 @@
 /ParaphraserMath/ParaphraserMathInterfaces/bin
 /ParaphraserMath/ParaphraserMathTests/obj
 /ParaphraserMath/ParaphraserMathTests/bin
+/MarkovMatrix/bin
+/MarkovMatrix/MarkovMatrixInterfaces/bin
+/MarkovMatrix/MarkovMatrixTestHelper/obj
+/MarkovMatrix/MarkovMatrixTestHelper/bin
+/MarkovMatrix/MarkovMatrixTests/bin

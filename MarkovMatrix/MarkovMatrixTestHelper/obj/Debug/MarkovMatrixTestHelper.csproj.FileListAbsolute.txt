@@ -1,6 +1,0 @@
-D:\anonymous\Documents\Programming\C Sharp\Paraphraser\MarkovMatrix\MarkovMatrixTestHelper\bin\Debug\MarkovMatrixTestHelper.dll
-D:\anonymous\Documents\Programming\C Sharp\Paraphraser\MarkovMatrix\MarkovMatrixTestHelper\bin\Debug\MarkovMatrixTestHelper.pdb
-D:\anonymous\Documents\Programming\C Sharp\Paraphraser\MarkovMatrix\MarkovMatrixTestHelper\obj\Debug\MarkovMatrixTestHelper.csprojAssemblyReference.cache
-D:\anonymous\Documents\Programming\C Sharp\Paraphraser\MarkovMatrix\MarkovMatrixTestHelper\obj\Debug\MarkovMatrixTestHelper.csproj.CoreCompileInputs.cache
-D:\anonymous\Documents\Programming\C Sharp\Paraphraser\MarkovMatrix\MarkovMatrixTestHelper\obj\Debug\MarkovMatrixTestHelper.dll
-D:\anonymous\Documents\Programming\C Sharp\Paraphraser\MarkovMatrix\MarkovMatrixTestHelper\obj\Debug\MarkovMatrixTestHelper.pdb
