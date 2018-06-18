@@ -12,7 +12,6 @@ namespace MarkovMatrices
         public static bool ValidateNumberType<T>()
         {
             #warning Add unit tests
-            #warning Implement
             Type type = typeof(T);
 
             switch (Type.GetTypeCode(type))
@@ -37,15 +36,66 @@ namespace MarkovMatrices
         public static T GetValue<T>(int value)
         {
             #warning Add unit tests
-            #warning Implement
-            throw new NotImplementedException();
+            Type type = typeof(T);
+            switch (Type.GetTypeCode(type))
+            {
+                case TypeCode.Byte:
+                    return (T)(object)(byte)value;
+                case TypeCode.SByte:
+                    return (T)(object)(sbyte)value;
+                case TypeCode.UInt16:
+                    return (T)(object)(UInt16)value;
+                case TypeCode.UInt32:
+                    return (T)(object)(UInt32)value;
+                case TypeCode.UInt64:
+                    return (T)(object)(UInt64)value;
+                case TypeCode.Int16:
+                    return (T)(object)(Int16)value;
+                case TypeCode.Int32:
+                    return (T)(object)value;
+                case TypeCode.Int64:
+                    return (T)(object)(Int64)value;
+                case TypeCode.Decimal:
+                    return (T)(object)(Decimal)value;
+                case TypeCode.Double:
+                    return (T)(object)(Double)value;
+                case TypeCode.Single:
+                default:
+                    return (T)(object)(Single)value;
+            }
         }
 
         internal static T Add<T>(T sourceValue, int valueToAdd)
         {
             #warning Add unit tests
-            #warning Implement
-            throw new NotImplementedException();
+
+            Type type = typeof(T);
+            switch (Type.GetTypeCode(type))
+            {
+                case TypeCode.Byte:
+                    return (T)(object)((byte)(object)sourceValue + valueToAdd);
+                case TypeCode.SByte:
+                    return (T)(object)((sbyte)(object)sourceValue + valueToAdd);
+                case TypeCode.UInt16:
+                    return (T)(object)((UInt16)(object)sourceValue + valueToAdd);
+                case TypeCode.UInt32:
+                    return (T)(object)((UInt32)(object)sourceValue + valueToAdd);
+                case TypeCode.UInt64:
+                    return (T)(object)((UInt64)(object)sourceValue + (UInt64)valueToAdd);
+                case TypeCode.Int16:
+                    return (T)(object)((Int16)(object)sourceValue + valueToAdd);
+                case TypeCode.Int32:
+                    return (T)(object)((Int32)(object)sourceValue + valueToAdd);
+                case TypeCode.Int64:
+                    return (T)(object)((Int64)(object)sourceValue + valueToAdd);
+                case TypeCode.Decimal:
+                    return (T)(object)((Decimal)(object)sourceValue + valueToAdd);
+                case TypeCode.Double:
+                    return (T)(object)((Double)(object)sourceValue + valueToAdd);
+                case TypeCode.Single:
+                default:
+                    return (T)(object)((Single)(object)sourceValue + valueToAdd);
+            }
         }
     }
 }
