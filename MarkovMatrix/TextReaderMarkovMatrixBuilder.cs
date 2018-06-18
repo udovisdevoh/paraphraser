@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MarkovMatrices
 {
-    public class TextReaderMarkovMatrixBuilder : IMarkovMatrixBuilder
+    public class TextReaderMarkovMatrixBuilder<T> : IMarkovMatrixBuilder<T>
     {
         #region Members
         private Stream stream;
@@ -20,9 +20,9 @@ namespace MarkovMatrices
         }
         #endregion
 
-        public IMarkovMatrix BuildMatrix()
+        public IMarkovMatrix<T> BuildMatrix()
         {
-            MarkovMatrix markovMatrix = new MarkovMatrix();
+            MarkovMatrix<T> markovMatrix = new MarkovMatrix<T>();
             using (StreamReader streamReader = new StreamReader(this.stream))
             {
                 string line;
@@ -39,7 +39,7 @@ namespace MarkovMatrices
             return markovMatrix;
         }
 
-        private void PopulateMatrixFromLine(MarkovMatrix markovMatrix, string line)
+        private void PopulateMatrixFromLine(MarkovMatrix<T> markovMatrix, string line)
         {
             char[] characters = line.ToCharArray();
 

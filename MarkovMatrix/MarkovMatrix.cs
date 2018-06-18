@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace MarkovMatrices
 {
-    public class MarkovMatrix : IMarkovMatrix
+    public class MarkovMatrix<T> : IMarkovMatrix<T>
     {
         #region Members
-        private Dictionary<uint, uint> occurenceCountMap = new Dictionary<uint, uint>();
-
-        private Dictionary<uint, float> probabilityMap = new Dictionary<uint, float>();
+        private Dictionary<uint, T> occurenceCountMap;
         #endregion
 
         #region Properties
@@ -23,14 +21,25 @@ namespace MarkovMatrices
             }
         }
         #endregion
-        
-        public uint GetOccurence(char fromChar, char toChar)
+
+        #region Constructors
+        public MarkovMatrix()
         {
-            uint occurence;
+            if (!GenericNumberHelper.ValidateNumberType<T>())
+            {
+                throw new ArgumentException(string.Format("Unsupported type {0}. Use numeric types only.", typeof(T).FullName));
+            }
+            this.occurenceCountMap = new Dictionary<uint, T>();
+        }
+        #endregion
+
+        public T GetOccurence(char fromChar, char toChar)
+        {
+            T occurence;
             uint twoCharSet = this.CombineChars(fromChar, toChar);
             if (!this.occurenceCountMap.TryGetValue(twoCharSet, out occurence))
             {
-                return 0;
+                GenericNumberHelper.GetValue<T>(0);
             }
             return occurence;
         }
@@ -48,13 +57,13 @@ namespace MarkovMatrices
 
         private void IncrementOccurence(uint twoCharSet)
         {
-            uint occurence;
+            T occurence;
 
             if (!this.occurenceCountMap.TryGetValue(twoCharSet, out occurence))
             {
-                occurence = 0;
+                occurence = GenericNumberHelper.GetValue<T>(0);
             }
-            ++occurence;
+            occurence = GenericNumberHelper.Add<T>(occurence, 1);
 
             this.occurenceCountMap[twoCharSet] = occurence;
         }

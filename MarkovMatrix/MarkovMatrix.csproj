@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BinaryMarkovMatrixBuilder.cs" />
+    <Compile Include="GenericNumberHelper.cs" />
     <Compile Include="MarkovMatrix.cs" />
     <Compile Include="TextReaderMarkovMatrixBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

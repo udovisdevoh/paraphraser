@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MarkovMatrices
 {
-    public interface IMarkovMatrix
+    public interface IMarkovMatrix<T>
     {
         int InputCount { get; }
     }

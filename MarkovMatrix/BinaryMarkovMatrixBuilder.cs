@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace MarkovMatrices
 {
-    public class BinaryMarkovMatrixBuilder : IMarkovMatrixBuilder
+    public class BinaryMarkovMatrixBuilder<T> : IMarkovMatrixBuilder<T>
     {
-        public IMarkovMatrix BuildMatrix()
+        public IMarkovMatrix<T> BuildMatrix()
         {
             #warning Implement
             throw new NotImplementedException();

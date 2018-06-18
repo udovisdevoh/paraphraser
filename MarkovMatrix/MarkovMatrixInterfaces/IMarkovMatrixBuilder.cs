@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace MarkovMatrices
 {
-    public interface IMarkovMatrixBuilder
+    public interface IMarkovMatrixBuilder<T>
     {
-        IMarkovMatrix BuildMatrix();
+        IMarkovMatrix<T> BuildMatrix();
     }
 }

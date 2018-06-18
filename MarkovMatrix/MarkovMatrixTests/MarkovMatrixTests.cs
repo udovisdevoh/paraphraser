@@ -14,7 +14,7 @@ namespace MarkovMatrices.Tests
         {
             // Arrange
             uint expectedCombinedChars = 4259906;
-            MarkovMatrix markovMatrix = new MarkovMatrix();
+            MarkovMatrix<ulong> markovMatrix = new MarkovMatrix<ulong>();
 
             // Act
             uint actualCombinedChars = markovMatrix.CombineChars('A', 'B');
@@ -27,11 +27,11 @@ namespace MarkovMatrices.Tests
         public void Given_EmptyMatrix_ZeroOccurence()
         {
             // Arrange
-            MarkovMatrix markovMatrix = new MarkovMatrix();
-            uint expectedOccurence = 0;
+            MarkovMatrix<ulong> markovMatrix = new MarkovMatrix<ulong>();
+            ulong expectedOccurence = 0;
 
             // Act
-            uint actualOccurence = markovMatrix.GetOccurence('A', 'B');
+            ulong actualOccurence = markovMatrix.GetOccurence('A', 'B');
 
             // Assert
             Assert.Equal(expectedOccurence, actualOccurence);
@@ -41,12 +41,12 @@ namespace MarkovMatrices.Tests
         public void Given_EmptyMatrix_IncrementOccurence_CorrectOccurence()
         {
             // Arrange
-            MarkovMatrix markovMatrix = new MarkovMatrix();
+            MarkovMatrix<ulong> markovMatrix = new MarkovMatrix<ulong>();
             uint expectedOccurence = 1;
 
             // Act
             markovMatrix.IncrementOccurence('A', 'B');
-            uint actualOccurence = markovMatrix.GetOccurence('A', 'B');
+            ulong actualOccurence = markovMatrix.GetOccurence('A', 'B');
 
             // Assert
             Assert.Equal(expectedOccurence, actualOccurence);
@@ -56,13 +56,13 @@ namespace MarkovMatrices.Tests
         public void Given_Matrix_IncrementOccurence_CorrectOccurence()
         {
             // Arrange
-            MarkovMatrix markovMatrix = new MarkovMatrix();
+            MarkovMatrix<ulong> markovMatrix = new MarkovMatrix<ulong>();
             markovMatrix.IncrementOccurence('A', 'B');
-            uint expectedOccurence = 2;
+            ulong expectedOccurence = 2;
 
             // Act
             markovMatrix.IncrementOccurence('A', 'B');
-            uint actualOccurence = markovMatrix.GetOccurence('A', 'B');
+            ulong actualOccurence = markovMatrix.GetOccurence('A', 'B');
 
             // Assert
             Assert.Equal(expectedOccurence, actualOccurence);
@@ -72,16 +72,39 @@ namespace MarkovMatrices.Tests
         public void Given_Matrix_IncrementOtherOccurence_CorrectOccurence()
         {
             // Arrange
-            MarkovMatrix markovMatrix = new MarkovMatrix();
+            MarkovMatrix<ulong> markovMatrix = new MarkovMatrix<ulong>();
             markovMatrix.IncrementOccurence('B', 'C');
             uint expectedOccurence = 1;
 
             // Act
             markovMatrix.IncrementOccurence('A', 'B');
-            uint actualOccurence = markovMatrix.GetOccurence('A', 'B');
+            ulong actualOccurence = markovMatrix.GetOccurence('A', 'B');
 
             // Assert
             Assert.Equal(expectedOccurence, actualOccurence);
+        }
+
+        [Fact]
+        public void Given_WrongTypeMatrix_ThrowException()
+        {
+            // Arrange
+            MarkovMatrix<string> markovMatrix;
+
+            // Act, Assert
+            Assert.Throws<ArgumentException>(() =>
+            {
+                markovMatrix = new MarkovMatrix<string>();
+            });
+        }
+
+        [Fact]
+        public void Given_RightTypeMatrix_DoNotThrowException()
+        {
+            // Arrange
+            MarkovMatrix<ulong> markovMatrix;
+
+            // Act, Assert
+            markovMatrix = new MarkovMatrix<ulong>();
         }
     }
 }

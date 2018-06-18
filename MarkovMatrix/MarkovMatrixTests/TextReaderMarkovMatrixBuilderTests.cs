@@ -16,10 +16,10 @@ namespace MarkovMatrices.Tests
         {
             // Arrange
             Stream stream = StringStreamBuilder.Build("Pseudolachnostylis is a genus of plants in the Phyllanthaceae first described as a genus in 1899");
-            TextReaderMarkovMatrixBuilder textReaderMarkovMatrixBuilder = new TextReaderMarkovMatrixBuilder(stream);
+            TextReaderMarkovMatrixBuilder<ulong> textReaderMarkovMatrixBuilder = new TextReaderMarkovMatrixBuilder<ulong>(stream);
 
             // Act
-            IMarkovMatrix markovMatrix = textReaderMarkovMatrixBuilder.BuildMatrix();
+            IMarkovMatrix<ulong> markovMatrix = textReaderMarkovMatrixBuilder.BuildMatrix();
 
             // Assert
             Assert.True(markovMatrix.InputCount > 0);
