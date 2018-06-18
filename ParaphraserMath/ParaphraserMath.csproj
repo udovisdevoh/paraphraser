@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GenericNumberHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -74,12 +75,6 @@
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="packages\xunit.analyzers.0.7.0\analyzers\dotnet\cs\xunit.analyzers.dll" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="ParaphraserMathInterfaces\ParaphraserMathInterfaces.csproj">
-      <Project>{fe9bd543-b6bd-4b64-947f-fbb48f7caa71}</Project>
-      <Name>ParaphraserMathInterfaces</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

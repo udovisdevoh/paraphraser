@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarkovMatrixInterfaces", "M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarkovMatrixTestHelper", "MarkovMatrixTestHelper\MarkovMatrixTestHelper.csproj", "{957DD80E-1E39-4E8A-BFEF-C83AD40F5844}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParaphraserMath", "..\ParaphraserMath\ParaphraserMath.csproj", "{B30BC99A-57A9-4778-AD79-88D06B6BAC6E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExternalDependencies", "ExternalDependencies", "{6677C1D3-D984-4148-A94A-EE43E7926020}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,9 +37,16 @@ Global
 		{957DD80E-1E39-4E8A-BFEF-C83AD40F5844}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{957DD80E-1E39-4E8A-BFEF-C83AD40F5844}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{957DD80E-1E39-4E8A-BFEF-C83AD40F5844}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B30BC99A-57A9-4778-AD79-88D06B6BAC6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B30BC99A-57A9-4778-AD79-88D06B6BAC6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B30BC99A-57A9-4778-AD79-88D06B6BAC6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B30BC99A-57A9-4778-AD79-88D06B6BAC6E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B30BC99A-57A9-4778-AD79-88D06B6BAC6E} = {6677C1D3-D984-4148-A94A-EE43E7926020}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6E72BC3D-75E0-4D61-B35C-E9F7E9F68236}

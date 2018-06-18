@@ -65,12 +65,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BinaryMarkovMatrixBuilder.cs" />
-    <Compile Include="GenericNumberHelper.cs" />
     <Compile Include="MarkovMatrix.cs" />
     <Compile Include="TextReaderMarkovMatrixBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ParaphraserMath\ParaphraserMath.csproj">
+      <Project>{b30bc99a-57a9-4778-ad79-88d06b6bac6e}</Project>
+      <Name>ParaphraserMath</Name>
+    </ProjectReference>
     <ProjectReference Include="MarkovMatrixInterfaces\MarkovMatrixInterfaces.csproj">
       <Project>{78f39194-74d8-4848-b2d6-fc26fccff4ae}</Project>
       <Name>MarkovMatrixInterfaces</Name>

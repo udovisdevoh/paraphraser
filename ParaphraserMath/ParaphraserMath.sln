@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParaphraserMath", "Paraphra
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParaphraserMathTests", "ParaphraserMathTests\ParaphraserMathTests.csproj", "{530B46D1-E1B6-49E5-AF91-A5AB1F8BA9C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParaphraserMathInterfaces", "ParaphraserMathInterfaces\ParaphraserMathInterfaces.csproj", "{FE9BD543-B6BD-4B64-947F-FBB48F7CAA71}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{530B46D1-E1B6-49E5-AF91-A5AB1F8BA9C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{530B46D1-E1B6-49E5-AF91-A5AB1F8BA9C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{530B46D1-E1B6-49E5-AF91-A5AB1F8BA9C9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FE9BD543-B6BD-4B64-947F-FBB48F7CAA71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FE9BD543-B6BD-4B64-947F-FBB48F7CAA71}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FE9BD543-B6BD-4B64-947F-FBB48F7CAA71}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FE9BD543-B6BD-4B64-947F-FBB48F7CAA71}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
