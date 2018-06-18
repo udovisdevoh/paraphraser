@@ -1,0 +1,6 @@
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\ParaphraserMath\ParaphraserMathInterfaces\bin\Debug\ParaphraserMathInterfaces.dll
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\ParaphraserMath\ParaphraserMathInterfaces\bin\Debug\ParaphraserMathInterfaces.pdb
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\ParaphraserMath\ParaphraserMathInterfaces\obj\Debug\ParaphraserMathInterfaces.csprojAssemblyReference.cache
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\ParaphraserMath\ParaphraserMathInterfaces\obj\Debug\ParaphraserMathInterfaces.csproj.CoreCompileInputs.cache
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\ParaphraserMath\ParaphraserMathInterfaces\obj\Debug\ParaphraserMathInterfaces.dll
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\ParaphraserMath\ParaphraserMathInterfaces\obj\Debug\ParaphraserMathInterfaces.pdb
