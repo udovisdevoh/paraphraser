@@ -8,5 +8,6 @@ namespace MarkovMatrices
 {
     public interface IMarkovMatrix
     {
+        int InputCount { get; }
     }
 }
