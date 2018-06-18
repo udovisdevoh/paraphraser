@@ -16,3 +16,10 @@
 /MarkovMatrix/.vs
 /MarkovMatrix/MarkovMatrixInterfaces/obj
 /MarkovMatrix/MarkovMatrixTests/obj
+/ParaphraserMath/obj
+/ParaphraserMath/.vs
+/ParaphraserMath/bin
+/ParaphraserMath/ParaphraserMathInterfaces/obj
+/ParaphraserMath/ParaphraserMathInterfaces/bin
+/ParaphraserMath/ParaphraserMathTests/obj
+/ParaphraserMath/ParaphraserMathTests/bin
