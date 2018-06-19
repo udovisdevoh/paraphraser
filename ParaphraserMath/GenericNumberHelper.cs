@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -90,6 +91,38 @@ namespace ParaphraserMath
                 case TypeCode.Single:
                 default:
                     return (T)(object)((Single)(object)sourceValue + (Single)(object)valueToAdd);
+            }
+        }
+
+        public static T ReadValue<T>(BinaryReader binaryReader)
+        {
+            Type type = typeof(T);
+            switch (Type.GetTypeCode(type))
+            {
+                case TypeCode.Byte:
+                    return (T)(object)binaryReader.ReadByte();
+                case TypeCode.SByte:
+                    return (T)(object)binaryReader.ReadSByte();
+                case TypeCode.UInt16:
+                    return (T)(object)binaryReader.ReadUInt16();
+                case TypeCode.UInt32:
+                    return (T)(object)binaryReader.ReadUInt32();
+                case TypeCode.UInt64:
+                    return (T)(object)binaryReader.ReadUInt64();
+                case TypeCode.Int16:
+                    return (T)(object)binaryReader.ReadInt16();
+                case TypeCode.Int32:
+                    return (T)(object)binaryReader.ReadInt32();
+                case TypeCode.Int64:
+                    return (T)(object)binaryReader.ReadInt64();
+                case TypeCode.Decimal:
+                    return (T)(object)binaryReader.ReadDecimal();
+                case TypeCode.Double:
+                    return (T)(object)binaryReader.ReadDouble();
+                case TypeCode.Single:
+                default:
+                    return (T)(object)binaryReader.ReadSingle();
+
             }
         }
     }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -61,6 +62,42 @@ namespace ParaphraserMath.Tests
 
             // Act
             double actualValue = GenericNumberHelper.GetValue<double>(sourceValue);
+
+            // Assert
+            Assert.Equal(expectedValue, actualValue);
+        }
+
+        [Fact]
+        public void GivenBinaryReader_ShouldReadDoubleType()
+        {
+            // Arrange
+            double expectedValue = 17.0;
+            double actualValue;
+            Stream memoryStream = new MemoryStream(BitConverter.GetBytes(expectedValue));
+
+            // Act
+            using (BinaryReader binaryReader = new BinaryReader(memoryStream))
+            {
+                actualValue = GenericNumberHelper.ReadValue<double>(binaryReader);
+            }
+
+            // Assert
+            Assert.Equal(expectedValue, actualValue);
+        }
+
+        [Fact]
+        public void GivenBinaryReader_ShouldReadUlongType()
+        {
+            // Arrange
+            ulong expectedValue = 31;
+            ulong actualValue;
+            Stream memoryStream = new MemoryStream(BitConverter.GetBytes(expectedValue));
+
+            // Act
+            using (BinaryReader binaryReader = new BinaryReader(memoryStream))
+            {
+                actualValue = GenericNumberHelper.ReadValue<ulong>(binaryReader);
+            }
 
             // Assert
             Assert.Equal(expectedValue, actualValue);

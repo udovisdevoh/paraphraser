@@ -10,20 +10,20 @@ namespace MarkovMatrices
     public class TextReaderMarkovMatrixBuilder<T> : IMarkovMatrixBuilder<T>
     {
         #region Members
-        private Stream stream;
+        private Stream inputStream;
         #endregion
 
         #region Constructors
-        public TextReaderMarkovMatrixBuilder(Stream stream)
+        public TextReaderMarkovMatrixBuilder(Stream inputStream)
         {
-            this.stream = stream;
+            this.inputStream = inputStream;
         }
         #endregion
 
         public IMarkovMatrix<T> BuildMatrix()
         {
             MarkovMatrix<T> markovMatrix = new MarkovMatrix<T>();
-            using (StreamReader streamReader = new StreamReader(this.stream))
+            using (StreamReader streamReader = new StreamReader(this.inputStream))
             {
                 string line;
                 while ((line = streamReader.ReadLine()) != null)
