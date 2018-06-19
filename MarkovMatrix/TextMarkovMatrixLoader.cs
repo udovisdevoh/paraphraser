@@ -10,21 +10,10 @@ namespace MarkovMatrices
     public class TextMarkovMatrixLoader<T> : IMarkovMatrixLoader<T>
         where T : struct
     {
-        #region Members
-        private Stream inputStream;
-        #endregion
-
-        #region Constructors
-        public TextMarkovMatrixLoader(Stream inputStream)
-        {
-            this.inputStream = inputStream;
-        }
-        #endregion
-
-        public IMarkovMatrix<T> LoadMatrix()
+        public IMarkovMatrix<T> LoadMatrix(Stream inputStream)
         {
             MarkovMatrix<T> markovMatrix = new MarkovMatrix<T>();
-            using (StreamReader streamReader = new StreamReader(this.inputStream))
+            using (StreamReader streamReader = new StreamReader(inputStream))
             {
                 string line;
                 while ((line = streamReader.ReadLine()) != null)

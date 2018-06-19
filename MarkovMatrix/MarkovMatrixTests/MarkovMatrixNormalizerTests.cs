@@ -14,7 +14,7 @@ namespace MarkovMatrices.Tests
         public void GivenMatrix_Normalize_ShouldLoadNormalizedMatrixGetNormalizedValueSingleOccurence()
         {
             // Arrange
-            double expectedOccurence = 0.25;
+            float expectedOccurence = 0.25f;
             MarkovMatrixNormalizer markovMatrixNormalizer = new MarkovMatrixNormalizer();
             MarkovMatrix<ulong> markovMatrix = new MarkovMatrix<ulong>();
             markovMatrix.IncrementOccurrence('A', 'B');
@@ -28,7 +28,7 @@ namespace MarkovMatrices.Tests
             markovMatrix.IncrementOccurrence('B', 'B');
 
             // Act
-            IMarkovMatrix<double> normalizedMatrix = markovMatrixNormalizer.Normalize(markovMatrix);
+            IMarkovMatrix<float> normalizedMatrix = markovMatrixNormalizer.Normalize(markovMatrix);
             double actualOccurrence = Math.Round(normalizedMatrix.GetOccurrence('A', 'B'), 2);
 
             // Assert
@@ -39,7 +39,7 @@ namespace MarkovMatrices.Tests
         public void GivenMatrix_Normalize_ShouldLoadNormalizedMatrixGetNormalizedValueDoubleOccurence()
         {
             // Arrange
-            double expectedOccurence = 0.5;
+            float expectedOccurence = 0.5f;
             MarkovMatrixNormalizer markovMatrixNormalizer = new MarkovMatrixNormalizer();
             MarkovMatrix<ulong> markovMatrix = new MarkovMatrix<ulong>();
             markovMatrix.IncrementOccurrence('A', 'B');
@@ -53,7 +53,7 @@ namespace MarkovMatrices.Tests
             markovMatrix.IncrementOccurrence('B', 'B');
 
             // Act
-            IMarkovMatrix<double> normalizedMatrix = markovMatrixNormalizer.Normalize(markovMatrix);
+            IMarkovMatrix<float> normalizedMatrix = markovMatrixNormalizer.Normalize(markovMatrix);
             double actualOccurrence = Math.Round(normalizedMatrix.GetOccurrence('A', 'D'), 2);
 
             // Assert

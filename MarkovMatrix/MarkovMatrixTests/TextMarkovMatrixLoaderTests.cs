@@ -16,10 +16,10 @@ namespace MarkovMatrices.Tests
         {
             // Arrange
             Stream stream = StreamBuilder.BuildTextStream("Pseudolachnostylis is a genus of plants in the Phyllanthaceae first described as a genus in 1899");
-            TextMarkovMatrixLoader<ulong> textMarkovMatrixLoader = new TextMarkovMatrixLoader<ulong>(stream);
+            TextMarkovMatrixLoader<ulong> textMarkovMatrixLoader = new TextMarkovMatrixLoader<ulong>();
 
             // Act
-            IMarkovMatrix<ulong> markovMatrix = textMarkovMatrixLoader.LoadMatrix();
+            IMarkovMatrix<ulong> markovMatrix = textMarkovMatrixLoader.LoadMatrix(stream);
 
             // Assert
             Assert.True(markovMatrix.InputCount > 0);
@@ -30,11 +30,11 @@ namespace MarkovMatrices.Tests
         {
             // Arrange
             Stream stream = StreamBuilder.BuildTextStream("Pseudolachnostylis is a genus of plants in the Phyllanthaceae first described as a genus in 1899");
-            TextMarkovMatrixLoader<ulong> textMarkovMatrixLoader = new TextMarkovMatrixLoader<ulong>(stream);
+            TextMarkovMatrixLoader<ulong> textMarkovMatrixLoader = new TextMarkovMatrixLoader<ulong>();
             ulong expectedOccurrence = 3;
 
             // Act
-            IMarkovMatrix<ulong> markovMatrix = textMarkovMatrixLoader.LoadMatrix();
+            IMarkovMatrix<ulong> markovMatrix = textMarkovMatrixLoader.LoadMatrix(stream);
             ulong actualOccurrence = markovMatrix.GetOccurrence('l', 'a');
 
             // Assert

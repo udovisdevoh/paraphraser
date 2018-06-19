@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LanguageDetectionInterfaces
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarkovMatrixInterfaces", "..\MarkovMatrix\MarkovMatrixInterfaces\MarkovMatrixInterfaces.csproj", "{78F39194-74D8-4848-B2D6-FC26FCCFF4AE}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExternalDependencies", "ExternalDependencies", "{2CD86C7E-4034-40C6-B9FF-69A5AE999811}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,6 +38,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{78F39194-74D8-4848-B2D6-FC26FCCFF4AE} = {2CD86C7E-4034-40C6-B9FF-69A5AE999811}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {80C9AF96-577A-458D-A159-CB709E1B3BB3}

@@ -17,10 +17,10 @@ namespace MarkovMatrices.Tests
             // Arrange
             int expectedInputCount = 2;
             MemoryStream memoryStream = StreamBuilder.BuildBinaryStream(expectedInputCount, 'A', 'B', (ulong)1, 'C', 'D', (ulong)3);
-            BinaryMarkovMatrixLoader<ulong> binaryMarkovMatrixLoader = new BinaryMarkovMatrixLoader<ulong>(memoryStream);
+            BinaryMarkovMatrixLoader<ulong> binaryMarkovMatrixLoader = new BinaryMarkovMatrixLoader<ulong>();
 
             // Act
-            IMarkovMatrix<ulong> markovMatrix = binaryMarkovMatrixLoader.LoadMatrix();
+            IMarkovMatrix<ulong> markovMatrix = binaryMarkovMatrixLoader.LoadMatrix(memoryStream);
             int actualInputCount = markovMatrix.InputCount;
 
             // Assert
@@ -33,10 +33,10 @@ namespace MarkovMatrices.Tests
             // Arrange
             ulong expectedOccurrence = 2;
             MemoryStream memoryStream = StreamBuilder.BuildBinaryStream(2, 'A', 'B', expectedOccurrence, 'C', 'D', (ulong)3);
-            BinaryMarkovMatrixLoader<ulong> binaryMarkovMatrixLoader = new BinaryMarkovMatrixLoader<ulong>(memoryStream);
+            BinaryMarkovMatrixLoader<ulong> binaryMarkovMatrixLoader = new BinaryMarkovMatrixLoader<ulong>();
 
             // Act
-            IMarkovMatrix<ulong> markovMatrix = binaryMarkovMatrixLoader.LoadMatrix();
+            IMarkovMatrix<ulong> markovMatrix = binaryMarkovMatrixLoader.LoadMatrix(memoryStream);
             ulong actualOccurence = markovMatrix.GetOccurrence('A', 'B');
 
             // Assert
@@ -49,10 +49,10 @@ namespace MarkovMatrices.Tests
             // Arrange
             ulong expectedOccurrence = 3;
             MemoryStream memoryStream = StreamBuilder.BuildBinaryStream(2, 'A', 'B', (ulong)2, 'C', 'D', expectedOccurrence);
-            BinaryMarkovMatrixLoader<ulong> binaryMarkovMatrixLoader = new BinaryMarkovMatrixLoader<ulong>(memoryStream);
+            BinaryMarkovMatrixLoader<ulong> binaryMarkovMatrixLoader = new BinaryMarkovMatrixLoader<ulong>();
 
             // Act
-            IMarkovMatrix<ulong> markovMatrix = binaryMarkovMatrixLoader.LoadMatrix();
+            IMarkovMatrix<ulong> markovMatrix = binaryMarkovMatrixLoader.LoadMatrix(memoryStream);
             ulong actualOccurence = markovMatrix.GetOccurrence('C', 'D');
 
             // Assert

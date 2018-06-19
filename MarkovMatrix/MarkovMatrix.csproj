@@ -64,7 +64,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BinaryMarkovMatrixLoaderSaver.cs" />
+    <Compile Include="BinaryMarkovMatrixLoader.cs" />
     <Compile Include="BinaryMarkovMatrixSaver.cs" />
     <Compile Include="MarkovMatrix.cs" />
     <Compile Include="MarkovMatrixNormalizer.cs" />
