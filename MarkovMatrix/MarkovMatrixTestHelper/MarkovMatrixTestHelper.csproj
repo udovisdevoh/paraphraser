@@ -42,7 +42,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StringStreamBuilder.cs" />
+    <Compile Include="StreamBuilder.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ParaphraserMath\ParaphraserMath.csproj">
+      <Project>{b30bc99a-57a9-4778-ad79-88d06b6bac6e}</Project>
+      <Name>ParaphraserMath</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

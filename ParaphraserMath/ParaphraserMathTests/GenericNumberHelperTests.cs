@@ -112,19 +112,17 @@ namespace ParaphraserMath.Tests
             Stream memoryStream = new MemoryStream();
 
             // Act
-            using (BinaryWriter binaryWriter = new BinaryWriter(memoryStream))
+            BinaryWriter binaryWriter = new BinaryWriter(memoryStream);
+            GenericNumberHelper.WriteValue<ulong>(binaryWriter, expectedValue);
+            binaryWriter.Flush();
+            memoryStream.Position = 0;
+
+            // Assert
+            using (BinaryReader binaryReader = new BinaryReader(memoryStream))
             {
-                GenericNumberHelper.WriteValue<ulong>(binaryWriter, expectedValue);
-
-                memoryStream.Position = 0;
-
-                // Assert
-                using (BinaryReader binaryReader = new BinaryReader(memoryStream))
-                {
-                    actualValue = GenericNumberHelper.ReadValue<ulong>(binaryReader);
-                }
-                Assert.Equal(expectedValue, actualValue);
+                actualValue = GenericNumberHelper.ReadValue<ulong>(binaryReader);
             }
+            Assert.Equal(expectedValue, actualValue);
         }
 
         [Fact]
@@ -136,19 +134,17 @@ namespace ParaphraserMath.Tests
             Stream memoryStream = new MemoryStream();
 
             // Act
-            using (BinaryWriter binaryWriter = new BinaryWriter(memoryStream))
+            BinaryWriter binaryWriter = new BinaryWriter(memoryStream);
+            GenericNumberHelper.WriteValue<double>(binaryWriter, expectedValue);
+            binaryWriter.Flush();
+            memoryStream.Position = 0;
+
+            // Assert
+            using (BinaryReader binaryReader = new BinaryReader(memoryStream))
             {
-                GenericNumberHelper.WriteValue<double>(binaryWriter, expectedValue);
-
-                memoryStream.Position = 0;
-
-                // Assert
-                using (BinaryReader binaryReader = new BinaryReader(memoryStream))
-                {
-                    actualValue = GenericNumberHelper.ReadValue<double>(binaryReader);
-                }
-                Assert.Equal(expectedValue, actualValue);
+                actualValue = GenericNumberHelper.ReadValue<double>(binaryReader);
             }
+            Assert.Equal(expectedValue, actualValue);
         }
     }
 }

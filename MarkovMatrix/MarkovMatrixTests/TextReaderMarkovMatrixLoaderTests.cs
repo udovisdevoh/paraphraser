@@ -15,7 +15,7 @@ namespace MarkovMatrices.Tests
         public void Given_Stream_LoadMatrix()
         {
             // Arrange
-            Stream stream = StringStreamBuilder.Build("Pseudolachnostylis is a genus of plants in the Phyllanthaceae first described as a genus in 1899");
+            Stream stream = StreamBuilder.BuildTextStream("Pseudolachnostylis is a genus of plants in the Phyllanthaceae first described as a genus in 1899");
             TextReaderMarkovMatrixLoader<ulong> textReaderMarkovMatrixLoader = new TextReaderMarkovMatrixLoader<ulong>(stream);
 
             // Act

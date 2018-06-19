@@ -24,8 +24,6 @@ namespace MarkovMatrices
 
         public IMarkovMatrix<T> LoadMatrix()
         {
-            #warning Add unit tests
-
             MarkovMatrix<T> markovMatrix = new MarkovMatrix<T>();
 
             using (BinaryReader binaryReader = new BinaryReader(this.inputStream))

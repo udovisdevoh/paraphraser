@@ -69,6 +69,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BinaryMarkovMatrixLoaderSaverTests.cs" />
     <Compile Include="MarkovMatrixNormalizerTests.cs" />
     <Compile Include="MarkovMatrixTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
