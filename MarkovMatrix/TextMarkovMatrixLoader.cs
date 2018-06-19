@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MarkovMatrices
 {
-    public class TextReaderMarkovMatrixLoader<T> : IMarkovMatrixLoader<T>
+    public class TextMarkovMatrixLoader<T> : IMarkovMatrixLoader<T>
         where T : struct
     {
         #region Members
@@ -15,7 +15,7 @@ namespace MarkovMatrices
         #endregion
 
         #region Constructors
-        public TextReaderMarkovMatrixLoader(Stream inputStream)
+        public TextMarkovMatrixLoader(Stream inputStream)
         {
             this.inputStream = inputStream;
         }

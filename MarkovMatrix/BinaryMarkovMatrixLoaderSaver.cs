@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MarkovMatrices
 {
-    public class BinaryMarkovMatrixLoaderSaver<T> : IMarkovMatrixLoader<T>
+    public class BinaryMarkovMatrixLoader<T> : IMarkovMatrixLoader<T>
         where T : struct
     {
         #region Members
@@ -16,7 +16,7 @@ namespace MarkovMatrices
         #endregion
 
         #region Constructors
-        public BinaryMarkovMatrixLoaderSaver(Stream inputStream)
+        public BinaryMarkovMatrixLoader(Stream inputStream)
         {
             this.inputStream = inputStream;
         }
@@ -40,24 +40,6 @@ namespace MarkovMatrices
             }
 
             return markovMatrix;
-        }
-
-        public void SaveMatrix(IMarkovMatrix<T> markovMatrix, Stream outputStream)
-        {
-            #warning Add unit tests
-
-            using (BinaryWriter binaryWriter = new BinaryWriter(outputStream))
-            {
-                binaryWriter.Write(markovMatrix.InputCount);
-
-                foreach (KeyValuePair<Tuple<char, char>, T> twoCharsAndOccurrenceCount in markovMatrix)
-                {
-                    Tuple<char, char> twoChars = twoCharsAndOccurrenceCount.Key;
-                    T occurrenceCount = twoCharsAndOccurrenceCount.Value;
-                    uint combinedChars = MatrixMathHelper.CombineChars(twoChars.Item1, twoChars.Item2);
-                    GenericNumberHelper.WriteValue<T>(binaryWriter, occurrenceCount);
-                }
-            }
         }
     }
 }
