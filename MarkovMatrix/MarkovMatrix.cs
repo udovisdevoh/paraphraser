@@ -1,5 +1,6 @@
 ﻿using ParaphraserMath;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,7 @@ namespace MarkovMatrices
     public class MarkovMatrix<T> : IMarkovMatrix<T>
     {
         #region Members
-        private Dictionary<uint, T> occurenceCountMap;
+        private Dictionary<uint, T> occurrenceCountMap;
         #endregion
 
         #region Properties
@@ -18,7 +19,7 @@ namespace MarkovMatrices
         {
             get
             {
-                return occurenceCountMap.Count;
+                return occurrenceCountMap.Count;
             }
         }
         #endregion
@@ -30,43 +31,52 @@ namespace MarkovMatrices
             {
                 throw new ArgumentException(string.Format("Unsupported type {0}. Use numeric types only.", typeof(T).FullName));
             }
-            this.occurenceCountMap = new Dictionary<uint, T>();
+            this.occurrenceCountMap = new Dictionary<uint, T>();
         }
         #endregion
 
-        public T GetOccurence(char fromChar, char toChar)
+        public T GetOccurrence(char fromChar, char toChar)
         {
-            T occurence;
-            uint twoCharSet = this.CombineChars(fromChar, toChar);
-            if (!this.occurenceCountMap.TryGetValue(twoCharSet, out occurence))
+            T occurrence;
+            uint twoCharSet = MatrixMathHelper.CombineChars(fromChar, toChar);
+            if (!this.occurrenceCountMap.TryGetValue(twoCharSet, out occurrence))
             {
                 GenericNumberHelper.GetValue<T>(0);
             }
-            return occurence;
+            return occurrence;
         }
 
-        public void IncrementOccurence(char fromChar, char toChar)
+        public void IncrementOccurrence(char fromChar, char toChar)
         {
-            uint twoCharSet = this.CombineChars(fromChar, toChar);
-            this.IncrementOccurence(twoCharSet);
+            uint twoCharSet = MatrixMathHelper.CombineChars(fromChar, toChar);
+            this.IncrementOccurrence(twoCharSet);
         }
 
-        public uint CombineChars(char fromChar, char toChar)
+        private void IncrementOccurrence(uint twoCharSet)
         {
-            return ((uint)fromChar * 65536) + (uint)toChar;
-        }
+            T occurrence;
 
-        private void IncrementOccurence(uint twoCharSet)
-        {
-            T occurence;
-
-            if (!this.occurenceCountMap.TryGetValue(twoCharSet, out occurence))
+            if (!this.occurrenceCountMap.TryGetValue(twoCharSet, out occurrence))
             {
-                occurence = GenericNumberHelper.GetValue<T>(0);
+                occurrence = GenericNumberHelper.GetValue<T>(0);
             }
-            occurence = GenericNumberHelper.Add<T>(occurence, 1);
+            occurrence = GenericNumberHelper.Add<T>(occurrence, 1);
 
-            this.occurenceCountMap[twoCharSet] = occurence;
+            this.occurrenceCountMap[twoCharSet] = occurrence;
+        }
+
+        public IEnumerator<KeyValuePair<Tuple<char, char>, T>> GetEnumerator()
+        {
+            foreach (KeyValuePair<uint, T> twoCharsAndCount in this.occurrenceCountMap)
+            {
+                Tuple<char, char> chars = MatrixMathHelper.SplitChars(twoCharsAndCount.Key);
+                yield return new KeyValuePair<Tuple<char, char>, T>(chars, twoCharsAndCount.Value);
+            }
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return this.occurrenceCountMap.GetEnumerator();
         }
     }
 }

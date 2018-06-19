@@ -74,6 +74,10 @@
     <Compile Include="TextReaderMarkovMatrixBuilderTests.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\ParaphraserMath\ParaphraserMath.csproj">
+      <Project>{b30bc99a-57a9-4778-ad79-88d06b6bac6e}</Project>
+      <Name>ParaphraserMath</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MarkovMatrix.csproj">
       <Project>{7e1254fe-2e13-4d68-b337-8460dab633cd}</Project>
       <Name>MarkovMatrix</Name>

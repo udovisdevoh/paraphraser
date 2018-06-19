@@ -48,7 +48,7 @@ namespace MarkovMatrices
             {
                 if (previousCharacter != null)
                 {
-                    markovMatrix.IncrementOccurence(previousCharacter.Value, currentCharacter);
+                    markovMatrix.IncrementOccurrence(previousCharacter.Value, currentCharacter);
                 }
                 previousCharacter = currentCharacter;
             }

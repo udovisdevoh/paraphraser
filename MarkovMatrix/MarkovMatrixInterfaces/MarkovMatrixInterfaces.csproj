@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="IMarkovMatrix.cs" />
     <Compile Include="IMarkovMatrixBuilder.cs" />
+    <Compile Include="IMarkovMatrixNormalizer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
