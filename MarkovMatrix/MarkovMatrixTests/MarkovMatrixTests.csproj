@@ -69,6 +69,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MarkovMatrixNormalizerTests.cs" />
     <Compile Include="MarkovMatrixTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TextReaderMarkovMatrixBuilderTests.cs" />

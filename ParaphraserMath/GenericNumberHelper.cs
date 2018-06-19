@@ -62,34 +62,34 @@ namespace ParaphraserMath
             }
         }
 
-        public static T Add<T>(T sourceValue, int valueToAdd)
+        public static T Add<T>(T sourceValue, T valueToAdd)
         {
             Type type = typeof(T);
             switch (Type.GetTypeCode(type))
             {
                 case TypeCode.Byte:
-                    return (T)(object)((byte)(object)sourceValue + valueToAdd);
+                    return (T)(object)((byte)(object)sourceValue + (byte)(object)valueToAdd);
                 case TypeCode.SByte:
-                    return (T)(object)((sbyte)(object)sourceValue + valueToAdd);
+                    return (T)(object)((sbyte)(object)sourceValue + (sbyte)(object)valueToAdd);
                 case TypeCode.UInt16:
-                    return (T)(object)((UInt16)(object)sourceValue + valueToAdd);
+                    return (T)(object)((UInt16)(object)sourceValue + (UInt16)(object)valueToAdd);
                 case TypeCode.UInt32:
-                    return (T)(object)((UInt32)(object)sourceValue + valueToAdd);
+                    return (T)(object)((UInt32)(object)sourceValue + (UInt32)(object)valueToAdd);
                 case TypeCode.UInt64:
-                    return (T)(object)((UInt64)(object)sourceValue + (UInt64)valueToAdd);
+                    return (T)(object)((UInt64)(object)sourceValue + (UInt64)(object)valueToAdd);
                 case TypeCode.Int16:
-                    return (T)(object)((Int16)(object)sourceValue + valueToAdd);
+                    return (T)(object)((Int16)(object)sourceValue + (Int16)(object)valueToAdd);
                 case TypeCode.Int32:
-                    return (T)(object)((Int32)(object)sourceValue + valueToAdd);
+                    return (T)(object)((Int32)(object)sourceValue + (Int32)(object)valueToAdd);
                 case TypeCode.Int64:
-                    return (T)(object)((Int64)(object)sourceValue + valueToAdd);
+                    return (T)(object)((Int64)(object)sourceValue + (Int64)(object)valueToAdd);
                 case TypeCode.Decimal:
-                    return (T)(object)((Decimal)(object)sourceValue + valueToAdd);
+                    return (T)(object)((Decimal)(object)sourceValue + (Decimal)(object)valueToAdd);
                 case TypeCode.Double:
-                    return (T)(object)((Double)(object)sourceValue + valueToAdd);
+                    return (T)(object)((Double)(object)sourceValue + (Double)(object)valueToAdd);
                 case TypeCode.Single:
                 default:
-                    return (T)(object)((Single)(object)sourceValue + valueToAdd);
+                    return (T)(object)((Single)(object)sourceValue + (Single)(object)valueToAdd);
             }
         }
     }

@@ -12,6 +12,8 @@ namespace MarkovMatrices
     {
         #region Members
         private Dictionary<uint, T> occurrenceCountMap;
+
+        private Dictionary<char, T> sumsFromChars;
         #endregion
 
         #region Properties
@@ -32,6 +34,7 @@ namespace MarkovMatrices
                 throw new ArgumentException(string.Format("Unsupported type {0}. Use numeric types only.", typeof(T).FullName));
             }
             this.occurrenceCountMap = new Dictionary<uint, T>();
+            this.sumsFromChars = new Dictionary<char, T>();
         }
         #endregion
 
@@ -48,11 +51,30 @@ namespace MarkovMatrices
 
         public void IncrementOccurrence(char fromChar, char toChar)
         {
-            uint twoCharSet = MatrixMathHelper.CombineChars(fromChar, toChar);
-            this.IncrementOccurrence(twoCharSet);
+            this.IncrementOccurrence(fromChar, toChar, GenericNumberHelper.GetValue<T>(1));
         }
 
-        private void IncrementOccurrence(uint twoCharSet)
+        public void IncrementOccurrence(char fromChar, char toChar, T valueToAdd)
+        {
+            uint twoCharSet = MatrixMathHelper.CombineChars(fromChar, toChar);
+            this.IncrementSum(fromChar, valueToAdd);
+            this.IncrementOccurrence(twoCharSet, valueToAdd);
+        }
+
+        private void IncrementSum(char fromChar, T valueToAdd)
+        {
+            T sum;
+
+            if (!this.sumsFromChars.TryGetValue(fromChar, out sum))
+            {
+                sum = GenericNumberHelper.GetValue<T>(0);
+            }
+            sum = GenericNumberHelper.Add<T>(sum, valueToAdd);
+
+            this.sumsFromChars[fromChar] = sum;
+        }
+
+        private void IncrementOccurrence(uint twoCharSet, T valueToAdd)
         {
             T occurrence;
 
@@ -60,7 +82,7 @@ namespace MarkovMatrices
             {
                 occurrence = GenericNumberHelper.GetValue<T>(0);
             }
-            occurrence = GenericNumberHelper.Add<T>(occurrence, 1);
+            occurrence = GenericNumberHelper.Add<T>(occurrence, valueToAdd);
 
             this.occurrenceCountMap[twoCharSet] = occurrence;
         }
@@ -77,6 +99,18 @@ namespace MarkovMatrices
         IEnumerator IEnumerable.GetEnumerator()
         {
             return this.occurrenceCountMap.GetEnumerator();
+        }
+
+        public T GetSum(char fromChar)
+        {
+            T sum;
+
+            if (!this.sumsFromChars.TryGetValue(fromChar, out sum))
+            {
+                sum = GenericNumberHelper.GetValue<T>(0);
+            }
+
+            return sum;
         }
     }
 }

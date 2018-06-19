@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParaphraserMath", "..\Parap
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExternalDependencies", "ExternalDependencies", "{6677C1D3-D984-4148-A94A-EE43E7926020}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{4EF3B77F-0D45-4FC9-B878-4EFDDC0AEB18}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -46,6 +48,8 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{61DB0147-848C-4152-9004-26D9F54AC694} = {4EF3B77F-0D45-4FC9-B878-4EFDDC0AEB18}
+		{957DD80E-1E39-4E8A-BFEF-C83AD40F5844} = {4EF3B77F-0D45-4FC9-B878-4EFDDC0AEB18}
 		{B30BC99A-57A9-4778-AD79-88D06B6BAC6E} = {6677C1D3-D984-4148-A94A-EE43E7926020}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution

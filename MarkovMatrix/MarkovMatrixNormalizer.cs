@@ -10,14 +10,25 @@ namespace MarkovMatrices
     {
         public IMarkovMatrix<double> Normalize(IMarkovMatrix<ulong> sourceMatrix)
         {
-            #warning Implement
-            #warning Add unit tests
             MarkovMatrix<double> normalizedMatrix = new MarkovMatrix<double>();
 
             foreach (KeyValuePair<Tuple<char, char>, ulong> twoCharsAndCount in sourceMatrix)
             {
                 Tuple<char, char> twoChars = twoCharsAndCount.Key;
+
+                char fromChar = twoChars.Item1;
+                char toChar = twoChars.Item2;
+
                 ulong count = twoCharsAndCount.Value;
+
+                ulong sum = sourceMatrix.GetSum(fromChar);
+
+                if (sum != 0)
+                {
+                    double ratio = (double)count / (double)sum;
+
+                    normalizedMatrix.IncrementOccurrence(fromChar, toChar, ratio);
+                }
             }
 
             return normalizedMatrix;
