@@ -102,5 +102,53 @@ namespace ParaphraserMath.Tests
             // Assert
             Assert.Equal(expectedValue, actualValue);
         }
+
+        [Fact]
+        public void GivenBinaryWriter_ShouldWriteUlongType()
+        {
+            // Arrange
+            ulong expectedValue = 31;
+            ulong actualValue;
+            Stream memoryStream = new MemoryStream();
+
+            // Act
+            using (BinaryWriter binaryWriter = new BinaryWriter(memoryStream))
+            {
+                GenericNumberHelper.WriteValue<ulong>(binaryWriter, expectedValue);
+
+                memoryStream.Position = 0;
+
+                // Assert
+                using (BinaryReader binaryReader = new BinaryReader(memoryStream))
+                {
+                    actualValue = GenericNumberHelper.ReadValue<ulong>(binaryReader);
+                }
+                Assert.Equal(expectedValue, actualValue);
+            }
+        }
+
+        [Fact]
+        public void GivenBinaryWriter_ShouldWriteDoubleType()
+        {
+            // Arrange
+            double expectedValue = 47;
+            double actualValue;
+            Stream memoryStream = new MemoryStream();
+
+            // Act
+            using (BinaryWriter binaryWriter = new BinaryWriter(memoryStream))
+            {
+                GenericNumberHelper.WriteValue<double>(binaryWriter, expectedValue);
+
+                memoryStream.Position = 0;
+
+                // Assert
+                using (BinaryReader binaryReader = new BinaryReader(memoryStream))
+                {
+                    actualValue = GenericNumberHelper.ReadValue<double>(binaryReader);
+                }
+                Assert.Equal(expectedValue, actualValue);
+            }
+        }
     }
 }

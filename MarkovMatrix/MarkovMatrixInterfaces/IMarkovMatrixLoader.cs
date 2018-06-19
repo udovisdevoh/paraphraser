@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace MarkovMatrices
 {
-    public interface IMarkovMatrixBuilder<T>
+    public interface IMarkovMatrixLoader<T>
+        where T : struct
     {
-        IMarkovMatrix<T> BuildMatrix();
+        IMarkovMatrix<T> LoadMatrix();
     }
 }

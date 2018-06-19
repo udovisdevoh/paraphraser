@@ -72,7 +72,7 @@
     <Compile Include="MarkovMatrixNormalizerTests.cs" />
     <Compile Include="MarkovMatrixTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TextReaderMarkovMatrixBuilderTests.cs" />
+    <Compile Include="TextReaderMarkovMatrixLoaderTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\ParaphraserMath\ParaphraserMath.csproj">

@@ -125,5 +125,48 @@ namespace ParaphraserMath
 
             }
         }
+
+        public static void WriteValue<T>(BinaryWriter binaryWriter, T value)
+        {
+            Type type = typeof(T);
+            switch (Type.GetTypeCode(type))
+            {
+                case TypeCode.Byte:
+                    binaryWriter.Write((byte)(object)value);
+                    break;
+                case TypeCode.SByte:
+                    binaryWriter.Write((sbyte)(object)value);
+                    break;
+                case TypeCode.UInt16:
+                    binaryWriter.Write((UInt16)(object)value);
+                    break;
+                case TypeCode.UInt32:
+                    binaryWriter.Write((UInt32)(object)value);
+                    break;
+                case TypeCode.UInt64:
+                    binaryWriter.Write((UInt64)(object)value);
+                    break;
+                case TypeCode.Int16:
+                    binaryWriter.Write((Int16)(object)value);
+                    break;
+                case TypeCode.Int32:
+                    binaryWriter.Write((Int32)(object)value);
+                    break;
+                case TypeCode.Int64:
+                    binaryWriter.Write((Int64)(object)value);
+                    break;
+                case TypeCode.Decimal:
+                    binaryWriter.Write((Decimal)(object)value);
+                    break;
+                case TypeCode.Double:
+                    binaryWriter.Write((Double)(object)value);
+                    break;
+                case TypeCode.Single:
+                default:
+                    binaryWriter.Write((Single)(object)value);
+                    break;
+
+            }
+        }
     }
 }

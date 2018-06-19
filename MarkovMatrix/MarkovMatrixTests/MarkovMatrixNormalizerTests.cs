@@ -11,7 +11,7 @@ namespace MarkovMatrices.Tests
     public class MarkovMatrixNormalizerTests
     {
         [Fact]
-        public void GivenMatrix_Normalize_ShouldBuildNormalizedMatrixGetNormalizedValueSingleOccurence()
+        public void GivenMatrix_Normalize_ShouldLoadNormalizedMatrixGetNormalizedValueSingleOccurence()
         {
             // Arrange
             double expectedOccurence = 0.25;
@@ -36,7 +36,7 @@ namespace MarkovMatrices.Tests
         }
 
         [Fact]
-        public void GivenMatrix_Normalize_ShouldBuildNormalizedMatrixGetNormalizedValueDoubleOccurence()
+        public void GivenMatrix_Normalize_ShouldLoadNormalizedMatrixGetNormalizedValueDoubleOccurence()
         {
             // Arrange
             double expectedOccurence = 0.5;

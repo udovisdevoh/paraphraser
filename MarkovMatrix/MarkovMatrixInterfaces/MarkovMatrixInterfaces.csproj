@@ -41,7 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IMarkovMatrix.cs" />
-    <Compile Include="IMarkovMatrixBuilder.cs" />
+    <Compile Include="IMarkovMatrixLoader.cs" />
     <Compile Include="IMarkovMatrixNormalizer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

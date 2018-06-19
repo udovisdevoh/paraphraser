@@ -7,20 +7,21 @@ using System.Threading.Tasks;
 
 namespace MarkovMatrices
 {
-    public class TextReaderMarkovMatrixBuilder<T> : IMarkovMatrixBuilder<T>
+    public class TextReaderMarkovMatrixLoader<T> : IMarkovMatrixLoader<T>
+        where T : struct
     {
         #region Members
         private Stream inputStream;
         #endregion
 
         #region Constructors
-        public TextReaderMarkovMatrixBuilder(Stream inputStream)
+        public TextReaderMarkovMatrixLoader(Stream inputStream)
         {
             this.inputStream = inputStream;
         }
         #endregion
 
-        public IMarkovMatrix<T> BuildMatrix()
+        public IMarkovMatrix<T> LoadMatrix()
         {
             MarkovMatrix<T> markovMatrix = new MarkovMatrix<T>();
             using (StreamReader streamReader = new StreamReader(this.inputStream))
