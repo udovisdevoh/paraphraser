@@ -8,18 +8,19 @@ namespace ParaphraserMath
 {
     public static class MatrixMathHelper
     {
+        private const int sixteenBitsMaxValue = 65536;
+
         public static uint CombineChars(char fromChar, char toChar)
         {
-            return ((uint)fromChar * 65536) + (uint)toChar;
+            return ((uint)fromChar * sixteenBitsMaxValue) + (uint)toChar;
         }
 
         public static Tuple<char, char> SplitChars(uint combinedChars)
         {
-            #warning Todo add unit tests
-            uint largeComponent = combinedChars / 65536;
+            uint largeComponent = combinedChars / sixteenBitsMaxValue;
 
             char char1 = (char)largeComponent;
-            char char2 = (char)(combinedChars - largeComponent);
+            char char2 = (char)(combinedChars - (largeComponent * sixteenBitsMaxValue));
 
             return new Tuple<char, char>(char1, char2);
         }

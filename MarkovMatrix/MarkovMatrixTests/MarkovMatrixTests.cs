@@ -11,37 +11,6 @@ namespace MarkovMatrices.Tests
     public class MarkovMatrixTests
     {
         [Fact]
-        public void Given_CombineChars_GetUint()
-        {
-            #warning Move to other solution
-            // Arrange
-            uint expectedCombinedChars = 4259906;
-            // Act
-            uint actualCombinedChars = MatrixMathHelper.CombineChars('A', 'B');
-
-            // Assert
-            Assert.Equal(expectedCombinedChars, actualCombinedChars);
-        }
-
-        [Fact]
-        public void Given_SplitUint_GetChars()
-        {
-            #warning Move to other solution
-            // Arrange
-            char expectedChar1 = 'A';
-            char expectedChar2 = 'B';
-            uint combinedChars = 4259906;
-
-            // Act
-            Tuple<char, char> actualChars = MatrixMathHelper.SplitChars(combinedChars);
-
-            #warning Split asserts
-            // Assert
-            Assert.Equal(expectedChar1, actualChars.Item1);
-            Assert.Equal(expectedChar2, actualChars.Item2);
-        }
-
-        [Fact]
         public void Given_EmptyMatrix_ZeroOccurrence()
         {
             // Arrange
