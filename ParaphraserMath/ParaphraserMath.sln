@@ -13,8 +13,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarkovMatrixInterfaces", ".
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LanguageDetectionTestHelpers", "..\LanguageDetection\LanguageDetectionTestHelpers\LanguageDetectionTestHelpers.csproj", "{433D33AF-2A73-44D4-8D90-E27FD2BBBF2C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarkovMatrix", "..\MarkovMatrix\MarkovMatrix.csproj", "{7E1254FE-2E13-4D68-B337-8460DAB633CD}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarkovMatrixTestHelper", "..\MarkovMatrix\MarkovMatrixTestHelper\MarkovMatrixTestHelper.csproj", "{957DD80E-1E39-4E8A-BFEF-C83AD40F5844}"
 EndProject
 Global
@@ -39,10 +37,6 @@ Global
 		{433D33AF-2A73-44D4-8D90-E27FD2BBBF2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{433D33AF-2A73-44D4-8D90-E27FD2BBBF2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{433D33AF-2A73-44D4-8D90-E27FD2BBBF2C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7E1254FE-2E13-4D68-B337-8460DAB633CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7E1254FE-2E13-4D68-B337-8460DAB633CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7E1254FE-2E13-4D68-B337-8460DAB633CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7E1254FE-2E13-4D68-B337-8460DAB633CD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{957DD80E-1E39-4E8A-BFEF-C83AD40F5844}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{957DD80E-1E39-4E8A-BFEF-C83AD40F5844}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{957DD80E-1E39-4E8A-BFEF-C83AD40F5844}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -54,7 +48,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{78F39194-74D8-4848-B2D6-FC26FCCFF4AE} = {3EAF92A9-D7AC-4E53-B7CD-35670B3F4E78}
 		{433D33AF-2A73-44D4-8D90-E27FD2BBBF2C} = {3EAF92A9-D7AC-4E53-B7CD-35670B3F4E78}
-		{7E1254FE-2E13-4D68-B337-8460DAB633CD} = {3EAF92A9-D7AC-4E53-B7CD-35670B3F4E78}
 		{957DD80E-1E39-4E8A-BFEF-C83AD40F5844} = {3EAF92A9-D7AC-4E53-B7CD-35670B3F4E78}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
