@@ -46,11 +46,8 @@ namespace LanguageDetection
         {
             if (languages.Count < 1)
             {
-                #warning Add unit tests for throw
                 throw new InvalidOperationException("The language detector must know at least one language. Use AddLanguage() first");
             }
-
-            #warning Add unit tests
 
             MemoryStream memoryStream = MemoryStreamBuilder.BuildMemoryStreamFromText(text);
             IMarkovMatrix<ulong> inputMatrix = this.languageDetectionMatrixLoader.LoadMatrix(memoryStream);

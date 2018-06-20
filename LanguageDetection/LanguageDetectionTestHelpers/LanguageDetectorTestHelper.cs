@@ -13,6 +13,8 @@ namespace LanguageDetection.TestHelpers
     {
         public static IMarkovMatrix<float> BuildLanguageMatrix(string text)
         {
+            #warning Doit plutôt retourner un mock. Enlever référence vers MarkovMatrix enlever using
+
             IMarkovMatrixLoader<ulong> markovMatrixLoader = new TextMarkovMatrixLoader<ulong>();
             MemoryStream memoryStream = StreamBuilder.BuildTextStream(text);
             IMarkovMatrix<ulong> markovMatrix = markovMatrixLoader.LoadMatrix(memoryStream);

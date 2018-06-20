@@ -26,11 +26,23 @@ namespace ParaphraserMath
             return new Tuple<char, char>(char1, char2);
         }
 
-        public static float GetDotProduct(IMarkovMatrix<float> normalizedInputMatrix, IMarkovMatrix<float> languageMatrix)
+        public static float GetDotProduct(IMarkovMatrix<float> smallMatrix, IMarkovMatrix<float> largeMatrix)
         {
-            #warning Implement
-            #warning Add unit tests
-            throw new NotImplementedException();
+            float dotProduct = 0f;
+
+            foreach (KeyValuePair<Tuple<char, char>, float> charsAndProbability in smallMatrix)
+            {
+                Tuple<char, char> characters = charsAndProbability.Key;
+                float probability = charsAndProbability.Value;
+                char char1 = characters.Item1;
+                char char2 = characters.Item2;
+
+                float otherMatrixProbability = largeMatrix.GetOccurrence(char1, char2);
+
+                dotProduct += (probability * otherMatrixProbability);
+            }
+
+            return dotProduct;
         }
     }
 }

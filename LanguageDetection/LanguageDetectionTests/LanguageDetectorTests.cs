@@ -29,6 +29,20 @@ namespace LanguageDetectionTests
         }
 
         [Fact]
+        public void GivenNoLanguagesAndText_DetectLanguage_ShouldThrow()
+        {
+            // Arrange
+            LanguageDetector languageDetector = new LanguageDetector(new TextMarkovMatrixLoader<ulong>(), new MarkovMatrixNormalizer());
+
+            // Assert
+            Assert.Throws<InvalidOperationException>(() =>
+            {
+                // Act
+                languageDetector.DetectLanguage("je suis un");
+            });
+        }
+
+        [Fact]
         public void GivenTwoLanguagesAndText_ShouldDetectFrench()
         {
             // Arrange

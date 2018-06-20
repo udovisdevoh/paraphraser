@@ -48,5 +48,11 @@ namespace ParaphraserMath.Tests
             // Assert
             Assert.Equal(expectedChar2, actualChars.Item2);
         }
+
+        [Fact]
+        public void GivenTwoMatrices_GetDotProduct()
+        {
+            #warning Implement (use mock)
+        }
     }
 }
