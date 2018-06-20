@@ -1,5 +1,4 @@
 ﻿using MarkovMatrices;
-using MarkovMatrices.TestHelper;
 using Moq;
 using System;
 using System.Collections.Generic;
@@ -38,15 +37,11 @@ namespace LanguageDetection.TestHelpers
             return markovMatrixMockFactory.Object;
         }
 
-        public static IMarkovMatrixLoader<float> BuildNormalizedTextMarkovMatrixLoader()
+        public static IMarkovMatrixLoader<float> BuildNormalizedTextMarkovMatrixLoader(IMarkovMatrix<float> outputMatrix)
         {
-            #warning Replace with mocks, remove references to depencencies assemblies
-
-            TextMarkovMatrixLoader<ulong> internalMatrixLoader = new TextMarkovMatrixLoader<ulong>();
-            MarkovMatrixNormalizer markovMatrixNormalizer = new MarkovMatrixNormalizer();
-
-            IMarkovMatrixLoader<float> markovMatrixLoader = new NormalizedTextMarkovMatrixLoader(internalMatrixLoader, markovMatrixNormalizer);
-            return markovMatrixLoader;
+            Mock<IMarkovMatrixLoader<float>> matrixLoaderMockFactory = new Mock<IMarkovMatrixLoader<float>>();
+            matrixLoaderMockFactory.Setup(matrixLoader => matrixLoader.LoadMatrix(It.IsAny<Stream>())).Returns(outputMatrix);
+            return matrixLoaderMockFactory.Object;
         }
 
         private static void AddMatrixValue(Mock<IMarkovMatrix<float>> markovMatrixMockFactory,
