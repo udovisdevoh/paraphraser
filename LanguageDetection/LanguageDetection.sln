@@ -23,7 +23,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParaphraserMath", "..\Parap
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{5D0B9217-CF59-4096-A8E4-07AA9D691DE6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LanguageDetectionTestHelpers", "..\LanguageDetectionTestHelpers\LanguageDetectionTestHelpers.csproj", "{433D33AF-2A73-44D4-8D90-E27FD2BBBF2C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LanguageDetectionTestHelpers", "LanguageDetectionTestHelpers\LanguageDetectionTestHelpers.csproj", "{433D33AF-2A73-44D4-8D90-E27FD2BBBF2C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -79,10 +79,6 @@
     <Analyzer Include="..\packages\xunit.analyzers.0.9.0\analyzers\dotnet\cs\xunit.analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\LanguageDetectionTestHelpers\LanguageDetectionTestHelpers.csproj">
-      <Project>{433d33af-2a73-44d4-8d90-e27fd2bbbf2c}</Project>
-      <Name>LanguageDetectionTestHelpers</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\MarkovMatrix\MarkovMatrix.csproj">
       <Project>{7e1254fe-2e13-4d68-b337-8460dab633cd}</Project>
       <Name>MarkovMatrix</Name>
@@ -102,6 +98,10 @@
     <ProjectReference Include="..\LanguageDetectionInterfaces\LanguageDetectionInterfaces.csproj">
       <Project>{2a94e485-0ff0-49a6-8472-466d3e23a797}</Project>
       <Name>LanguageDetectionInterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LanguageDetectionTestHelpers\LanguageDetectionTestHelpers.csproj">
+      <Project>{433d33af-2a73-44d4-8d90-e27fd2bbbf2c}</Project>
+      <Name>LanguageDetectionTestHelpers</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
