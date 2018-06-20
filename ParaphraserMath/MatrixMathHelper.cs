@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MarkovMatrices;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,13 @@ namespace ParaphraserMath
             char char2 = (char)(combinedChars - (largeComponent * sixteenBitsMaxValue));
 
             return new Tuple<char, char>(char1, char2);
+        }
+
+        public static float GetDotProduct(IMarkovMatrix<float> normalizedInputMatrix, IMarkovMatrix<float> languageMatrix)
+        {
+            #warning Implement
+            #warning Add unit tests
+            throw new NotImplementedException();
         }
     }
 }

@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LanguageDetector.cs" />
+    <Compile Include="MemoryStreamBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -74,6 +75,14 @@
     <ProjectReference Include="..\MarkovMatrix\MarkovMatrixInterfaces\MarkovMatrixInterfaces.csproj">
       <Project>{78f39194-74d8-4848-b2d6-fc26fccff4ae}</Project>
       <Name>MarkovMatrixInterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ParaphraserMath\ParaphraserMath.csproj">
+      <Project>{B30BC99A-57A9-4778-AD79-88D06B6BAC6E}</Project>
+      <Name>ParaphraserMath</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StringManipulation\StringManipulation.csproj">
+      <Project>{8033f5bf-dcd2-4193-b1a9-ba6e98d937ce}</Project>
+      <Name>StringManipulation</Name>
     </ProjectReference>
     <ProjectReference Include="LanguageDetectionInterfaces\LanguageDetectionInterfaces.csproj">
       <Project>{2a94e485-0ff0-49a6-8472-466d3e23a797}</Project>

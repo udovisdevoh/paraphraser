@@ -28,3 +28,15 @@ D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageDetection\Languag
 D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageDetection\LanguageDetectionTests\obj\Debug\LanguageDetectionTests.csproj.CopyComplete
 D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageDetection\LanguageDetectionTests\obj\Debug\LanguageDetectionTests.dll
 D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageDetection\LanguageDetectionTests\obj\Debug\LanguageDetectionTests.pdb
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageDetection\LanguageDetectionTests\bin\Debug\MarkovMatrix.dll
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageDetection\LanguageDetectionTests\bin\Debug\MarkovMatrixInterfaces.dll
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageDetection\LanguageDetectionTests\bin\Debug\MarkovMatrixTestHelper.dll
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageDetection\LanguageDetectionTests\bin\Debug\ParaphraserMath.dll
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageDetection\LanguageDetectionTests\bin\Debug\StringManipulation.dll
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageDetection\LanguageDetectionTests\bin\Debug\MarkovMatrix.pdb
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageDetection\LanguageDetectionTests\bin\Debug\MarkovMatrixInterfaces.pdb
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageDetection\LanguageDetectionTests\bin\Debug\MarkovMatrixTestHelper.pdb
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageDetection\LanguageDetectionTests\bin\Debug\ParaphraserMath.pdb
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageDetection\LanguageDetectionTests\bin\Debug\StringManipulation.pdb
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageDetection\LanguageDetectionTests\bin\Debug\LanguageDetectionTestHelpers.dll
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageDetection\LanguageDetectionTests\bin\Debug\LanguageDetectionTestHelpers.pdb
