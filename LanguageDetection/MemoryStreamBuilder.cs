@@ -11,9 +11,12 @@ namespace LanguageDetection
     {
         public static MemoryStream BuildMemoryStreamFromText(string text)
         {
-            #warning Implement
-            #warning Add unit tests
-            throw new NotImplementedException();
+            MemoryStream stream = new MemoryStream();
+            StreamWriter writer = new StreamWriter(stream);
+            writer.Write(text);
+            writer.Flush();
+            stream.Position = 0;
+            return stream;
         }
     }
 }

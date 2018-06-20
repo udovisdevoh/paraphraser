@@ -74,6 +74,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\LanguageDetection\LanguageDetectionTestHelpers\LanguageDetectionTestHelpers.csproj">
+      <Project>{433D33AF-2A73-44D4-8D90-E27FD2BBBF2C}</Project>
+      <Name>LanguageDetectionTestHelpers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MarkovMatrix\MarkovMatrixInterfaces\MarkovMatrixInterfaces.csproj">
+      <Project>{78f39194-74d8-4848-b2d6-fc26fccff4ae}</Project>
+      <Name>MarkovMatrixInterfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ParaphraserMath.csproj">
       <Project>{b30bc99a-57a9-4778-ad79-88d06b6bac6e}</Project>
       <Name>ParaphraserMath</Name>

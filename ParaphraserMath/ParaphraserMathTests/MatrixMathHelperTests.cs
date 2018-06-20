@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LanguageDetection.TestHelpers;
+using MarkovMatrices;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -52,7 +54,16 @@ namespace ParaphraserMath.Tests
         [Fact]
         public void GivenTwoMatrices_GetDotProduct()
         {
-            #warning Implement (use mock)
+            // Arrange
+            float expectedDotProduct = 2.125f;
+            IMarkovMatrix<float> englishMatrix = LanguageDetectorTestHelper.BuildLanguageMatrix("this is english text");
+            IMarkovMatrix<float> frenchMatrix = LanguageDetectorTestHelper.BuildLanguageMatrix("ceci est du texte français");
+
+            // Act
+            float actualDotProduct = MatrixMathHelper.GetDotProduct(englishMatrix, frenchMatrix);
+
+            // Assert
+            Assert.Equal(expectedDotProduct, actualDotProduct);
         }
     }
 }

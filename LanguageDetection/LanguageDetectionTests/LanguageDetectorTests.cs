@@ -55,7 +55,7 @@ namespace LanguageDetectionTests
             languageDetector.AddLanguage("French", frenchMatrix);
 
             // Assert
-            Assert.Equal("French", languageDetector.DetectLanguage("je suis un"));
+            Assert.Equal("French", languageDetector.DetectLanguage("ça c'est est du"));
         }
 
         [Fact]
@@ -71,7 +71,7 @@ namespace LanguageDetectionTests
             languageDetector.AddLanguage("French", frenchMatrix);
 
             // Assert
-            Assert.Equal("English", languageDetector.DetectLanguage("I am a"));
+            Assert.Equal("English", languageDetector.DetectLanguage("that is"));
         }
     }
 }
