@@ -27,6 +27,7 @@ namespace MarkovMatrices.Tests
             Assert.Equal(expectedInputCount, actualInputCount);
 
         }
+
         [Fact]
         public void GivenBinaryStream_LoadMatrix_ShouldGetRightOccurrenceFirstCharGroup()
         {
