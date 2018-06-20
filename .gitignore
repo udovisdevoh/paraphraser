@@ -33,3 +33,7 @@
 /StringManipulation/obj
 /StringManipulation/StringManipulationTests/obj
 /StringManipulation/StringManipulationTests/bin
+/LanguageDetection/bin
+/LanguageDetection/LanguageDetectionInterfaces/bin
+/LanguageDetection/LanguageDetectionTests/obj
+/LanguageDetection/LanguageDetectionTests/bin
