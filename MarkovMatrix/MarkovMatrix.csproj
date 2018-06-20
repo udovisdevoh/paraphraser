@@ -68,6 +68,7 @@
     <Compile Include="BinaryMarkovMatrixSaver.cs" />
     <Compile Include="MarkovMatrix.cs" />
     <Compile Include="MarkovMatrixNormalizer.cs" />
+    <Compile Include="NormalizedTextMarkovMatrixLoader.cs" />
     <Compile Include="TextMarkovMatrixLoader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

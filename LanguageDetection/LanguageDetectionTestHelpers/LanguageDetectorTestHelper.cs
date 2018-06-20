@@ -38,6 +38,17 @@ namespace LanguageDetection.TestHelpers
             return markovMatrixMockFactory.Object;
         }
 
+        public static IMarkovMatrixLoader<float> BuildNormalizedTextMarkovMatrixLoader()
+        {
+            #warning Replace with mocks, remove references to depencencies assemblies
+
+            TextMarkovMatrixLoader<ulong> internalMatrixLoader = new TextMarkovMatrixLoader<ulong>();
+            MarkovMatrixNormalizer markovMatrixNormalizer = new MarkovMatrixNormalizer();
+
+            IMarkovMatrixLoader<float> markovMatrixLoader = new NormalizedTextMarkovMatrixLoader(internalMatrixLoader, markovMatrixNormalizer);
+            return markovMatrixLoader;
+        }
+
         private static void AddMatrixValue(Mock<IMarkovMatrix<float>> markovMatrixMockFactory,
             List<KeyValuePair<Tuple<char, char>, float>> iEnumerable,
             char fromChar,

@@ -15,17 +15,14 @@ namespace LanguageDetection
         #region Members
         private Dictionary<string, IMarkovMatrix<float>> languages;
 
-        private IMarkovMatrixLoader<ulong> languageDetectionMatrixLoader;
-
-        private IMarkovMatrixNormalizer markovMatrixNormalizer;
+        private IMarkovMatrixLoader<float> languageDetectionMatrixLoader;
         #endregion
 
         #region Constructors
-        public LanguageDetector(IMarkovMatrixLoader<ulong> languageDetectionMatrixLoader, IMarkovMatrixNormalizer markovMatrixNormalizer)
+        public LanguageDetector(IMarkovMatrixLoader<float> languageDetectionMatrixLoader)
         {
             this.languages = new Dictionary<string, IMarkovMatrix<float>>();
             this.languageDetectionMatrixLoader = languageDetectionMatrixLoader;
-            this.markovMatrixNormalizer = markovMatrixNormalizer;
         }
         #endregion
 
@@ -50,8 +47,7 @@ namespace LanguageDetection
             }
 
             MemoryStream memoryStream = MemoryStreamBuilder.BuildMemoryStreamFromText(text);
-            IMarkovMatrix<ulong> inputMatrix = this.languageDetectionMatrixLoader.LoadMatrix(memoryStream);
-            IMarkovMatrix<float> normalizedInputMatrix = this.markovMatrixNormalizer.Normalize(inputMatrix);
+            IMarkovMatrix<float> inputMatrix = this.languageDetectionMatrixLoader.LoadMatrix(memoryStream);
 
             float bestDotProduct = float.MinValue;
             string bestLanguage = null;
@@ -59,7 +55,7 @@ namespace LanguageDetection
             {
                 string languageName = nameAndLanguageMatrix.Key;
                 IMarkovMatrix<float> languageMatrix = nameAndLanguageMatrix.Value;
-                float dotProduct = MatrixMathHelper.GetDotProduct(normalizedInputMatrix, languageMatrix);
+                float dotProduct = MatrixMathHelper.GetDotProduct(inputMatrix, languageMatrix);
 
                 if (dotProduct > bestDotProduct)
                 {
