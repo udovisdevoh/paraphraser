@@ -75,7 +75,7 @@ namespace StringManipulation.Tests
             string expectedFixedText = "b    & a ' ";
 
             // Act
-            string actualFixedText = StringFormatter.RemovePunctuation(sourceText);
+            string actualFixedText = StringFormatter.RemovePunctuation(sourceText, '&', '\'');
 
             // Assert
             Assert.Equal(expectedFixedText, actualFixedText);

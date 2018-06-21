@@ -70,7 +70,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StringAnalysisTests.cs" />
     <Compile Include="StringFormatterTests.cs" />
+    <Compile Include="WordExtractorTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\StringManipulation.csproj">

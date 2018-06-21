@@ -8,17 +8,6 @@ namespace StringManipulation
 {
     public static class StringFormatter
     {
-        #region Members
-        private const string punctuationCharsString = "[](){}⟨⟩:;,،、‒–—―….⋯᠁ฯ!.‹›«»‐-?‘’“”\"/⧸⁄\\¿*+-@#÷×^";
-
-        private static char[] punctuationChars;
-        #endregion
-
-        static StringFormatter()
-        {
-            StringFormatter.punctuationChars = punctuationCharsString.ToCharArray();
-        }
-
         public static string FormatLanguageName(string languageName)
         {
             languageName = StringFormatter.FixApostrophe(languageName);
@@ -31,21 +20,30 @@ namespace StringManipulation
         public static string FormatInputText(string text)
         {
             text = StringFormatter.FixApostrophe(text);
-            text = StringFormatter.RemovePunctuation(text);
+            text = StringFormatter.RemovePunctuation(text, '&', '\'');
             text = StringFormatter.RemoveDoubleTabsSpacesAndEnters(text);
             text = StringFormatter.UcFirst(text);
 
             return text;
         }
 
-        public static string RemovePunctuation(string text)
+        public static string RemovePunctuation(string text, params char[] exclusion)
         {
-            foreach (char character in StringFormatter.punctuationChars)
+            StringBuilder stringBuilder = new StringBuilder();
+
+            foreach (char character in text)
             {
-                text = text.Replace(character, ' ');
+                if (StringAnalysis.IsPunctuationOrSpace(character) && !exclusion.Contains(character))
+                {
+                    stringBuilder.Append(' ');
+                }
+                else
+                {
+                    stringBuilder.Append(character);
+                }
             }
 
-            return text;
+            return stringBuilder.ToString();
         }
 
         public static string RemoveDiacritics(string text)

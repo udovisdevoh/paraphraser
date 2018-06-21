@@ -21,18 +21,77 @@ namespace SpellChecking
         {
             this.language = language;
 
-            this.hunspell = new Hunspell(dictionariesFolder + "/" + language + ".aff", "Dictionaries/" + language + ".dic");
+            this.hunspell = new Hunspell(dictionariesFolder + "/" + language + ".aff", dictionariesFolder + "/" + language + ".dic");
         }
         #endregion
 
         public string GetCorrectedText(string originalText)
         {
-            #warning Implement
-            #warning Add unit tests
+            string[] wordsAndPunctuationTokens = WordExtractor.GetWordsAndPunctuationTokens(originalText);
 
-            string[] words = WordExtractor.GetWords(originalText);
+            StringBuilder stringBuilder = new StringBuilder();
+            foreach (string wordOrPunctuationToken in wordsAndPunctuationTokens)
+            {
+                bool isWord = true;
+                if (wordOrPunctuationToken.Length == 1)
+                {
+                    char character = wordOrPunctuationToken[0];
 
-            throw new NotImplementedException();
+                    if (StringAnalysis.IsPunctuationOrSpace(character))
+                    {
+                        isWord = false;
+                    }
+                }
+
+                string correctedWord;
+
+                if (isWord)
+                {
+                    correctedWord = this.GetCorrectedWord(wordOrPunctuationToken);
+                }
+                else
+                {
+                    correctedWord = wordOrPunctuationToken;
+                }
+
+                stringBuilder.Append(correctedWord);
+            }
+
+            return stringBuilder.ToString();
+        }
+
+        public string GetCorrectedWord(string wordOrPunctuationToken)
+        {
+            if (wordOrPunctuationToken.Length <= 1 && StringAnalysis.IsPunctuationOrSpace(wordOrPunctuationToken[0]))
+            {
+                return wordOrPunctuationToken;
+            }
+
+            if (!hunspell.Spell(wordOrPunctuationToken))
+            {
+                List<string> suggestions = hunspell.Suggest(wordOrPunctuationToken);
+
+                if (suggestions.Count > 0)
+                {
+                    string identicalWordegardlessPunctuation = StringAnalysis.GetIdenticalWordRegardlessPunctuation(wordOrPunctuationToken, suggestions);
+
+                    if (identicalWordegardlessPunctuation != null)
+                    {
+                        return identicalWordegardlessPunctuation;
+                    }
+
+                    string mostSimilarWord = StringAnalysis.GetMostSimilarWord(wordOrPunctuationToken, suggestions);
+
+                    if (mostSimilarWord != null)
+                    {
+                        return mostSimilarWord;
+                    }
+
+                    return suggestions[0];
+                }
+            }
+
+            return wordOrPunctuationToken;
         }
 
         public void Dispose()
