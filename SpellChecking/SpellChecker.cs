@@ -11,24 +11,17 @@ namespace SpellChecking
     public class SpellChecker : ISpellChecker
     {
         #region Members
-        private Language language;
+        private string language;
 
         private Hunspell hunspell;
         #endregion
 
         #region Constructors
-        public SpellChecker(Language language)
+        public SpellChecker(string language, string dictionariesFolder)
         {
             this.language = language;
 
-            if (this.language == Language.English)
-            {
-                this.hunspell = new Hunspell("en.aff", "en.dic");
-            }
-            else if (this.language == Language.French)
-            {
-                this.hunspell = new Hunspell("fr.aff", "fr.dic");
-            }
+            this.hunspell = new Hunspell(dictionariesFolder + "/" + language + ".aff", "Dictionaries/" + language + ".dic");
         }
         #endregion
 

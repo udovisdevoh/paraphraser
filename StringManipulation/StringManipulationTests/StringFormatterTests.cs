@@ -43,8 +43,8 @@ namespace StringManipulation.Tests
         public void GivenAccentedText_RemoveDiacritics()
         {
             // Arrange
-            string accentedText = "ÉÛÌÔËÀ C'est à l'école qu'il faut faire ses leçons avant Noël Ññãõă Șș Țț Ğğ Şş Ăă ẞß Çç";
-            string expectedTextWithoutAccents = "EUIOEA C'est a l'ecole qu'il faut faire ses lecons avant Noel Nnaoa Ss Tt Gg Ss Aa Ss Cc";
+            string accentedText = "ÉÛÌÔËÀ C'est à l'école qu'il faut faire ses leçons avant Noël Ññãõă Șș Țț Ğğ Şş Ăă ẞß Ççøå";
+            string expectedTextWithoutAccents = "EUIOEA C'est a l'ecole qu'il faut faire ses lecons avant Noel Nnaoa Ss Tt Gg Ss Aa Ss Ccoa";
 
             // Act
             string actualTextWithoutAccents = StringFormatter.RemoveDiacritics(accentedText);

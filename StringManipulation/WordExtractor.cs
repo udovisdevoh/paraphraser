@@ -12,6 +12,7 @@ namespace StringManipulation
         {
             #warning Implement
             #warning Add unit tests
+            throw new NotImplementedException();
         }
     }
 }
