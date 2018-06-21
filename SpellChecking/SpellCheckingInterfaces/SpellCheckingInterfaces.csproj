@@ -7,7 +7,7 @@
     <ProjectGuid>{2C71B30C-C3BC-4EFA-8144-E8FC8476A78F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SpellCheckingInterfaces</RootNamespace>
+    <RootNamespace>SpellChecking</RootNamespace>
     <AssemblyName>SpellCheckingInterfaces</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ISpellChecker.cs" />
+    <Compile Include="Language.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
