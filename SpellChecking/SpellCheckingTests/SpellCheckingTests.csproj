@@ -79,10 +79,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="english.aff">
+    <None Include="Dictionaries\english.aff">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="english.dic">
+    <None Include="Dictionaries\english.dic">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />

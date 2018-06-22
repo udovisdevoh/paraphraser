@@ -17,7 +17,7 @@ namespace SpellChecking
         #endregion
 
         #region Constructors
-        public SpellChecker(string language, string dictionariesFolder)
+        public SpellChecker(string dictionariesFolder, string language)
         {
             this.language = language;
 

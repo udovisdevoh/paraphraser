@@ -122,5 +122,20 @@ namespace StringManipulation.Tests
             // Assert
             Assert.Equal(expectedFixedText, actualFixedText);
         }
+
+        [Fact]
+        public void GivenStringAndChar_ShouldSplitBeforeCharacter()
+        {
+            // Arrange
+            string input = ".3456sdfgsdg/sdfga34";
+            string expectedOutput = ".3456sdfgsdg";
+            char character = '/';
+
+            // Act
+            string actualOutput = StringFormatter.SplitBefore(input, character);
+
+            // Assert
+            Assert.Equal(expectedOutput, actualOutput);
+        }
     }
 }

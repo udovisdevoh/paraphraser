@@ -17,7 +17,7 @@ namespace SpellCheckingTests
             string wrongSpelling = "obiviously";
             string expectedCorrectedSpelling = "obviously";
             string actualCorrectedSpelling;
-            SpellChecker spellChecker = new SpellChecker("english", "./");
+            SpellChecker spellChecker = new SpellChecker("./Dictionaries", "english");
 
             // Act
             actualCorrectedSpelling = spellChecker.GetCorrectedWord(wrongSpelling);
@@ -33,7 +33,7 @@ namespace SpellCheckingTests
             string wrongSpelling = "this aint the rght thing to doo arent wont";
             string expectedCorrectedSpelling = "this ain't the right thing to do aren't wont";
             string actualCorrectedSpelling;
-            SpellChecker spellChecker = new SpellChecker("english", "./");
+            SpellChecker spellChecker = new SpellChecker("./Dictionaries", "english");
 
             // Act
             actualCorrectedSpelling = spellChecker.GetCorrectedText(wrongSpelling);

@@ -19,6 +19,16 @@ namespace StringManipulation
             StringAnalysis.punctuationChars = new HashSet<char>(punctuationCharsString.ToCharArray());
         }
 
+        public static bool StartsWithNumber(string line)
+        {
+            return line.Length > 0 && Char.IsDigit(line[0]);
+        }
+
+        public static bool StartsWithPunctuationOrSpace(string line)
+        {
+            return line.Length > 0 && StringAnalysis.IsPunctuationOrSpace(line[0]);
+        }
+
         public static bool IsPunctuationOrSpace(char character)
         {
             return character == ' ' || character == '\n' || character == '\t' || character == '\r' || Char.IsPunctuation(character) || punctuationChars.Contains(character);

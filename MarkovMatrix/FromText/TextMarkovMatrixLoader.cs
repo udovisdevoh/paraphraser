@@ -15,33 +15,44 @@ namespace MarkovMatrices
             MarkovMatrix<T> markovMatrix = new MarkovMatrix<T>();
             using (StreamReader streamReader = new StreamReader(inputStream))
             {
+                int lineNumber = 0;
                 string line;
                 while ((line = streamReader.ReadLine()) != null)
                 {
                     line = line.Trim();
                     if (!string.IsNullOrEmpty(line))
                     {
-                        this.PopulateMatrixFromLine(markovMatrix, line);
+                        this.PopulateMatrixFromLine(markovMatrix, line, lineNumber);
                     }
+                    ++lineNumber;
                 }
             }
 
             return markovMatrix;
         }
 
-        private void PopulateMatrixFromLine(MarkovMatrix<T> markovMatrix, string line)
+        private void PopulateMatrixFromLine(MarkovMatrix<T> markovMatrix, string line, int lineNumber)
         {
-            char[] characters = line.ToCharArray();
+            line = this.PerformLineTransformations(line, lineNumber);
 
-            char? previousCharacter = null;
-            foreach (char currentCharacter in characters)
+            if (!string.IsNullOrEmpty(line))
             {
-                if (previousCharacter != null)
+                char[] characters = line.ToCharArray();
+
+                char? previousCharacter = ' '; // Starts with space
+                foreach (char currentCharacter in characters)
                 {
                     markovMatrix.IncrementOccurrence(previousCharacter.Value, currentCharacter);
+                    previousCharacter = currentCharacter;
                 }
-                previousCharacter = currentCharacter;
+
+                markovMatrix.IncrementOccurrence(previousCharacter.Value, ' '); // Ends with space
             }
+        }
+
+        public virtual string PerformLineTransformations(string line, int lineNumber)
+        {
+            return line;
         }
     }
 }

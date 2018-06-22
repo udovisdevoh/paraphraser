@@ -71,6 +71,7 @@
   <ItemGroup>
     <Compile Include="BinaryMarkovMatrixLoaderTests.cs" />
     <Compile Include="BinaryMarkovMatrixSaverTests.cs" />
+    <Compile Include="LanguageDictionaryFileMatrixLoaderTests.cs" />
     <Compile Include="MarkovMatrixNormalizerTests.cs" />
     <Compile Include="MarkovMatrixTests.cs" />
     <Compile Include="NormalizedTextMarkovMatrixLoaderTests.cs" />

@@ -17,6 +17,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExternalDependencies", "Ext
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{4EF3B77F-0D45-4FC9-B878-4EFDDC0AEB18}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringManipulation", "..\StringManipulation\StringManipulation.csproj", "{8033F5BF-DCD2-4193-B1A9-BA6E98D937CE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,10 @@ Global
 		{B30BC99A-57A9-4778-AD79-88D06B6BAC6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B30BC99A-57A9-4778-AD79-88D06B6BAC6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B30BC99A-57A9-4778-AD79-88D06B6BAC6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8033F5BF-DCD2-4193-B1A9-BA6E98D937CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8033F5BF-DCD2-4193-B1A9-BA6E98D937CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8033F5BF-DCD2-4193-B1A9-BA6E98D937CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8033F5BF-DCD2-4193-B1A9-BA6E98D937CE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -51,6 +57,7 @@ Global
 		{61DB0147-848C-4152-9004-26D9F54AC694} = {4EF3B77F-0D45-4FC9-B878-4EFDDC0AEB18}
 		{957DD80E-1E39-4E8A-BFEF-C83AD40F5844} = {4EF3B77F-0D45-4FC9-B878-4EFDDC0AEB18}
 		{B30BC99A-57A9-4778-AD79-88D06B6BAC6E} = {6677C1D3-D984-4148-A94A-EE43E7926020}
+		{8033F5BF-DCD2-4193-B1A9-BA6E98D937CE} = {6677C1D3-D984-4148-A94A-EE43E7926020}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6E72BC3D-75E0-4D61-B35C-E9F7E9F68236}

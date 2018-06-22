@@ -27,6 +27,18 @@ namespace StringManipulation
             return text;
         }
 
+        public static string SplitBefore(string line, char character)
+        {
+            int indexOfCharacter = line.IndexOf(character);
+
+            if (indexOfCharacter != -1)
+            {
+                return line.Substring(0, indexOfCharacter).Trim();
+            }
+
+            return line;
+        }
+
         public static string RemovePunctuation(string text, params char[] exclusion)
         {
             StringBuilder stringBuilder = new StringBuilder();

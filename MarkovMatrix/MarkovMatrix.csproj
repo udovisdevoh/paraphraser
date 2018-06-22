@@ -64,18 +64,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BinaryMarkovMatrixLoader.cs" />
-    <Compile Include="BinaryMarkovMatrixSaver.cs" />
+    <Compile Include="FromBinary\BinaryMarkovMatrixLoader.cs" />
+    <Compile Include="FromBinary\BinaryMarkovMatrixSaver.cs" />
+    <Compile Include="FromText\LanguageDictionaryFileMatrixLoader.cs" />
     <Compile Include="MarkovMatrix.cs" />
     <Compile Include="MarkovMatrixNormalizer.cs" />
-    <Compile Include="NormalizedTextMarkovMatrixLoader.cs" />
-    <Compile Include="TextMarkovMatrixLoader.cs" />
+    <Compile Include="FromText\NormalizedTextMarkovMatrixLoader.cs" />
+    <Compile Include="FromText\TextMarkovMatrixLoader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ParaphraserMath\ParaphraserMath.csproj">
       <Project>{b30bc99a-57a9-4778-ad79-88d06b6bac6e}</Project>
       <Name>ParaphraserMath</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StringManipulation\StringManipulation.csproj">
+      <Project>{8033f5bf-dcd2-4193-b1a9-ba6e98d937ce}</Project>
+      <Name>StringManipulation</Name>
     </ProjectReference>
     <ProjectReference Include="MarkovMatrixInterfaces\MarkovMatrixInterfaces.csproj">
       <Project>{78f39194-74d8-4848-b2d6-fc26fccff4ae}</Project>

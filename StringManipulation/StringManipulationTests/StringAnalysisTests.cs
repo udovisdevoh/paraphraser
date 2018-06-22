@@ -91,5 +91,57 @@ namespace StringManipulation.Tests
             // Assert
             Assert.Equal(expectedLevenshteinDistance, actualLevenshteinDistance);
         }
+
+        [Fact]
+        public void GivenStringStartingWithNumber_DetectStartsWithNumber_ShouldReturnTrue()
+        {
+            // Arrange
+            string input = "18sasdfgd";
+
+            // Act
+            bool isStartWithNumber = StringAnalysis.StartsWithNumber(input);
+
+            // Assert
+            Assert.True(isStartWithNumber);
+        }
+
+        [Fact]
+        public void GivenStringStartingWithLetter_DetectStartsWithNumber_ShouldReturnFalse()
+        {
+            // Arrange
+            string input = "Asasdfgd12";
+
+            // Act
+            bool isStartWithNumber = StringAnalysis.StartsWithNumber(input);
+
+            // Assert
+            Assert.False(isStartWithNumber);
+        }
+
+        [Fact]
+        public void GivenStringStartingWithPunctuationOrSpace_DetectStartsWithPunctuationOrSpace_ShouldReturnTrue()
+        {
+            // Arrange
+            string input = ".sasdfgd";
+
+            // Act
+            bool isStartWithPunctuationOrSpace = StringAnalysis.StartsWithPunctuationOrSpace(input);
+
+            // Assert
+            Assert.True(isStartWithPunctuationOrSpace);
+        }
+
+        [Fact]
+        public void GivenStringStartingWithLetter_DetectStartsWithPunctuationOrSpace_ShouldReturnFalse()
+        {
+            // Arrange
+            string input = "sasdfgd";
+
+            // Act
+            bool isStartWithPunctuationOrSpace = StringAnalysis.StartsWithPunctuationOrSpace(input);
+
+            // Assert
+            Assert.False(isStartWithPunctuationOrSpace);
+        }
     }
 }
