@@ -1,0 +1,163 @@
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\xunit.abstractions.dll
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\afrikaans.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\akan.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\albanian.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\american english.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\ancient greek.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\arabic.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\assamese.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\australian english.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\austrian german.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\bambara.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\basque.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\belarusian.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\bengali.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\bokmal norwegian.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\brazilian portuguese.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\breton.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\bulgarian.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\canadian english.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\catalan.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\chichewa.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\chuvash.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\coptic.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\croatian.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\czech.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\danish.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\dutch.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\eastern armenian.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\esperanto.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\estonian.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\faroese.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\french.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\friulian.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\galician.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\georgian.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\german.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\gikuyu.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\gujarati.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\haitian creole.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\hebrew.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\hindi.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\hungarian.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\icelandic.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\indonesian.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\irish gaelic.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\italian.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\japanese.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\kannada.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\kazakh.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\kenyan swahili.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\khmer.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\kichwa.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\kinyarwanda.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\korean.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\latgalian.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\latin persian.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\latin serbian.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\latin uyghur.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\latin.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\latvian.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\lithuanian.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\low saxon german.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\luxembourgish.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\macedonian.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\malay.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\malayalam.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\maltese.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\marathi.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\modern greek.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\mongolian.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\nepali.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\nynorsk norwegian.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\occitan gascon.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\persian.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\plateau malagasy.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\polish.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\polytonic greek.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\portuguese.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\punjabi.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\romanian.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\russian.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\rusyn.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\sa english.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\sami.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\sardinian.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\scottish gaelic.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\serbian.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\simplified chinese.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\sindhi.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\sinhala.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\slovak.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\slovenian.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\somali.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\sorbian.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\spanish.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\swedish.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\swiss german.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\tagalog.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\tamil.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\tanzanian swahili.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\te papakupu maori.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\telugu.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\thai.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\tibetan.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\tok pisin.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\traditional chinese.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\turkish.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\turkmen.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\uk english.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\ukrainian.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\urdu.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\uyghur.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\valencian catalan.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\vietnamese.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\welsh.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\western armenian.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\western frisian.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\xhosa.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\yiddish.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageSamples\zulu.txt
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\xunit.runner.visualstudio.testadapter.dll
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\xunit.runner.reporters.net452.dll
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\xunit.runner.utility.net452.dll
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageMatrixConstructionTests.dll
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageMatrixConstructionTests.pdb
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\Castle.Core.dll
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageMatrixConstruction.exe
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageMatrixConstructionInterfaces.dll
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageMatrixConstructionTestHelpers.dll
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\Moq.dll
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\System.ValueTuple.dll
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\xunit.assert.dll
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\xunit.core.dll
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\xunit.execution.desktop.dll
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageMatrixConstruction.pdb
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageMatrixConstructionInterfaces.pdb
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\LanguageMatrixConstructionTestHelpers.pdb
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\Castle.Core.xml
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\Moq.pdb
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\Moq.xml
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\System.Threading.Tasks.Extensions.xml
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\System.ValueTuple.xml
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\xunit.assert.xml
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\xunit.core.xml
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\xunit.execution.desktop.xml
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\obj\Debug\LanguageMatrixConstructionTests.csprojAssemblyReference.cache
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\obj\Debug\LanguageMatrixConstructionTests.csproj.CoreCompileInputs.cache
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\obj\Debug\LanguageMatrixConstructionTests.csproj.CopyComplete
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\obj\Debug\LanguageMatrixConstructionTests.dll
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\obj\Debug\LanguageMatrixConstructionTests.pdb
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\Unity.Container.dll
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\Unity.Abstractions.dll
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\MarkovMatrixInterfaces.dll
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\MarkovMatrix.dll
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\ParaphraserMath.dll
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\StringManipulation.dll
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\Unity.Container.pdb
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\Unity.Abstractions.pdb
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\MarkovMatrixInterfaces.pdb
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\MarkovMatrix.pdb
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\ParaphraserMath.pdb
+D:\anonymous\Documents\Programming\C Sharp\Paraphraser\LanguageMatrixConstruction\LanguageMatrixConstructionTests\bin\Debug\StringManipulation.pdb
