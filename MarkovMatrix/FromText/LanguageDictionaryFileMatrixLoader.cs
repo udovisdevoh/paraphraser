@@ -36,6 +36,10 @@ namespace MarkovMatrices.FromText
             {
                 return string.Empty;
             }
+            else if (StringAnalysis.IsRomanNumeral(line))
+            {
+                return string.Empty;
+            }
 
             line = StringFormatter.SplitBefore(line, '/');
 

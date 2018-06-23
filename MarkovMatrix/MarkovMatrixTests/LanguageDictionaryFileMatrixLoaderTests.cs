@@ -55,6 +55,8 @@ namespace MarkovMatrices.Tests
         [InlineData("##################################################################", "")]
         [InlineData("# A copy should be enclosed.                                     #", "")]
         [InlineData("(	[CAT=punct2e]", "")]
+        [InlineData("mcxvi", "")]
+        [InlineData("xvi", "")]
         public void GivenString_PerformLineTransformations_ShouldGetFixedStrings(string input, string expectedOutput)
         {
             // Arrange
