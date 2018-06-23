@@ -8,20 +8,19 @@ using System.Threading.Tasks;
 
 namespace MarkovMatrices
 {
-    public class BinaryMarkovMatrixSaver<T>
-        where T : struct
+    public class BinaryMarkovMatrixSaver : IMarkovMatrixSaver<double>
     {
-        public void SaveMatrix(IMarkovMatrix<T> markovMatrix, Stream outputStream)
+        public void SaveMatrix(IMarkovMatrix<double> markovMatrix, Stream outputStream)
         {
             BinaryWriter binaryWriter = new BinaryWriter(outputStream);
             binaryWriter.Write(markovMatrix.InputCount);
-            foreach (KeyValuePair<Tuple<char, char>, T> twoCharsAndOccurrenceCount in markovMatrix)
+            foreach (KeyValuePair<Tuple<char, char>, double> twoCharsAndOccurrenceCount in markovMatrix)
             {
                 Tuple<char, char> twoChars = twoCharsAndOccurrenceCount.Key;
-                T occurrenceCount = twoCharsAndOccurrenceCount.Value;
+                double occurrenceCount = twoCharsAndOccurrenceCount.Value;
                 uint combinedChars = MatrixMathHelper.CombineChars(twoChars.Item1, twoChars.Item2);
                 binaryWriter.Write(combinedChars);
-                GenericNumberHelper.WriteValue<T>(binaryWriter, occurrenceCount);
+                GenericNumberHelper.WriteValue<double>(binaryWriter, occurrenceCount);
             }
             binaryWriter.Flush();
         }

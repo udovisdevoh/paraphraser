@@ -7,12 +7,11 @@ using System.Threading.Tasks;
 
 namespace MarkovMatrices
 {
-    public class TextMarkovMatrixLoader<T> : IMarkovMatrixLoader<T>
-        where T : struct
+    public class TextMarkovMatrixLoader : IMarkovMatrixLoader<ulong>
     {
-        public IMarkovMatrix<T> LoadMatrix(Stream inputStream)
+        public IMarkovMatrix<ulong> LoadMatrix(Stream inputStream)
         {
-            MarkovMatrix<T> markovMatrix = new MarkovMatrix<T>();
+            MarkovMatrix<ulong> markovMatrix = new MarkovMatrix<ulong>();
             using (StreamReader streamReader = new StreamReader(inputStream))
             {
                 string line;
@@ -29,7 +28,7 @@ namespace MarkovMatrices
             return markovMatrix;
         }
 
-        private void PopulateMatrixFromLine(MarkovMatrix<T> markovMatrix, string line)
+        private void PopulateMatrixFromLine(MarkovMatrix<ulong> markovMatrix, string line)
         {
             line = this.PerformLineTransformations(line);
 

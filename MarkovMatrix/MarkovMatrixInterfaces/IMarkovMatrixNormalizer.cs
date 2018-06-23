@@ -8,6 +8,6 @@ namespace MarkovMatrices
 {
     public interface IMarkovMatrixNormalizer
     {
-        IMarkovMatrix<float> Normalize(IMarkovMatrix<ulong> sourceMatrix);
+        IMarkovMatrix<double> Normalize(IMarkovMatrix<ulong> sourceMatrix);
     }
 }

@@ -14,21 +14,21 @@ namespace MarkovMatrices.Tests
         public void GivenMatrix_SaveMatrix_ShouldSaveToBinaryStreamWithCorrectOccurrence()
         {
             // Arrange
-            ulong expectedOccurrence = 3;
-            MarkovMatrix<ulong> markovMatrix = new MarkovMatrix<ulong>();
+            double expectedOccurrence = 3.0;
+            MarkovMatrix<double> markovMatrix = new MarkovMatrix<double>();
             markovMatrix.IncrementOccurrence('A', 'B', 2);
             markovMatrix.IncrementOccurrence('C', 'D', expectedOccurrence);
             MemoryStream memoryStream = new MemoryStream();
-            BinaryMarkovMatrixSaver<ulong> binaryMarkovMatrixSaver = new BinaryMarkovMatrixSaver<ulong>();
+            BinaryMarkovMatrixSaver binaryMarkovMatrixSaver = new BinaryMarkovMatrixSaver();
 
             // Act
             binaryMarkovMatrixSaver.SaveMatrix(markovMatrix, memoryStream);
 
             // Assert
             memoryStream.Position = 0;
-            BinaryMarkovMatrixLoader<ulong> binaryMarkovMatrixLoader = new BinaryMarkovMatrixLoader<ulong>();
-            IMarkovMatrix<ulong> loadedMatrix = binaryMarkovMatrixLoader.LoadMatrix(memoryStream);
-            ulong actualOccurrence = loadedMatrix.GetOccurrence('C', 'D');
+            BinaryMarkovMatrixLoader binaryMarkovMatrixLoader = new BinaryMarkovMatrixLoader();
+            IMarkovMatrix<double> loadedMatrix = binaryMarkovMatrixLoader.LoadMatrix(memoryStream);
+            double actualOccurrence = loadedMatrix.GetOccurrence('C', 'D');
             Assert.Equal(expectedOccurrence, actualOccurrence);
         }
     }

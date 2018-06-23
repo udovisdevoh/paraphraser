@@ -8,12 +8,11 @@ using System.Threading.Tasks;
 
 namespace MarkovMatrices
 {
-    public class BinaryMarkovMatrixLoader<T> : IMarkovMatrixLoader<T>
-        where T : struct
+    public class BinaryMarkovMatrixLoader : IMarkovMatrixLoader<double>
     {
-        public IMarkovMatrix<T> LoadMatrix(Stream inputStream)
+        public IMarkovMatrix<double> LoadMatrix(Stream inputStream)
         {
-            MarkovMatrix<T> markovMatrix = new MarkovMatrix<T>();
+            MarkovMatrix<double> markovMatrix = new MarkovMatrix<double>();
 
             using (BinaryReader binaryReader = new BinaryReader(inputStream))
             {
@@ -23,7 +22,7 @@ namespace MarkovMatrices
                 {
                     uint combinedChars = binaryReader.ReadUInt32();
                     Tuple<char, char> twoChars = MatrixMathHelper.SplitChars(combinedChars);
-                    T occurrenceCount = GenericNumberHelper.ReadValue<T>(binaryReader);
+                    double occurrenceCount = GenericNumberHelper.ReadValue<double>(binaryReader);
                     markovMatrix.IncrementOccurrence(twoChars.Item1, twoChars.Item2, occurrenceCount);
                 }
             }

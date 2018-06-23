@@ -39,3 +39,12 @@
 /LanguageDetection/LanguageDetectionTests/bin
 /LanguageDetection/LanguageDetectionTestHelpers/bin
 /LanguageDetection/LanguageDetectionTestHelpers/obj
+/LanguageMatrixConstruction/obj
+/LanguageMatrixConstruction/.vs
+/LanguageMatrixConstruction/bin
+/LanguageMatrixConstruction/LanguageMatrixConstructionInterfaces/obj
+/LanguageMatrixConstruction/LanguageMatrixConstructionInterfaces/bin
+/LanguageMatrixConstruction/LanguageMatrixConstructionTestHelpers/bin
+/LanguageMatrixConstruction/LanguageMatrixConstructionTestHelpers/obj
+/LanguageMatrixConstruction/LanguageMatrixConstructionTests/obj
+/LanguageMatrixConstruction/LanguageMatrixConstructionTests/bin

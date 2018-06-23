@@ -5,10 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MarkovMatrices.FromText
+namespace MarkovMatrices
 {
-    public class LanguageDictionaryFileMatrixLoader<T> : TextMarkovMatrixLoader<T>
-        where T : struct
+    public class LanguageDictionaryFileMatrixLoader : TextMarkovMatrixLoader
     {
         private bool isRemoveDiacritics = false;
 

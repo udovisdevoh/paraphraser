@@ -8,9 +8,9 @@ namespace MarkovMatrices
 {
     public class MarkovMatrixNormalizer : IMarkovMatrixNormalizer
     {
-        public IMarkovMatrix<float> Normalize(IMarkovMatrix<ulong> sourceMatrix)
+        public IMarkovMatrix<double> Normalize(IMarkovMatrix<ulong> sourceMatrix)
         {
-            MarkovMatrix<float> normalizedMatrix = new MarkovMatrix<float>();
+            MarkovMatrix<double> normalizedMatrix = new MarkovMatrix<double>();
 
             foreach (KeyValuePair<Tuple<char, char>, ulong> twoCharsAndCount in sourceMatrix)
             {
@@ -25,9 +25,9 @@ namespace MarkovMatrices
 
                 if (sum != 0)
                 {
-                    double ratio = (float)count / (float)sum;
+                    double ratio = (double)count / (double)sum;
 
-                    normalizedMatrix.IncrementOccurrence(fromChar, toChar, (float)ratio);
+                    normalizedMatrix.IncrementOccurrence(fromChar, toChar, (double)ratio);
                 }
             }
 

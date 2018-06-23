@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MarkovMatrices
 {
-    public class NormalizedTextMarkovMatrixLoader : IMarkovMatrixLoader<float>
+    public class NormalizedTextMarkovMatrixLoader : IMarkovMatrixLoader<double>
     {
         #region Members
         private IMarkovMatrixLoader<ulong> internalMarkovMatrixLoader;
@@ -23,10 +23,10 @@ namespace MarkovMatrices
         }
         #endregion
 
-        public IMarkovMatrix<float> LoadMatrix(Stream inputStream)
+        public IMarkovMatrix<double> LoadMatrix(Stream inputStream)
         {
             IMarkovMatrix<ulong> markovMatrix = this.internalMarkovMatrixLoader.LoadMatrix(inputStream);
-            IMarkovMatrix<float> normalizedMatrix = this.markovMatrixNormalizer.Normalize(markovMatrix);
+            IMarkovMatrix<double> normalizedMatrix = this.markovMatrixNormalizer.Normalize(markovMatrix);
             return normalizedMatrix;
         }
     }

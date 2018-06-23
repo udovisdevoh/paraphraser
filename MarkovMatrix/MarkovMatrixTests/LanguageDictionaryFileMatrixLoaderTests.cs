@@ -1,5 +1,4 @@
-﻿using MarkovMatrices.FromText;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -46,7 +45,7 @@ namespace MarkovMatrices.Tests
         public void GivenString_PerformLineTransformations_ShouldGetFixedStrings(string input, string expectedOutput)
         {
             // Arrange
-            LanguageDictionaryFileMatrixLoader<ulong> languageDictionaryFileMatrixLoader = new LanguageDictionaryFileMatrixLoader<ulong>(false);
+            LanguageDictionaryFileMatrixLoader languageDictionaryFileMatrixLoader = new LanguageDictionaryFileMatrixLoader(false);
 
             // Act
             string actualOutput = languageDictionaryFileMatrixLoader.PerformLineTransformations(input);
@@ -59,7 +58,7 @@ namespace MarkovMatrices.Tests
         public void GivenString_PerformLineTransformationsRemoveDiacritics_ShouldGetFixedStringsWithoutDiacritics(string input, string expectedOutput)
         {
             // Arrange
-            LanguageDictionaryFileMatrixLoader<ulong> languageDictionaryFileMatrixLoader = new LanguageDictionaryFileMatrixLoader<ulong>(true);
+            LanguageDictionaryFileMatrixLoader languageDictionaryFileMatrixLoader = new LanguageDictionaryFileMatrixLoader(true);
 
             // Act
             string actualOutput = languageDictionaryFileMatrixLoader.PerformLineTransformations(input);

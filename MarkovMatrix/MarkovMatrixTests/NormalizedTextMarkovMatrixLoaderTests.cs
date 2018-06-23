@@ -16,10 +16,10 @@ namespace MarkovMatrices.Tests
         {
             // Arrange
             Stream stream = StreamBuilder.BuildTextStream("Pseudolachnostylis is a genus of plants in the Phyllanthaceae first described as a genus in 1899");
-            NormalizedTextMarkovMatrixLoader textMarkovMatrixLoader = new NormalizedTextMarkovMatrixLoader(new TextMarkovMatrixLoader<ulong>(), new MarkovMatrixNormalizer());
+            NormalizedTextMarkovMatrixLoader textMarkovMatrixLoader = new NormalizedTextMarkovMatrixLoader(new TextMarkovMatrixLoader(), new MarkovMatrixNormalizer());
 
             // Act
-            IMarkovMatrix<float> markovMatrix = textMarkovMatrixLoader.LoadMatrix(stream);
+            IMarkovMatrix<double> markovMatrix = textMarkovMatrixLoader.LoadMatrix(stream);
 
             // Assert
             Assert.True(markovMatrix.InputCount > 0);
@@ -30,12 +30,12 @@ namespace MarkovMatrices.Tests
         {
             // Arrange
             Stream stream = StreamBuilder.BuildTextStream("Pseudolachnostylis is a genus of plants in the Phyllanthaceae first described as a genus in 1899");
-            NormalizedTextMarkovMatrixLoader textMarkovMatrixLoader = new NormalizedTextMarkovMatrixLoader(new TextMarkovMatrixLoader<ulong>(), new MarkovMatrixNormalizer());
-            float expectedProbability = 0.6f;
+            NormalizedTextMarkovMatrixLoader textMarkovMatrixLoader = new NormalizedTextMarkovMatrixLoader(new TextMarkovMatrixLoader(), new MarkovMatrixNormalizer());
+            double expectedProbability = 0.6;
 
             // Act
-            IMarkovMatrix<float> markovMatrix = textMarkovMatrixLoader.LoadMatrix(stream);
-            float actualProbability = markovMatrix.GetOccurrence('l', 'a');
+            IMarkovMatrix<double> markovMatrix = textMarkovMatrixLoader.LoadMatrix(stream);
+            double actualProbability = markovMatrix.GetOccurrence('l', 'a');
 
             // Assert
             Assert.Equal(expectedProbability, actualProbability);

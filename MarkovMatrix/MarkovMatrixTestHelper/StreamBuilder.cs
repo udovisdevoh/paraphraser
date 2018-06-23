@@ -20,7 +20,7 @@ namespace MarkovMatrices.TestHelper
             return stream;
         }
 
-        public static MemoryStream BuildBinaryStream(int count, char fromChar1, char toChar1, ulong occurrence1, char fromChar2, char toChar2, ulong occurrence2)
+        public static MemoryStream BuildBinaryStream(int count, char fromChar1, char toChar1, double occurrence1, char fromChar2, char toChar2, double occurrence2)
         {
             MemoryStream stream = new MemoryStream();
             BinaryWriter writer = new BinaryWriter(stream);
