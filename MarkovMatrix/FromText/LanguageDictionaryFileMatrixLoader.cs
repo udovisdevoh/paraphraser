@@ -10,15 +10,17 @@ namespace MarkovMatrices.FromText
     public class LanguageDictionaryFileMatrixLoader<T> : TextMarkovMatrixLoader<T>
         where T : struct
     {
-        public override string PerformLineTransformations(string line, int lineNumber)
+        private bool isRemoveDiacritics = false;
+
+        public LanguageDictionaryFileMatrixLoader(bool isRemoveDiacritics)
+        {
+            this.isRemoveDiacritics = isRemoveDiacritics;
+        }
+
+        public override string PerformLineTransformations(string line)
         {
             line = line.Trim();
             line = line.ToLowerInvariant();
-
-            if (lineNumber == 0)
-            {
-                return string.Empty;
-            }
 
             if (StringAnalysis.StartsWithNumber(line))
             {
@@ -36,12 +38,19 @@ namespace MarkovMatrices.FromText
             {
                 return string.Empty;
             }
-            else if (StringAnalysis.IsRomanNumeral(line))
+            else if (RomanNumerals.IsRomanNumeral(line))
             {
                 return string.Empty;
             }
 
+            if (this.isRemoveDiacritics)
+            {
+                line = StringFormatter.RemoveDiacritics(line);
+            }
+
             line = StringFormatter.SplitBefore(line, '/');
+            line = StringFormatter.SplitBefore(line, '\t');
+            line = StringFormatter.SplitBefore(line, ':');
 
             return line;
         }

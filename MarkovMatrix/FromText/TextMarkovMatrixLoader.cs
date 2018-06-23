@@ -15,25 +15,23 @@ namespace MarkovMatrices
             MarkovMatrix<T> markovMatrix = new MarkovMatrix<T>();
             using (StreamReader streamReader = new StreamReader(inputStream))
             {
-                int lineNumber = 0;
                 string line;
                 while ((line = streamReader.ReadLine()) != null)
                 {
                     line = line.Trim();
                     if (!string.IsNullOrEmpty(line))
                     {
-                        this.PopulateMatrixFromLine(markovMatrix, line, lineNumber);
+                        this.PopulateMatrixFromLine(markovMatrix, line);
                     }
-                    ++lineNumber;
                 }
             }
 
             return markovMatrix;
         }
 
-        private void PopulateMatrixFromLine(MarkovMatrix<T> markovMatrix, string line, int lineNumber)
+        private void PopulateMatrixFromLine(MarkovMatrix<T> markovMatrix, string line)
         {
-            line = this.PerformLineTransformations(line, lineNumber);
+            line = this.PerformLineTransformations(line);
 
             if (!string.IsNullOrEmpty(line))
             {
@@ -50,7 +48,7 @@ namespace MarkovMatrices
             }
         }
 
-        public virtual string PerformLineTransformations(string line, int lineNumber)
+        public virtual string PerformLineTransformations(string line)
         {
             return line;
         }

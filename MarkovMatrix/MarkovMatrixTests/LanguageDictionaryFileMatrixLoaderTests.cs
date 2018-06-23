@@ -10,20 +10,6 @@ namespace MarkovMatrices.Tests
 {
     public class LanguageDictionaryFileMatrixLoaderTests
     {
-        [Fact]
-        public void GivenStringFirstLine_PerformLineTransformations_ShouldGetEmptyStrings()
-        {
-            // Arrange
-            string input = "Zarf";
-            string expectedOutput = string.Empty;
-            LanguageDictionaryFileMatrixLoader<ulong> languageDictionaryFileMatrixLoader = new LanguageDictionaryFileMatrixLoader<ulong>();
-
-            // Act
-            string actualOutput = languageDictionaryFileMatrixLoader.PerformLineTransformations(input, 0);
-
-            Assert.Equal(expectedOutput, actualOutput);
-        }
-
         [Theory]
         [InlineData("125472", "")]
         [InlineData("0/nm", "")]
@@ -60,10 +46,23 @@ namespace MarkovMatrices.Tests
         public void GivenString_PerformLineTransformations_ShouldGetFixedStrings(string input, string expectedOutput)
         {
             // Arrange
-            LanguageDictionaryFileMatrixLoader<ulong> languageDictionaryFileMatrixLoader = new LanguageDictionaryFileMatrixLoader<ulong>();
+            LanguageDictionaryFileMatrixLoader<ulong> languageDictionaryFileMatrixLoader = new LanguageDictionaryFileMatrixLoader<ulong>(false);
 
             // Act
-            string actualOutput = languageDictionaryFileMatrixLoader.PerformLineTransformations(input, 17);
+            string actualOutput = languageDictionaryFileMatrixLoader.PerformLineTransformations(input);
+
+            Assert.Equal(expectedOutput, actualOutput);
+        }
+
+        [Theory]
+        [InlineData("Àmérikaans/E", "amerikaans")]
+        public void GivenString_PerformLineTransformationsRemoveDiacritics_ShouldGetFixedStringsWithoutDiacritics(string input, string expectedOutput)
+        {
+            // Arrange
+            LanguageDictionaryFileMatrixLoader<ulong> languageDictionaryFileMatrixLoader = new LanguageDictionaryFileMatrixLoader<ulong>(true);
+
+            // Act
+            string actualOutput = languageDictionaryFileMatrixLoader.PerformLineTransformations(input);
 
             Assert.Equal(expectedOutput, actualOutput);
         }

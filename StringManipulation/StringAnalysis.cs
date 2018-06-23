@@ -34,13 +34,6 @@ namespace StringManipulation
             return character == ' ' || character == '\n' || character == '\t' || character == '\r' || Char.IsPunctuation(character) || punctuationChars.Contains(character);
         }
 
-        public static bool IsRomanNumeral(string line)
-        {
-            #warning Todo implement
-            #warning Todo add unit tests
-            throw new NotImplementedException();
-        }
-
         public static string GetIdenticalWordRegardlessPunctuation(string sourceWord, List<string> otherWords)
         {
             string sourceWordWithoutPunctuation = StringFormatter.RemovePunctuation(sourceWord).ToLowerInvariant().Replace(" ", "");
