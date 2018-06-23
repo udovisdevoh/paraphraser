@@ -1,0 +1,708 @@
+# https://sourceforge.net/projects/hunspell/files/Hunspell/Documentation/hunspell4.pdf/download
+# http://manpages.ubuntu.com/manpages/xenial/man5/hunspell.5.html
+# toute ligne commençant par ce signe dièse
+# est un commentaire ou une ligne désactivée mais gardée pour mémoire
+# SET : le codage des caractères doit IMPERATIVEMENT être en Unicode UTF-8
+SET UTF-8 
+# TRY : liste des lettres les plus fréquentes dans la langue, par ordre de fréquence.
+TRY aniklɛeobumysrɔtdgwfjAɲMcSNhKBOIDZpzTFUJPEHYLCGWŋƝRƐƆqvVxŊXQ
+# d'après étude Corpus aout 2013 : 
+#   selon le nombre de mots en concordance avec une lettre
+# V1.1 : TRY esntiaruloɔdcpmɛvqfgbhxjɲyŋMILzACPJFSBVRDGNETHXkOwKWYUQZ
+#   basé sur le clavier français, modifié avec qq lettres bambara (mais avec V?)
+# KEY : dispositions des lettres sur le clavier français-bambara, lettres les plus proches les unes des autres
+KEY azertyuiop|qsdfghjɲklmù|wxcvbnŋ|aéz|yèu|içoɔ|oɔàp|aqz|zseɛ|eɛdr|rft|tgy|yhu|ujɲi|ikoɔ|oɔlpm|qws|sxd|dcf|fvg|gbh|hnŋjɲ
+# WORDCHARS :  caractères qui font partie des mots à confronter au dic dans l'interface hunspell en ligne de commande
+WORDCHARS -'`ɛɔɲŋƐƆƝŊ
+# BREAK : où couper les mots entrés avant vérification dans le dic. ??? guillemets: ne marche pas
+BREAK 2
+BREAK -
+BREAK '
+# IGNORE : caractère qui peut être dans les mots du dic. mais qui sont à ignorer lorsque confrontés au mots entrés (?)
+IGNORE ́̀̌̂
+# REP : suggestions : lorsqu'un mot entré est absent du dic. construire une liste de suggestions en utilisant cette liste de remplacements.
+# Attention : le remplacement ne peut être fait qu'une fois 
+# par ex si l'on ne remplace qu'une lettre o->ɔ on peut proposer mogɔ -> mɔgɔ - mais on ne peut pas faire pas de proposition pour mogo ! )
+# S'il y a des paires de lettres ou plus il faut entrer toute la forme comme ci-dessous "ogo"-> "ɔgɔ" pour corriger mogo.
+REP 352
+REP a aa
+REP a an
+REP aa a
+REP aa aga
+REP aga aa
+REP allah ala
+REP Allah Ala
+REP an a
+REP anga an_ka
+REP allah ala
+REP assa asa
+REP baou bawo
+REP bé bɛɛ
+REP bè bɛɛ
+REP bélébélé bɛlɛbɛlɛ
+REP bèlèbèlè bɛlɛbɛlɛ
+REP bl bil
+REP bl bul
+REP blè bilɛ
+REP ɔ ɔɔ
+REP ɔ ɔn
+REP c k
+REP ɔ o
+REP ɔɔ ɔ
+REP ɔɔ oo
+REP ɔgɔ ogo
+REP ɔlɔ olo
+REP ɔmɔ omo
+REP ɔn ɔ
+REP charia sariya
+REP cono kɔnɔ
+REP cou ku
+REP ɔrɔ oro
+REP ɔsɔ oso
+REP dôgôkoun dɔgɔkun
+REP dɔɔni dɔɔnin
+REP di j
+REP dine diɲɛ
+REP dj j
+REP djè jɛ
+REP djaman caman
+REP djien diɲɛ
+REP djigui jigi
+REP djidja jija
+REP djo jɔ
+REP djougou jugu
+REP djouman jumɛn
+REP djoumèn jumɛn
+REP djouroumou jurumu
+REP dokotoro dɔkɔtɔrɔ
+REP dòkòtòrò dɔkɔtɔrɔ
+REP dôkôtôrô dɔkɔtɔrɔ
+REP donguili dɔnkili
+REP dòoni dɔɔnin
+REP dôoni dɔɔnin
+REP dôni-dôni dɔɔnin-dɔɔnin
+REP douaw dugawu
+REP douawou dugawu
+REP douahou dugawu
+REP douwawou dugawu
+REP dowèrè dɔwɛrɛ
+REP dowèrè dɔ_wɛrɛ
+REP drôn dɔrɔn
+REP dron dɔrɔn
+REP duguma dugu_ma
+REP é e
+REP ɛ e
+REP e ɛ
+REP é ɛ
+REP è ɛ
+REP ê ɛ
+REP ë ɛ
+REP e ee
+REP ɛ ɛɛ
+REP e en
+REP é en
+REP ê en
+REP ɛ ɛn
+REP ɛbɛ ebe
+REP ebe ɛbɛ
+REP ébé ɛbɛ
+REP èbè ɛbɛ
+REP ee e
+REP ɛɛ ɛ
+REP ɛɛ ee
+REP ee ɛɛ
+REP ée ɛɛ
+REP èe ɛɛ
+REP éé ɛɛ
+REP èè ɛɛ
+REP êe ɛɛ
+REP êê ɛɛ
+REP ëë ɛɛ
+REP ɛgɛ ege
+REP ege ɛgɛ
+REP ègè ɛgɛ
+REP èguè ɛgɛ
+REP ɛkɛ eke
+REP eke ɛkɛ
+REP èkè ɛkɛ
+REP èkè ɛgɛ
+REP ele ɛlɛ
+REP èlè ɛlɛ
+REP êlê ɛlɛ
+REP ɛmɛ eme
+REP eme ɛmɛ
+REP émé ɛmɛ
+REP èmè ɛmɛ
+REP en e
+REP en n
+REP ɛn ɛ
+REP èn ɛn
+REP èn ɛnn
+REP ɛnɛ ene
+REP ene ɛnɛ
+REP éné ɛnɛ
+REP ènè ɛnɛ
+REP ènyè ɛɲɛ
+REP enye eɲɛ
+REP enye ɛɲɛ
+REP ɛrɛ ere
+REP ere ɛrɛ
+REP éré ɛrɛ
+REP èrè ɛrɛ
+REP ɛsɛ ese
+REP ɛssɛ ɛsɛ
+REP ese ɛsɛ
+REP ésé ɛsɛ
+REP èsè ɛsɛ
+REP èssè ɛsɛ
+REP esse ɛsɛ
+REP éssé ɛsɛ
+REP famou faamu
+REP fiyewu fyewu
+REP fiyewu fewu
+REP fl fil
+REP fl ful
+REP fòhi foyi
+REP fohi foyi
+REP franci faransi
+REP garsèguè garisɛgɛ
+REP gn ɲ
+REP gnèfô ɲɛfɔ
+REP gnèfo ɲɛfɔ
+REP gnôgôn ɲɔgɔn
+REP gnôgon ɲɔgɔn
+REP gnokon ɲɔgɔn
+REP gnouman ɲuman
+REP gu g
+REP gu gw
+REP guelen gɛlɛn
+REP guèlè gwɛlɛ
+REP halibi hali_bi
+REP hin in
+REP hu wu
+REP i ii
+REP i in
+REP i u
+REP ii i
+REP in i
+REP iri iiri
+REP issi isi
+REP i_nafô inafɔ
+REP j z
+REP jèguè jɛgɛ
+REP k g
+REP kalama kala_ma
+REP kanyi ka_ɲi
+REP kassoro ka_a_sɔrɔ
+REP kassôrô ka_a_sɔrɔ
+REP kelenpe kelen_pe
+REP kɛnɛma kɛnɛ_ma
+REP kɛɲe kɛnyɛ
+REP kɛɲɛ Kɛnyɛ
+REP km kum
+REP kôlôssi kɔlɔsi
+REP kôrôbôrô kɔrɔbɔrɔ
+REP kossèbè kosɛbɛ
+REP kossobè kosɔbɛ
+REP kounou kunu
+REP l d
+REP la lan
+REP lakôlôn lankolon
+REP lakolòn lankolon
+REP lankôlo lankolon
+REP le len
+REP len nen
+REP lou lu
+REP massôrô masɔrɔ
+REP mb nb
+REP mou mun
+REP mougnou muɲu
+REP n nn
+REP b nb
+REP nb b
+REP c nc
+REP nc c
+REP d nd
+REP nd d
+REP f nf
+REP nf f
+REP g ng
+REP ng g
+REP k nk
+REP nk k
+REP p np
+REP np p
+REP s ns
+REP ns s
+REP t nt
+REP nt t
+REP w nw
+REP nw w
+REP nw ŋ
+REP w ɲw
+REP ɲw w
+REP z nz
+REP nz z
+REP mb nb
+REP mf nf
+REP mm nm
+REP ɲk nk
+REP ɲj nj
+REP ɲ ŋ
+REP ng ŋ
+REP ŋ ng
+REP nen len
+REP ni ɲ
+REP ni nin
+REP niè ɲɛ
+REP nié ɲɛ
+REP niê ɲɛ
+REP niogon ɲɔgɔn
+REP niongo ɲɔgɔn
+REP niongon ɲɔgɔn
+REP nn n
+REP nnn nn
+REP nou nu
+REP nounou ninnu
+REP ny ɲ
+REP nyè ɲɛ
+REP nyé ɲɛ
+REP nyê ɲɛ
+REP nyë ɲɛ
+REP nyi ɲ
+REP nyiè ɲɛ
+REP nyié ɲɛ
+REP nyiê ɲɛ
+REP nyò ɲɔ
+REP nyô ɲɔ
+REP nyö ɲɔ
+REP nyongo ɲɔgɔn
+REP ŋ ɲ
+REP o ɔ
+REP ò ɔ
+REP ô ɔ
+REP ö ɔ
+REP o on
+REP o oo
+REP ôfô ɔfɔ
+REP ogo ɔgɔ
+REP ògò ɔgɔ
+REP ôgô ɔgɔ
+REP olo ɔlɔ
+REP ôlô ɔlɔ
+REP olou olu
+REP omo ɔmɔ
+REP ômô ɔmɔ
+REP òn ɔn
+REP òn ɔnn
+REP on o
+REP ono ɔnɔ
+REP ônô ɔnɔ
+REP onsso onso
+REP onyo oɲo
+REP onyo ɔɲɔ
+REP ònyò ɔɲɔ
+REP ônyô ɔɲɔ
+REP oo ɔɔ
+REP òo ɔɔ
+REP ôo ɔɔ
+REP öo ɔɔ
+REP òò ɔɔ
+REP ôô ɔɔ
+REP öö ɔɔ
+REP oo o
+REP oro ɔrɔ
+REP òrò ɔrɔ
+REP ôrô ɔrɔ
+REP oso ɔsɔ
+REP ôsô ɔsɔ
+REP ou u
+REP ou w
+REP ouere wɛrɛ
+REP ougou ugu
+REP oulou ulu
+REP oumou umu
+REP ounou unu
+REP ourou uru
+REP ourou uuru
+REP ousou usu
+REP oussou usu
+REP outou utu
+REP ouss us
+REP owo ɔwɔ
+REP qu kw
+REP rf rif
+REP sabula sabu_la
+REP sh s
+REP sr sir
+REP ss s
+REP ʃ sh
+REP ségui segi
+REP sèguè sɛgɛ
+REP senkan sen_kan
+REP somogô somɔgɔ
+REP somogo somɔgɔ
+REP somôgo somɔgɔ
+REP sounôgô sunɔgɔ
+REP tch c
+REP tchaama caman
+REP tchaaman caman
+REP tchè cɛ
+REP tchedjugu cɛjugu
+REP tchedjougou cɛjugu
+REP tchèdjugu cɛjugu
+REP tchèdjougou cɛjugu
+REP tchèssiri cɛsiri
+REP tchignè tiɲɛ
+REP tèmi tɛmɛ
+REP ti c
+REP tiama caman
+REP tiè cɛ
+REP tignin tiɲɛ
+REP tiguè tigɛ
+REP tj c
+REP tl til
+REP tl tul
+REP u i
+REP u un
+REP u uu
+REP ul ol
+REP un u
+REP ussu usu
+REP uu u
+REP v w
+REP wouari wari
+REP wu w
+REP yi ji
+REP youroukou yuruku
+REP kènèma kɛnɛ_ma
+REP dougouma dugu_ma
+# plus de REP : faire des recherches dans le Corpus ! et dans le courrier!
+#########################################
+# RECAP : LISTE DES FLAGS
+# z : PREFIXES VERBAUX
+# P : SUFFIXE DU PLURIEL
+# T : SUFFIXE DE l'article tonal (défini)
+# V : SUFFIXES DES VERBES
+# Q : SUFFIXES DES VERBES QUALITATIFS
+# N : SUFFIXES DES NOMS
+# A : SUFFIXES DES ADJ
+# M : SUFFIXES DES NUM
+# y : SUFFIXE DES NOMS PROPRES DE LIEU
+# j : SUFFIXE DES NOMS PROPRES DE PERSONNES
+# n : SUFFIXE MARQUANT masculin, féminin
+# X : COMPOSITION : DEBUT
+# Y : COMPOSITION : MILIEU
+# Z : COMPOSITION : FIN
+# a : COMPOSITION : affixe autorisé à l'intérieur d'une composition
+# i : COMPOSITION : affixe interdit à l'intérieur d'une composition
+#########################################
+# COMPOSITION
+COMPOUNDMIN 2
+COMPOUNDBEGIN X
+COMPOUNDMIDDLE Y
+COMPOUNDEND Z
+COMPOUNDPERMITFLAG a
+COMPOUNDFORBIDFLAG i
+#########################################
+# PREFIXES VERBAUX
+# la-/na- 	: CAUS
+# other prefixes belong to closed derivation classes (Andrij)
+#  ma-	: SUPER
+#  man-	: SUPER
+#  ra-	: IN
+#  rɔ-	: IN
+#  sɔ-	: EN
+# ils ont été rajoutés 
+# pour permettre la composition verbale N+prefixe+V ex : ɲɛmadògo
+# yɛrɛ : ajouté pour pallier aux règles de composition
+# NB : préfixes sans ton pour le moment (sauf yɛ̀rɛ)
+PFX z Y 9
+PFX z 0 la/Y .
+PFX z 0 na/Y .
+PFX z 0 ma/Y .
+PFX z 0 man/Y .
+PFX z 0 ra/Y .
+PFX z 0 rɔ/Y .
+PFX z 0 sɔ/Y .
+PFX z 0 yɛrɛ .
+PFX z 0 yɛ̀rɛ .
+#########################################
+# SUFFIXES
+#  flag P : SUFFIXE DU PLURIEL
+# nb : les formes en -lu/-nu sont toutes lexicalisées
+SFX P Y 1
+SFX P 0 w .
+#  flag T : SUFFIXE DE l'article tonal (défini)
+SFX T Y 1
+SFX T 0 ` .
+#########################################
+#  flag V : SUFFIXES VERBAUX
+#    - suffixes du perfectif intransitif : 
+#      la na ra et formes avec assimilation l n r
+#    - les suffixes qui dérivent les V en N ou ADJ
+#      ont la marque pluriel ou défini : flags P et T. 
+#      Seuls -ma (DIR) et -ya (ABSTR) dérivent de V en V
+#    - suffixes combinés 1 :
+#	 La liste des dérivations combinées possibles (étude de VV)
+#      a été vérifiée en août 2013. Sur plus de 500 seules les 9 suivantes
+#      sont attestées dans le corpus : baanci, baanciya, baganci, baganciya,
+# 		balima, laka, lama, ɲɔgɔnma, tanci
+#		Curieusement, aucun n'était dans les listes précédentes.
+#    - suffixes combinés 2 : liste de la v1.0 épurée
+#	 Epurée des « dérivations interdites » (étude V.V.)
+#      cette liste a été conservée malgré l'étude Corpus (à partir de baganin)
+#    - attention : -la/na déclaré deux fois : PERF / AG.PRM / MNT1
+#    - NB : -yɔrɔ, -tuma, -kun à supprimer si composition OK
+#
+SFX V Y 95
+SFX V 0 la [lr][aeiouɛɔ]
+SFX V 0 na [mnŋɲ][aeiouɛɔ]
+SFX V 0 na [aeiouɛɔ]n
+SFX V 0 na nyɛ
+SFX V 0 na nya
+SFX V 0 ra [^lrmnŋɲ][aeiouɛɔ]
+SFX V 0 l [lr][aeiouɛɔ]
+SFX V 0 n [mnŋɲ][aeiouɛɔ]
+SFX V 0 n [aeiouɛɔ]n
+SFX V 0 r [^lrmnŋɲ][aeiouɛɔ]
+SFX V 0 baga/aPT .	
+SFX V 0 baa/aPT .	
+SFX V 0 bali/aPT .	
+SFX V 0 baatɔ/PT .	
+SFX V 0 len/aPT [^n]	
+SFX V 0 nen/aPT n	
+SFX V 0 nen/aPT [mnŋɲ][aeiouɛɔ]
+SFX V 0 nen/aPT nyɛ
+SFX V 0 nen/aPT nya
+SFX V 0 la/PT [^n]	
+SFX V 0 na/PT n
+SFX V 0 na/PT [mnŋɲ][aeiouɛɔ]
+SFX V 0 na/PT nyɛ
+SFX V 0 na/PT nya
+SFX V 0 lan/aPT [^n]	
+SFX V 0 nan/aPT n
+SFX V 0 nan/aPT [mnŋɲ][aeiouɛɔ]
+SFX V 0 nan/aPT nyɛ
+SFX V 0 nan/aPT nya
+SFX V 0 li/aPT [^n]	
+SFX V 0 ni/aPT n
+SFX V 0 ni/aPT [mnŋɲ][aeiouɛɔ]
+SFX V 0 ni/aPT nyɛ
+SFX V 0 ni/aPT nya
+SFX V 0 lata/PT [^n]	
+SFX V 0 nata/PT n
+SFX V 0 nata/PT [mnŋɲ][aeiouɛɔ]
+SFX V 0 nata/PT nyɛ
+SFX V 0 nata/PT nya
+SFX V 0 ma .	
+SFX V 0 nci/aPT .	
+SFX V 0 ɲɔgɔn/aPT .	
+SFX V 0 ta/aPT .	
+SFX V 0 tɔ/aPT .	
+SFX V 0 tɔla/PT .	
+SFX V 0 ya/a .	
+SFX V 0 baanci/PT .
+SFX V 0 baanciya/PT .
+SFX V 0 baganci/PT .
+SFX V 0 baganciya .
+SFX V 0 balima .
+SFX V 0 laka/PT .
+SFX V 0 lama .
+SFX V 0 ɲɔgɔnma .
+SFX V 0 tanci/PT .
+SFX V 0 baganin/PT .	
+SFX V 0 bagaba/PT .	
+SFX V 0 bagaya/PT .	
+SFX V 0 baanin/PT .	
+SFX V 0 baaba/PT .	
+SFX V 0 baaya/PT .	
+SFX V 0 balinin/PT .	
+SFX V 0 baliba/PT .	
+SFX V 0 baliya/PT .	
+SFX V 0 lennin/PT [^n]	
+SFX V 0 nennin/PT n	
+SFX V 0 lenba/PT [^n]	
+SFX V 0 nenba/PT n
+SFX V 0 nenba/PT [mnŋɲ][aeiouɛɔ]
+SFX V 0 nenba/PT nyɛ
+SFX V 0 nenba/PT nya
+SFX V 0 lenya/PT [^n]	
+SFX V 0 nenya/PT n
+SFX V 0 nenya/PT [mnŋɲ][aeiouɛɔ]
+SFX V 0 nenya/PT nyɛ
+SFX V 0 nenya/PT nya
+SFX V 0 lannin/PT [^n]	
+SFX V 0 lanba/PT [^n]	
+SFX V 0 lanya/PT [^n]	
+SFX V 0 nanin/PT n	
+SFX V 0 nanba/PT n	
+SFX V 0 nanya/PT n	
+SFX V 0 lanin/PT [^n]	
+SFX V 0 laba/PT [^n]	
+SFX V 0 nanin/PT n	
+SFX V 0 naba/PT n	
+SFX V 0 linin/PT [^n]	
+SFX V 0 liba/PT [^n]	
+SFX V 0 ninin/PT n	
+SFX V 0 niba/PT n	
+SFX V 0 ɲɔgɔnnin/PT .	
+SFX V 0 ɲɔgɔnba/PT .	
+SFX V 0 ɲɔgɔnya/PT .	
+SFX V 0 taya/PT .	
+SFX V 0 tɔya/PT .	
+#########################################
+#  flag Q : SUFFIXES DES VERBES QUALITATIFS
+#     - liste des suffixes combinés revue à partir de l'étude de V.V
+#	  à vérifier par rapport au Corpus
+#	- formes nasalisées à vérifier : mannen, mannennin, mannenba...
+#     - cette dérivation ne produit pas que des N ou ADJ : 
+#	    -ya produit des N ou des V
+#	    -man produit des ADJ
+#         donc /PT (pluriel, défini) trop large pour la dérivation DEQU en -ya
+#         et dérivations verbales possibles 
+#           (mais seulement dans ce cas càd après -ya) ???
+#     Rappel : dans Bamadaba, certains VQ sont de ps=vq/adj. 
+#              Dans le dic. ceux-ci sont dédoublés en VQ et en ADJ
+#              avec les flags correspondants : VQ:Q ADJ:APTYZ
+SFX Q Y 39
+SFX Q 0 ya/aPT .
+SFX Q 0 man/aPT .
+SFX Q 0 yabali/PT .
+SFX Q 0 yalen/PT .
+SFX Q 0 yata/PT .
+SFX Q 0 yatɔ/PT .
+SFX Q 0 yanci/PT .
+SFX Q 0 yanin/PT .
+SFX Q 0 yaba/PT .
+SFX Q 0 yabalinin/PT .
+SFX Q 0 yabaliba/PT .
+SFX Q 0 yalennin/PT .
+SFX Q 0 yalenba/PT .
+SFX Q 0 yatanin/PT .
+SFX Q 0 yataba/PT .
+SFX Q 0 yatɔnin/PT .
+SFX Q 0 yatɔba/PT .
+SFX Q 0 yancinin/PT .
+SFX Q 0 yanciba/PT .
+SFX Q 0 manbali/PT .
+SFX Q 0 manlen/PT .
+SFX Q 0 mannen/PT .
+SFX Q 0 manta/PT .
+SFX Q 0 mantɔ/PT .
+SFX Q 0 mannci/PT .
+SFX Q 0 mannin/PT .
+SFX Q 0 manba/PT .
+SFX Q 0 manbalinin/PT .
+SFX Q 0 manbaliba/PT .
+SFX Q 0 manlennin/PT .
+SFX Q 0 manlenba/PT .
+SFX Q 0 mannennin/PT .
+SFX Q 0 mannenba/PT .
+SFX Q 0 mantanin/PT .
+SFX Q 0 mantaba/PT .
+SFX Q 0 mantɔnin/PT .
+SFX Q 0 mantɔba/PT .
+SFX Q 0 manncinin/PT .
+SFX Q 0 mannciba/PT .
+#########################################
+#  flag N : SUFFIXES DES NOMS
+#      - liste des suffixes combinés établie d'après 
+#        la liste des dérivations possibles (VV)
+#        et leur existence ou non dans le Corpus (juin 2013)
+#      - Ajouté quelques dérivations existantes en -XXXyaba
+SFX N Y 50
+SFX N 0 la/aPT [^n]	
+SFX N 0 na/aPT n
+SFX N 0 na/aPT [mnŋɲ][aeiouɛɔ]
+SFX N 0 na/aPT nyɛ
+SFX N 0 na/aPT nya
+SFX N 0 lama/aPT [^n]	
+SFX N 0 nama/aPT n	
+SFX N 0 nama/aPT [mnŋɲ][aeiouɛɔ]
+SFX N 0 nama/aPT nyɛ
+SFX N 0 nama/aPT nya
+SFX N 0 landi/aPT .	
+SFX N 0 lango/aPT .
+SFX N 0 lata/aPT [^n]	
+SFX N 0 nata/aPT n
+SFX N 0 nata/aPT [mnŋɲ][aeiouɛɔ]
+SFX N 0 nata/aPT nyɛ
+SFX N 0 nata/aPT nya
+SFX N 0 mandi/aPT .	
+SFX N 0 mango/aPT .
+SFX N 0 ma/aPT .	
+SFX N 0 ntan/aPT .	
+SFX N 0 nci/aPT .	
+SFX N 0 tɔ/aPT .	
+SFX N 0 ɲɔgɔn/aPT .	
+SFX N 0 nin/aPT .	
+SFX N 0 ba/aPT .	
+SFX N 0 ya/aPT .	
+SFX N 0 baya/PT .
+SFX N 0 ninba/PT .
+SFX N 0 ninya/PT .
+SFX N 0 kaba/PT .
+SFX N 0 kaya/PT .
+SFX N 0 ncinin/PT .
+SFX N 0 nciba/PT .
+SFX N 0 nciya/PT .
+SFX N 0 nciyaba/PT .
+SFX N 0 laka/PT .
+SFX N 0 lanin/PT .
+SFX N 0 laba/PT .
+SFX N 0 mandiya/PT .
+SFX N 0 manin/PT .
+SFX N 0 maba/PT .
+SFX N 0 maya/PT .
+SFX N 0 mayaba/PT .
+SFX N 0 mancinin/PT .
+SFX N 0 manciya/PT .
+SFX N 0 ntannin/PT .
+SFX N 0 ntanba/PT .
+SFX N 0 ntanya/PT .
+SFX N 0 ntanbaya/PT .
+#########################################
+# flag A : dérivations des ADJ
+#       - ABSTR -ya = noms des qualités
+#       - ajouté -nci par rapport à la v1.0 (source instr_fr Corbama)
+#       - Rappel : s'applique aux ADJ primaires et au VQ qui sont aussi ADJ
+#       - dérivations combinées : selon Etude de VV, à tester avec le Corpus
+#       - les dérivations en ya produisent aussi des V : /PT abusif dans ce cas
+#         et autres dérivations verbales possibles non supportées ici...
+SFX A Y 11
+SFX A 0 nin/aPT .
+SFX A 0 ba/aPT .
+SFX A 0 ya/aPT .
+SFX A 0 nci/aPT .
+SFX A 0 ninya/aPT .
+SFX A 0 baya/aPT .
+SFX A 0 ncinin/aPT .
+SFX A 0 nciba/aPT .
+SFX A 0 ncininya/aPT .
+SFX A 0 ncibaya/aPT .
+SFX A 0 nciya/aPT .
+#########################################
+# flag M : dérivation des NUM
+#        - nan : ORD
+#        - la/na : PRICE
+SFX M N 4
+SFX M 0 nan/PT .
+SFX M 0 la/PT [^n]
+SFX M 0 na/PT n
+SFX M 0 nan [0-9]
+#########################################
+# flag y : SUFFIXE DES NOMS PROPRES DE LIEU yɔrɔw + yan yen
+SFX y Y 1
+SFX y 0 ka/PT .
+#########################################
+# flag j : SUFFIXE DES NOMS PROPRES DE PERSONNES
+# jamuw ani tɔgɔw
+SFX j Y 1
+SFX j 0 la/PT .
+#########################################
+# flag n : SUFFIXE MARQUANT masculin, féminin - cf composition !
+SFX n Y 3
+SFX n 0 kɛ/PT .
+SFX n 0 cɛ/PT .
+SFX n 0 muso/PT . 
