@@ -79,5 +79,20 @@ namespace ParaphraserMath.Tests
             // Assert
             Assert.Equal(Math.Round(expectedStandardDeviation, 3), Math.Round(actualStandardDeviation, 3));
         }
+
+        [Fact]
+        public void GivenDoubles_MostVariantSet_ShouldHaveGreaterStandardVariation()
+        {
+            // Arrange
+            double[] numbersLeastVariant = new double[] { 1.0, 2.5, 10.1, -0.5 };
+            double[] numbersMostVariant = new double[] { 2.0, 3.5, 100.1, -0.50 };
+
+            // Act
+            double actualStandardDeviationLeastVariant = MatrixMathHelper.GetStandardDeviation(numbersLeastVariant);
+            double actualStandardDeviationMostVariant = MatrixMathHelper.GetStandardDeviation(numbersMostVariant);
+
+            // Assert
+            Assert.True(actualStandardDeviationMostVariant > actualStandardDeviationLeastVariant);
+        }
     }
 }

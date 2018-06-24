@@ -23,6 +23,7 @@ namespace LanguageDetectorApp
         {
             const string matricesDirectory = "./Matrices/";
             Bootstrap bootstrap = new Bootstrap();
+            //this.languageDetector = bootstrap.BuildCompositeLanguageDetector();
             this.languageDetector = bootstrap.BuildLanguageDetector();
 
             IMarkovMatrixLoader<double> binaryMarkovMatrixLoader = bootstrap.BuildBinaryMarkovMatrixLoader();

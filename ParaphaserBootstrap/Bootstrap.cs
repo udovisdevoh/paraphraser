@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using LanguageDetection;
 using MarkovMatrices;
+using StringManipulation;
 using Unity;
 using Unity.Resolution;
 
@@ -20,6 +21,29 @@ namespace ParaphaserBootstrap
             IMarkovMatrixLoader<double> normalizedLanguageDetectionMatrixLoader = new NormalizedTextMarkovMatrixLoader(languageDetectionMatrixLoader, markovMatrixNormalizer);
 
             LanguageDetector languageDetector = new LanguageDetector(normalizedLanguageDetectionMatrixLoader);
+
+            return languageDetector;
+        }
+
+        public ILanguageDetector BuildCompositeLanguageDetector()
+        {
+            CompositeLanguageDetector compositeLanguageDetector = new CompositeLanguageDetector();
+
+            compositeLanguageDetector.AddLanguageDetector(this.BuildLanguageDetector());
+            compositeLanguageDetector.AddLanguageDetector(this.BuildLanguageDetectorNoDiacritics());
+
+            return compositeLanguageDetector;
+        }
+
+        public ILanguageDetector BuildLanguageDetectorNoDiacritics()
+        {
+            IMarkovMatrixLoader<ulong> languageDetectionMatrixLoader = new TextMarkovMatrixLoader();
+            IMarkovMatrixNormalizer markovMatrixNormalizer = new MarkovMatrixNormalizer();
+
+            IMarkovMatrixLoader<double> normalizedLanguageDetectionMatrixLoader = new NormalizedTextMarkovMatrixLoader(languageDetectionMatrixLoader, markovMatrixNormalizer);
+            IMarkovMatrixTransformer markovMatrixCharacterCombiner = new MarkovMatrixCharacterCombiner(letter => StringFormatter.RemoveDiacritics(letter));
+
+            LanguageDetector languageDetector = new LanguageDetectorNoDiacritics(normalizedLanguageDetectionMatrixLoader, markovMatrixCharacterCombiner);
 
             return languageDetector;
         }

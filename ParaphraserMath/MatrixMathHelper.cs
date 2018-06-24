@@ -9,6 +9,8 @@ namespace ParaphraserMath
 {
     public static class MatrixMathHelper
     {
+        public delegate double MatrixComparer(double probability1, double probability2);
+
         private const int sixteenBitsMaxValue = 65536;
 
         public static uint CombineChars(char fromChar, char toChar)
@@ -28,6 +30,13 @@ namespace ParaphraserMath
 
         public static double GetDotProduct(IMarkovMatrix<double> smallMatrix, IMarkovMatrix<double> largeMatrix)
         {
+            return MatrixMathHelper.Compare(smallMatrix, largeMatrix, (probability1, probability2) => probability1 * probability2);
+        }
+
+        public static double Compare(IMarkovMatrix<double> smallMatrix, IMarkovMatrix<double> largeMatrix, MatrixComparer matrixComparer)
+        {
+            #warning Add unit tests
+
             double dotProduct = 0.0;
 
             foreach (KeyValuePair<Tuple<char, char>, double> charsAndProbability in smallMatrix)

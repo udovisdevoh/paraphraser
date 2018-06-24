@@ -66,3 +66,6 @@
 /ParaphaserBootstrap/.vs
 /ParaphaserBootstrap/bin
 /ParaphaserBootstrap/obj
+/SpellChecking/SpellCheckingTests/bin
+/SpellChecking/SpellCheckingTests/obj
+/SpellChecking/SpellCheckingInterfaces/bin

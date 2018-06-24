@@ -37,23 +37,24 @@ namespace LanguageDetection
                 throw new InvalidOperationException("The composite language detector must contain at least one language detector. Use AddLanguageDetector() first");
             }
 
-            double minimumVariance = double.MaxValue;
-            KeyValuePair<string, double>[] leastVarianceLanguageProximities = null;
+            double maximumStandardDeviation = double.MinValue;
+            KeyValuePair<string, double>[] largestStandardDeviationProximities = null;
 
             foreach (ILanguageDetector currentLanguageDetector in this.languageDetectors)
             {
                 KeyValuePair<string, double>[] languageProximities = currentLanguageDetector.GetLanguageProximities(text);
 
-                double currentVariance = MatrixMathHelper.GetStandardDeviation(languageProximities.Select(keyValuePair => keyValuePair.Value).ToArray());
+                double currentStandardDeviation = MatrixMathHelper.GetStandardDeviation(languageProximities.Select(keyValuePair => keyValuePair.Value).ToArray());
+                //double currentStandardDeviation = languageProximities[0].Value;
 
-                if (currentVariance < minimumVariance || leastVarianceLanguageProximities == null)
+                if (currentStandardDeviation > maximumStandardDeviation || largestStandardDeviationProximities == null)
                 {
-                    leastVarianceLanguageProximities = languageProximities;
-                    minimumVariance = currentVariance;
+                    largestStandardDeviationProximities = languageProximities;
+                    maximumStandardDeviation = currentStandardDeviation;
                 }
             }
 
-            return leastVarianceLanguageProximities;
+            return largestStandardDeviationProximities;
         }
     }
 }
