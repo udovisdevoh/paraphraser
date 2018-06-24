@@ -18,7 +18,7 @@ namespace LanguageMatrixConstruction
         {
             Bootstrap bootstrap = new Bootstrap();
 
-            const string sampleTextDirectory = "./LanguageSamples/";
+            const string sampleTextDirectory = "./LanguageSamplesText/";
             const string outputMatrixDirectory = "./";
 
             ILanguageMatrixBuilder languageMatrixBuilder = bootstrap.BuildLanguageMatrixBuilder();

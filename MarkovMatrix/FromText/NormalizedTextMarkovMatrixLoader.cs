@@ -29,5 +29,18 @@ namespace MarkovMatrices
             IMarkovMatrix<double> normalizedMatrix = this.markovMatrixNormalizer.Normalize(markovMatrix);
             return normalizedMatrix;
         }
+
+        public IMarkovMatrix<double> LoadMatrix(string text)
+        {
+            #warning Add unit tests
+
+            MemoryStream stream = new MemoryStream();
+            StreamWriter writer = new StreamWriter(stream);
+            writer.Write(text);
+            writer.Flush();
+            stream.Position = 0;
+
+            return this.LoadMatrix(stream);
+        }
     }
 }

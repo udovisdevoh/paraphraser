@@ -11,5 +11,7 @@ namespace MarkovMatrices
         where T : struct
     {
         IMarkovMatrix<T> LoadMatrix(Stream inputStream);
+
+        IMarkovMatrix<T> LoadMatrix(string text);
     }
 }

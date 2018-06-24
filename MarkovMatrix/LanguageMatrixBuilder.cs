@@ -1,4 +1,5 @@
 ﻿using MarkovMatrices;
+using StringManipulation;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -52,11 +53,13 @@ namespace MarkovMatrices
 
         private IMarkovMatrix<double> BuildLanguageMatrix(string inputFile)
         {
+            string text = File.ReadAllText(inputFile);
+
+            text = text.ToLowerInvariant();
+            text = StringFormatter.RemoveDoubleTabsSpacesAndEnters(text);
+
             IMarkovMatrix<double> matrix;
-            using (FileStream fileStream = File.Open(inputFile, FileMode.Open))
-            {
-                matrix = this.normalizedTextMarkovMatrixLoader.LoadMatrix(fileStream);
-            }
+            matrix = this.normalizedTextMarkovMatrixLoader.LoadMatrix(text);
             return matrix;
         }
     }

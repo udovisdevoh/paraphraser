@@ -29,5 +29,10 @@ namespace MarkovMatrices
 
             return markovMatrix;
         }
+
+        public IMarkovMatrix<double> LoadMatrix(string text)
+        {
+            throw new NotSupportedException();
+        }
     }
 }

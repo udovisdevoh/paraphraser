@@ -51,5 +51,16 @@ namespace MarkovMatrices
         {
             return line;
         }
+
+        public IMarkovMatrix<ulong> LoadMatrix(string text)
+        {
+            MemoryStream stream = new MemoryStream();
+            StreamWriter writer = new StreamWriter(stream);
+            writer.Write(text);
+            writer.Flush();
+            stream.Position = 0;
+
+            return this.LoadMatrix(stream);
+        }
     }
 }

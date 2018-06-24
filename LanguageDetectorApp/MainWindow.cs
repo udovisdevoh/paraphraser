@@ -50,7 +50,10 @@ namespace LanguageDetectorApp
         {
             string text = this.textBoxInput.Text;
 
-            text = StringFormatter.FormatInputText(StringFormatter.RemovePunctuation(text.ToLowerInvariant()));
+            text = text.ToLowerInvariant();
+            text = StringFormatter.RemoveDoubleTabsSpacesAndEnters(text);
+            //text = StringFormatter.RemovePunctuation(text);
+            //text = StringFormatter.FormatInputText(text);
 
             KeyValuePair<string, double>[] languageProximities = this.languageDetector.GetLanguageProximities(text);
 

@@ -62,7 +62,7 @@ namespace LanguageDetection
                 string languageName = nameAndLanguageMatrix.Key;
                 IMarkovMatrix<double> languageMatrix = nameAndLanguageMatrix.Value;
                 //double proximity = MatrixMathHelper.GetDotProduct(inputMatrix, languageMatrix);
-                double proximity = MatrixMathHelper.Compare(inputMatrix, languageMatrix, (value1, value2) => Math.Abs(value1 - value2));
+                double proximity = MatrixMathHelper.GetDotProduct(inputMatrix, languageMatrix);
 
                 languageProximities.Add(new KeyValuePair<string, double>(languageName, proximity));
             }

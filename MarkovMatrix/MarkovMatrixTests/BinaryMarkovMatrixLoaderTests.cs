@@ -25,7 +25,6 @@ namespace MarkovMatrices.Tests
 
             // Assert
             Assert.Equal(expectedInputCount, actualInputCount);
-
         }
 
         [Fact]
@@ -58,6 +57,20 @@ namespace MarkovMatrices.Tests
 
             // Assert
             Assert.Equal(expectedOccurrence, actualOccurence);
+        }
+
+        [Fact]
+        public void GivenText_LoadMatrix_ShouldThrow()
+        {
+            // Arrange
+            string text = "zarf";
+            BinaryMarkovMatrixLoader binaryMarkovMatrixLoader = new BinaryMarkovMatrixLoader();
+
+            // Act, Assert
+            Assert.Throws<NotSupportedException>(() =>
+            {
+                IMarkovMatrix<double> markovMatrix = binaryMarkovMatrixLoader.LoadMatrix(text);
+            });
         }
     }
 }
