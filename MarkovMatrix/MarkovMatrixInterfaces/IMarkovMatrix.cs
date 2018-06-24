@@ -13,7 +13,5 @@ namespace MarkovMatrices
         T GetSum(char fromChar);
 
         T GetOccurrence(char fromChar, char toChar);
-
-        bool ContainsFromChar(char fromChar);
     }
 }

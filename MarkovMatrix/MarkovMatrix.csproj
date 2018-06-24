@@ -69,6 +69,7 @@
     <Compile Include="FromText\LanguageDictionaryFileMatrixLoader.cs" />
     <Compile Include="LanguageMatrixBuilder.cs" />
     <Compile Include="MarkovMatrix.cs" />
+    <Compile Include="MarkovMatrixCharacterCombiner.cs" />
     <Compile Include="MarkovMatrixNormalizer.cs" />
     <Compile Include="FromText\NormalizedTextMarkovMatrixLoader.cs" />
     <Compile Include="FromText\TextMarkovMatrixLoader.cs" />

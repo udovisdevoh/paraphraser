@@ -65,5 +65,19 @@ namespace ParaphraserMath.Tests
             // Assert
             Assert.Equal(expectedDotProduct, actualDotProduct);
         }
+
+        [Fact]
+        public void GivenDoubles_GetStandardDeviation()
+        {
+            // Arrange
+            double[] numbers = new double[] { 1.0, 2.5, 10.1, -0.5 };
+            double expectedStandardDeviation = 4.71195288601234;
+
+            // Act
+            double actualStandardDeviation = MatrixMathHelper.GetStandardDeviation(numbers);
+
+            // Assert
+            Assert.Equal(Math.Round(expectedStandardDeviation, 3), Math.Round(actualStandardDeviation, 3));
+        }
     }
 }

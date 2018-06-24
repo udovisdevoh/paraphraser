@@ -112,12 +112,5 @@ namespace MarkovMatrices
 
             return sum;
         }
-
-        public bool ContainsFromChar(char fromChar)
-        {
-            #warning Add unit tests
-
-            return this.sumsFromChars.ContainsKey(fromChar);
-        }
     }
 }

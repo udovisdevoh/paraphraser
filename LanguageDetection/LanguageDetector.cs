@@ -36,11 +36,12 @@ namespace LanguageDetection
         public void AddLanguage(string name, IMarkovMatrix<double> languageMatrix)
         {
             name = StringFormatter.FormatLanguageName(name);
-            this.languages.Add(name, languageMatrix);
+            this.languages.Add(name, this.TransformMatrix(languageMatrix));
         }
 
         public string DetectLanguage(string text)
         {
+            text = this.TransformInput(text);
             return this.GetLanguageProximities(text)[0].Key;
         }
 
@@ -60,12 +61,22 @@ namespace LanguageDetection
             {
                 string languageName = nameAndLanguageMatrix.Key;
                 IMarkovMatrix<double> languageMatrix = nameAndLanguageMatrix.Value;
-                double proximity = MatrixMathHelper.GetDotProduct(inputMatrix, languageMatrix);// + MatrixMathHelper.GetFromCharOccurrenceSum(inputMatrix, languageMatrix);
+                double proximity = MatrixMathHelper.GetDotProduct(inputMatrix, languageMatrix);
 
                 languageProximities.Add(new KeyValuePair<string, double>(languageName, proximity));
             }
 
             return languageProximities.OrderByDescending(keyValuePair => keyValuePair.Value).ToArray();
+        }
+
+        public virtual string TransformInput(string text)
+        {
+            return text;
+        }
+
+        public virtual IMarkovMatrix<double> TransformMatrix(IMarkovMatrix<double> matrix)
+        {
+            return matrix;
         }
     }
 }

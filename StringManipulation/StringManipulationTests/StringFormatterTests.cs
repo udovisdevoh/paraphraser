@@ -54,6 +54,20 @@ namespace StringManipulation.Tests
         }
 
         [Fact]
+        public void GivenAccentedChar_RemoveDiacritics()
+        {
+            // Arrange
+            char accentedChar = 'Â';
+            char expectedCharWithoutAccents = 'A';
+
+            // Act
+            char actualCharWithoutAccents = StringFormatter.RemoveDiacritics(accentedChar);
+
+            // Assert
+            Assert.Equal(expectedCharWithoutAccents, actualCharWithoutAccents);
+        }
+
+        [Fact]
         public void GivenText_FixApostrophe()
         {
             // Arrange

@@ -58,6 +58,11 @@ namespace StringManipulation
             return stringBuilder.ToString();
         }
 
+        public static char RemoveDiacritics(char letter)
+        {
+            return RemoveDiacritics(letter.ToString())[0];
+        }
+
         public static string RemoveDiacritics(string text)
         {
             text = text.Replace('Ș', 'S');

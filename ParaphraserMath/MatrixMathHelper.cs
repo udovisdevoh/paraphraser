@@ -45,25 +45,16 @@ namespace ParaphraserMath
             return dotProduct;
         }
 
-        public static double GetFromCharOccurrenceSum(IMarkovMatrix<double> smallMatrix, IMarkovMatrix<double> largeMatrix)
+        public static double GetStandardDeviation(double[] numbers)
         {
-            #warning Add unit tests
-
-            double fromCharOccurrenceSum = 0.0;
-
-            foreach (KeyValuePair<Tuple<char, char>, double> charsAndProbability in smallMatrix)
+            double standardDeviation = 0;
+            if (numbers.Length > 0)
             {
-                Tuple<char, char> characters = charsAndProbability.Key;
-                double probability = charsAndProbability.Value;
-                char char1 = characters.Item1;
-
-                if (largeMatrix.ContainsFromChar(char1))
-                {
-                    fromCharOccurrenceSum += 0.01;
-                }
+                double average = numbers.Average();
+                double sum = numbers.Sum(d => Math.Pow(d - average, 2));
+                standardDeviation = Math.Sqrt((sum) / (numbers.Length - 1));
             }
-
-            return fromCharOccurrenceSum;
+            return standardDeviation;
         }
     }
 }

@@ -69,6 +69,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CompositeLanguageDetectorTests.cs" />
     <Compile Include="LanguageDetectorTests.cs" />
     <Compile Include="MemoryStreamBuilderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

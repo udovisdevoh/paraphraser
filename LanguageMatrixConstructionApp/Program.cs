@@ -16,10 +16,10 @@ namespace LanguageMatrixConstruction
     {
         public static void Main()
         {
+            Bootstrap bootstrap = new Bootstrap();
+
             const string sampleTextDirectory = "./LanguageSamples/";
             const string outputMatrixDirectory = "./";
-
-            Bootstrap bootstrap = new Bootstrap();
 
             ILanguageMatrixBuilder languageMatrixBuilder = bootstrap.BuildLanguageMatrixBuilder();
             languageMatrixBuilder.BuildMissingLanguageMatrices(sampleTextDirectory, outputMatrixDirectory);

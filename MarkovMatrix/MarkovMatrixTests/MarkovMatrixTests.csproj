@@ -72,6 +72,7 @@
     <Compile Include="BinaryMarkovMatrixLoaderTests.cs" />
     <Compile Include="BinaryMarkovMatrixSaverTests.cs" />
     <Compile Include="LanguageDictionaryFileMatrixLoaderTests.cs" />
+    <Compile Include="MarkovMatrixCharacterCombinerTests.cs" />
     <Compile Include="MarkovMatrixNormalizerTests.cs" />
     <Compile Include="MarkovMatrixTests.cs" />
     <Compile Include="NormalizedTextMarkovMatrixLoaderTests.cs" />
@@ -82,6 +83,10 @@
     <ProjectReference Include="..\..\ParaphraserMath\ParaphraserMath.csproj">
       <Project>{b30bc99a-57a9-4778-ad79-88d06b6bac6e}</Project>
       <Name>ParaphraserMath</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\StringManipulation\StringManipulation.csproj">
+      <Project>{8033f5bf-dcd2-4193-b1a9-ba6e98d937ce}</Project>
+      <Name>StringManipulation</Name>
     </ProjectReference>
     <ProjectReference Include="..\MarkovMatrix.csproj">
       <Project>{7e1254fe-2e13-4d68-b337-8460dab633cd}</Project>
