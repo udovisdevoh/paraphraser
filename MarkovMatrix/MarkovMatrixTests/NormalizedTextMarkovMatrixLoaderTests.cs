@@ -40,5 +40,19 @@ namespace MarkovMatrices.Tests
             // Assert
             Assert.Equal(expectedProbability, actualProbability);
         }
+
+        [Fact]
+        public void GivenText_LoadMatrix()
+        {
+            // Arrange
+            string text = "Pseudolachnostylis is a genus of plants in the Phyllanthaceae first described as a genus in 1899";
+            NormalizedTextMarkovMatrixLoader textMarkovMatrixLoader = new NormalizedTextMarkovMatrixLoader(new TextMarkovMatrixLoader(), new MarkovMatrixNormalizer());
+
+            // Act
+            IMarkovMatrix<double> markovMatrix = textMarkovMatrixLoader.LoadMatrix(text);
+
+            // Assert
+            Assert.True(markovMatrix.InputCount > 0);
+        }
     }
 }

@@ -32,8 +32,6 @@ namespace MarkovMatrices
 
         public IMarkovMatrix<double> LoadMatrix(string text)
         {
-            #warning Add unit tests
-
             MemoryStream stream = new MemoryStream();
             StreamWriter writer = new StreamWriter(stream);
             writer.Write(text);
