@@ -56,11 +56,11 @@ namespace ParaphraserMath.Tests
         {
             // Arrange
             float expectedDotProduct = 0.25f;
-            IMarkovMatrix<float> englishMatrix = LanguageDetectorTestHelper.BuildEnglishLanguageMatrixMock();
-            IMarkovMatrix<float> frenchMatrix = LanguageDetectorTestHelper.BuildFrenchLanguageMatrixMock();
+            IMarkovMatrix<double> englishMatrix = LanguageDetectorTestHelper.BuildEnglishLanguageMatrixMock();
+            IMarkovMatrix<double> frenchMatrix = LanguageDetectorTestHelper.BuildFrenchLanguageMatrixMock();
 
             // Act
-            float actualDotProduct = MatrixMathHelper.GetDotProduct(englishMatrix, frenchMatrix);
+            double actualDotProduct = MatrixMathHelper.GetDotProduct(englishMatrix, frenchMatrix);
 
             // Assert
             Assert.Equal(expectedDotProduct, actualDotProduct);

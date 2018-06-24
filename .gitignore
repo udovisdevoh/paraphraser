@@ -57,3 +57,12 @@
 /LanguageMatrixConstructionConsoleApp/LanguageMatrixConstructionTestHelpers/bin
 /LanguageMatrixConstructionConsoleApp/LanguageMatrixConstructionTests/obj
 /LanguageMatrixConstructionConsoleApp/LanguageMatrixConstructionTests/bin
+/LanguageDetectorApp/obj
+/LanguageDetectorApp/.vs
+/LanguageDetectorApp/bin
+/LanguageMatrixConstructionApp/obj
+/LanguageMatrixConstructionApp/.vs
+/LanguageMatrixConstructionApp/bin
+/ParaphaserBootstrap/.vs
+/ParaphaserBootstrap/bin
+/ParaphaserBootstrap/obj

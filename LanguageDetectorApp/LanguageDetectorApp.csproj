@@ -1,0 +1,254 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D32E3311-3A52-4E02-ADC2-AFC0672711AF}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>LanguageDetectorApp</RootNamespace>
+    <AssemblyName>LanguageDetectorApp</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>language.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CommonServiceLocator, Version=2.0.3.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>packages\Unity.5.8.6\lib\net47\CommonServiceLocator.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Unity.Abstractions, Version=3.3.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>packages\Unity.5.8.6\lib\net47\Unity.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Configuration, Version=5.2.1.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>packages\Unity.5.8.6\lib\net47\Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Container, Version=5.8.6.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>packages\Unity.5.8.6\lib\net47\Unity.Container.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Interception, Version=5.5.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>packages\Unity.5.8.6\lib\net47\Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Interception.Configuration, Version=5.1.4.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>packages\Unity.5.8.6\lib\net47\Unity.Interception.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RegistrationByConvention, Version=2.1.5.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>packages\Unity.5.8.6\lib\net47\Unity.RegistrationByConvention.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ServiceLocation, Version=2.1.2.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>packages\Unity.5.8.6\lib\net47\Unity.ServiceLocation.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MainWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainWindow.Designer.cs">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="MainWindow.resx">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Matrices\afrikaans.bin" />
+    <None Include="Matrices\akan.bin" />
+    <None Include="Matrices\albanian.bin" />
+    <None Include="Matrices\american english.bin" />
+    <None Include="Matrices\ancient greek.bin" />
+    <None Include="Matrices\arabic.bin" />
+    <None Include="Matrices\assamese.bin" />
+    <None Include="Matrices\australian english.bin" />
+    <None Include="Matrices\austrian german.bin" />
+    <None Include="Matrices\bambara.bin" />
+    <None Include="Matrices\basque.bin" />
+    <None Include="Matrices\belarusian.bin" />
+    <None Include="Matrices\bengali.bin" />
+    <None Include="Matrices\bokmal norwegian.bin" />
+    <None Include="Matrices\brazilian portuguese.bin" />
+    <None Include="Matrices\breton.bin" />
+    <None Include="Matrices\bulgarian.bin" />
+    <None Include="Matrices\canadian english.bin" />
+    <None Include="Matrices\catalan.bin" />
+    <None Include="Matrices\chichewa.bin" />
+    <None Include="Matrices\chuvash.bin" />
+    <None Include="Matrices\coptic.bin" />
+    <None Include="Matrices\croatian.bin" />
+    <None Include="Matrices\czech.bin" />
+    <None Include="Matrices\danish.bin" />
+    <None Include="Matrices\dutch.bin" />
+    <None Include="Matrices\eastern armenian.bin" />
+    <None Include="Matrices\esperanto.bin" />
+    <None Include="Matrices\estonian.bin" />
+    <None Include="Matrices\faroese.bin" />
+    <None Include="Matrices\french.bin" />
+    <None Include="Matrices\friulian.bin" />
+    <None Include="Matrices\galician.bin" />
+    <None Include="Matrices\georgian.bin" />
+    <None Include="Matrices\german.bin" />
+    <None Include="Matrices\gikuyu.bin" />
+    <None Include="Matrices\gujarati.bin" />
+    <None Include="Matrices\haitian creole.bin" />
+    <None Include="Matrices\hebrew.bin" />
+    <None Include="Matrices\hindi.bin" />
+    <None Include="Matrices\hungarian.bin" />
+    <None Include="Matrices\icelandic.bin" />
+    <None Include="Matrices\indonesian.bin" />
+    <None Include="Matrices\irish gaelic.bin" />
+    <None Include="Matrices\italian.bin" />
+    <None Include="Matrices\japanese.bin" />
+    <None Include="Matrices\kannada.bin" />
+    <None Include="Matrices\kazakh.bin" />
+    <None Include="Matrices\kenyan swahili.bin" />
+    <None Include="Matrices\khmer.bin" />
+    <None Include="Matrices\kichwa.bin" />
+    <None Include="Matrices\kinyarwanda.bin" />
+    <None Include="Matrices\korean.bin" />
+    <None Include="Matrices\latgalian.bin" />
+    <None Include="Matrices\latin persian.bin" />
+    <None Include="Matrices\latin serbian.bin" />
+    <None Include="Matrices\latin uyghur.bin" />
+    <None Include="Matrices\latin.bin" />
+    <None Include="Matrices\latvian.bin" />
+    <None Include="Matrices\lithuanian.bin" />
+    <None Include="Matrices\low saxon german.bin" />
+    <None Include="Matrices\luxembourgish.bin" />
+    <None Include="Matrices\macedonian.bin" />
+    <None Include="Matrices\malay.bin" />
+    <None Include="Matrices\malayalam.bin" />
+    <None Include="Matrices\maltese.bin" />
+    <None Include="Matrices\marathi.bin" />
+    <None Include="Matrices\modern greek.bin" />
+    <None Include="Matrices\mongolian.bin" />
+    <None Include="Matrices\nepali.bin" />
+    <None Include="Matrices\nynorsk norwegian.bin" />
+    <None Include="Matrices\occitan gascon.bin" />
+    <None Include="Matrices\persian.bin" />
+    <None Include="Matrices\plateau malagasy.bin" />
+    <None Include="Matrices\polish.bin" />
+    <None Include="Matrices\polytonic greek.bin" />
+    <None Include="Matrices\portuguese.bin" />
+    <None Include="Matrices\punjabi.bin" />
+    <None Include="Matrices\romanian.bin" />
+    <None Include="Matrices\russian.bin" />
+    <None Include="Matrices\rusyn.bin" />
+    <None Include="Matrices\sa english.bin" />
+    <None Include="Matrices\sami.bin" />
+    <None Include="Matrices\sardinian.bin" />
+    <None Include="Matrices\scottish gaelic.bin" />
+    <None Include="Matrices\serbian.bin" />
+    <None Include="Matrices\simplified chinese.bin" />
+    <None Include="Matrices\sindhi.bin" />
+    <None Include="Matrices\sinhala.bin" />
+    <None Include="Matrices\slovak.bin" />
+    <None Include="Matrices\slovenian.bin" />
+    <None Include="Matrices\somali.bin" />
+    <None Include="Matrices\sorbian.bin" />
+    <None Include="Matrices\spanish.bin" />
+    <None Include="Matrices\swedish.bin" />
+    <None Include="Matrices\swiss german.bin" />
+    <None Include="Matrices\tagalog.bin" />
+    <None Include="Matrices\tamil.bin" />
+    <None Include="Matrices\tanzanian swahili.bin" />
+    <None Include="Matrices\te papakupu maori.bin" />
+    <None Include="Matrices\telugu.bin" />
+    <None Include="Matrices\thai.bin" />
+    <None Include="Matrices\tibetan.bin" />
+    <None Include="Matrices\tok pisin.bin" />
+    <None Include="Matrices\traditional chinese.bin" />
+    <None Include="Matrices\turkish.bin" />
+    <None Include="Matrices\turkmen.bin" />
+    <None Include="Matrices\uk english.bin" />
+    <None Include="Matrices\ukrainian.bin" />
+    <None Include="Matrices\urdu.bin" />
+    <None Include="Matrices\uyghur.bin" />
+    <None Include="Matrices\valencian catalan.bin" />
+    <None Include="Matrices\vietnamese.bin" />
+    <None Include="Matrices\welsh.bin" />
+    <None Include="Matrices\western armenian.bin" />
+    <None Include="Matrices\western frisian.bin" />
+    <None Include="Matrices\xhosa.bin" />
+    <None Include="Matrices\yiddish.bin" />
+    <None Include="Matrices\zulu.bin" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LanguageDetection\LanguageDetection.csproj">
+      <Project>{b4094762-6250-4ae3-b93a-57bc519b5b39}</Project>
+      <Name>LanguageDetection</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LanguageDetection\LanguageDetectionInterfaces\LanguageDetectionInterfaces.csproj">
+      <Project>{2a94e485-0ff0-49a6-8472-466d3e23a797}</Project>
+      <Name>LanguageDetectionInterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MarkovMatrix\MarkovMatrix.csproj">
+      <Project>{7e1254fe-2e13-4d68-b337-8460dab633cd}</Project>
+      <Name>MarkovMatrix</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MarkovMatrix\MarkovMatrixInterfaces\MarkovMatrixInterfaces.csproj">
+      <Project>{78f39194-74d8-4848-b2d6-fc26fccff4ae}</Project>
+      <Name>MarkovMatrixInterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ParaphaserBootstrap\ParaphaserBootstrap.csproj">
+      <Project>{4c76be25-0a4b-407e-ba17-21ed5c2e5a94}</Project>
+      <Name>ParaphaserBootstrap</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="language.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

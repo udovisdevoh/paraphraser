@@ -13,15 +13,15 @@ namespace LanguageDetection
     public class LanguageDetector : ILanguageDetector
     {
         #region Members
-        private Dictionary<string, IMarkovMatrix<float>> languages;
+        private Dictionary<string, IMarkovMatrix<double>> languages;
 
-        private IMarkovMatrixLoader<float> languageDetectionMatrixLoader;
+        private IMarkovMatrixLoader<double> languageDetectionMatrixLoader;
         #endregion
 
         #region Constructors
-        public LanguageDetector(IMarkovMatrixLoader<float> languageDetectionMatrixLoader)
+        public LanguageDetector(IMarkovMatrixLoader<double> languageDetectionMatrixLoader)
         {
-            this.languages = new Dictionary<string, IMarkovMatrix<float>>();
+            this.languages = new Dictionary<string, IMarkovMatrix<double>>();
             this.languageDetectionMatrixLoader = languageDetectionMatrixLoader;
         }
         #endregion
@@ -33,7 +33,7 @@ namespace LanguageDetection
         }
         #endregion
 
-        public void AddLanguage(string name, IMarkovMatrix<float> languageMatrix)
+        public void AddLanguage(string name, IMarkovMatrix<double> languageMatrix)
         {
             name = StringFormatter.FormatLanguageName(name);
             this.languages.Add(name, languageMatrix);
@@ -47,15 +47,15 @@ namespace LanguageDetection
             }
 
             MemoryStream memoryStream = MemoryStreamBuilder.BuildMemoryStreamFromText(text);
-            IMarkovMatrix<float> inputMatrix = this.languageDetectionMatrixLoader.LoadMatrix(memoryStream);
+            IMarkovMatrix<double> inputMatrix = this.languageDetectionMatrixLoader.LoadMatrix(memoryStream);
 
-            float bestDotProduct = float.MinValue;
+            double bestDotProduct = double.MinValue;
             string bestLanguage = null;
-            foreach (KeyValuePair<string, IMarkovMatrix<float>> nameAndLanguageMatrix in this.languages)
+            foreach (KeyValuePair<string, IMarkovMatrix<double>> nameAndLanguageMatrix in this.languages)
             {
                 string languageName = nameAndLanguageMatrix.Key;
-                IMarkovMatrix<float> languageMatrix = nameAndLanguageMatrix.Value;
-                float dotProduct = MatrixMathHelper.GetDotProduct(inputMatrix, languageMatrix);
+                IMarkovMatrix<double> languageMatrix = nameAndLanguageMatrix.Value;
+                double dotProduct = MatrixMathHelper.GetDotProduct(inputMatrix, languageMatrix);
 
                 if (dotProduct > bestDotProduct)
                 {

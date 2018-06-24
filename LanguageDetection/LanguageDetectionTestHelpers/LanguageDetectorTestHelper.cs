@@ -11,20 +11,20 @@ namespace LanguageDetection.TestHelpers
 {
     public static class LanguageDetectorTestHelper
     {
-        public static IMarkovMatrix<float> BuildEnglishLanguageMatrixMock()
+        public static IMarkovMatrix<double> BuildEnglishLanguageMatrixMock()
         {
-            return LanguageDetectorTestHelper.BuildLanguageMatrixMock(1f, 0f);
+            return LanguageDetectorTestHelper.BuildLanguageMatrixMock(1.0, 0.0);
         }
 
-        public static IMarkovMatrix<float> BuildFrenchLanguageMatrixMock()
+        public static IMarkovMatrix<double> BuildFrenchLanguageMatrixMock()
         {
-            return LanguageDetectorTestHelper.BuildLanguageMatrixMock(0f, 1f);
+            return LanguageDetectorTestHelper.BuildLanguageMatrixMock(0.0, 1.0);
         }
 
-        private static IMarkovMatrix<float> BuildLanguageMatrixMock(float english, float french)
+        private static IMarkovMatrix<double> BuildLanguageMatrixMock(double english, double french)
         {
-            Mock<IMarkovMatrix<float>> markovMatrixMockFactory = new Mock<IMarkovMatrix<float>>();
-            List<KeyValuePair<Tuple<char, char>, float>> values = new List<KeyValuePair<Tuple<char, char>, float>>();
+            Mock<IMarkovMatrix<double>> markovMatrixMockFactory = new Mock<IMarkovMatrix<double>>();
+            List<KeyValuePair<Tuple<char, char>, double>> values = new List<KeyValuePair<Tuple<char, char>, double>>();
 
             LanguageDetectorTestHelper.AddMatrixValue(markovMatrixMockFactory, values, 't', 'h', english);
             LanguageDetectorTestHelper.AddMatrixValue(markovMatrixMockFactory, values, 'i', 's', english);
@@ -37,22 +37,22 @@ namespace LanguageDetection.TestHelpers
             return markovMatrixMockFactory.Object;
         }
 
-        public static IMarkovMatrixLoader<float> BuildNormalizedTextMarkovMatrixLoader(IMarkovMatrix<float> outputMatrix)
+        public static IMarkovMatrixLoader<double> BuildNormalizedTextMarkovMatrixLoader(IMarkovMatrix<double> outputMatrix)
         {
-            Mock<IMarkovMatrixLoader<float>> matrixLoaderMockFactory = new Mock<IMarkovMatrixLoader<float>>();
+            Mock<IMarkovMatrixLoader<double>> matrixLoaderMockFactory = new Mock<IMarkovMatrixLoader<double>>();
             matrixLoaderMockFactory.Setup(matrixLoader => matrixLoader.LoadMatrix(It.IsAny<Stream>())).Returns(outputMatrix);
             return matrixLoaderMockFactory.Object;
         }
 
-        private static void AddMatrixValue(Mock<IMarkovMatrix<float>> markovMatrixMockFactory,
-            List<KeyValuePair<Tuple<char, char>, float>> iEnumerable,
+        private static void AddMatrixValue(Mock<IMarkovMatrix<double>> markovMatrixMockFactory,
+            List<KeyValuePair<Tuple<char, char>, double>> iEnumerable,
             char fromChar,
             char toChar,
-            float value)
+            double value)
         {
             markovMatrixMockFactory.Setup(matrix => matrix.GetOccurrence(fromChar, toChar)).Returns(value);
             Tuple<char, char> characters = new Tuple<char, char>(fromChar, toChar);
-            iEnumerable.Add(new KeyValuePair<Tuple<char, char>, float>(characters, value));
+            iEnumerable.Add(new KeyValuePair<Tuple<char, char>, double>(characters, value));
         }
     }
 }

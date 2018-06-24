@@ -67,6 +67,7 @@
     <Compile Include="FromBinary\BinaryMarkovMatrixLoader.cs" />
     <Compile Include="FromBinary\BinaryMarkovMatrixSaver.cs" />
     <Compile Include="FromText\LanguageDictionaryFileMatrixLoader.cs" />
+    <Compile Include="LanguageMatrixBuilder.cs" />
     <Compile Include="MarkovMatrix.cs" />
     <Compile Include="MarkovMatrixNormalizer.cs" />
     <Compile Include="FromText\NormalizedTextMarkovMatrixLoader.cs" />
