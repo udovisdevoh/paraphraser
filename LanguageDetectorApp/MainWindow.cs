@@ -49,6 +49,8 @@ namespace LanguageDetectorApp
         {
             string text = this.textBoxInput.Text;
 
+            text = StringFormatter.FormatInputText(StringFormatter.RemovePunctuation(text.ToLowerInvariant()));
+
             string detectedLanguage = this.languageDetector.DetectLanguage(text);
 
             this.textBoxDetectedLanguage.Text = detectedLanguage;
