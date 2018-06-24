@@ -45,6 +45,7 @@
             this.textBoxInput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBoxInput.Size = new System.Drawing.Size(776, 400);
             this.textBoxInput.TabIndex = 0;
+            this.textBoxInput.TextChanged += new System.EventHandler(this.textBoxInput_TextChanged);
             // 
             // textBoxDetectedLanguage
             // 

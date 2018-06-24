@@ -43,5 +43,11 @@
     <Compile Include="ILanguageDetector.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\MarkovMatrix\MarkovMatrixInterfaces\MarkovMatrixInterfaces.csproj">
+      <Project>{78F39194-74D8-4848-B2D6-FC26FCCFF4AE}</Project>
+      <Name>MarkovMatrixInterfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

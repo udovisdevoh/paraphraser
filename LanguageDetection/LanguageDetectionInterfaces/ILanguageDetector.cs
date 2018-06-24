@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MarkovMatrices;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,8 @@ namespace LanguageDetection
 {
     public interface ILanguageDetector
     {
+        void AddLanguage(string name, IMarkovMatrix<double> languageMatrix);
+
         string DetectLanguage(string text);
     }
 }

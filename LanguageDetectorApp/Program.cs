@@ -17,10 +17,6 @@ namespace LanguageDetectorApp
         [STAThread]
         static void Main()
         {
-            Bootstrap bootstrap = new Bootstrap();
-
-            ILanguageDetector languageDetector = bootstrap.BuildLanguageDetector();
-
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainWindow());

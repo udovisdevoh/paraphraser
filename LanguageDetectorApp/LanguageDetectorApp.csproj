@@ -92,125 +92,363 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="Matrices\afrikaans.bin" />
-    <None Include="Matrices\akan.bin" />
-    <None Include="Matrices\albanian.bin" />
-    <None Include="Matrices\american english.bin" />
-    <None Include="Matrices\ancient greek.bin" />
-    <None Include="Matrices\arabic.bin" />
-    <None Include="Matrices\assamese.bin" />
-    <None Include="Matrices\australian english.bin" />
-    <None Include="Matrices\austrian german.bin" />
-    <None Include="Matrices\bambara.bin" />
-    <None Include="Matrices\basque.bin" />
-    <None Include="Matrices\belarusian.bin" />
-    <None Include="Matrices\bengali.bin" />
-    <None Include="Matrices\bokmal norwegian.bin" />
-    <None Include="Matrices\brazilian portuguese.bin" />
-    <None Include="Matrices\breton.bin" />
-    <None Include="Matrices\bulgarian.bin" />
-    <None Include="Matrices\canadian english.bin" />
-    <None Include="Matrices\catalan.bin" />
-    <None Include="Matrices\chichewa.bin" />
-    <None Include="Matrices\chuvash.bin" />
-    <None Include="Matrices\coptic.bin" />
-    <None Include="Matrices\croatian.bin" />
-    <None Include="Matrices\czech.bin" />
-    <None Include="Matrices\danish.bin" />
-    <None Include="Matrices\dutch.bin" />
-    <None Include="Matrices\eastern armenian.bin" />
-    <None Include="Matrices\esperanto.bin" />
-    <None Include="Matrices\estonian.bin" />
-    <None Include="Matrices\faroese.bin" />
-    <None Include="Matrices\french.bin" />
-    <None Include="Matrices\friulian.bin" />
-    <None Include="Matrices\galician.bin" />
-    <None Include="Matrices\georgian.bin" />
-    <None Include="Matrices\german.bin" />
-    <None Include="Matrices\gikuyu.bin" />
-    <None Include="Matrices\gujarati.bin" />
-    <None Include="Matrices\haitian creole.bin" />
-    <None Include="Matrices\hebrew.bin" />
-    <None Include="Matrices\hindi.bin" />
-    <None Include="Matrices\hungarian.bin" />
-    <None Include="Matrices\icelandic.bin" />
-    <None Include="Matrices\indonesian.bin" />
-    <None Include="Matrices\irish gaelic.bin" />
-    <None Include="Matrices\italian.bin" />
-    <None Include="Matrices\japanese.bin" />
-    <None Include="Matrices\kannada.bin" />
-    <None Include="Matrices\kazakh.bin" />
-    <None Include="Matrices\kenyan swahili.bin" />
-    <None Include="Matrices\khmer.bin" />
-    <None Include="Matrices\kichwa.bin" />
-    <None Include="Matrices\kinyarwanda.bin" />
-    <None Include="Matrices\korean.bin" />
-    <None Include="Matrices\latgalian.bin" />
-    <None Include="Matrices\latin persian.bin" />
-    <None Include="Matrices\latin serbian.bin" />
-    <None Include="Matrices\latin uyghur.bin" />
-    <None Include="Matrices\latin.bin" />
-    <None Include="Matrices\latvian.bin" />
-    <None Include="Matrices\lithuanian.bin" />
-    <None Include="Matrices\low saxon german.bin" />
-    <None Include="Matrices\luxembourgish.bin" />
-    <None Include="Matrices\macedonian.bin" />
-    <None Include="Matrices\malay.bin" />
-    <None Include="Matrices\malayalam.bin" />
-    <None Include="Matrices\maltese.bin" />
-    <None Include="Matrices\marathi.bin" />
-    <None Include="Matrices\modern greek.bin" />
-    <None Include="Matrices\mongolian.bin" />
-    <None Include="Matrices\nepali.bin" />
-    <None Include="Matrices\nynorsk norwegian.bin" />
-    <None Include="Matrices\occitan gascon.bin" />
-    <None Include="Matrices\persian.bin" />
-    <None Include="Matrices\plateau malagasy.bin" />
-    <None Include="Matrices\polish.bin" />
-    <None Include="Matrices\polytonic greek.bin" />
-    <None Include="Matrices\portuguese.bin" />
-    <None Include="Matrices\punjabi.bin" />
-    <None Include="Matrices\romanian.bin" />
-    <None Include="Matrices\russian.bin" />
-    <None Include="Matrices\rusyn.bin" />
-    <None Include="Matrices\sa english.bin" />
-    <None Include="Matrices\sami.bin" />
-    <None Include="Matrices\sardinian.bin" />
-    <None Include="Matrices\scottish gaelic.bin" />
-    <None Include="Matrices\serbian.bin" />
-    <None Include="Matrices\simplified chinese.bin" />
-    <None Include="Matrices\sindhi.bin" />
-    <None Include="Matrices\sinhala.bin" />
-    <None Include="Matrices\slovak.bin" />
-    <None Include="Matrices\slovenian.bin" />
-    <None Include="Matrices\somali.bin" />
-    <None Include="Matrices\sorbian.bin" />
-    <None Include="Matrices\spanish.bin" />
-    <None Include="Matrices\swedish.bin" />
-    <None Include="Matrices\swiss german.bin" />
-    <None Include="Matrices\tagalog.bin" />
-    <None Include="Matrices\tamil.bin" />
-    <None Include="Matrices\tanzanian swahili.bin" />
-    <None Include="Matrices\te papakupu maori.bin" />
-    <None Include="Matrices\telugu.bin" />
-    <None Include="Matrices\thai.bin" />
-    <None Include="Matrices\tibetan.bin" />
-    <None Include="Matrices\tok pisin.bin" />
-    <None Include="Matrices\traditional chinese.bin" />
-    <None Include="Matrices\turkish.bin" />
-    <None Include="Matrices\turkmen.bin" />
-    <None Include="Matrices\uk english.bin" />
-    <None Include="Matrices\ukrainian.bin" />
-    <None Include="Matrices\urdu.bin" />
-    <None Include="Matrices\uyghur.bin" />
-    <None Include="Matrices\valencian catalan.bin" />
-    <None Include="Matrices\vietnamese.bin" />
-    <None Include="Matrices\welsh.bin" />
-    <None Include="Matrices\western armenian.bin" />
-    <None Include="Matrices\western frisian.bin" />
-    <None Include="Matrices\xhosa.bin" />
-    <None Include="Matrices\yiddish.bin" />
-    <None Include="Matrices\zulu.bin" />
+    <None Include="Matrices\afrikaans.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\akan.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\albanian.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\american english.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\ancient greek.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\arabic.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\assamese.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\australian english.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\austrian german.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\bambara.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\basque.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\belarusian.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\bengali.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\bokmal norwegian.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\brazilian portuguese.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\breton.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\bulgarian.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\canadian english.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\catalan.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\chichewa.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\chuvash.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\coptic.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\croatian.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\czech.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\danish.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\dutch.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\eastern armenian.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\esperanto.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\estonian.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\faroese.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\french.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\friulian.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\galician.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\georgian.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\german.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\gikuyu.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\gujarati.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\haitian creole.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\hebrew.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\hindi.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\hungarian.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\icelandic.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\indonesian.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\irish gaelic.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\italian.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\japanese.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\kannada.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\kazakh.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\kenyan swahili.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\khmer.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\kichwa.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\kinyarwanda.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\korean.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\latgalian.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\latin persian.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\latin serbian.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\latin uyghur.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\latin.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\latvian.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\lithuanian.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\low saxon german.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\luxembourgish.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\macedonian.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\malay.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\malayalam.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\maltese.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\marathi.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\modern greek.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\mongolian.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\nepali.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\nynorsk norwegian.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\occitan gascon.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\persian.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\plateau malagasy.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\polish.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\polytonic greek.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\portuguese.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\punjabi.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\romanian.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\russian.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\rusyn.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\sa english.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\sami.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\sardinian.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\scottish gaelic.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\serbian.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\simplified chinese.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\sindhi.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\sinhala.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\slovak.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\slovenian.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\somali.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\sorbian.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\spanish.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\swedish.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\swiss german.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\tagalog.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\tamil.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\tanzanian swahili.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\te papakupu maori.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\telugu.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\thai.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\tibetan.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\tok pisin.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\traditional chinese.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\turkish.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\turkmen.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\uk english.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\ukrainian.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\urdu.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\uyghur.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\valencian catalan.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\vietnamese.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\welsh.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\western armenian.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\western frisian.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\xhosa.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\yiddish.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Matrices\zulu.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -245,6 +483,14 @@
     <ProjectReference Include="..\ParaphaserBootstrap\ParaphaserBootstrap.csproj">
       <Project>{4c76be25-0a4b-407e-ba17-21ed5c2e5a94}</Project>
       <Name>ParaphaserBootstrap</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ParaphraserMath\ParaphraserMath.csproj">
+      <Project>{b30bc99a-57a9-4778-ad79-88d06b6bac6e}</Project>
+      <Name>ParaphraserMath</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StringManipulation\StringManipulation.csproj">
+      <Project>{8033f5bf-dcd2-4193-b1a9-ba6e98d937ce}</Project>
+      <Name>StringManipulation</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

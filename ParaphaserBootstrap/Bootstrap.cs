@@ -24,6 +24,12 @@ namespace ParaphaserBootstrap
             return languageDetector;
         }
 
+        public IMarkovMatrixLoader<double> BuildBinaryMarkovMatrixLoader()
+        {
+            IMarkovMatrixLoader<double> binaryMarkovMatrixLoader = new BinaryMarkovMatrixLoader();
+            return binaryMarkovMatrixLoader;
+        }
+
         public ILanguageMatrixBuilder BuildLanguageMatrixBuilder()
         {
             IMarkovMatrixLoader<ulong> languageDetectionMatrixLoader = new TextMarkovMatrixLoader();
