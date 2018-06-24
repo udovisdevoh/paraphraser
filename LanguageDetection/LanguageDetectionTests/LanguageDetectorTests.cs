@@ -80,5 +80,43 @@ namespace LanguageDetectionTests
             // Assert
             Assert.Equal("English", languageDetector.DetectLanguage("that is"));
         }
+
+        [Fact]
+        public void GivenTwoLanguagesAndText_GetDetectLanguageProximities_ShouldGetTwoLanguages()
+        {
+            // Arrange
+            IMarkovMatrix<double> inputMatrix = LanguageDetectorTestHelper.BuildEnglishLanguageMatrixMock();
+            IMarkovMatrixLoader<double> markovMatrixLoader = LanguageDetectorTestHelper.BuildNormalizedTextMarkovMatrixLoader(inputMatrix);
+            LanguageDetector languageDetector = new LanguageDetector(markovMatrixLoader);
+            IMarkovMatrix<double> englishMatrix = LanguageDetectorTestHelper.BuildEnglishLanguageMatrixMock();
+            IMarkovMatrix<double> frenchMatrix = LanguageDetectorTestHelper.BuildFrenchLanguageMatrixMock();
+
+            // Act
+            languageDetector.AddLanguage("English", englishMatrix);
+            languageDetector.AddLanguage("French", frenchMatrix);
+            KeyValuePair<string, double>[] languageProximities = languageDetector.GetLanguageProximities("that is");
+
+            // Assert
+            Assert.Equal(2, languageProximities.Length);
+        }
+
+        [Fact]
+        public void GivenTwoLanguagesAndText_GetDetectLanguageProximities_ShouldGetEnglishFirst()
+        {
+            // Arrange
+            IMarkovMatrix<double> inputMatrix = LanguageDetectorTestHelper.BuildEnglishLanguageMatrixMock();
+            IMarkovMatrixLoader<double> markovMatrixLoader = LanguageDetectorTestHelper.BuildNormalizedTextMarkovMatrixLoader(inputMatrix);
+            LanguageDetector languageDetector = new LanguageDetector(markovMatrixLoader);
+            IMarkovMatrix<double> englishMatrix = LanguageDetectorTestHelper.BuildEnglishLanguageMatrixMock();
+            IMarkovMatrix<double> frenchMatrix = LanguageDetectorTestHelper.BuildFrenchLanguageMatrixMock();
+
+            // Act
+            languageDetector.AddLanguage("English", englishMatrix);
+            languageDetector.AddLanguage("French", frenchMatrix);
+            KeyValuePair<string, double>[] languageProximities = languageDetector.GetLanguageProximities("that is");
+
+            // Assert
+            Assert.Equal("English", languageProximities[0].Key);
+        }
     }
 }

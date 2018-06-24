@@ -51,9 +51,21 @@ namespace LanguageDetectorApp
 
             text = StringFormatter.FormatInputText(StringFormatter.RemovePunctuation(text.ToLowerInvariant()));
 
-            string detectedLanguage = this.languageDetector.DetectLanguage(text);
+            KeyValuePair<string, double>[] languageProximities = this.languageDetector.GetLanguageProximities(text);
 
-            this.textBoxDetectedLanguage.Text = detectedLanguage;
+            StringBuilder languageProximitiesStringBuilder = new StringBuilder();
+
+            foreach (KeyValuePair<string, double> languageProximity in languageProximities)
+            {
+                string languageName = languageProximity.Key;
+                double proximity = languageProximity.Value;
+                string formattedProximity = proximity.ToString("N2");
+                languageProximitiesStringBuilder.AppendLine(string.Format("{0}: {1}", languageName, formattedProximity));
+            }
+
+            //string detectedLanguage = this.languageDetector.DetectLanguage(text);
+
+            this.textBoxDetectedLanguage.Text = languageProximitiesStringBuilder.ToString();
         }
     }
 }

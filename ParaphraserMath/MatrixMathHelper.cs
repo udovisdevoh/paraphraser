@@ -44,5 +44,26 @@ namespace ParaphraserMath
 
             return dotProduct;
         }
+
+        public static double GetFromCharOccurrenceSum(IMarkovMatrix<double> smallMatrix, IMarkovMatrix<double> largeMatrix)
+        {
+            #warning Add unit tests
+
+            double fromCharOccurrenceSum = 0.0;
+
+            foreach (KeyValuePair<Tuple<char, char>, double> charsAndProbability in smallMatrix)
+            {
+                Tuple<char, char> characters = charsAndProbability.Key;
+                double probability = charsAndProbability.Value;
+                char char1 = characters.Item1;
+
+                if (largeMatrix.ContainsFromChar(char1))
+                {
+                    fromCharOccurrenceSum += 0.01;
+                }
+            }
+
+            return fromCharOccurrenceSum;
+        }
     }
 }

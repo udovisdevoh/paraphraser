@@ -105,8 +105,6 @@ D:\anonymous\Documents\Programming\C Sharp\Paraphraser\SpellChecking\SpellChecki
 D:\anonymous\Documents\Programming\C Sharp\Paraphraser\SpellChecking\SpellCheckingTests\bin\Debug\Dictionaries\hungarian.dic
 D:\anonymous\Documents\Programming\C Sharp\Paraphraser\SpellChecking\SpellCheckingTests\bin\Debug\Dictionaries\icelandic.aff
 D:\anonymous\Documents\Programming\C Sharp\Paraphraser\SpellChecking\SpellCheckingTests\bin\Debug\Dictionaries\icelandic.dic
-D:\anonymous\Documents\Programming\C Sharp\Paraphraser\SpellChecking\SpellCheckingTests\bin\Debug\Dictionaries\interlingua.aff
-D:\anonymous\Documents\Programming\C Sharp\Paraphraser\SpellChecking\SpellCheckingTests\bin\Debug\Dictionaries\interlingua.dic
 D:\anonymous\Documents\Programming\C Sharp\Paraphraser\SpellChecking\SpellCheckingTests\bin\Debug\Dictionaries\irish gaelic.aff
 D:\anonymous\Documents\Programming\C Sharp\Paraphraser\SpellChecking\SpellCheckingTests\bin\Debug\Dictionaries\irish gaelic.dic
 D:\anonymous\Documents\Programming\C Sharp\Paraphraser\SpellChecking\SpellCheckingTests\bin\Debug\Dictionaries\italian.aff
@@ -137,16 +135,10 @@ D:\anonymous\Documents\Programming\C Sharp\Paraphraser\SpellChecking\SpellChecki
 D:\anonymous\Documents\Programming\C Sharp\Paraphraser\SpellChecking\SpellCheckingTests\bin\Debug\Dictionaries\marathi.dic
 D:\anonymous\Documents\Programming\C Sharp\Paraphraser\SpellChecking\SpellCheckingTests\bin\Debug\Dictionaries\mongolian.aff
 D:\anonymous\Documents\Programming\C Sharp\Paraphraser\SpellChecking\SpellCheckingTests\bin\Debug\Dictionaries\mongolian.dic
-D:\anonymous\Documents\Programming\C Sharp\Paraphraser\SpellChecking\SpellCheckingTests\bin\Debug\Dictionaries\ndebele.aff
-D:\anonymous\Documents\Programming\C Sharp\Paraphraser\SpellChecking\SpellCheckingTests\bin\Debug\Dictionaries\ndebele.dic
 D:\anonymous\Documents\Programming\C Sharp\Paraphraser\SpellChecking\SpellCheckingTests\bin\Debug\Dictionaries\nepali.aff
 D:\anonymous\Documents\Programming\C Sharp\Paraphraser\SpellChecking\SpellCheckingTests\bin\Debug\Dictionaries\nepali.dic
-D:\anonymous\Documents\Programming\C Sharp\Paraphraser\SpellChecking\SpellCheckingTests\bin\Debug\Dictionaries\northern sotho.aff
-D:\anonymous\Documents\Programming\C Sharp\Paraphraser\SpellChecking\SpellCheckingTests\bin\Debug\Dictionaries\northern sotho.dic
 D:\anonymous\Documents\Programming\C Sharp\Paraphraser\SpellChecking\SpellCheckingTests\bin\Debug\Dictionaries\nynorsk norwegian.aff
 D:\anonymous\Documents\Programming\C Sharp\Paraphraser\SpellChecking\SpellCheckingTests\bin\Debug\Dictionaries\nynorsk norwegian.dic
-D:\anonymous\Documents\Programming\C Sharp\Paraphraser\SpellChecking\SpellCheckingTests\bin\Debug\Dictionaries\occidental.aff
-D:\anonymous\Documents\Programming\C Sharp\Paraphraser\SpellChecking\SpellCheckingTests\bin\Debug\Dictionaries\occidental.dic
 D:\anonymous\Documents\Programming\C Sharp\Paraphraser\SpellChecking\SpellCheckingTests\bin\Debug\Dictionaries\occitan gascon.aff
 D:\anonymous\Documents\Programming\C Sharp\Paraphraser\SpellChecking\SpellCheckingTests\bin\Debug\Dictionaries\occitan gascon.dic
 D:\anonymous\Documents\Programming\C Sharp\Paraphraser\SpellChecking\SpellCheckingTests\bin\Debug\Dictionaries\persian.aff
@@ -189,12 +181,8 @@ D:\anonymous\Documents\Programming\C Sharp\Paraphraser\SpellChecking\SpellChecki
 D:\anonymous\Documents\Programming\C Sharp\Paraphraser\SpellChecking\SpellCheckingTests\bin\Debug\Dictionaries\somali.dic
 D:\anonymous\Documents\Programming\C Sharp\Paraphraser\SpellChecking\SpellCheckingTests\bin\Debug\Dictionaries\sorbian.aff
 D:\anonymous\Documents\Programming\C Sharp\Paraphraser\SpellChecking\SpellCheckingTests\bin\Debug\Dictionaries\sorbian.dic
-D:\anonymous\Documents\Programming\C Sharp\Paraphraser\SpellChecking\SpellCheckingTests\bin\Debug\Dictionaries\southern sotho.aff
-D:\anonymous\Documents\Programming\C Sharp\Paraphraser\SpellChecking\SpellCheckingTests\bin\Debug\Dictionaries\southern sotho.dic
 D:\anonymous\Documents\Programming\C Sharp\Paraphraser\SpellChecking\SpellCheckingTests\bin\Debug\Dictionaries\spanish.aff
 D:\anonymous\Documents\Programming\C Sharp\Paraphraser\SpellChecking\SpellCheckingTests\bin\Debug\Dictionaries\spanish.dic
-D:\anonymous\Documents\Programming\C Sharp\Paraphraser\SpellChecking\SpellCheckingTests\bin\Debug\Dictionaries\swati.aff
-D:\anonymous\Documents\Programming\C Sharp\Paraphraser\SpellChecking\SpellCheckingTests\bin\Debug\Dictionaries\swati.dic
 D:\anonymous\Documents\Programming\C Sharp\Paraphraser\SpellChecking\SpellCheckingTests\bin\Debug\Dictionaries\swedish.aff
 D:\anonymous\Documents\Programming\C Sharp\Paraphraser\SpellChecking\SpellCheckingTests\bin\Debug\Dictionaries\swedish.dic
 D:\anonymous\Documents\Programming\C Sharp\Paraphraser\SpellChecking\SpellCheckingTests\bin\Debug\Dictionaries\swiss german.aff
@@ -215,10 +203,6 @@ D:\anonymous\Documents\Programming\C Sharp\Paraphraser\SpellChecking\SpellChecki
 D:\anonymous\Documents\Programming\C Sharp\Paraphraser\SpellChecking\SpellCheckingTests\bin\Debug\Dictionaries\tibetan.dic
 D:\anonymous\Documents\Programming\C Sharp\Paraphraser\SpellChecking\SpellCheckingTests\bin\Debug\Dictionaries\tok pisin.aff
 D:\anonymous\Documents\Programming\C Sharp\Paraphraser\SpellChecking\SpellCheckingTests\bin\Debug\Dictionaries\tok pisin.dic
-D:\anonymous\Documents\Programming\C Sharp\Paraphraser\SpellChecking\SpellCheckingTests\bin\Debug\Dictionaries\tsonga.aff
-D:\anonymous\Documents\Programming\C Sharp\Paraphraser\SpellChecking\SpellCheckingTests\bin\Debug\Dictionaries\tsonga.dic
-D:\anonymous\Documents\Programming\C Sharp\Paraphraser\SpellChecking\SpellCheckingTests\bin\Debug\Dictionaries\tswana.aff
-D:\anonymous\Documents\Programming\C Sharp\Paraphraser\SpellChecking\SpellCheckingTests\bin\Debug\Dictionaries\tswana.dic
 D:\anonymous\Documents\Programming\C Sharp\Paraphraser\SpellChecking\SpellCheckingTests\bin\Debug\Dictionaries\turkish.aff
 D:\anonymous\Documents\Programming\C Sharp\Paraphraser\SpellChecking\SpellCheckingTests\bin\Debug\Dictionaries\turkish.dic
 D:\anonymous\Documents\Programming\C Sharp\Paraphraser\SpellChecking\SpellCheckingTests\bin\Debug\Dictionaries\turkmen.aff
@@ -233,8 +217,6 @@ D:\anonymous\Documents\Programming\C Sharp\Paraphraser\SpellChecking\SpellChecki
 D:\anonymous\Documents\Programming\C Sharp\Paraphraser\SpellChecking\SpellCheckingTests\bin\Debug\Dictionaries\uyghur.dic
 D:\anonymous\Documents\Programming\C Sharp\Paraphraser\SpellChecking\SpellCheckingTests\bin\Debug\Dictionaries\valencian catalan.aff
 D:\anonymous\Documents\Programming\C Sharp\Paraphraser\SpellChecking\SpellCheckingTests\bin\Debug\Dictionaries\valencian catalan.dic
-D:\anonymous\Documents\Programming\C Sharp\Paraphraser\SpellChecking\SpellCheckingTests\bin\Debug\Dictionaries\venda.aff
-D:\anonymous\Documents\Programming\C Sharp\Paraphraser\SpellChecking\SpellCheckingTests\bin\Debug\Dictionaries\venda.dic
 D:\anonymous\Documents\Programming\C Sharp\Paraphraser\SpellChecking\SpellCheckingTests\bin\Debug\Dictionaries\vietnamese.aff
 D:\anonymous\Documents\Programming\C Sharp\Paraphraser\SpellChecking\SpellCheckingTests\bin\Debug\Dictionaries\vietnamese.dic
 D:\anonymous\Documents\Programming\C Sharp\Paraphraser\SpellChecking\SpellCheckingTests\bin\Debug\Dictionaries\welsh.aff

@@ -43,29 +43,30 @@
             this.textBoxInput.Multiline = true;
             this.textBoxInput.Name = "textBoxInput";
             this.textBoxInput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxInput.Size = new System.Drawing.Size(776, 400);
+            this.textBoxInput.Size = new System.Drawing.Size(570, 426);
             this.textBoxInput.TabIndex = 0;
             this.textBoxInput.TextChanged += new System.EventHandler(this.textBoxInput_TextChanged);
             // 
             // textBoxDetectedLanguage
             // 
-            this.textBoxDetectedLanguage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.textBoxDetectedLanguage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxDetectedLanguage.Location = new System.Drawing.Point(120, 418);
+            this.textBoxDetectedLanguage.Location = new System.Drawing.Point(588, 28);
+            this.textBoxDetectedLanguage.Multiline = true;
             this.textBoxDetectedLanguage.Name = "textBoxDetectedLanguage";
             this.textBoxDetectedLanguage.ReadOnly = true;
-            this.textBoxDetectedLanguage.Size = new System.Drawing.Size(668, 20);
+            this.textBoxDetectedLanguage.Size = new System.Drawing.Size(197, 410);
             this.textBoxDetectedLanguage.TabIndex = 1;
             // 
             // label1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 421);
+            this.label1.Location = new System.Drawing.Point(588, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(101, 13);
+            this.label1.Size = new System.Drawing.Size(106, 13);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Detected language:";
+            this.label1.Text = "Detected languages:";
             // 
             // MainWindow
             // 
