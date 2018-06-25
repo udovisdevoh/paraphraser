@@ -151,5 +151,19 @@ namespace StringManipulation.Tests
             // Assert
             Assert.Equal(expectedOutput, actualOutput);
         }
+
+        [Fact]
+        public void GivenText_RemoveLigatures()
+        {
+            // Arrange
+            string sourceText = "œŒæÆ";
+            string expectedFixedText = "oeOEaeAE";
+
+            // Act
+            string actualFixedText = StringFormatter.RemoveLigatures(sourceText);
+
+            // Assert
+            Assert.Equal(expectedFixedText, actualFixedText);
+        }
     }
 }

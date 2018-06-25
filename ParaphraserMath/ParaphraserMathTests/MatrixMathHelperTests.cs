@@ -55,7 +55,7 @@ namespace ParaphraserMath.Tests
         public void GivenTwoMatrices_GetDotProduct()
         {
             // Arrange
-            float expectedDotProduct = 0.25f;
+            double expectedDotProduct = 0.25;
             IMarkovMatrix<double> englishMatrix = LanguageDetectorTestHelper.BuildEnglishLanguageMatrixMock();
             IMarkovMatrix<double> frenchMatrix = LanguageDetectorTestHelper.BuildFrenchLanguageMatrixMock();
 
@@ -78,6 +78,21 @@ namespace ParaphraserMath.Tests
 
             // Assert
             Assert.Equal(Math.Round(expectedStandardDeviation, 3), Math.Round(actualStandardDeviation, 3));
+        }
+
+        [Fact]
+        public void GivenTwoMatrices_GetDistance()
+        {
+            // Arrange
+            double expectedDistance = 0.894427190999916;
+            IMarkovMatrix<double> englishMatrix = LanguageDetectorTestHelper.BuildEnglishLanguageMatrixMock();
+            IMarkovMatrix<double> frenchMatrix = LanguageDetectorTestHelper.BuildFrenchLanguageMatrixMock();
+
+            // Act
+            double actualDistance = MatrixMathHelper.GetDistance(englishMatrix, frenchMatrix);
+
+            // Assert
+            Assert.Equal(Math.Round(expectedDistance, 3), Math.Round(actualDistance, 3));
         }
 
         [Fact]

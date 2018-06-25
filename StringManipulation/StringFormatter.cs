@@ -82,8 +82,6 @@ namespace StringManipulation
 
         public static string RemoveLigatures(string text)
         {
-            #warning Add unit tests
-
             text = text.Replace("œ", "oe");
             text = text.Replace("Œ", "OE");
             text = text.Replace("æ", "ae");

@@ -21,7 +21,7 @@ namespace LanguageDetectorApp
 
         public MainWindow()
         {
-            const string matricesDirectory = "./Matrices/";
+            const string matricesDirectory = "./TextMatrices/";
             Bootstrap bootstrap = new Bootstrap();
             //this.languageDetector = bootstrap.BuildCompositeLanguageDetector();
             this.languageDetector = bootstrap.BuildLanguageDetector();
@@ -52,6 +52,7 @@ namespace LanguageDetectorApp
 
             text = text.ToLowerInvariant();
             text = StringFormatter.RemoveDoubleTabsSpacesAndEnters(text);
+            text = StringFormatter.RemoveLigatures(text);
             //text = StringFormatter.RemovePunctuation(text);
             //text = StringFormatter.FormatInputText(text);
 

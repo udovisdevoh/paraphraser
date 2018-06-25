@@ -94,9 +94,6 @@
     <Content Include="LanguageSamplesText\albanian.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="LanguageSamplesText\amharic.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="LanguageSamplesText\arabic.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -400,257 +397,342 @@
     <Content Include="LanguageSamplesText\zulu.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="LanguageSamples\afrikaans.txt" />
-    <Content Include="LanguageSamples\akan.txt">
+    <Content Include="LanguageSamplesDict\afrikaans.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="LanguageSamples\albanian.txt" />
-    <Content Include="LanguageSamples\american english.txt">
+    <Content Include="LanguageSamplesDict\albanian.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="LanguageSamples\amharic.txt" />
-    <Content Include="LanguageSamples\ancient greek.txt">
+    <Content Include="LanguageSamplesDict\english.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="LanguageSamples\arabic.txt" />
-    <Content Include="LanguageSamples\armenian.txt" />
-    <Content Include="LanguageSamples\assamese.txt">
+    <Content Include="LanguageSamplesDict\arabic.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="LanguageSamples\australian english.txt">
+    <Content Include="LanguageSamplesDict\assamese.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="LanguageSamples\austrian german.txt">
+    <Content Include="LanguageSamplesDict\bambara.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="LanguageSamples\azerbaijani.txt" />
-    <Content Include="LanguageSamples\bambara.txt">
+    <Content Include="LanguageSamplesDict\basque.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="LanguageSamples\basque.txt" />
-    <Content Include="LanguageSamples\belarusian.txt" />
-    <Content Include="LanguageSamples\bengali.txt" />
-    <Content Include="LanguageSamples\bokmal norwegian.txt">
+    <Content Include="LanguageSamplesDict\belarusian.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="LanguageSamples\bosnian.txt" />
-    <Content Include="LanguageSamples\brazilian portuguese.txt">
+    <Content Include="LanguageSamplesDict\bengali.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="LanguageSamples\breton.txt">
+    <Content Include="LanguageSamplesDict\bokmal norwegian.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="LanguageSamples\bulgarian.txt" />
-    <Content Include="LanguageSamples\burmese.txt" />
-    <Content Include="LanguageSamples\canadian english.txt">
+    <Content Include="LanguageSamplesDict\brazilian portuguese.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="LanguageSamples\catalan.txt" />
-    <Content Include="LanguageSamples\cebuano.txt" />
-    <Content Include="LanguageSamples\chichewa.txt" />
-    <Content Include="LanguageSamples\chuvash.txt">
+    <Content Include="LanguageSamplesDict\breton.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="LanguageSamples\coptic.txt">
+    <Content Include="LanguageSamplesDict\bulgarian.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="LanguageSamples\corsican.txt" />
-    <Content Include="LanguageSamples\croatian.txt" />
-    <Content Include="LanguageSamples\czech.txt" />
-    <Content Include="LanguageSamples\danish.txt" />
-    <Content Include="LanguageSamples\dutch.txt" />
-    <Content Include="LanguageSamples\eastern armenian.txt">
+    <Content Include="LanguageSamplesDict\catalan.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="LanguageSamples\english.txt" />
-    <Content Include="LanguageSamples\esperanto.txt" />
-    <Content Include="LanguageSamples\estonian.txt" />
-    <Content Include="LanguageSamples\faroese.txt">
+    <Content Include="LanguageSamplesDict\chichewa.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="LanguageSamples\filipino.txt" />
-    <Content Include="LanguageSamples\finnish.txt" />
-    <Content Include="LanguageSamples\french.txt" />
-    <Content Include="LanguageSamples\frisian.txt" />
-    <Content Include="LanguageSamples\friulian.txt">
+    <Content Include="LanguageSamplesDict\chuvash.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="LanguageSamples\galician.txt" />
-    <Content Include="LanguageSamples\georgian.txt" />
-    <Content Include="LanguageSamples\german.txt" />
-    <Content Include="LanguageSamples\gikuyu.txt">
+    <Content Include="LanguageSamplesDict\coptic.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="LanguageSamples\greek.txt" />
-    <Content Include="LanguageSamples\gujarati.txt" />
-    <Content Include="LanguageSamples\haitian creole.txt" />
-    <Content Include="LanguageSamples\hausa.txt" />
-    <Content Include="LanguageSamples\hawaiian.txt" />
-    <Content Include="LanguageSamples\hebrew.txt" />
-    <Content Include="LanguageSamples\hindi.txt" />
-    <Content Include="LanguageSamples\hmong.txt" />
-    <Content Include="LanguageSamples\hungarian.txt" />
-    <Content Include="LanguageSamples\icelandic.txt" />
-    <Content Include="LanguageSamples\igbo.txt" />
-    <Content Include="LanguageSamples\indonesian.txt" />
-    <Content Include="LanguageSamples\irish gaelic.txt">
+    <Content Include="LanguageSamplesDict\croatian.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="LanguageSamples\irish.txt" />
-    <Content Include="LanguageSamples\italian.txt" />
-    <Content Include="LanguageSamples\japanese.txt" />
-    <Content Include="LanguageSamples\javanese.txt" />
-    <Content Include="LanguageSamples\kannada.txt" />
-    <Content Include="LanguageSamples\kazakh.txt" />
-    <Content Include="LanguageSamples\kenyan swahili.txt">
+    <Content Include="LanguageSamplesDict\czech.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="LanguageSamples\khmer.txt" />
-    <Content Include="LanguageSamples\kichwa.txt">
+    <Content Include="LanguageSamplesDict\danish.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="LanguageSamples\kinyarwanda.txt">
+    <Content Include="LanguageSamplesDict\dutch.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="LanguageSamples\korean.txt" />
-    <Content Include="LanguageSamples\kurdish.txt" />
-    <Content Include="LanguageSamples\kyrgyz.txt" />
-    <Content Include="LanguageSamples\lao.txt" />
-    <Content Include="LanguageSamples\latgalian.txt">
+    <Content Include="LanguageSamplesDict\armenian.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="LanguageSamples\latin persian.txt">
+    <Content Include="LanguageSamplesDict\esperanto.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="LanguageSamples\latin serbian.txt">
+    <Content Include="LanguageSamplesDict\estonian.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="LanguageSamples\latin uyghur.txt">
+    <Content Include="LanguageSamplesDict\faroese.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="LanguageSamples\latin.txt" />
-    <Content Include="LanguageSamples\latvian.txt" />
-    <Content Include="LanguageSamples\lithuanian.txt" />
-    <Content Include="LanguageSamples\low saxon german.txt">
+    <Content Include="LanguageSamplesDict\french.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="LanguageSamples\luxembourgish.txt" />
-    <Content Include="LanguageSamples\macedonian.txt" />
-    <Content Include="LanguageSamples\malagasy.txt" />
-    <Content Include="LanguageSamples\malay.txt" />
-    <Content Include="LanguageSamples\malayalam.txt" />
-    <Content Include="LanguageSamples\maltese.txt" />
-    <Content Include="LanguageSamples\maori.txt" />
-    <Content Include="LanguageSamples\marathi.txt" />
-    <Content Include="LanguageSamples\modern greek.txt">
+    <Content Include="LanguageSamplesDict\friulian.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="LanguageSamples\mongolian.txt" />
-    <Content Include="LanguageSamples\nepali.txt" />
-    <Content Include="LanguageSamples\norwegian.txt" />
-    <Content Include="LanguageSamples\nynorsk norwegian.txt">
+    <Content Include="LanguageSamplesDict\galician.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="LanguageSamples\occitan gascon.txt">
+    <Content Include="LanguageSamplesDict\georgian.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="LanguageSamples\pashto.txt" />
-    <Content Include="LanguageSamples\persian.txt" />
-    <Content Include="LanguageSamples\plateau malagasy.txt">
+    <Content Include="LanguageSamplesDict\german.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="LanguageSamples\polish.txt" />
-    <Content Include="LanguageSamples\polytonic greek.txt">
+    <Content Include="LanguageSamplesDict\gikuyu.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="LanguageSamples\portuguese.txt" />
-    <Content Include="LanguageSamples\punjabi.txt" />
-    <Content Include="LanguageSamples\romanian.txt" />
-    <Content Include="LanguageSamples\russian.txt" />
-    <Content Include="LanguageSamples\rusyn.txt">
+    <Content Include="LanguageSamplesDict\gujarati.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="LanguageSamples\sa english.txt">
+    <Content Include="LanguageSamplesDict\haitian creole.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="LanguageSamples\sami.txt">
+    <Content Include="LanguageSamplesDict\hebrew.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="LanguageSamples\samoan.txt" />
-    <Content Include="LanguageSamples\sardinian.txt">
+    <Content Include="LanguageSamplesDict\hindi.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="LanguageSamples\scots gaelic.txt" />
-    <Content Include="LanguageSamples\scottish gaelic.txt">
+    <Content Include="LanguageSamplesDict\hungarian.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="LanguageSamples\serbian.txt" />
-    <Content Include="LanguageSamples\sesotho.txt" />
-    <Content Include="LanguageSamples\shona.txt" />
-    <Content Include="LanguageSamples\simplified chinese.txt" />
-    <Content Include="LanguageSamples\sindhi.txt" />
-    <Content Include="LanguageSamples\sinhala.txt" />
-    <Content Include="LanguageSamples\slovak.txt" />
-    <Content Include="LanguageSamples\slovenian.txt" />
-    <Content Include="LanguageSamples\somali.txt" />
-    <Content Include="LanguageSamples\sorbian.txt">
+    <Content Include="LanguageSamplesDict\icelandic.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="LanguageSamples\spanish.txt" />
-    <Content Include="LanguageSamples\sudanese.txt" />
-    <Content Include="LanguageSamples\swahili.txt" />
-    <Content Include="LanguageSamples\swedish.txt" />
-    <Content Include="LanguageSamples\swiss german.txt">
+    <Content Include="LanguageSamplesDict\indonesian.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="LanguageSamples\tagalog.txt">
+    <Content Include="LanguageSamplesDict\irish gaelic.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="LanguageSamples\tajik.txt" />
-    <Content Include="LanguageSamples\tamil.txt" />
-    <Content Include="LanguageSamples\tanzanian swahili.txt">
+    <Content Include="LanguageSamplesDict\italian.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="LanguageSamples\te papakupu maori.txt">
+    <Content Include="LanguageSamplesDict\japanese.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="LanguageSamples\telugu.txt" />
-    <Content Include="LanguageSamples\thai.txt" />
-    <Content Include="LanguageSamples\tibetan.txt">
+    <Content Include="LanguageSamplesDict\kannada.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="LanguageSamples\tok pisin.txt">
+    <Content Include="LanguageSamplesDict\kazakh.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="LanguageSamples\traditional chinese.txt" />
-    <Content Include="LanguageSamples\turkish.txt" />
-    <Content Include="LanguageSamples\turkmen.txt">
+    <Content Include="LanguageSamplesDict\kenyan swahili.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="LanguageSamples\uk english.txt">
+    <Content Include="LanguageSamplesDict\khmer.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="LanguageSamples\ukrainian.txt" />
-    <Content Include="LanguageSamples\urdu.txt" />
-    <Content Include="LanguageSamples\uyghur.txt">
+    <Content Include="LanguageSamplesDict\kichwa.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="LanguageSamples\uzbek.txt" />
-    <Content Include="LanguageSamples\valencian catalan.txt">
+    <Content Include="LanguageSamplesDict\kinyarwanda.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="LanguageSamples\vietnamese.txt" />
-    <Content Include="LanguageSamples\welsh.txt" />
-    <Content Include="LanguageSamples\western armenian.txt">
+    <Content Include="LanguageSamplesDict\korean.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="LanguageSamples\western frisian.txt">
+    <Content Include="LanguageSamplesDict\latgalian.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="LanguageSamples\xhosa.txt" />
-    <Content Include="LanguageSamples\yiddish.txt" />
-    <Content Include="LanguageSamples\yoruba.txt" />
-    <Content Include="LanguageSamples\zulu.txt" />
+    <Content Include="LanguageSamplesDict\latin persian.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LanguageSamplesDict\latin serbian.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LanguageSamplesDict\latin uyghur.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LanguageSamplesDict\latin.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LanguageSamplesDict\latvian.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LanguageSamplesDict\lithuanian.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LanguageSamplesDict\low saxon german.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LanguageSamplesDict\luxembourgish.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LanguageSamplesDict\macedonian.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LanguageSamplesDict\malay.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LanguageSamplesDict\malayalam.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LanguageSamplesDict\maltese.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LanguageSamplesDict\marathi.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LanguageSamplesDict\greek.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LanguageSamplesDict\mongolian.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LanguageSamplesDict\nepali.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LanguageSamplesDict\nynorsk norwegian.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LanguageSamplesDict\occitan gascon.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LanguageSamplesDict\persian.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LanguageSamplesDict\plateau malagasy.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LanguageSamplesDict\polish.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LanguageSamplesDict\polytonic greek.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LanguageSamplesDict\portuguese.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LanguageSamplesDict\punjabi.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LanguageSamplesDict\romanian.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LanguageSamplesDict\russian.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LanguageSamplesDict\rusyn.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LanguageSamplesDict\sami.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LanguageSamplesDict\sardinian.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LanguageSamplesDict\scottish gaelic.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LanguageSamplesDict\serbian.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LanguageSamplesDict\simplified chinese.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LanguageSamplesDict\sindhi.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LanguageSamplesDict\sinhala.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LanguageSamplesDict\slovak.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LanguageSamplesDict\slovenian.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LanguageSamplesDict\somali.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LanguageSamplesDict\sorbian.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LanguageSamplesDict\spanish.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LanguageSamplesDict\swedish.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LanguageSamplesDict\swiss german.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LanguageSamplesDict\tagalog.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LanguageSamplesDict\tamil.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LanguageSamplesDict\tanzanian swahili.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LanguageSamplesDict\te papakupu maori.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LanguageSamplesDict\telugu.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LanguageSamplesDict\thai.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LanguageSamplesDict\tibetan.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LanguageSamplesDict\tok pisin.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LanguageSamplesDict\traditional chinese.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LanguageSamplesDict\turkish.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LanguageSamplesDict\turkmen.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LanguageSamplesDict\ukrainian.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LanguageSamplesDict\urdu.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LanguageSamplesDict\uyghur.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LanguageSamplesDict\valencian catalan.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LanguageSamplesDict\vietnamese.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LanguageSamplesDict\welsh.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LanguageSamplesDict\western armenian.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LanguageSamplesDict\western frisian.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LanguageSamplesDict\xhosa.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LanguageSamplesDict\yiddish.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LanguageSamplesDict\zulu.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

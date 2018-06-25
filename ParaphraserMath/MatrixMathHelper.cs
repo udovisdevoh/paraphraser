@@ -61,8 +61,6 @@ namespace ParaphraserMath
 
         public static double GetDistance(IMarkovMatrix<double> smallMatrix, IMarkovMatrix<double> largeMatrix)
         {
-            #warning Add unit tests
-
             double distance = 0.0;
             double maxDistance = 0.0;
 
