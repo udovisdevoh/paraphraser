@@ -29,8 +29,6 @@ namespace LanguageDetection
 
         public KeyValuePair<string, double>[] GetLanguageProximities(string text)
         {
-            #warning Add unit tests
-
             string[] words = WordExtractor.GetLowerInvariantWords(text);
 
             List<KeyValuePair<string, double>> languageProximities = new List<KeyValuePair<string, double>>();

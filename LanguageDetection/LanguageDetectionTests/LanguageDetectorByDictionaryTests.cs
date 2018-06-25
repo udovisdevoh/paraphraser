@@ -66,5 +66,25 @@ namespace LanguageDetectionTests
             // Assert
             Assert.Equal("English", languageDetector.DetectLanguage("a hat"));
         }
+
+        [Fact]
+        public void GivenTwoLanguagesAndText_ShouldGetLanguagesByProximities()
+        {
+            // Arrange
+            LanguageDetectorByDictionary languageDetector = new LanguageDetectorByDictionary();
+            Mock<ISpellChecker> frenchSpellCheckingMock = new Mock<ISpellChecker>();
+            frenchSpellCheckingMock.Setup(spellCheck => spellCheck.CountExistingWords(It.IsAny<string[]>())).Returns(0);
+
+            Mock<ISpellChecker> englishSpellCheckingMock = new Mock<ISpellChecker>();
+            englishSpellCheckingMock.Setup(spellCheck => spellCheck.CountExistingWords(It.IsAny<string[]>())).Returns(2);
+
+            // Act
+            languageDetector.AddLanguage("French", frenchSpellCheckingMock.Object);
+            languageDetector.AddLanguage("English", englishSpellCheckingMock.Object);
+            KeyValuePair<string, double>[] languagesByProximities = languageDetector.GetLanguageProximities("a hat");
+
+            // Assert
+            Assert.Equal(1, languagesByProximities[0].Value);
+        }
     }
 }
