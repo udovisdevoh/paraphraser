@@ -165,5 +165,66 @@ namespace LanguageDetectionTests
             // Assert
             Assert.Equal(expectedLanguages.OrderBy(value => value), actualLanguages.OrderBy(value => value));
         }
+
+        [Fact]
+        public void GivenCompositeLanguageDetector_AssertSameLanguages_ShouldNotThrow()
+        {
+            // Arrange
+            CompositeLanguageDetector compositeLanguageDetector = new CompositeLanguageDetector();
+
+            Mock<ILanguageDetector> languageDetectorMockFactory1 = new Mock<ILanguageDetector>();
+            languageDetectorMockFactory1.Setup(LanguageDetector => LanguageDetector.GetLanguageList()).Returns(new string[] { "French", "English" });
+
+            Mock<ILanguageDetector> languageDetectorMockFactory2 = new Mock<ILanguageDetector>();
+            languageDetectorMockFactory2.Setup(LanguageDetector => LanguageDetector.GetLanguageList()).Returns(new string[] { "French", "English" });
+
+            // Act, Assert
+            compositeLanguageDetector.AddLanguageDetector(languageDetectorMockFactory1.Object);
+            compositeLanguageDetector.AssertSameLanguages(languageDetectorMockFactory2.Object);
+        }
+
+        [Fact]
+        public void GivenCompositeLanguageDetectorMissingLanguage_AssertSameLanguages_ShouldThrow()
+        {
+            // Arrange
+            CompositeLanguageDetector compositeLanguageDetector = new CompositeLanguageDetector();
+
+            Mock<ILanguageDetector> languageDetectorMockFactory1 = new Mock<ILanguageDetector>();
+            languageDetectorMockFactory1.Setup(LanguageDetector => LanguageDetector.GetLanguageList()).Returns(new string[] { "French", "English" });
+
+            Mock<ILanguageDetector> languageDetectorMockFactory2 = new Mock<ILanguageDetector>();
+            languageDetectorMockFactory2.Setup(LanguageDetector => LanguageDetector.GetLanguageList()).Returns(new string[] { "French" });
+
+            compositeLanguageDetector.AddLanguageDetector(languageDetectorMockFactory1.Object);
+
+            // Assert
+            Assert.Throws<ArgumentException>(() =>
+            {
+                // Act
+                compositeLanguageDetector.AssertSameLanguages(languageDetectorMockFactory2.Object);
+            });
+        }
+
+        [Fact]
+        public void GivenCompositeLanguageDetectorExtraLanguage_AssertSameLanguages_ShouldThrow()
+        {
+            // Arrange
+            CompositeLanguageDetector compositeLanguageDetector = new CompositeLanguageDetector();
+
+            Mock<ILanguageDetector> languageDetectorMockFactory1 = new Mock<ILanguageDetector>();
+            languageDetectorMockFactory1.Setup(LanguageDetector => LanguageDetector.GetLanguageList()).Returns(new string[] { "French", "English" });
+
+            Mock<ILanguageDetector> languageDetectorMockFactory2 = new Mock<ILanguageDetector>();
+            languageDetectorMockFactory2.Setup(LanguageDetector => LanguageDetector.GetLanguageList()).Returns(new string[] { "French", "English", "Spanish" });
+
+            compositeLanguageDetector.AddLanguageDetector(languageDetectorMockFactory1.Object);
+
+            // Assert
+            Assert.Throws<ArgumentException>(() =>
+            {
+                // Act
+                compositeLanguageDetector.AssertSameLanguages(languageDetectorMockFactory2.Object);
+            });
+        }
     }
 }

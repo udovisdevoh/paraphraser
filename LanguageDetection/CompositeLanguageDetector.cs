@@ -60,8 +60,6 @@ namespace LanguageDetection
 
         public void AssertSameLanguages(ILanguageDetector languageDetector)
         {
-            #warning Add unit tests
-
             const string missingLanguageFormat = "Missing language '{0}' in component detector '{1}'.";
 
             IEnumerable<string> languageLists = languageDetector.GetLanguageList();
