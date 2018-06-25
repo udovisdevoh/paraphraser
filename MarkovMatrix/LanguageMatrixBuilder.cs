@@ -57,6 +57,7 @@ namespace MarkovMatrices
 
             text = text.ToLowerInvariant();
             text = StringFormatter.RemoveDoubleTabsSpacesAndEnters(text);
+            text = StringFormatter.RemoveLigatures(text);
 
             IMarkovMatrix<double> matrix;
             matrix = this.normalizedTextMarkovMatrixLoader.LoadMatrix(text);

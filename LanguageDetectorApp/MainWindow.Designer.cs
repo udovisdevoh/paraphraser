@@ -55,6 +55,7 @@
             this.textBoxDetectedLanguage.Multiline = true;
             this.textBoxDetectedLanguage.Name = "textBoxDetectedLanguage";
             this.textBoxDetectedLanguage.ReadOnly = true;
+            this.textBoxDetectedLanguage.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBoxDetectedLanguage.Size = new System.Drawing.Size(197, 410);
             this.textBoxDetectedLanguage.TabIndex = 1;
             // 

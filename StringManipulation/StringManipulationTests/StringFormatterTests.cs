@@ -28,8 +28,8 @@ namespace StringManipulation.Tests
         public void GivenString_FormatInputText_GetFormattedInputText()
         {
             // Arrange
-            string unformattedName = "   la Langue\n\r\t , de Shake'n'Bake.";
-            string expectedFormattedName = "La langue de shake'n'bake";
+            string unformattedName = "   la Langue\n\r\t , de Shake'n'Bakœ.";
+            string expectedFormattedName = "La langue de shake'n'bakoe";
             string actualFormattedName;
 
             // Act

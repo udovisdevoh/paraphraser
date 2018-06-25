@@ -21,6 +21,7 @@ namespace StringManipulation
         {
             text = StringFormatter.FixApostrophe(text);
             text = StringFormatter.RemovePunctuation(text, '&', '\'');
+            text = StringFormatter.RemoveLigatures(text);
             text = StringFormatter.RemoveDoubleTabsSpacesAndEnters(text);
             text = StringFormatter.UcFirst(text);
 
@@ -77,6 +78,17 @@ namespace StringManipulation
             string asciiStr = System.Text.Encoding.UTF8.GetString(tempBytes);
 
             return asciiStr;
+        }
+
+        public static string RemoveLigatures(string text)
+        {
+            #warning Add unit tests
+
+            text = text.Replace("œ", "oe");
+            text = text.Replace("Œ", "OE");
+            text = text.Replace("æ", "ae");
+            text = text.Replace("Æ", "AE");
+            return text;
         }
 
         public static string FixApostrophe(string text)
