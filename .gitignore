@@ -69,3 +69,10 @@
 /SpellChecking/SpellCheckingTests/bin
 /SpellChecking/SpellCheckingTests/obj
 /SpellChecking/SpellCheckingInterfaces/bin
+/LanguageDetectionByDictionary/obj
+/LanguageDetectionByDictionary/.vs
+/LanguageDetectionByDictionary/bin
+/LanguageDetectionByDictionary/LanguageDetectionByDictionaryInterfaces/obj
+/LanguageDetectionByDictionary/LanguageDetectionByDictionaryInterfaces/bin
+/LanguageDetectionByDictionary/LanguageDetectionByDictionaryTests/obj
+/LanguageDetectionByDictionary/LanguageDetectionByDictionaryTests/bin
