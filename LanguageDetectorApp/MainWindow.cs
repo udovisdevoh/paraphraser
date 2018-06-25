@@ -17,7 +17,7 @@ namespace LanguageDetectorApp
 {
     public partial class MainWindow : Form
     {
-        private ILanguageDetector languageDetector;
+        private LanguageDetector languageDetector;
 
         public MainWindow()
         {

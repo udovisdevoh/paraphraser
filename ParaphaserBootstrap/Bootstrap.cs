@@ -6,14 +6,12 @@ using System.Threading.Tasks;
 using LanguageDetection;
 using MarkovMatrices;
 using StringManipulation;
-using Unity;
-using Unity.Resolution;
 
 namespace ParaphaserBootstrap
 {
     public class Bootstrap
     {
-        public ILanguageDetector BuildLanguageDetector()
+        public LanguageDetector BuildLanguageDetector()
         {
             IMarkovMatrixLoader<ulong> languageDetectionMatrixLoader = new TextMarkovMatrixLoader();
             IMarkovMatrixNormalizer markovMatrixNormalizer = new MarkovMatrixNormalizer();

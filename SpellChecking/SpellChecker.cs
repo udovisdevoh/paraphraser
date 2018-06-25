@@ -98,5 +98,12 @@ namespace SpellChecking
         {
             this.hunspell.Dispose();
         }
+
+        public bool ContainsWord(string word)
+        {
+            #warning Implement
+            #warning Add unit tests
+            throw new NotImplementedException();
+        }
     }
 }

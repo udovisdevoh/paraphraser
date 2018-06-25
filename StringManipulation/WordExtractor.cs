@@ -43,5 +43,24 @@ namespace StringManipulation
 
             return wordsAndPunctuationTokens.ToArray();
         }
+
+        public static string[] GetLowerInvariantWords(string text)
+        {
+            #warning Add unit tests
+
+            text = text.ToLowerInvariant();
+            string[] wordsAndPunctuationAndSpace = WordExtractor.GetWordsAndPunctuationTokens(text);
+
+            List<string> wordsOnly = new List<string>();
+
+            foreach (string word in wordsAndPunctuationAndSpace)
+            {
+                if (word.Length > 1 || !StringAnalysis.IsPunctuationOrSpace(word[0]))
+                {
+                    wordsOnly.Add(word);
+                }
+            }
+            return wordsOnly.ToArray();
+        }
     }
 }

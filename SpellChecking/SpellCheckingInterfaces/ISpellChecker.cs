@@ -9,5 +9,9 @@ namespace SpellChecking
     public interface ISpellChecker : IDisposable
     {
         string GetCorrectedText(string originalText);
+
+        string GetCorrectedWord(string wordOrPunctuationToken);
+
+        bool ContainsWord(string word);
     }
 }

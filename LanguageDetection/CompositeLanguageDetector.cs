@@ -12,14 +12,6 @@ namespace LanguageDetection
     {
         private List<ILanguageDetector> languageDetectors = new List<ILanguageDetector>();
 
-        public void AddLanguage(string name, IMarkovMatrix<double> languageMatrix)
-        {
-            foreach (ILanguageDetector languageDetector in this.languageDetectors)
-            {
-                languageDetector.AddLanguage(name, languageMatrix);
-            }
-        }
-
         public string DetectLanguage(string text)
         {
             return this.GetLanguageProximities(text)[0].Key;
@@ -27,6 +19,7 @@ namespace LanguageDetection
 
         public void AddLanguageDetector(ILanguageDetector languageDetector)
         {
+            this.AssertSameLanguages(languageDetector);
             this.languageDetectors.Add(languageDetector);
         }
 
@@ -55,6 +48,51 @@ namespace LanguageDetection
             }
 
             return largestStandardDeviationProximities;
+        }
+
+        public void AssertSameLanguages(ILanguageDetector languageDetector)
+        {
+            #warning Add unit tests
+
+            const string missingLanguageFormat = "Missing language '{0}' in component detector '{1}'.";
+
+            IEnumerable<string> languageLists = languageDetector.GetLanguageList();
+
+            foreach (ILanguageDetector otherLanguageDetector in this.languageDetectors)
+            {
+                IEnumerable<string> languageListsOtherDetector = otherLanguageDetector.GetLanguageList();
+
+                foreach (string language in languageLists)
+                {
+                    if (!languageListsOtherDetector.Contains(language))
+                    {
+                        throw new ArgumentException(string.Format(missingLanguageFormat, language, otherLanguageDetector.GetType().Name));
+                    }
+                }
+
+                foreach (string language in languageListsOtherDetector)
+                {
+                    if (!languageLists.Contains(language))
+                    {
+                        throw new ArgumentException(string.Format(missingLanguageFormat, language, languageDetector.GetType().Name));
+                    }
+                }
+            }
+        }
+
+        public IEnumerable<string> GetLanguageList()
+        {
+            #warning Add unit tests
+
+            HashSet<string> languages = new HashSet<string>();
+            foreach (ILanguageDetector componentLanguageDetector in this.languageDetectors)
+            {
+                foreach (string language in componentLanguageDetector.GetLanguageList())
+                {
+                    languages.Add(language);
+                }
+            }
+            return languages;
         }
     }
 }

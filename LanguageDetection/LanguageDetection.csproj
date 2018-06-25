@@ -33,9 +33,6 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CommonServiceLocator, Version=2.0.3.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
-      <HintPath>packages\Unity.5.8.6\lib\net47\CommonServiceLocator.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -44,37 +41,14 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="Unity.Abstractions, Version=3.3.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
-      <HintPath>packages\Unity.5.8.6\lib\net47\Unity.Abstractions.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Configuration, Version=5.2.1.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
-      <HintPath>packages\Unity.5.8.6\lib\net47\Unity.Configuration.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Container, Version=5.8.6.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
-      <HintPath>packages\Unity.5.8.6\lib\net47\Unity.Container.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Interception, Version=5.5.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
-      <HintPath>packages\Unity.5.8.6\lib\net47\Unity.Interception.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Interception.Configuration, Version=5.1.4.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
-      <HintPath>packages\Unity.5.8.6\lib\net47\Unity.Interception.Configuration.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.RegistrationByConvention, Version=2.1.5.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
-      <HintPath>packages\Unity.5.8.6\lib\net47\Unity.RegistrationByConvention.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ServiceLocation, Version=2.1.2.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
-      <HintPath>packages\Unity.5.8.6\lib\net47\Unity.ServiceLocation.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CompositeLanguageDetector.cs" />
     <Compile Include="LanguageDetector.cs" />
+    <Compile Include="LanguageDetectorByDictionary.cs" />
     <Compile Include="LanguageDetectorNoDiacritics.cs" />
     <Compile Include="MemoryStreamBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MarkovMatrix\MarkovMatrixInterfaces\MarkovMatrixInterfaces.csproj">
@@ -84,6 +58,10 @@
     <ProjectReference Include="..\ParaphraserMath\ParaphraserMath.csproj">
       <Project>{B30BC99A-57A9-4778-AD79-88D06B6BAC6E}</Project>
       <Name>ParaphraserMath</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SpellChecking\SpellCheckingInterfaces\SpellCheckingInterfaces.csproj">
+      <Project>{2c71b30c-c3bc-4efa-8144-e8fc8476a78f}</Project>
+      <Name>SpellCheckingInterfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\StringManipulation\StringManipulation.csproj">
       <Project>{8033f5bf-dcd2-4193-b1a9-ba6e98d937ce}</Project>

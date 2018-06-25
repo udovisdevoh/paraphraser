@@ -79,5 +79,11 @@ namespace LanguageDetection
         {
             return matrix;
         }
+
+        public IEnumerable<string> GetLanguageList()
+        {
+            #warning Add unit tests
+            return this.languages.Keys;
+        }
     }
 }
