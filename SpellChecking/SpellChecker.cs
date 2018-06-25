@@ -101,9 +101,31 @@ namespace SpellChecking
 
         public bool ContainsWord(string word)
         {
-            #warning Implement
-            #warning Add unit tests
-            throw new NotImplementedException();
+            word = word.ToLowerInvariant().Trim();
+            string wordWithoutLigatures = StringFormatter.RemoveLigatures(word);
+
+            if (word == wordWithoutLigatures)
+            {
+                return this.hunspell.Spell(word);
+            }
+            else
+            {
+                return this.hunspell.Spell(word) || this.hunspell.Spell(wordWithoutLigatures);
+            }
+        }
+
+        public int CountExistingWords(string[] words)
+        {
+            int existingWords = 0;
+            foreach (string word in words)
+            {
+                if (this.ContainsWord(word))
+                {
+                    ++existingWords;
+                }
+            }
+
+            return existingWords;
         }
     }
 }

@@ -13,5 +13,7 @@ namespace SpellChecking
         string GetCorrectedWord(string wordOrPunctuationToken);
 
         bool ContainsWord(string word);
+
+        int CountExistingWords(string[] words);
     }
 }

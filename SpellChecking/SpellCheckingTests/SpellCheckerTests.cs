@@ -27,6 +27,34 @@ namespace SpellCheckingTests
         }
 
         [Fact]
+        public void GivenText_FindExistingWord_ShouldFindIt()
+        {
+            // Arrange
+            string wordToFind = "StarFishes";
+            SpellChecker spellChecker = new SpellChecker("./Dictionaries", "english");
+
+            // Act
+            bool result = spellChecker.ContainsWord(wordToFind);
+
+            // Assert
+            Assert.True(result);
+        }
+
+        [Fact]
+        public void GivenText_FindFakeWord_ShouldNotFindIt()
+        {
+            // Arrange
+            string wordToFind = "zorf";
+            SpellChecker spellChecker = new SpellChecker("./Dictionaries", "english");
+
+            // Act
+            bool result = spellChecker.ContainsWord(wordToFind);
+
+            // Assert
+            Assert.False(result);
+        }
+
+        [Fact]
         public void GivenText_ShouldCorrectSpelling()
         {
             // Arrange
@@ -40,6 +68,21 @@ namespace SpellCheckingTests
 
             // Assert
             Assert.Equal(expectedCorrectedSpelling, actualCorrectedSpelling);
+        }
+
+        [Fact]
+        public void GivenText_CountExistingWords()
+        {
+            // Arrange
+            string[] wordsToFind = new string[] { "starfishes", "yes", "models", "criterion", "criteria", "zorf" };
+            SpellChecker spellChecker = new SpellChecker("./Dictionaries", "english");
+            int expectedExistingWordCount = 5;
+
+            // Act
+            int actualExistingWordCount = spellChecker.CountExistingWords(wordsToFind);
+
+            // Assert
+            Assert.Equal(expectedExistingWordCount, actualExistingWordCount);
         }
     }
 }

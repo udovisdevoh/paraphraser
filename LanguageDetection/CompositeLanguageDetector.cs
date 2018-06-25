@@ -35,6 +35,9 @@ namespace LanguageDetection
                 throw new InvalidOperationException("The composite language detector must contain at least one language detector. Use AddLanguageDetector() first");
             }
 
+            #warning Replace standard deviation logic with average from both components
+            #warning Replace standard deviation logic with average from both components in unit tests
+
             double maximumStandardDeviation = double.MinValue;
             KeyValuePair<string, double>[] largestStandardDeviationProximities = null;
 
@@ -87,8 +90,6 @@ namespace LanguageDetection
 
         public IEnumerable<string> GetLanguageList()
         {
-            #warning Add unit tests
-
             HashSet<string> languages = new HashSet<string>();
             foreach (ILanguageDetector componentLanguageDetector in this.languageDetectors)
             {

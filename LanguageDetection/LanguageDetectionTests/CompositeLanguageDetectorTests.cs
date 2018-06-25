@@ -142,5 +142,28 @@ namespace LanguageDetectionTests
             // Assert
             Assert.Equal(expectedLanguageProximities, actualLanguageProximities);
         }
+
+        [Fact]
+        public void GivenCompositeLanguageDetector_AddLanguages_ShouldGetLanguages()
+        {
+            // Arrange
+            CompositeLanguageDetector compositeLanguageDetector = new CompositeLanguageDetector();
+
+            Mock<ILanguageDetector> languageDetectorMockFactory1 = new Mock<ILanguageDetector>();
+            languageDetectorMockFactory1.Setup(LanguageDetector => LanguageDetector.GetLanguageList()).Returns(new string[] { "French", "English" });
+
+            Mock<ILanguageDetector> languageDetectorMockFactory2 = new Mock<ILanguageDetector>();
+            languageDetectorMockFactory2.Setup(LanguageDetector => LanguageDetector.GetLanguageList()).Returns(new string[] { "French", "English" });
+
+            string[] expectedLanguages = { "French", "English" };
+
+            // Act
+            compositeLanguageDetector.AddLanguageDetector(languageDetectorMockFactory1.Object);
+            compositeLanguageDetector.AddLanguageDetector(languageDetectorMockFactory2.Object);
+            IEnumerable<string> actualLanguages = compositeLanguageDetector.GetLanguageList();
+
+            // Assert
+            Assert.Equal(expectedLanguages.OrderBy(value => value), actualLanguages.OrderBy(value => value));
+        }
     }
 }

@@ -118,5 +118,24 @@ namespace LanguageDetectionTests
             // Assert
             Assert.Equal("English", languageProximities[0].Key);
         }
+
+        [Fact]
+        public void GivenLanguageDetector_ShouldGetLanguageList()
+        {
+            // Arrange
+            IMarkovMatrix<double> englishMatrix = LanguageDetectorTestHelper.BuildEnglishLanguageMatrixMock();
+            IMarkovMatrix<double> frenchMatrix = LanguageDetectorTestHelper.BuildFrenchLanguageMatrixMock();
+            IMarkovMatrixLoader<double> markovMatrixLoader = LanguageDetectorTestHelper.BuildNormalizedTextMarkovMatrixLoader(englishMatrix);
+            LanguageDetector languageDetector = new LanguageDetector(markovMatrixLoader);
+            IEnumerable<string> expectedLanguageList = new string[] { "English", "French" };
+
+            // Act
+            languageDetector.AddLanguage("English", englishMatrix);
+            languageDetector.AddLanguage("French", frenchMatrix);
+            IEnumerable<string> actualLanguageList = languageDetector.GetLanguageList();
+
+            // Assert
+            Assert.Equal(expectedLanguageList.OrderBy(value => value), actualLanguageList.OrderBy(value => value));
+        }
     }
 }

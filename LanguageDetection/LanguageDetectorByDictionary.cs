@@ -19,13 +19,11 @@ namespace LanguageDetection
 
         public IEnumerable<string> GetLanguageList()
         {
-            #warning Add unit tests
             return this.spellCheckers.Keys;
         }
 
         public string DetectLanguage(string text)
         {
-            #warning Add unit tests
             return this.GetLanguageProximities(text)[0].Key;
         }
 
@@ -42,28 +40,12 @@ namespace LanguageDetection
                 string languageName = languageNameAndSpellChecker.Key;
                 ISpellChecker spellChecker = languageNameAndSpellChecker.Value;
 
-                double proximity = (double)this.CountExistingWords(spellChecker, words) / (double)words.Length;
+                double proximity = (double)spellChecker.CountExistingWords(words) / (double)words.Length;
 
                 languageProximities.Add(new KeyValuePair<string, double>(languageName, proximity));
             }
 
-            return languageProximities.ToArray();
-        }
-
-        private int CountExistingWords(ISpellChecker spellChecker, string[] words)
-        {
-            #warning Add unit tests
-
-            int existingWords = 0;
-            foreach (string word in words)
-            {
-                if (spellChecker.ContainsWord(word))
-                {
-                    ++existingWords;
-                }
-            }
-
-            return existingWords;
+            return languageProximities.OrderByDescending(keyValuePair => keyValuePair.Value).ToArray();
         }
     }
 }
