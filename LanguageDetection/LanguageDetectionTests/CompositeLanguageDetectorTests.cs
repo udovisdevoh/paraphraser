@@ -144,6 +144,33 @@ namespace LanguageDetectionTests
         }
 
         [Fact]
+        public void GivenCompositeLanguageDetector_ShouldGetLanguageProximitiesAverages()
+        {
+            // Arrange
+            string inputText = "Ceci est un";
+            CompositeLanguageDetector compositeLanguageDetector = new CompositeLanguageDetector();
+
+            Mock<ILanguageDetector> languageDetectorMockFactory1 = new Mock<ILanguageDetector>();
+            languageDetectorMockFactory1.Setup(LanguageDetector => LanguageDetector.GetLanguageList()).Returns(new string[] { "French", "English" });
+            languageDetectorMockFactory1.Setup(LanguageDetector => LanguageDetector.GetLanguageProximities(inputText)).Returns(new KeyValuePair<string, double>[] { new KeyValuePair<string, double>("French", 1.0), new KeyValuePair<string, double>("English", 0.0) });
+
+
+            Mock<ILanguageDetector> languageDetectorMockFactory2 = new Mock<ILanguageDetector>();
+            languageDetectorMockFactory2.Setup(LanguageDetector => LanguageDetector.GetLanguageList()).Returns(new string[] { "French", "English" });
+            languageDetectorMockFactory2.Setup(LanguageDetector => LanguageDetector.GetLanguageProximities(inputText)).Returns(new KeyValuePair<string, double>[] { new KeyValuePair<string, double>("French", 0.5), new KeyValuePair<string, double>("English", 0.5) });
+
+            KeyValuePair<string, double>[] expectedLanguageProximities = new KeyValuePair<string, double>[] { new KeyValuePair<string, double>("French", 0.75), new KeyValuePair<string, double>("English", 0.25) };
+
+            // Act
+            compositeLanguageDetector.AddLanguageDetector(languageDetectorMockFactory1.Object);
+            compositeLanguageDetector.AddLanguageDetector(languageDetectorMockFactory2.Object);
+            KeyValuePair<string, double>[] actualLanguageProximities = compositeLanguageDetector.GetLanguageProximities(inputText);
+
+            // Assert
+            Assert.Equal(expectedLanguageProximities, actualLanguageProximities);
+        }
+
+        [Fact]
         public void GivenCompositeLanguageDetector_AddLanguages_ShouldGetLanguages()
         {
             // Arrange

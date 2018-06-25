@@ -35,27 +35,27 @@ namespace LanguageDetection
                 throw new InvalidOperationException("The composite language detector must contain at least one language detector. Use AddLanguageDetector() first");
             }
 
-            #warning Replace standard deviation logic with average from both components
-            #warning Replace standard deviation logic with average from both components in unit tests
-
-            double maximumStandardDeviation = double.MinValue;
-            KeyValuePair<string, double>[] largestStandardDeviationProximities = null;
+            Dictionary<string, double> compositeLanguageProximities = new Dictionary<string, double>();
 
             foreach (ILanguageDetector currentLanguageDetector in this.languageDetectors)
             {
                 KeyValuePair<string, double>[] languageProximities = currentLanguageDetector.GetLanguageProximities(text);
 
-                double currentStandardDeviation = MatrixMathHelper.GetStandardDeviation(languageProximities.Select(keyValuePair => keyValuePair.Value).ToArray());
-                //double currentStandardDeviation = languageProximities[0].Value;
-
-                if (currentStandardDeviation > maximumStandardDeviation || largestStandardDeviationProximities == null)
+                foreach (KeyValuePair<string, double> languageAndProximity in languageProximities)
                 {
-                    largestStandardDeviationProximities = languageProximities;
-                    maximumStandardDeviation = currentStandardDeviation;
+                    string languageName = languageAndProximity.Key;
+                    double proximity = languageAndProximity.Value / (double)this.languageDetectors.Count;
+
+                    if (!compositeLanguageProximities.ContainsKey(languageName))
+                    {
+                        compositeLanguageProximities[languageName] = 0.0;
+                    }
+
+                    compositeLanguageProximities[languageName] += proximity;
                 }
             }
 
-            return largestStandardDeviationProximities;
+            return ((IEnumerable<KeyValuePair<string, double>>)compositeLanguageProximities).OrderByDescending(keyValuePair => keyValuePair.Value).ToArray();
         }
 
         public void AssertSameLanguages(ILanguageDetector languageDetector)
