@@ -46,8 +46,6 @@ namespace StringManipulation
 
         public static string[] GetLowerInvariantWords(string text)
         {
-            #warning Add unit tests
-
             text = text.ToLowerInvariant();
             string[] wordsAndPunctuationAndSpace = WordExtractor.GetWordsAndPunctuationTokens(text);
 

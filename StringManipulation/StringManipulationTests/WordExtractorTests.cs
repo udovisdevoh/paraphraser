@@ -24,6 +24,20 @@ namespace StringManipulation.Tests
         }
 
         [Fact]
+        public void GivenText_GetLowerInvarianWords_ShouldGetLowercasedWordsOnly()
+        {
+            // Arrange
+            string text = "'Oh, you & can't.";
+            string[] expectedWords = { "oh", "you", "can", "t" };
+
+            // Act
+            string[] actualWords = WordExtractor.GetLowerInvariantWords(text);
+
+            // Assert
+            Assert.Equal(expectedWords, actualWords);
+        }
+
+        [Fact]
         public void GivenTextEndingWithWordStartingWithWord_GetWordsAndPunctuationTokens_ShouldGetWords()
         {
             // Arrange

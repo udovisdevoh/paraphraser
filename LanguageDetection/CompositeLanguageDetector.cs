@@ -19,6 +19,11 @@ namespace LanguageDetection
 
         public void AddLanguageDetector(ILanguageDetector languageDetector)
         {
+            if (!languageDetector.GetLanguageList().Any())
+            {
+                throw new ArgumentException("The component language detector must contain at least one language");
+            }
+
             this.AssertSameLanguages(languageDetector);
             this.languageDetectors.Add(languageDetector);
         }
