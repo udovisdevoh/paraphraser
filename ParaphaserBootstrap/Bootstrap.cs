@@ -75,13 +75,13 @@ namespace ParaphaserBootstrap
 
             string[] dictionaryFiles = Directory.EnumerateFiles(spellCheckDictionaries, "*.dic").Select(file => Path.GetFileName(file)).ToArray();
 
-            foreach (string dictionaryFile in dictionaryFiles)
+            Parallel.ForEach(dictionaryFiles, (dictionaryFile) =>
             {
                 string languageName = dictionaryFile.Substring(0, dictionaryFile.LastIndexOf("."));
                 ISpellChecker spellChecker = this.BuildSpellChecker(spellCheckDictionaries, languageName);
 
                 languageDetectorByDictionary.AddLanguage(languageName, spellChecker);
-            }
+            });
 
             return languageDetectorByDictionary;
         }
