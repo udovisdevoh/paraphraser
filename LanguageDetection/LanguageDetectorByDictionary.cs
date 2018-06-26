@@ -14,7 +14,7 @@ namespace LanguageDetection
 
         public void AddLanguage(string languageName, ISpellChecker spellChecker)
         {
-            this.spellCheckers.Add(languageName, spellChecker);
+            this.spellCheckers.Add(StringFormatter.FormatLanguageName(languageName), spellChecker);
         }
 
         public IEnumerable<string> GetLanguageList()

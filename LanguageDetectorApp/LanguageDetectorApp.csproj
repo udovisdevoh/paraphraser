@@ -416,6 +416,12 @@
     <None Include="SpellCheckDictionaries\albanian.dic">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="SpellCheckDictionaries\latvian.aff">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="SpellCheckDictionaries\latvian.dic">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="SpellCheckDictionaries\norwegian.aff">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -1096,17 +1102,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LanguageDetection\LanguageDetection.csproj">
-      <Project>{b4094762-6250-4ae3-b93a-57bc519b5b39}</Project>
-      <Name>LanguageDetection</Name>
-    </ProjectReference>
     <ProjectReference Include="..\LanguageDetection\LanguageDetectionInterfaces\LanguageDetectionInterfaces.csproj">
       <Project>{2a94e485-0ff0-49a6-8472-466d3e23a797}</Project>
       <Name>LanguageDetectionInterfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MarkovMatrix\MarkovMatrix.csproj">
-      <Project>{7e1254fe-2e13-4d68-b337-8460dab633cd}</Project>
-      <Name>MarkovMatrix</Name>
     </ProjectReference>
     <ProjectReference Include="..\MarkovMatrix\MarkovMatrixInterfaces\MarkovMatrixInterfaces.csproj">
       <Project>{78f39194-74d8-4848-b2d6-fc26fccff4ae}</Project>
@@ -1119,6 +1117,10 @@
     <ProjectReference Include="..\ParaphraserMath\ParaphraserMath.csproj">
       <Project>{b30bc99a-57a9-4778-ad79-88d06b6bac6e}</Project>
       <Name>ParaphraserMath</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SpellChecking\SpellCheckingInterfaces\SpellCheckingInterfaces.csproj">
+      <Project>{2c71b30c-c3bc-4efa-8144-e8fc8476a78f}</Project>
+      <Name>SpellCheckingInterfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\StringManipulation\StringManipulation.csproj">
       <Project>{8033f5bf-dcd2-4193-b1a9-ba6e98d937ce}</Project>

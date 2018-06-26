@@ -64,6 +64,14 @@
       <Project>{b30bc99a-57a9-4778-ad79-88d06b6bac6e}</Project>
       <Name>ParaphraserMath</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SpellChecking\SpellChecking.csproj">
+      <Project>{5e1a7fab-461b-4df6-975f-b000f12066ac}</Project>
+      <Name>SpellChecking</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SpellChecking\SpellCheckingInterfaces\SpellCheckingInterfaces.csproj">
+      <Project>{2c71b30c-c3bc-4efa-8144-e8fc8476a78f}</Project>
+      <Name>SpellCheckingInterfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\StringManipulation\StringManipulation.csproj">
       <Project>{8033f5bf-dcd2-4193-b1a9-ba6e98d937ce}</Project>
       <Name>StringManipulation</Name>

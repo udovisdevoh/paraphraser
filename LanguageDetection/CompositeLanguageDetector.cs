@@ -8,7 +8,7 @@ using ParaphraserMath;
 
 namespace LanguageDetection
 {
-    public class CompositeLanguageDetector : ILanguageDetector
+    public class CompositeLanguageDetector : ICompositeLanguageDetector
     {
         private List<ILanguageDetector> languageDetectors = new List<ILanguageDetector>();
 

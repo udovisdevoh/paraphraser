@@ -1,6 +1,7 @@
 ﻿using LanguageDetection;
 using MarkovMatrices;
 using ParaphaserBootstrap;
+using SpellChecking;
 using StringManipulation;
 using System;
 using System.Collections.Generic;
@@ -17,31 +18,24 @@ namespace LanguageDetectorApp
 {
     public partial class MainWindow : Form
     {
-        private LanguageDetector languageDetector;
+        private const string matricesDirectory = "./TextMatrices/";
+
+        private const string spellCheckDictionaries = "./SpellCheckDictionaries/";
+
+        private ICompositeLanguageDetector languageDetector;
+
+        private Bootstrap bootstrap;
 
         public MainWindow()
         {
-            const string matricesDirectory = "./TextMatrices/";
-            Bootstrap bootstrap = new Bootstrap();
-            //this.languageDetector = bootstrap.BuildCompositeLanguageDetector();
-            this.languageDetector = bootstrap.BuildLanguageDetector();
+            this.bootstrap = new Bootstrap();
 
-            IMarkovMatrixLoader<double> binaryMarkovMatrixLoader = bootstrap.BuildBinaryMarkovMatrixLoader();
+            ILanguageDetector languageDetectorByMarkovMatrix = this.bootstrap.BuildLanguageDetectorByMarkovMatrix(matricesDirectory);
+            ILanguageDetector languageDetectorByDictionary = this.bootstrap.BuildLanguageDetectorByDictionary(spellCheckDictionaries);
 
-            string[] matrixFiles = Directory.EnumerateFiles(matricesDirectory, "*.bin").Select(file => Path.GetFileName(file)).ToArray();
-
-            foreach (string matrixFile in matrixFiles)
-            {
-                string languageName = StringFormatter.FormatLanguageName(matrixFile.Substring(0, matrixFile.LastIndexOf('.')));
-
-                IMarkovMatrix<double> matrix;
-                using (FileStream fileStream = File.Open(matricesDirectory + matrixFile, FileMode.Open))
-                {
-                    matrix = binaryMarkovMatrixLoader.LoadMatrix(fileStream);
-                }
-
-                this.languageDetector.AddLanguage(languageName, matrix);
-            }
+            this.languageDetector = this.bootstrap.BuildCompositeLanguageDetector();
+            this.languageDetector.AddLanguageDetector(languageDetectorByMarkovMatrix);
+            this.languageDetector.AddLanguageDetector(languageDetectorByDictionary);
 
             InitializeComponent();
         }
