@@ -45,7 +45,10 @@ namespace LanguageDetection
                 string languageName = languageNameAndSpellChecker.Key;
                 HashSet<string> wordList = languageNameAndSpellChecker.Value;
 
-                double proximity = (double)this.CountExistingWords(wordList, words) / (double)words.Length;
+                int existingWords = this.CountExistingWords(wordList, words, false);
+                int existingWordsNoDiacritics = this.CountExistingWords(wordList, words, true);
+
+                double proximity = (double)(existingWords + existingWordsNoDiacritics) / (double)(words.Length * 2);
 
                 languageProximities.Add(new KeyValuePair<string, double>(languageName, proximity));
             }
@@ -53,14 +56,21 @@ namespace LanguageDetection
             return languageProximities.OrderByDescending(keyValuePair => keyValuePair.Value).ToArray();
         }
 
-        private int CountExistingWords(HashSet<string> wordHash, string[] wordsToMatch)
+        public int CountExistingWords(HashSet<string> wordHash, string[] wordsToMatch, bool isRemoveDiacritics)
         {
             #warning Add unit tests
 
             int count = 0;
             foreach (string word in wordsToMatch)
             {
-                if (wordHash.Contains(word))
+                string cleanWord = StringFormatter.RemoveLigatures(word.ToLowerInvariant().Trim());
+
+                if (isRemoveDiacritics)
+                {
+                    cleanWord = StringFormatter.RemoveDiacritics(word);
+                }
+
+                if (wordHash.Contains(cleanWord))
                 {
                     ++count;
                 }

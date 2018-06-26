@@ -44,12 +44,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CompositeLanguageDetector.cs" />
-    <Compile Include="LanguageDetector.cs" />
-    <Compile Include="LanguageDetectorByDictionary.cs" />
-    <Compile Include="LanguageDetectorByHash.cs" />
-    <Compile Include="LanguageDetectorNoDiacritics.cs" />
+    <Compile Include="ByMarkovMatrix\LanguageDetector.cs" />
+    <Compile Include="ByDictionary\LanguageDetectorByDictionary.cs" />
+    <Compile Include="ByHash\LanguageDetectorByHash.cs" />
+    <Compile Include="ByMarkovMatrix\LanguageDetectorNoDiacritics.cs" />
     <Compile Include="MemoryStreamBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ByHash\WordListReader.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MarkovMatrix\MarkovMatrixInterfaces\MarkovMatrixInterfaces.csproj">

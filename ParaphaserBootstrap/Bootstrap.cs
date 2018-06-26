@@ -47,8 +47,22 @@ namespace ParaphaserBootstrap
 
         public ILanguageDetector BuildLanguageDetectorByHash(string wordListsFolder)
         {
-            #warning Implemement
-            throw new NotImplementedException();
+            LanguageDetectorByHash languageDetectorByHash = new LanguageDetectorByHash();
+
+            string[] wordListFiles = Directory.EnumerateFiles(wordListsFolder, "*.txt").Select(file => Path.GetFileName(file)).ToArray();
+
+            Parallel.ForEach(wordListFiles, (wordListFile) =>
+            {
+            /*foreach (string wordListFile in wordListFiles)
+            {*/
+                string languageName = wordListFile.Substring(0, wordListFile.LastIndexOf("."));
+                HashSet<string> wordList = WordListReader.BuildWordList(wordListsFolder + wordListFile);
+
+                languageDetectorByHash.AddLanguage(languageName, wordList);
+            //}
+            });
+
+            return languageDetectorByHash;
         }
 
         public ISpellChecker BuildSpellChecker(string dictionary, string languageName)
