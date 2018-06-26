@@ -47,10 +47,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MarkovMatrix\MarkovMatrix.csproj">
-      <Project>{7e1254fe-2e13-4d68-b337-8460dab633cd}</Project>
-      <Name>MarkovMatrix</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MarkovMatrix\MarkovMatrixInterfaces\MarkovMatrixInterfaces.csproj">
       <Project>{78f39194-74d8-4848-b2d6-fc26fccff4ae}</Project>
       <Name>MarkovMatrixInterfaces</Name>
