@@ -45,6 +45,12 @@ namespace ParaphaserBootstrap
             return languageDetector;
         }
 
+        public ILanguageDetector BuildLanguageDetectorByHash(string wordListsFolder)
+        {
+            #warning Implemement
+            throw new NotImplementedException();
+        }
+
         public ISpellChecker BuildSpellChecker(string dictionary, string languageName)
         {
             ISpellChecker spellChecker = new SpellChecker(dictionary, languageName);

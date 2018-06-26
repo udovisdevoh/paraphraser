@@ -18,9 +18,11 @@ namespace LanguageDetectorApp
 {
     public partial class MainWindow : Form
     {
-        private const string matricesDirectory = "./TextMatrices/";
+        private const string matricesFolder = "./TextMatrices/";
 
-        private const string spellCheckDictionaries = "./SpellCheckDictionaries/";
+        private const string spellCheckFolder = "./SpellCheckDictionaries/";
+
+        private const string wordListsFolder = "./WordLists/";
 
         private ICompositeLanguageDetector languageDetector;
 
@@ -30,12 +32,14 @@ namespace LanguageDetectorApp
         {
             this.bootstrap = new Bootstrap();
 
-            ILanguageDetector languageDetectorByMarkovMatrix = this.bootstrap.BuildLanguageDetectorByMarkovMatrix(matricesDirectory);
-            ILanguageDetector languageDetectorByDictionary = this.bootstrap.BuildLanguageDetectorByDictionary(spellCheckDictionaries);
+            ILanguageDetector languageDetectorByMarkovMatrix = this.bootstrap.BuildLanguageDetectorByMarkovMatrix(matricesFolder);
+            //ILanguageDetector languageDetectorByDictionary = this.bootstrap.BuildLanguageDetectorByDictionary(spellCheckFolder);
+            ILanguageDetector languageDetectorByHash = this.bootstrap.BuildLanguageDetectorByHash(wordListsFolder);
 
             this.languageDetector = this.bootstrap.BuildCompositeLanguageDetector();
             this.languageDetector.AddLanguageDetector(languageDetectorByMarkovMatrix);
-            this.languageDetector.AddLanguageDetector(languageDetectorByDictionary);
+            //this.languageDetector.AddLanguageDetector(languageDetectorByDictionary);
+            this.languageDetector.AddLanguageDetector(languageDetectorByHash);
 
             InitializeComponent();
         }

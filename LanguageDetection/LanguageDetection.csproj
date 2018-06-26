@@ -46,6 +46,7 @@
     <Compile Include="CompositeLanguageDetector.cs" />
     <Compile Include="LanguageDetector.cs" />
     <Compile Include="LanguageDetectorByDictionary.cs" />
+    <Compile Include="LanguageDetectorByHash.cs" />
     <Compile Include="LanguageDetectorNoDiacritics.cs" />
     <Compile Include="MemoryStreamBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
