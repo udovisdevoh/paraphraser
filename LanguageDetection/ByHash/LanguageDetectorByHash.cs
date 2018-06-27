@@ -9,9 +9,9 @@ namespace LanguageDetection
 {
     public class LanguageDetectorByHash : ILanguageDetector
     {
-        private Dictionary<string, HashSet<string>> languageWordLists = new Dictionary<string, HashSet<string>>();
+        private Dictionary<string, Dictionary<string, double>> languageWordLists = new Dictionary<string, Dictionary<string, double>>();
 
-        public void AddLanguage(string languageName, HashSet<string> wordList)
+        public void AddLanguage(string languageName, Dictionary<string, double> wordList)
         {
             #warning Add unit tests
 
@@ -40,15 +40,23 @@ namespace LanguageDetection
 
             List<KeyValuePair<string, double>> languageProximities = new List<KeyValuePair<string, double>>();
 
-            foreach (KeyValuePair<string, HashSet<string>> languageNameAndSpellChecker in this.languageWordLists)
+            foreach (KeyValuePair<string, Dictionary<string, double>> languageNameAndWordList in this.languageWordLists)
             {
-                string languageName = languageNameAndSpellChecker.Key;
-                HashSet<string> wordList = languageNameAndSpellChecker.Value;
+                string languageName = languageNameAndWordList.Key;
+                Dictionary<string, double> wordList = languageNameAndWordList.Value;
 
-                int existingWords = this.CountExistingWords(wordList, words, false);
-                int existingWordsNoDiacritics = this.CountExistingWords(wordList, words, true);
+                double existingWords = this.GetExistingWordsSumOfProbabilities(wordList, words);
 
-                double proximity = (double)(existingWords + existingWordsNoDiacritics) / (double)(words.Length * 2);
+                double proximity;
+
+                if (words.Length == 0)
+                {
+                    proximity = 0.0;
+                }
+                else
+                {
+                    proximity = existingWords / (double)(words.Length);
+                }
 
                 languageProximities.Add(new KeyValuePair<string, double>(languageName, proximity));
             }
@@ -56,26 +64,22 @@ namespace LanguageDetection
             return languageProximities.OrderByDescending(keyValuePair => keyValuePair.Value).ToArray();
         }
 
-        public int CountExistingWords(HashSet<string> wordHash, string[] wordsToMatch, bool isRemoveDiacritics)
+        public double GetExistingWordsSumOfProbabilities(Dictionary<string, double> languageWordProbability, string[] wordsToMatch)
         {
             #warning Add unit tests
 
-            int count = 0;
+            double sumOfProbabilities = 0.0;
             foreach (string word in wordsToMatch)
             {
                 string cleanWord = StringFormatter.RemoveLigatures(word.ToLowerInvariant().Trim());
 
-                if (isRemoveDiacritics)
+                double probability = 0.0;
+                if (languageWordProbability.TryGetValue(cleanWord, out probability))
                 {
-                    cleanWord = StringFormatter.RemoveDiacritics(word);
-                }
-
-                if (wordHash.Contains(cleanWord))
-                {
-                    ++count;
+                    sumOfProbabilities += probability;
                 }
             }
-            return count;
+            return sumOfProbabilities;
         }
     }
 }

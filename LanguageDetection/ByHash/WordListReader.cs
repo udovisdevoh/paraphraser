@@ -10,12 +10,12 @@ namespace LanguageDetection
 {
     public static class WordListReader
     {
-        public static HashSet<string> BuildWordList(string fileName)
+        public static Dictionary<string, double> BuildWordList(string fileName)
         {
             #warning Add unit tests
             #warning Improve performance
 
-            HashSet<string> wordList = new HashSet<string>();
+            Dictionary<string, int> wordList = new Dictionary<string, int>();
 
             using (StreamReader streamReader = new StreamReader(fileName))
             {
@@ -26,14 +26,45 @@ namespace LanguageDetection
                     if (!string.IsNullOrEmpty(line))
                     {
                         line = StringFormatter.RemoveLigatures(line);
-                        wordList.Add(line);
-                        line = StringFormatter.RemoveDiacritics(line);
-                        wordList.Add(line);
+                        string[] words = WordExtractor.GetLowerInvariantWords(line);
+
+                        foreach (string word in words)
+                        {
+                            if (!wordList.ContainsKey(word))
+                            {
+                                wordList[word] = 0;
+                            }
+
+                            ++wordList[word];
+                        }
                     }
                 }
             }
 
-            return wordList;
+            return WordListReader.NormalizeToMax(wordList);
+        }
+
+        public static Dictionary<string, double> NormalizeToMax(Dictionary<string, int> wordList)
+        {
+            #warning Add unit tests
+            #warning Improve performance
+
+            int maxValue = wordList.Values.Max();
+
+            if (maxValue == 0)
+            {
+                maxValue = 1;
+            }
+
+            Dictionary<string, double> normalizedValues = new Dictionary<string, double>();
+
+            foreach (KeyValuePair<string, int> wordAndCount in wordList)
+            {
+                double normalizedValue = (double)wordAndCount.Value / (double)maxValue;
+                normalizedValues.Add(wordAndCount.Key, normalizedValue);
+            }
+
+            return normalizedValues;
         }
     }
 }

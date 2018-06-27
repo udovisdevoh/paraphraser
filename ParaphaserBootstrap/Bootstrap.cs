@@ -56,9 +56,12 @@ namespace ParaphaserBootstrap
             /*foreach (string wordListFile in wordListFiles)
             {*/
                 string languageName = wordListFile.Substring(0, wordListFile.LastIndexOf("."));
-                HashSet<string> wordList = WordListReader.BuildWordList(wordListsFolder + wordListFile);
+                Dictionary<string, double> wordList = WordListReader.BuildWordList(wordListsFolder + wordListFile);
 
-                languageDetectorByHash.AddLanguage(languageName, wordList);
+                lock (languageDetectorByHash)
+                {
+                    languageDetectorByHash.AddLanguage(languageName, wordList);
+                }
             //}
             });
 

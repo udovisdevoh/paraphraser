@@ -22,7 +22,7 @@ namespace LanguageDetectorApp
 
         private const string spellCheckFolder = "./SpellCheckDictionaries/";
 
-        private const string wordListsFolder = "./WordLists/";
+        private const string wordListsFolder = "./LanguageSamples/";
 
         private ICompositeLanguageDetector languageDetector;
 
