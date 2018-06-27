@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LanguageDetection
 {
-    public class LanguageDetectorNoDiacritics : LanguageDetector
+    public class LanguageDetectorNoDiacritics : LanguageDetectorByMarkovMatrix
     {
         private IMarkovMatrixTransformer markovMatrixTransformer;
 

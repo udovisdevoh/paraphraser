@@ -8,14 +8,9 @@ using ParaphraserMath;
 
 namespace LanguageDetection
 {
-    public class CompositeLanguageDetector : ICompositeLanguageDetector
+    public class CompositeLanguageDetector : LanguageDetector, ICompositeLanguageDetector
     {
         private List<ILanguageDetector> languageDetectors = new List<ILanguageDetector>();
-
-        public string DetectLanguage(string text)
-        {
-            return this.GetLanguageProximities(text)[0].Key;
-        }
 
         public void AddLanguageDetector(ILanguageDetector languageDetector)
         {
@@ -28,7 +23,7 @@ namespace LanguageDetection
             this.languageDetectors.Add(languageDetector);
         }
 
-        public KeyValuePair<string, double>[] GetLanguageProximities(string text)
+        public override KeyValuePair<string, double>[] GetLanguageProximities(string text)
         {
             if (this.languageDetectors.Count < 1)
             {
@@ -86,7 +81,7 @@ namespace LanguageDetection
             }
         }
 
-        public IEnumerable<string> GetLanguageList()
+        public override IEnumerable<string> GetLanguageList()
         {
             HashSet<string> languages = new HashSet<string>();
             foreach (ILanguageDetector componentLanguageDetector in this.languageDetectors)

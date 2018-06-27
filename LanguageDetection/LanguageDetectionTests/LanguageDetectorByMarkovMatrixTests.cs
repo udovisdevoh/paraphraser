@@ -11,7 +11,7 @@ using Xunit;
 
 namespace LanguageDetectionTests
 {
-    public class LanguageDetectorTests
+    public class LanguageDetectorByMarkovMatrixTests
     {
         [Fact]
         public void GivenLanguageDetector_AddLanguage()
@@ -19,7 +19,7 @@ namespace LanguageDetectionTests
             // Arrange
             IMarkovMatrix<double> inputMatrix = LanguageDetectorTestHelper.BuildEnglishLanguageMatrixMock();
             IMarkovMatrixLoader<double> markovMatrixLoader = LanguageDetectorTestHelper.BuildNormalizedTextMarkovMatrixLoader(inputMatrix);
-            LanguageDetector languageDetector = new LanguageDetector(markovMatrixLoader);
+            LanguageDetectorByMarkovMatrix languageDetector = new LanguageDetectorByMarkovMatrix(markovMatrixLoader);
             IMarkovMatrix<double> englishMatrix = LanguageDetectorTestHelper.BuildEnglishLanguageMatrixMock();
 
             // Act
@@ -35,7 +35,7 @@ namespace LanguageDetectionTests
             // Arrange
             IMarkovMatrix<double> inputMatrix = LanguageDetectorTestHelper.BuildEnglishLanguageMatrixMock();
             IMarkovMatrixLoader<double> markovMatrixLoader = LanguageDetectorTestHelper.BuildNormalizedTextMarkovMatrixLoader(inputMatrix);
-            LanguageDetector languageDetector = new LanguageDetector(markovMatrixLoader);
+            LanguageDetectorByMarkovMatrix languageDetector = new LanguageDetectorByMarkovMatrix(markovMatrixLoader);
 
             // Assert
             Assert.Throws<InvalidOperationException>(() =>
@@ -51,7 +51,7 @@ namespace LanguageDetectionTests
             // Arrange
             IMarkovMatrix<double> inputMatrix = LanguageDetectorTestHelper.BuildFrenchLanguageMatrixMock();
             IMarkovMatrixLoader<double> markovMatrixLoader = LanguageDetectorTestHelper.BuildNormalizedTextMarkovMatrixLoader(inputMatrix);
-            LanguageDetector languageDetector = new LanguageDetector(markovMatrixLoader);
+            LanguageDetectorByMarkovMatrix languageDetector = new LanguageDetectorByMarkovMatrix(markovMatrixLoader);
             IMarkovMatrix<double> englishMatrix = LanguageDetectorTestHelper.BuildEnglishLanguageMatrixMock();
             IMarkovMatrix<double> frenchMatrix = LanguageDetectorTestHelper.BuildFrenchLanguageMatrixMock();
 
@@ -69,7 +69,7 @@ namespace LanguageDetectionTests
             // Arrange
             IMarkovMatrix<double> inputMatrix = LanguageDetectorTestHelper.BuildEnglishLanguageMatrixMock();
             IMarkovMatrixLoader<double> markovMatrixLoader = LanguageDetectorTestHelper.BuildNormalizedTextMarkovMatrixLoader(inputMatrix);
-            LanguageDetector languageDetector = new LanguageDetector(markovMatrixLoader);
+            LanguageDetectorByMarkovMatrix languageDetector = new LanguageDetectorByMarkovMatrix(markovMatrixLoader);
             IMarkovMatrix<double> englishMatrix = LanguageDetectorTestHelper.BuildEnglishLanguageMatrixMock();
             IMarkovMatrix<double> frenchMatrix = LanguageDetectorTestHelper.BuildFrenchLanguageMatrixMock();
 
@@ -87,7 +87,7 @@ namespace LanguageDetectionTests
             // Arrange
             IMarkovMatrix<double> inputMatrix = LanguageDetectorTestHelper.BuildEnglishLanguageMatrixMock();
             IMarkovMatrixLoader<double> markovMatrixLoader = LanguageDetectorTestHelper.BuildNormalizedTextMarkovMatrixLoader(inputMatrix);
-            LanguageDetector languageDetector = new LanguageDetector(markovMatrixLoader);
+            LanguageDetectorByMarkovMatrix languageDetector = new LanguageDetectorByMarkovMatrix(markovMatrixLoader);
             IMarkovMatrix<double> englishMatrix = LanguageDetectorTestHelper.BuildEnglishLanguageMatrixMock();
             IMarkovMatrix<double> frenchMatrix = LanguageDetectorTestHelper.BuildFrenchLanguageMatrixMock();
 
@@ -106,7 +106,7 @@ namespace LanguageDetectionTests
             // Arrange
             IMarkovMatrix<double> inputMatrix = LanguageDetectorTestHelper.BuildEnglishLanguageMatrixMock();
             IMarkovMatrixLoader<double> markovMatrixLoader = LanguageDetectorTestHelper.BuildNormalizedTextMarkovMatrixLoader(inputMatrix);
-            LanguageDetector languageDetector = new LanguageDetector(markovMatrixLoader);
+            LanguageDetectorByMarkovMatrix languageDetector = new LanguageDetectorByMarkovMatrix(markovMatrixLoader);
             IMarkovMatrix<double> englishMatrix = LanguageDetectorTestHelper.BuildEnglishLanguageMatrixMock();
             IMarkovMatrix<double> frenchMatrix = LanguageDetectorTestHelper.BuildFrenchLanguageMatrixMock();
 
@@ -126,7 +126,7 @@ namespace LanguageDetectionTests
             IMarkovMatrix<double> englishMatrix = LanguageDetectorTestHelper.BuildEnglishLanguageMatrixMock();
             IMarkovMatrix<double> frenchMatrix = LanguageDetectorTestHelper.BuildFrenchLanguageMatrixMock();
             IMarkovMatrixLoader<double> markovMatrixLoader = LanguageDetectorTestHelper.BuildNormalizedTextMarkovMatrixLoader(englishMatrix);
-            LanguageDetector languageDetector = new LanguageDetector(markovMatrixLoader);
+            LanguageDetectorByMarkovMatrix languageDetector = new LanguageDetectorByMarkovMatrix(markovMatrixLoader);
             IEnumerable<string> expectedLanguageList = new string[] { "English", "French" };
 
             // Act

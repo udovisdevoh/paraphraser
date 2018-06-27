@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace LanguageDetection
 {
-    public class LanguageDetector : ILanguageDetector
+    public class LanguageDetectorByMarkovMatrix : LanguageDetector
     {
         #region Members
         private Dictionary<string, IMarkovMatrix<double>> languages;
@@ -19,7 +19,7 @@ namespace LanguageDetection
         #endregion
 
         #region Constructors
-        public LanguageDetector(IMarkovMatrixLoader<double> languageDetectionMatrixLoader)
+        public LanguageDetectorByMarkovMatrix(IMarkovMatrixLoader<double> languageDetectionMatrixLoader)
         {
             this.languages = new Dictionary<string, IMarkovMatrix<double>>();
             this.languageDetectionMatrixLoader = languageDetectionMatrixLoader;
@@ -45,7 +45,7 @@ namespace LanguageDetection
             return this.GetLanguageProximities(text)[0].Key;
         }
 
-        public KeyValuePair<string, double>[] GetLanguageProximities(string text)
+        public override KeyValuePair<string, double>[] GetLanguageProximities(string text)
         {
             if (languages.Count < 1)
             {
@@ -80,7 +80,7 @@ namespace LanguageDetection
             return matrix;
         }
 
-        public IEnumerable<string> GetLanguageList()
+        public override IEnumerable<string> GetLanguageList()
         {
             return this.languages.Keys;
         }

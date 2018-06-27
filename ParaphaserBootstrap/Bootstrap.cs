@@ -13,16 +13,16 @@ namespace ParaphaserBootstrap
 {
     public class Bootstrap
     {
-        public LanguageDetector BuildLanguageDetector()
+        public LanguageDetectorByMarkovMatrix BuildLanguageDetectorByMarkovMatrix()
         {
             IMarkovMatrixLoader<ulong> languageDetectionMatrixLoader = new TextMarkovMatrixLoader();
             IMarkovMatrixNormalizer markovMatrixNormalizer = new MarkovMatrixNormalizer();
 
             IMarkovMatrixLoader<double> normalizedLanguageDetectionMatrixLoader = new NormalizedTextMarkovMatrixLoader(languageDetectionMatrixLoader, markovMatrixNormalizer);
 
-            LanguageDetector languageDetector = new LanguageDetector(normalizedLanguageDetectionMatrixLoader);
+            LanguageDetectorByMarkovMatrix languageDetectorByMarkovMatrix = new LanguageDetectorByMarkovMatrix(normalizedLanguageDetectionMatrixLoader);
 
-            return languageDetector;
+            return languageDetectorByMarkovMatrix;
         }
 
         public ICompositeLanguageDetector BuildCompositeLanguageDetector()
@@ -40,9 +40,9 @@ namespace ParaphaserBootstrap
             IMarkovMatrixLoader<double> normalizedLanguageDetectionMatrixLoader = new NormalizedTextMarkovMatrixLoader(languageDetectionMatrixLoader, markovMatrixNormalizer);
             IMarkovMatrixTransformer markovMatrixCharacterCombiner = new MarkovMatrixCharacterCombiner(letter => StringFormatter.RemoveDiacritics(letter));
 
-            LanguageDetector languageDetector = new LanguageDetectorNoDiacritics(normalizedLanguageDetectionMatrixLoader, markovMatrixCharacterCombiner);
+            LanguageDetectorByMarkovMatrix languageDetectorByMarkovMatrix = new LanguageDetectorNoDiacritics(normalizedLanguageDetectionMatrixLoader, markovMatrixCharacterCombiner);
 
-            return languageDetector;
+            return languageDetectorByMarkovMatrix;
         }
 
         public ILanguageDetector BuildLanguageDetectorByHash(string wordListsFolder)
@@ -115,7 +115,7 @@ namespace ParaphaserBootstrap
 
         public ILanguageDetector BuildLanguageDetectorByMarkovMatrix(string matricesDirectory)
         {
-            LanguageDetector languageDetectorByMarkovMatrix = this.BuildLanguageDetector();
+            LanguageDetectorByMarkovMatrix languageDetectorByMarkovMatrix = this.BuildLanguageDetectorByMarkovMatrix();
 
             IMarkovMatrixLoader<double> binaryMarkovMatrixLoader = this.BuildBinaryMarkovMatrixLoader();
 

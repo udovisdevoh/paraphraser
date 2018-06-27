@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LanguageDetection
 {
-    public class LanguageDetectorByHash : ILanguageDetector
+    public class LanguageDetectorByHash : LanguageDetector
     {
         private Dictionary<string, Dictionary<string, double>> languageWordLists = new Dictionary<string, Dictionary<string, double>>();
 
@@ -16,17 +16,12 @@ namespace LanguageDetection
             this.languageWordLists.Add(StringFormatter.FormatLanguageName(languageName), wordList);
         }
 
-        public IEnumerable<string> GetLanguageList()
+        public override IEnumerable<string> GetLanguageList()
         {
             return this.languageWordLists.Keys;
         }
 
-        public string DetectLanguage(string text)
-        {
-            return this.GetLanguageProximities(text)[0].Key;
-        }
-
-        public KeyValuePair<string, double>[] GetLanguageProximities(string text)
+        public override KeyValuePair<string, double>[] GetLanguageProximities(string text)
         {
             string[] words = WordExtractor.GetLowerInvariantWords(text);
 

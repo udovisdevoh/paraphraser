@@ -72,7 +72,7 @@
     <Compile Include="CompositeLanguageDetectorTests.cs" />
     <Compile Include="LanguageDetectorByDictionaryTests.cs" />
     <Compile Include="LanguageDetectorByHashTests.cs" />
-    <Compile Include="LanguageDetectorTests.cs" />
+    <Compile Include="LanguageDetectorByMarkovMatrixTests.cs" />
     <Compile Include="MemoryStreamBuilderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WordListReaderTests.cs" />
