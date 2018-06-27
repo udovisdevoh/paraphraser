@@ -10,14 +10,18 @@ namespace LanguageDetection
 {
     public static class WordListReader
     {
-        public static Dictionary<string, double> BuildWordList(string fileName)
+        public static Dictionary<string, double> BuildWordCountProbability(Stream stream)
         {
-            #warning Add unit tests
-            #warning Improve performance
+            Dictionary<string, int> wordList = WordListReader.GetWordCount(stream);
 
-            Dictionary<string, int> wordList = new Dictionary<string, int>();
+            return WordListReader.NormalizeToMax(wordList);
+        }
 
-            using (StreamReader streamReader = new StreamReader(fileName))
+        public static Dictionary<string, int> GetWordCount(Stream stream)
+        {
+            Dictionary<string, int> wordCount = new Dictionary<string, int>();
+
+            using (StreamReader streamReader = new StreamReader(stream))
             {
                 string line;
                 while ((line = streamReader.ReadLine()) != null)
@@ -30,25 +34,22 @@ namespace LanguageDetection
 
                         foreach (string word in words)
                         {
-                            if (!wordList.ContainsKey(word))
+                            if (!wordCount.ContainsKey(word))
                             {
-                                wordList[word] = 0;
+                                wordCount[word] = 0;
                             }
 
-                            ++wordList[word];
+                            ++wordCount[word];
                         }
                     }
                 }
             }
 
-            return WordListReader.NormalizeToMax(wordList);
+            return wordCount;
         }
 
         public static Dictionary<string, double> NormalizeToMax(Dictionary<string, int> wordList)
         {
-            #warning Add unit tests
-            #warning Improve performance
-
             int maxValue = wordList.Values.Max();
 
             if (maxValue == 0)

@@ -27,15 +27,11 @@ namespace LanguageDetection
 
         public string DetectLanguage(string text)
         {
-            #warning Add unit tests
-
             return this.GetLanguageProximities(text)[0].Key;
         }
 
         public KeyValuePair<string, double>[] GetLanguageProximities(string text)
         {
-            #warning Add unit tests
-
             string[] words = WordExtractor.GetLowerInvariantWords(text);
 
             List<KeyValuePair<string, double>> languageProximities = new List<KeyValuePair<string, double>>();
@@ -66,6 +62,7 @@ namespace LanguageDetection
 
         public double GetExistingWordsSumOfProbabilities(Dictionary<string, double> languageWordProbability, string[] wordsToMatch)
         {
+            #warning Move to WordExtractor
             #warning Add unit tests
 
             double sumOfProbabilities = 0.0;

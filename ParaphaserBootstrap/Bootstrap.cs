@@ -56,7 +56,11 @@ namespace ParaphaserBootstrap
             /*foreach (string wordListFile in wordListFiles)
             {*/
                 string languageName = wordListFile.Substring(0, wordListFile.LastIndexOf("."));
-                Dictionary<string, double> wordList = WordListReader.BuildWordList(wordListsFolder + wordListFile);
+                Dictionary<string, double> wordList;
+                using (FileStream stream = File.Open(wordListsFolder + wordListFile, FileMode.Open))
+                {
+                    wordList = WordListReader.BuildWordCountProbability(stream);
+                }
 
                 lock (languageDetectorByHash)
                 {
