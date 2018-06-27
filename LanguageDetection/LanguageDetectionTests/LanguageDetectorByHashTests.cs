@@ -67,5 +67,37 @@ namespace LanguageDetectionTests
             // Assert
             Assert.Equal(expectedLanguage, actualLanguage);
         }
+
+        [Fact]
+        public void GivenLanguageDetectorByHash_AddLanguage_ShouldAddLanguage()
+        {
+            // Arrange
+            LanguageDetectorByHash languageDetectorByHash = new LanguageDetectorByHash();
+
+            Dictionary<string, double> frenchWordList = new Dictionary<string, double>() { { "ceci", 1 }, { "est", 0.75 }, { "un", 0.25 }, { "chapeau", 0.1 } };
+            //Dictionary<string, double> englishWordList = new Dictionary<string, double>() { { "this", 1 }, { "is", 0.75 }, { "a", 0.25 }, { "hat", 0.1 } };
+
+            // Act
+            languageDetectorByHash.AddLanguage("French", frenchWordList);
+        }
+
+        [Fact]
+        public void GivenLanguageDetectorAndTwoLanguages_ShouldGetLanguages()
+        {
+            // Arrange
+            LanguageDetectorByHash languageDetectorByHash = new LanguageDetectorByHash();
+
+            Dictionary<string, double> frenchWordList = new Dictionary<string, double>() { { "ceci", 1 }, { "est", 0.75 }, { "un", 0.25 }, { "chapeau", 0.1 } };
+            Dictionary<string, double> englishWordList = new Dictionary<string, double>() { { "this", 1 }, { "is", 0.75 }, { "a", 0.25 }, { "hat", 0.1 } };
+            string[] expectedLanguageList = new string[] { "French", "English" };
+
+            // Act
+            languageDetectorByHash.AddLanguage("French", frenchWordList);
+            languageDetectorByHash.AddLanguage("English", englishWordList);
+            IEnumerable<string> actualLanguageList = languageDetectorByHash.GetLanguageList();
+
+            // Assert
+            Assert.Equal(expectedLanguageList.OrderBy(value => value), actualLanguageList.OrderBy(value => value));
+        }
     }
 }

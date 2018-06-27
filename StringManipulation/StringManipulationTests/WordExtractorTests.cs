@@ -50,5 +50,20 @@ namespace StringManipulation.Tests
             // Assert
             Assert.Equal(expectedWords, actualWords);
         }
+
+        [Fact]
+        public void GivenLanguageWordCountProbabiltyAndWordList_ShouldGetWordListSumOfProbability()
+        {
+            // Arrange
+            Dictionary<string, double> languageWordCountProbability = new Dictionary<string, double>() { { "this", 0.7 }, { "is", 0.4 }, { "a", 0.1 } };
+            string[] inputWords = new string[] { "this", "is" };
+            double expectedSumOfProbability = 1.1;
+
+            // Act
+            double actualSumOfProbability = WordExtractor.GetExistingWordsSumOfProbabilities(languageWordCountProbability, inputWords);
+
+            // Assert
+            Assert.Equal(expectedSumOfProbability, actualSumOfProbability);
+        }
     }
 }

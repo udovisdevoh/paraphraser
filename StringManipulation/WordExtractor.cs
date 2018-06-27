@@ -60,5 +60,21 @@ namespace StringManipulation
             }
             return wordsOnly.ToArray();
         }
+
+        public static double GetExistingWordsSumOfProbabilities(Dictionary<string, double> languageWordProbability, string[] wordsToMatch)
+        {
+            double sumOfProbabilities = 0.0;
+            foreach (string word in wordsToMatch)
+            {
+                string cleanWord = StringFormatter.RemoveLigatures(word.ToLowerInvariant().Trim());
+
+                double probability = 0.0;
+                if (languageWordProbability.TryGetValue(cleanWord, out probability))
+                {
+                    sumOfProbabilities += probability;
+                }
+            }
+            return sumOfProbabilities;
+        }
     }
 }

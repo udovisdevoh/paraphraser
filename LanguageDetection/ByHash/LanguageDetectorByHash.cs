@@ -13,15 +13,11 @@ namespace LanguageDetection
 
         public void AddLanguage(string languageName, Dictionary<string, double> wordList)
         {
-            #warning Add unit tests
-
             this.languageWordLists.Add(StringFormatter.FormatLanguageName(languageName), wordList);
         }
 
         public IEnumerable<string> GetLanguageList()
         {
-            #warning Add unit tests
-
             return this.languageWordLists.Keys;
         }
 
@@ -41,7 +37,7 @@ namespace LanguageDetection
                 string languageName = languageNameAndWordList.Key;
                 Dictionary<string, double> wordList = languageNameAndWordList.Value;
 
-                double existingWords = this.GetExistingWordsSumOfProbabilities(wordList, words);
+                double existingWords = WordExtractor.GetExistingWordsSumOfProbabilities(wordList, words);
 
                 double proximity;
 
@@ -58,25 +54,6 @@ namespace LanguageDetection
             }
 
             return languageProximities.OrderByDescending(keyValuePair => keyValuePair.Value).ToArray();
-        }
-
-        public double GetExistingWordsSumOfProbabilities(Dictionary<string, double> languageWordProbability, string[] wordsToMatch)
-        {
-            #warning Move to WordExtractor
-            #warning Add unit tests
-
-            double sumOfProbabilities = 0.0;
-            foreach (string word in wordsToMatch)
-            {
-                string cleanWord = StringFormatter.RemoveLigatures(word.ToLowerInvariant().Trim());
-
-                double probability = 0.0;
-                if (languageWordProbability.TryGetValue(cleanWord, out probability))
-                {
-                    sumOfProbabilities += probability;
-                }
-            }
-            return sumOfProbabilities;
         }
     }
 }
