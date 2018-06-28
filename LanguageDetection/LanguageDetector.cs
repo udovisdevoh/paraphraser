@@ -14,8 +14,6 @@ namespace LanguageDetection
 
         public virtual string DetectLanguage(string text)
         {
-            #warning Add unit tests
-
             return this.GetLanguageProximities(text)[0].Key;
         }
     }

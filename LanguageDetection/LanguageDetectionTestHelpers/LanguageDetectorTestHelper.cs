@@ -41,6 +41,7 @@ namespace LanguageDetection.TestHelpers
         {
             Mock<IMarkovMatrixLoader<double>> matrixLoaderMockFactory = new Mock<IMarkovMatrixLoader<double>>();
             matrixLoaderMockFactory.Setup(matrixLoader => matrixLoader.LoadMatrix(It.IsAny<Stream>())).Returns(outputMatrix);
+            matrixLoaderMockFactory.Setup(matrixLoader => matrixLoader.LoadMatrix(It.IsAny<string>())).Returns(outputMatrix);
             return matrixLoaderMockFactory.Object;
         }
 
