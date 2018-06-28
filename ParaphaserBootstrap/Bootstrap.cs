@@ -45,6 +45,27 @@ namespace ParaphaserBootstrap
             return languageDetectorByMarkovMatrix;
         }
 
+        public ILanguageDetector BuildLanguageDetectorByLeastCorrection(string spellCheckDictionaries)
+        {
+            IMarkovMatrixLoader<ulong> languageDetectionMatrixLoader = new TextMarkovMatrixLoader();
+            IMarkovMatrixNormalizer markovMatrixNormalizer = new MarkovMatrixNormalizer();
+            IMarkovMatrixLoader<double> normalizedLanguageDetectionMatrixLoader = new NormalizedTextMarkovMatrixLoader(languageDetectionMatrixLoader, markovMatrixNormalizer);
+
+            LanguageDetectorByLeastCorrection languageDetectorByLeastCorrection = new LanguageDetectorByLeastCorrection(normalizedLanguageDetectionMatrixLoader);
+
+            string[] dictionaryFiles = Directory.EnumerateFiles(spellCheckDictionaries, "*.dic").Select(file => Path.GetFileName(file)).ToArray();
+
+            Parallel.ForEach(dictionaryFiles, (dictionaryFile) =>
+            {
+                string languageName = dictionaryFile.Substring(0, dictionaryFile.LastIndexOf("."));
+                ISpellChecker spellChecker = this.BuildSpellChecker(spellCheckDictionaries, languageName);
+
+                languageDetectorByLeastCorrection.AddLanguage(languageName, spellChecker);
+            });
+
+            return languageDetectorByLeastCorrection;
+        }
+
         public ILanguageDetector BuildLanguageDetectorByHash(string wordListsFolder)
         {
             LanguageDetectorByHash languageDetectorByHash = new LanguageDetectorByHash();

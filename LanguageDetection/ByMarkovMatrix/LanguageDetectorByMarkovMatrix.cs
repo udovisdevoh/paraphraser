@@ -39,7 +39,7 @@ namespace LanguageDetection
             this.languages.Add(name, this.TransformMatrix(languageMatrix));
         }
 
-        public string DetectLanguage(string text)
+        public override string DetectLanguage(string text)
         {
             text = this.TransformInput(text);
             return this.GetLanguageProximities(text)[0].Key;

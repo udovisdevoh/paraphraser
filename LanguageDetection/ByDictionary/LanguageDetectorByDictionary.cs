@@ -28,15 +28,18 @@ namespace LanguageDetection
 
             List<KeyValuePair<string, double>> languageProximities = new List<KeyValuePair<string, double>>();
 
-            foreach (KeyValuePair<string, ISpellChecker> languageNameAndSpellChecker in this.spellCheckers)
+            Parallel.ForEach(this.spellCheckers, (languageNameAndSpellChecker, state) =>
             {
                 string languageName = languageNameAndSpellChecker.Key;
                 ISpellChecker spellChecker = languageNameAndSpellChecker.Value;
 
                 double proximity = (double)spellChecker.CountExistingWords(words) / (double)words.Length;
 
-                languageProximities.Add(new KeyValuePair<string, double>(languageName, proximity));
-            }
+                lock (languageProximities)
+                {
+                    languageProximities.Add(new KeyValuePair<string, double>(languageName, proximity));
+                }
+            });
 
             return languageProximities.OrderByDescending(keyValuePair => keyValuePair.Value).ToArray();
         }

@@ -64,7 +64,7 @@ namespace SpellCheckingTests
             SpellChecker spellChecker = new SpellChecker("./Dictionaries", "english");
 
             // Act
-            actualCorrectedSpelling = spellChecker.GetCorrectedText(wrongSpelling);
+            actualCorrectedSpelling = spellChecker.GetCorrectedText(wrongSpelling, null);
 
             // Assert
             Assert.Equal(expectedCorrectedSpelling, actualCorrectedSpelling);

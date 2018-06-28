@@ -11,6 +11,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -24,24 +25,33 @@ namespace LanguageDetectorApp
 
         private const string wordListsFolder = "./LanguageSamples/";
 
+        private LanguageDetectionBackgroundWorker languageDetectionBackgroundWorker;
+
         private ICompositeLanguageDetector languageDetector;
 
         private Bootstrap bootstrap;
 
         public MainWindow()
         {
+            #warning Remove low and/or "useless" languages
+
             this.bootstrap = new Bootstrap();
 
             ILanguageDetector languageDetectorByMarkovMatrix = this.bootstrap.BuildLanguageDetectorByMarkovMatrix(matricesFolder);
             //ILanguageDetector languageDetectorByDictionary = this.bootstrap.BuildLanguageDetectorByDictionary(spellCheckFolder);
-            ILanguageDetector languageDetectorByHash = this.bootstrap.BuildLanguageDetectorByHash(wordListsFolder);
+            //ILanguageDetector languageDetectorByHash = this.bootstrap.BuildLanguageDetectorByHash(wordListsFolder);
+            ILanguageDetector languageDetectorByLeastCorrection = this.bootstrap.BuildLanguageDetectorByLeastCorrection(spellCheckFolder);
 
             this.languageDetector = this.bootstrap.BuildCompositeLanguageDetector();
             this.languageDetector.AddLanguageDetector(languageDetectorByMarkovMatrix);
             //this.languageDetector.AddLanguageDetector(languageDetectorByDictionary);
-            this.languageDetector.AddLanguageDetector(languageDetectorByHash);
+            //this.languageDetector.AddLanguageDetector(languageDetectorByHash);
+            this.languageDetector.AddLanguageDetector(languageDetectorByLeastCorrection);
 
             InitializeComponent();
+
+            this.languageDetectionBackgroundWorker = new LanguageDetectionBackgroundWorker(languageDetector, this.textBoxDetectedLanguage);
+            this.languageDetectionBackgroundWorker.Start();
         }
 
         private void textBoxInput_TextChanged(object sender, EventArgs e)
@@ -54,21 +64,7 @@ namespace LanguageDetectorApp
             //text = StringFormatter.RemovePunctuation(text);
             //text = StringFormatter.FormatInputText(text);
 
-            KeyValuePair<string, double>[] languageProximities = this.languageDetector.GetLanguageProximities(text);
-
-            StringBuilder languageProximitiesStringBuilder = new StringBuilder();
-
-            foreach (KeyValuePair<string, double> languageProximity in languageProximities)
-            {
-                string languageName = languageProximity.Key;
-                double proximity = languageProximity.Value;
-                string formattedProximity = proximity.ToString("N2");
-                languageProximitiesStringBuilder.AppendLine(string.Format("{0}: {1}", languageName, formattedProximity));
-            }
-
-            //string detectedLanguage = this.languageDetector.DetectLanguage(text);
-
-            this.textBoxDetectedLanguage.Text = languageProximitiesStringBuilder.ToString();
+            this.languageDetectionBackgroundWorker.NotifyText(text);
         }
     }
 }
