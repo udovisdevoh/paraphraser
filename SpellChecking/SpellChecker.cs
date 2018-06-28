@@ -14,6 +14,8 @@ namespace SpellChecking
         private string language;
 
         private Hunspell hunspell;
+
+        private bool isAborting = false;
         #endregion
 
         #region Constructors
@@ -27,6 +29,7 @@ namespace SpellChecking
 
         public string GetCorrectedText(string originalText, string replaceUnmatchedWordWith)
         {
+            this.isAborting = false;
             #warning Add unit tests for replaceUnmatchedWordWith
 
             string[] wordsAndPunctuationTokens = WordExtractor.GetWordsAndPunctuationTokens(originalText);
@@ -62,6 +65,11 @@ namespace SpellChecking
                 }
 
                 stringBuilder.Append(correctedWord);
+
+                if (this.isAborting)
+                {
+                    break;
+                }
             }
 
             return stringBuilder.ToString();
@@ -154,6 +162,12 @@ namespace SpellChecking
             }
 
             return existingWords;
+        }
+
+        public void Abort()
+        {
+            #warning Add unit tests
+            this.isAborting = true;
         }
     }
 }

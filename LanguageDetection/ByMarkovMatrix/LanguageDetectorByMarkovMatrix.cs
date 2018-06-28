@@ -13,6 +13,8 @@ namespace LanguageDetection
     public class LanguageDetectorByMarkovMatrix : LanguageDetector
     {
         #region Members
+        private bool isAborting = false;
+
         private Dictionary<string, IMarkovMatrix<double>> languages;
 
         private IMarkovMatrixLoader<double> languageDetectionMatrixLoader;
@@ -39,7 +41,7 @@ namespace LanguageDetection
             this.languages.Add(name, this.TransformMatrix(languageMatrix));
         }
 
-        public string DetectLanguage(string text)
+        public override string DetectLanguage(string text)
         {
             text = this.TransformInput(text);
             return this.GetLanguageProximities(text)[0].Key;
@@ -47,6 +49,8 @@ namespace LanguageDetection
 
         public override KeyValuePair<string, double>[] GetLanguageProximities(string text)
         {
+            this.isAborting = false;
+
             if (languages.Count < 1)
             {
                 throw new InvalidOperationException("The language detector must know at least one language. Use AddLanguage() first");
@@ -65,6 +69,11 @@ namespace LanguageDetection
                 double proximity = 1.0 - MatrixMathHelper.GetDistance(inputMatrix, languageMatrix);
 
                 languageProximities.Add(new KeyValuePair<string, double>(languageName, proximity));
+
+                if (this.isAborting)
+                {
+                    break;
+                }
             }
 
             return languageProximities.OrderByDescending(keyValuePair => keyValuePair.Value).ToArray();
@@ -83,6 +92,12 @@ namespace LanguageDetection
         public override IEnumerable<string> GetLanguageList()
         {
             return this.languages.Keys;
+        }
+
+        public override void Abort()
+        {
+            #warning Add unit tests
+            this.isAborting = true;
         }
     }
 }

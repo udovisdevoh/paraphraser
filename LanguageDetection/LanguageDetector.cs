@@ -16,5 +16,7 @@ namespace LanguageDetection
         {
             return this.GetLanguageProximities(text)[0].Key;
         }
+
+        public abstract void Abort();
     }
 }
