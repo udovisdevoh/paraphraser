@@ -11,9 +11,13 @@ namespace SpellChecking
     public class SpellChecker : ISpellChecker
     {
         #region Members
+        private const int maxCacheSize = 10000;
+
         private string language;
 
         private Hunspell hunspell;
+
+        private Dictionary<string, string> wordCorrectionCache = new Dictionary<string, string>();
         #endregion
 
         #region Constructors
@@ -62,6 +66,25 @@ namespace SpellChecking
 
         public string GetCorrectedWord(string wordOrPunctuationToken)
         {
+            #warning Add unit tests for cache
+            string correctedWord;
+            if (this.wordCorrectionCache.Count > maxCacheSize)
+            {
+                #warning Add unit tests for cache cleaning
+                this.wordCorrectionCache.Clear();
+            }
+            if (!this.wordCorrectionCache.TryGetValue(wordOrPunctuationToken, out correctedWord))
+            {
+                correctedWord = this.RenderCorrectedWord(wordOrPunctuationToken);
+                this.wordCorrectionCache.Add(wordOrPunctuationToken, correctedWord);
+            }
+            return correctedWord;
+        }
+
+        private string RenderCorrectedWord(string wordOrPunctuationToken)
+        {
+            #warning Add unit test
+
             if (wordOrPunctuationToken.Length <= 1 && StringAnalysis.IsPunctuationOrSpace(wordOrPunctuationToken[0]))
             {
                 return wordOrPunctuationToken;
