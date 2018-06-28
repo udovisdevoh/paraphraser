@@ -56,7 +56,7 @@ namespace LanguageDetectionTests
         }
 
         [Fact]
-        public void GivenTwoLanguagesAndText_ShouldGetLanguagesByLeastCorrection()
+        public void GivenTwoLanguagesAndText_ShouldGetLanguageProximities()
         {
             // Arrange
             IMarkovMatrix<double> outputMatrix = LanguageDetectorTestHelper.BuildEnglishLanguageMatrixMock();
@@ -65,10 +65,10 @@ namespace LanguageDetectionTests
             // Arrange
             LanguageDetectorByLeastCorrection languageDetector = new LanguageDetectorByLeastCorrection(comparisonMatrixLoader);
             Mock<ISpellChecker> frenchSpellCheckingMock = new Mock<ISpellChecker>();
-            frenchSpellCheckingMock.Setup(spellCheck => spellCheck.GetCorrectedText(It.IsAny<string>())).Returns("ceci est une poule");
+            frenchSpellCheckingMock.Setup(spellCheck => spellCheck.GetCorrectedText(It.IsAny<string>(), It.IsAny<string>())).Returns("ceci est une poule");
 
             Mock<ISpellChecker> englishSpellCheckingMock = new Mock<ISpellChecker>();
-            englishSpellCheckingMock.Setup(spellCheck => spellCheck.GetCorrectedText(It.IsAny<string>())).Returns("such est une pool");
+            englishSpellCheckingMock.Setup(spellCheck => spellCheck.GetCorrectedText(It.IsAny<string>(), It.IsAny<string>())).Returns("such est une pool");
 
             // Act
             languageDetector.AddLanguage("French", frenchSpellCheckingMock.Object);

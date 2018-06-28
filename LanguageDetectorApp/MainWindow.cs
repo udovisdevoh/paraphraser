@@ -11,6 +11,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -30,16 +31,21 @@ namespace LanguageDetectorApp
 
         public MainWindow()
         {
+            #warning Add background thread
+            #warning Remove low and/or "useless" languages
+
             this.bootstrap = new Bootstrap();
 
             ILanguageDetector languageDetectorByMarkovMatrix = this.bootstrap.BuildLanguageDetectorByMarkovMatrix(matricesFolder);
             //ILanguageDetector languageDetectorByDictionary = this.bootstrap.BuildLanguageDetectorByDictionary(spellCheckFolder);
             ILanguageDetector languageDetectorByHash = this.bootstrap.BuildLanguageDetectorByHash(wordListsFolder);
+            ILanguageDetector languageDetectorByLeastCorrection = this.bootstrap.BuildLanguageDetectorByLeastCorrection(spellCheckFolder);
 
             this.languageDetector = this.bootstrap.BuildCompositeLanguageDetector();
             this.languageDetector.AddLanguageDetector(languageDetectorByMarkovMatrix);
             //this.languageDetector.AddLanguageDetector(languageDetectorByDictionary);
             this.languageDetector.AddLanguageDetector(languageDetectorByHash);
+            this.languageDetector.AddLanguageDetector(languageDetectorByLeastCorrection);
 
             InitializeComponent();
         }
@@ -67,7 +73,6 @@ namespace LanguageDetectorApp
             }
 
             //string detectedLanguage = this.languageDetector.DetectLanguage(text);
-
             this.textBoxDetectedLanguage.Text = languageProximitiesStringBuilder.ToString();
         }
     }

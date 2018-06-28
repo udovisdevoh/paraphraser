@@ -25,8 +25,10 @@ namespace SpellChecking
         }
         #endregion
 
-        public string GetCorrectedText(string originalText)
+        public string GetCorrectedText(string originalText, string replaceUnmatchedWordWith)
         {
+            #warning Add unit tests for replaceUnmatchedWordWith
+
             string[] wordsAndPunctuationTokens = WordExtractor.GetWordsAndPunctuationTokens(originalText);
 
             StringBuilder stringBuilder = new StringBuilder();
@@ -47,7 +49,12 @@ namespace SpellChecking
 
                 if (isWord)
                 {
-                    correctedWord = this.GetCorrectedWord(wordOrPunctuationToken);
+                    bool isMatched;
+                    correctedWord = this.GetCorrectedWord(wordOrPunctuationToken, out isMatched);
+                    if (!isMatched && replaceUnmatchedWordWith != null)
+                    {
+                        correctedWord = replaceUnmatchedWordWith;
+                    }
                 }
                 else
                 {
@@ -62,17 +69,32 @@ namespace SpellChecking
 
         public string GetCorrectedWord(string wordOrPunctuationToken)
         {
+            bool isMatched;
+            return this.GetCorrectedWord(wordOrPunctuationToken, out isMatched);
+        }
+
+        public string GetCorrectedWord(string wordOrPunctuationToken, out bool isMatched)
+        {
+            #warning Add unit tests for isMatched
+
             if (wordOrPunctuationToken.Length <= 1 && StringAnalysis.IsPunctuationOrSpace(wordOrPunctuationToken[0]))
             {
+                isMatched = true;
                 return wordOrPunctuationToken;
             }
 
-            if (!hunspell.Spell(wordOrPunctuationToken))
+            if (hunspell.Spell(wordOrPunctuationToken))
+            {
+                isMatched = true;
+                return wordOrPunctuationToken;
+            }
+            else
             {
                 List<string> suggestions = hunspell.Suggest(wordOrPunctuationToken);
 
                 if (suggestions.Count > 0)
                 {
+                    isMatched = true;
                     string identicalWordegardlessPunctuation = StringAnalysis.GetIdenticalWordRegardlessPunctuation(wordOrPunctuationToken, suggestions);
 
                     if (identicalWordegardlessPunctuation != null)
@@ -84,12 +106,18 @@ namespace SpellChecking
 
                     if (mostSimilarWord != null)
                     {
+                        if (string.IsNullOrWhiteSpace(mostSimilarWord))
+                        {
+                            isMatched = false;
+                        }
                         return mostSimilarWord;
                     }
 
                     return suggestions[0];
                 }
             }
+
+            isMatched = false;
 
             return wordOrPunctuationToken;
         }

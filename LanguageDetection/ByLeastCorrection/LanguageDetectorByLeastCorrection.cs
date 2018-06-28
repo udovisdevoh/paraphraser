@@ -33,27 +33,33 @@ namespace LanguageDetection
 
         public override KeyValuePair<string, double>[] GetLanguageProximities(string sourceText)
         {
-            #warning Add unit tests
-
             sourceText = this.FormatText(sourceText);
 
             string[] words = WordExtractor.GetLowerInvariantWords(sourceText);
 
             List<KeyValuePair<string, double>> languageProximities = new List<KeyValuePair<string, double>>();
 
-            foreach (KeyValuePair<string, ISpellChecker> languageNameAndSpellChecker in this.spellCheckers)
+            Parallel.ForEach(this.spellCheckers, (languageNameAndSpellChecker) =>
             {
                 string languageName = languageNameAndSpellChecker.Key;
                 ISpellChecker spellChecker = languageNameAndSpellChecker.Value;
 
-                string correctedText = spellChecker.GetCorrectedText(sourceText);
+                string correctedText = spellChecker.GetCorrectedText(sourceText, "*******");
 
                 correctedText = this.FormatText(correctedText);
 
                 double proximity = this.GetMarkovMatrixProximity(sourceText, correctedText);
+                //double proximity = StringAnalysis.GetLevenshteinDistance(sourceText, correctedText) * -1.0;
 
-                languageProximities.Add(new KeyValuePair<string, double>(languageName, proximity));
-            }
+                lock (languageProximities)
+                {
+                    languageProximities.Add(new KeyValuePair<string, double>(languageName, proximity));
+                }
+            });
+
+            /*foreach (KeyValuePair<string, ISpellChecker> languageNameAndSpellChecker in this.spellCheckers)
+            {
+            }*/
 
             return languageProximities.OrderByDescending(keyValuePair => keyValuePair.Value).ToArray();
         }
