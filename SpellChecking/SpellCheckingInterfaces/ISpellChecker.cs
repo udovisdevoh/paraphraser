@@ -17,7 +17,5 @@ namespace SpellChecking
         bool ContainsWord(string word);
 
         int CountExistingWords(string[] words);
-
-        void Abort();
     }
 }

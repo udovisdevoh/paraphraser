@@ -23,15 +23,6 @@ namespace LanguageDetection
             this.languageDetectors.Add(languageDetector);
         }
 
-        public override void Abort()
-        {
-            #warning Add unit tests
-            foreach (ILanguageDetector currentLanguageDetector in this.languageDetectors)
-            {
-                currentLanguageDetector.Abort();
-            }
-        }
-
         public override KeyValuePair<string, double>[] GetLanguageProximities(string text)
         {
             if (this.languageDetectors.Count < 1)

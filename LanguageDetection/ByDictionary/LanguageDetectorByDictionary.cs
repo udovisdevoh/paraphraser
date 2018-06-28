@@ -12,8 +12,6 @@ namespace LanguageDetection
     {
         private Dictionary<string, ISpellChecker> spellCheckers = new Dictionary<string, ISpellChecker>();
 
-        private bool isAborting = false;
-
         public void AddLanguage(string languageName, ISpellChecker spellChecker)
         {
             this.spellCheckers.Add(StringFormatter.FormatLanguageName(languageName), spellChecker);
@@ -26,8 +24,6 @@ namespace LanguageDetection
 
         public override KeyValuePair<string, double>[] GetLanguageProximities(string text)
         {
-            this.isAborting = false;
-
             string[] words = WordExtractor.GetLowerInvariantWords(text);
 
             List<KeyValuePair<string, double>> languageProximities = new List<KeyValuePair<string, double>>();
@@ -43,24 +39,9 @@ namespace LanguageDetection
                 {
                     languageProximities.Add(new KeyValuePair<string, double>(languageName, proximity));
                 }
-
-                if (this.isAborting)
-                {
-                    state.Break();
-                }
             });
 
             return languageProximities.OrderByDescending(keyValuePair => keyValuePair.Value).ToArray();
-        }
-
-        public override void Abort()
-        {
-            #warning Add unit tests
-            this.isAborting = true;
-            foreach (KeyValuePair<string, ISpellChecker> languageNameAndSpellChecker in this.spellCheckers)
-            {
-                languageNameAndSpellChecker.Value.Abort();
-            }
         }
     }
 }

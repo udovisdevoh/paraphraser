@@ -9,14 +9,8 @@ namespace LanguageDetection
 {
     public class LanguageDetectorByHash : LanguageDetector
     {
-        private bool isAborting = false;
-
         private Dictionary<string, Dictionary<string, double>> languageWordLists = new Dictionary<string, Dictionary<string, double>>();
 
-        public override void Abort()
-        {
-            this.isAborting = true;
-        }
 
         public void AddLanguage(string languageName, Dictionary<string, double> wordList)
         {
@@ -30,8 +24,6 @@ namespace LanguageDetection
 
         public override KeyValuePair<string, double>[] GetLanguageProximities(string text)
         {
-            this.isAborting = false;
-
             string[] words = WordExtractor.GetLowerInvariantWords(text);
 
             List<KeyValuePair<string, double>> languageProximities = new List<KeyValuePair<string, double>>();
@@ -55,11 +47,6 @@ namespace LanguageDetection
                 }
 
                 languageProximities.Add(new KeyValuePair<string, double>(languageName, proximity));
-
-                if (this.isAborting)
-                {
-                    break;
-                }
             }
 
             return languageProximities.OrderByDescending(keyValuePair => keyValuePair.Value).ToArray();

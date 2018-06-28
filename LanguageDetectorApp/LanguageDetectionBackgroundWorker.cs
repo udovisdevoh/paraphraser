@@ -73,10 +73,6 @@ namespace LanguageDetectorApp
         {
             lock (this.isNeedRecalculationLock)
             {
-                /*if (this.isNeedRecalculation)
-                {
-                    this.languageDetector.Abort();
-                }*/
                 this.isNeedRecalculation = true;
             }
         }

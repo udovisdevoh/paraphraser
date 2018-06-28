@@ -14,6 +14,5 @@ namespace LanguageDetection
         KeyValuePair<string, double>[] GetLanguageProximities(string text);
 
         IEnumerable<string> GetLanguageList();
-        void Abort();
     }
 }

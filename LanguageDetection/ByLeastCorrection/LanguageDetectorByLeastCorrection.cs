@@ -16,8 +16,6 @@ namespace LanguageDetection
 
         private IMarkovMatrixLoader<double> comparisonMatrixLoader;
 
-        private bool isAborting = false;
-
         public LanguageDetectorByLeastCorrection(IMarkovMatrixLoader<double> resultComparisonMatrixLoader)
         {
             this.comparisonMatrixLoader = resultComparisonMatrixLoader;
@@ -35,7 +33,6 @@ namespace LanguageDetection
 
         public override KeyValuePair<string, double>[] GetLanguageProximities(string sourceText)
         {
-            this.isAborting = false;
             sourceText = this.FormatText(sourceText);
 
             string[] words = WordExtractor.GetLowerInvariantWords(sourceText);
@@ -61,10 +58,6 @@ namespace LanguageDetection
                     languageProximities.Add(new KeyValuePair<string, double>(languageName, proximity));
                 }
             /*}*/
-                if (this.isAborting)
-                {
-                    state.Break();
-                }
             });
 
             return languageProximities.OrderByDescending(keyValuePair => keyValuePair.Value).ToArray();
@@ -84,16 +77,6 @@ namespace LanguageDetection
         private string FormatText(string text)
         {
             return StringFormatter.FormatInputText(text).ToLowerInvariant();
-        }
-
-        public override void Abort()
-        {
-            #warning Add unit tests
-            this.isAborting = true;
-            foreach (KeyValuePair<string, ISpellChecker> languageNameAndSpellChecker in this.spellCheckers)
-            {
-                languageNameAndSpellChecker.Value.Abort();
-            }
         }
     }
 }
