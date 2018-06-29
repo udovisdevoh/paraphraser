@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Paraphrasing.SentenceTypeDetection
+namespace Paraphrasing
 {
     public class EnglishSentenceTypeDetector : SentenceTypeDetector
     {
