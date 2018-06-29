@@ -33,8 +33,6 @@ namespace LanguageDetectorApp
 
         public MainWindow()
         {
-            #warning Remove low and/or "useless" languages
-
             this.bootstrap = new Bootstrap();
 
             ILanguageDetector languageDetectorByMarkovMatrix = this.bootstrap.BuildLanguageDetectorByMarkovMatrix(matricesFolder);

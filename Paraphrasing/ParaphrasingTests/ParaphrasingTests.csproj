@@ -9,7 +9,7 @@
     <ProjectGuid>{E9FC4591-1A35-408C-9082-5DF91F0EAE7B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ParaphrasingTests</RootNamespace>
+    <RootNamespace>Paraphrasing.Tests</RootNamespace>
     <AssemblyName>ParaphrasingTests</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

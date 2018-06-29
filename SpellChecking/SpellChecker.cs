@@ -84,7 +84,6 @@ namespace SpellChecking
             string correctedWord;
             if (this.wordCorrectionCache.Count > maxCacheSize)
             {
-                #warning Add unit tests for cache cleaning
                 this.wordCorrectionCache.Clear();
             }
             if (!this.wordCorrectionCache.TryGetValue(wordOrPunctuationToken, out correctedWordAndMatchInfo))
@@ -100,9 +99,6 @@ namespace SpellChecking
 
         private string RenderCorrectedWord(string wordOrPunctuationToken, out bool isMatched)
         {
-            #warning Add unit tests
-			#warning Add unit tests for isMatched
-
             if (wordOrPunctuationToken.Length <= 1 && StringAnalysis.IsPunctuationOrSpace(wordOrPunctuationToken[0]))
             {
                 isMatched = true;

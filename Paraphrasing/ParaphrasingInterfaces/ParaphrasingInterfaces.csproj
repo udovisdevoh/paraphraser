@@ -7,7 +7,7 @@
     <ProjectGuid>{62290BC4-C27B-4927-9553-E09D9D7A6439}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ParaphrasingInterfaces</RootNamespace>
+    <RootNamespace>Paraphrasing</RootNamespace>
     <AssemblyName>ParaphrasingInterfaces</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SentenceTypeDetection\ISentenceTypeDetector.cs" />
+    <Compile Include="SentenceTypeDetection\SentenceType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
