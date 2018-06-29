@@ -31,8 +31,6 @@ namespace SpellChecking
 
         public string GetCorrectedText(string originalText, string replaceUnmatchedWordWith)
         {
-            #warning Add unit tests for replaceUnmatchedWordWith
-
             string[] wordsAndPunctuationTokens = WordExtractor.GetWordsAndPunctuationTokens(originalText);
 
             StringBuilder stringBuilder = new StringBuilder();
@@ -80,7 +78,6 @@ namespace SpellChecking
         public string GetCorrectedWord(string wordOrPunctuationToken, out bool isMatched)
         {
             Tuple<string, bool> correctedWordAndMatchInfo;
-            #warning Add unit tests for cache
             string correctedWord;
             if (this.wordCorrectionCache.Count > maxCacheSize)
             {
