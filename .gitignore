@@ -83,3 +83,8 @@
 /Paraphrasing/ParaphrasingTests/bin
 /Paraphrasing/ParaphrasingTests/obj
 /Paraphrasing/ParaphrasingInterfaces/bin
+/ExtractSentenceTypesApp/obj
+/ExtractSentenceTypesApp/.vs
+/ExtractSentenceTypesApp/bin
+/ExtractSentenceTypesApp/LanguageSamples/lyrics.en.txt
+/ExtractSentenceTypesApp/LanguageSamples/lyrics.fr.txt

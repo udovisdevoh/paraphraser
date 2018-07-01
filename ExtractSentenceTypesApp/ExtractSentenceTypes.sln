@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtractSentenceTypesApp", "ExtractSentenceTypesApp.csproj", "{BC1729EE-7608-42C1-BD7C-097406E4BB55}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExternalDependencies", "ExternalDependencies", "{CC8CCF94-454B-4006-B8BE-CF452016B2C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringManipulation", "..\StringManipulation\StringManipulation.csproj", "{8033F5BF-DCD2-4193-B1A9-BA6E98D937CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParaphraserMath", "..\ParaphraserMath\ParaphraserMath.csproj", "{B30BC99A-57A9-4778-AD79-88D06B6BAC6E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarkovMatrix", "..\MarkovMatrix\MarkovMatrix.csproj", "{7E1254FE-2E13-4D68-B337-8460DAB633CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarkovMatrixInterfaces", "..\MarkovMatrix\MarkovMatrixInterfaces\MarkovMatrixInterfaces.csproj", "{78F39194-74D8-4848-B2D6-FC26FCCFF4AE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BC1729EE-7608-42C1-BD7C-097406E4BB55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC1729EE-7608-42C1-BD7C-097406E4BB55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC1729EE-7608-42C1-BD7C-097406E4BB55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC1729EE-7608-42C1-BD7C-097406E4BB55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8033F5BF-DCD2-4193-B1A9-BA6E98D937CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8033F5BF-DCD2-4193-B1A9-BA6E98D937CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8033F5BF-DCD2-4193-B1A9-BA6E98D937CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8033F5BF-DCD2-4193-B1A9-BA6E98D937CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B30BC99A-57A9-4778-AD79-88D06B6BAC6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B30BC99A-57A9-4778-AD79-88D06B6BAC6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B30BC99A-57A9-4778-AD79-88D06B6BAC6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B30BC99A-57A9-4778-AD79-88D06B6BAC6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E1254FE-2E13-4D68-B337-8460DAB633CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E1254FE-2E13-4D68-B337-8460DAB633CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E1254FE-2E13-4D68-B337-8460DAB633CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E1254FE-2E13-4D68-B337-8460DAB633CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78F39194-74D8-4848-B2D6-FC26FCCFF4AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78F39194-74D8-4848-B2D6-FC26FCCFF4AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78F39194-74D8-4848-B2D6-FC26FCCFF4AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78F39194-74D8-4848-B2D6-FC26FCCFF4AE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8033F5BF-DCD2-4193-B1A9-BA6E98D937CE} = {CC8CCF94-454B-4006-B8BE-CF452016B2C8}
+		{B30BC99A-57A9-4778-AD79-88D06B6BAC6E} = {CC8CCF94-454B-4006-B8BE-CF452016B2C8}
+		{7E1254FE-2E13-4D68-B337-8460DAB633CD} = {CC8CCF94-454B-4006-B8BE-CF452016B2C8}
+		{78F39194-74D8-4848-B2D6-FC26FCCFF4AE} = {CC8CCF94-454B-4006-B8BE-CF452016B2C8}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BDA532D2-58DD-480E-90D9-74625615B071}
+	EndGlobalSection
+EndGlobal

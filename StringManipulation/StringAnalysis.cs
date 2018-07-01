@@ -70,6 +70,23 @@ namespace StringManipulation
             return closestWord;
         }
 
+        public static bool ContainsSameFirstWords(string line1, string line2, int repeatingWords)
+        {
+            #warning Add unit tests
+
+            string[] words1 = WordExtractor.GetLowerInvariantWords(line1);
+            string[] words2 = WordExtractor.GetLowerInvariantWords(line2);
+            int wordCount = Math.Min(repeatingWords, Math.Min(words1.Length, words2.Length));
+            for (int wordIndex = 0; wordIndex < wordCount; ++wordIndex)
+            {
+                if (words1[wordIndex] != words2[wordIndex])
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
         public static int GetLevenshteinDistance(string word1, string word2)
         {
             if (string.IsNullOrEmpty(word1))

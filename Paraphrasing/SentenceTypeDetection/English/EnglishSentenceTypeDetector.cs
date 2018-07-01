@@ -12,7 +12,13 @@ namespace Paraphrasing
         {
             #warning Implement
             #warning Add unit tests
-            throw new NotImplementedException();
+
+            if (sentence.Contains('?'))
+            {
+                return SentenceType.Interrogative;
+            }
+
+            return SentenceType.Affirmative;
         }
     }
 }

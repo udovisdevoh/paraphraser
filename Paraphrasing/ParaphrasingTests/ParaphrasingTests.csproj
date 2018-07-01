@@ -69,14 +69,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EnglishSentenceTypeDetectorTests.cs" />
-    <Compile Include="FrenchSentenceTypeDetectorTests.cs" />
+    <Compile Include="English\EnglishSentenceTypeDetectorAffirmativeTests.cs" />
+    <Compile Include="English\EnglishSentenceTypeDetectorInterrogativeTests.cs" />
+    <Compile Include="French\FrenchSentenceTypeDetectorAffirmativeTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Paraphrasing.csproj">
       <Project>{65819d05-9b53-4f9f-893b-ffb62495cf1b}</Project>
       <Name>Paraphrasing</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ParaphrasingInterfaces\ParaphrasingInterfaces.csproj">
+      <Project>{62290bc4-c27b-4927-9553-e09d9d7a6439}</Project>
+      <Name>ParaphrasingInterfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
