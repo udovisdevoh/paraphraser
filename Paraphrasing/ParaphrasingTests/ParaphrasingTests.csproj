@@ -71,7 +71,6 @@
   <ItemGroup>
     <Compile Include="English\EnglishSentenceTypeDetectorAffirmativeTests.cs" />
     <Compile Include="English\EnglishSentenceTypeDetectorInterrogativeTests.cs" />
-    <Compile Include="French\FrenchSentenceTypeDetectorAffirmativeTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -91,8 +90,9 @@
     <Analyzer Include="..\packages\xunit.analyzers.0.7.0\analyzers\dotnet\cs\xunit.analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="SentencesSamples\en.interrogative.2.txt" />
-    <Content Include="SentencesSamples\fr.interrogative.2.txt" />
+    <Content Include="SentencesSamples\en.interrogative.short.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

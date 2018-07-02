@@ -8,7 +8,7 @@ namespace StringManipulation
 {
     public static class WordExtractor
     {
-        public static string[] GetWordsAndPunctuationTokens(string originalText)
+        public static string[] GetWordsAndPunctuationTokens(string originalText, params char[] excludePunctuationCharacters)
         {
             List<string> wordsAndPunctuationTokens = new List<string>();
 
@@ -16,7 +16,7 @@ namespace StringManipulation
 
             foreach (char character in originalText)
             {
-                if (StringAnalysis.IsPunctuationOrSpace(character))
+                if (StringAnalysis.IsPunctuationOrSpace(character, excludePunctuationCharacters))
                 {
                     if (stringBuilder.Length > 0)
                     {
@@ -44,10 +44,10 @@ namespace StringManipulation
             return wordsAndPunctuationTokens.ToArray();
         }
 
-        public static string[] GetLowerInvariantWords(string text)
+        public static string[] GetLowerInvariantWords(string text, params char[] excludePunctuationCharacters)
         {
             text = text.ToLowerInvariant();
-            string[] wordsAndPunctuationAndSpace = WordExtractor.GetWordsAndPunctuationTokens(text);
+            string[] wordsAndPunctuationAndSpace = WordExtractor.GetWordsAndPunctuationTokens(text, excludePunctuationCharacters);
 
             List<string> wordsOnly = new List<string>();
 

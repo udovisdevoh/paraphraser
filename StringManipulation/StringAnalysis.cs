@@ -29,8 +29,15 @@ namespace StringManipulation
             return line.Length > 0 && StringAnalysis.IsPunctuationOrSpace(line[0]);
         }
 
-        public static bool IsPunctuationOrSpace(char character)
+        public static bool IsPunctuationOrSpace(char character, params char[] excludePunctuationCharacters)
         {
+            #warning Add unit tests for excludePunctuationCharacters
+
+            if (excludePunctuationCharacters.Contains(character))
+            {
+                return false;
+            }
+
             return character == ' ' || character == '\n' || character == '\t' || character == '\r' || Char.IsPunctuation(character) || punctuationChars.Contains(character);
         }
 
