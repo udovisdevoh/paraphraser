@@ -28,6 +28,39 @@ namespace StringManipulation
             return text;
         }
 
+        public static string ReplaceWords(string text, Dictionary<string, string> wordsToReplace)
+        {
+            #warning Add unit tests
+            return StringFormatter.ReplaceWords(text, wordsToReplace, -1, -1);
+        }
+
+        public static string ReplaceWords(string text, Dictionary<string, string> wordsToReplace, int firstIndex, int lastIndex)
+        {
+            #warning Add unit tests
+
+            string[] words = WordExtractor.GetWordsAndPunctuationTokens(text, '\'');
+
+            StringBuilder stringBuilder = new StringBuilder();
+            for (int index = 0; index < words.Length;++index)
+            {
+                string word = words[index];
+                if (firstIndex == -1 || (index * 2) >= firstIndex)
+                {
+                    if (lastIndex == -1 || (index * 2) <= lastIndex)
+                    {                      
+                        string replacedWord;
+                        if (wordsToReplace.TryGetValue(word, out replacedWord))
+                        {
+                            word = replacedWord;
+                        }
+                    }
+                }
+                stringBuilder.Append(word);
+            }
+
+            return stringBuilder.ToString();
+        }
+
         public static string SplitBefore(string line, char character)
         {
             int indexOfCharacter = line.IndexOf(character);
@@ -54,6 +87,51 @@ namespace StringManipulation
                 {
                     stringBuilder.Append(character);
                 }
+            }
+
+            return stringBuilder.ToString();
+        }
+
+        public static string SwapWordOrder(string text, HashSet<string> wordsToSwap, int offset, int maxSwapCount)
+        {
+            #warning Add unit tests
+
+            int swapCount = 0;
+
+            string[] words = WordExtractor.GetWordsAndPunctuationTokens(text, '\'');
+
+            StringBuilder stringBuilder = new StringBuilder();
+            for (int index = 0; index < words.Length; ++index)
+            {
+                if (swapCount < maxSwapCount && wordsToSwap.Contains(words[index]) && index < words.Length - (offset * 2))
+                {
+                    string nextWord = words[index + (offset * 2)];
+                    words[index + (offset * 2)] = words[index];
+                    words[index] = nextWord;
+                    ++swapCount;
+                }
+
+                stringBuilder.Append(words[index]);
+            }
+
+            return stringBuilder.ToString();
+        }
+
+        public static string RemoveWords(string text, HashSet<string> wordsToRemove)
+        {
+            #warning Add unit tests
+
+            string[] words = WordExtractor.GetWordsAndPunctuationTokens(text, '\'');
+
+            StringBuilder stringBuilder = new StringBuilder();
+            for (int index = 0; index < words.Length; ++index)
+            {
+                if (wordsToRemove.Contains(words[index]))
+                {
+                    words[index] = string.Empty;
+                }
+
+                stringBuilder.Append(words[index]);
             }
 
             return stringBuilder.ToString();

@@ -16,7 +16,7 @@ namespace Paraphrasing
             "wanna", "want", "was", "wasn't", "were", "wha'", "wha'cha", "weren't", "wha's", "what",
             "whatcha", "what'll", "what're", "whats", "when", "when's", "where", "where'd", "where're",
             "where've", "which", "who", "who'd", "who'll", "whom", "who's", "whose", "whut", "why", "will",
-            "won't", "wont", "would", "wouldn't" };
+            "won't", "wont", "would", "wouldn't", "what's" };
 
         public override SentenceType GetSentenceType(string sentence)
         {

@@ -69,6 +69,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="English\EnglishInterrogativeToAffirmativeTests.cs" />
     <Compile Include="English\EnglishSentenceTypeDetectorAffirmativeTests.cs" />
     <Compile Include="English\EnglishSentenceTypeDetectorInterrogativeTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

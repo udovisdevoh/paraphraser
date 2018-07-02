@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,28 +7,28 @@ using Xunit;
 
 namespace Paraphrasing.Tests.English
 {
-    public class EnglishSentenceTypeDetectorInterrogativeTests
+    public class EnglishInterrogativeToAffirmativeTests
     {
         [Theory]
-        [InlineData("ain't it about time they looked for other ways of how to beat the problems?")]
-        [InlineData("aint you the guy with the master plan?")]
-        [InlineData("am I the one?")]
-        [InlineData("any last words to say? this is your final day")]
-        [InlineData("anybody ever say no?")]
-        [InlineData("are all these feelings true?")]
-        [InlineData("aren't we all to you just near lost causes?")]
-        [InlineData("can a device read your mind?")]
-        [InlineData("can't you see my pain?")]
-        [InlineData("canst thou not see the loss of loe painful is?")]
-        [InlineData("cant you see what this does to me?")]
-        [InlineData("could a dangerous toy be infallible?")]
-        [InlineData("couldn't we just sit and share a smoke again?")]
-        [InlineData("did anybody coach you?")]
-        [InlineData("didn't i do a good job of pretending?")]
-        [InlineData("didst thou unlock in silence of the deep?")]
-        [InlineData("do angels have to depend on luck?")]
-        [InlineData("does any of this make fucking sense?")]
-        [InlineData("doesn't anybody stay in one place anymore?")]
+        [InlineData("Ain't it about time?", "It ain't about time.")]
+        [InlineData("Aint you the guy with the master plan?", "You ain't the guy with the master plan.")]
+        [InlineData("Am I the one?", "I am the one.")]
+        [InlineData("Any last words to say?", "There are last words to say.")]
+        [InlineData("Anybody ever say no?", "Some people say no.")]
+        [InlineData("Are all these feelings true?", "All these feelings are true")]
+        [InlineData("Aren't we all to you just near lost causes?", "We aren't all to you just near lost causes.")]
+        [InlineData("Can a device read your mind?", "A device can read your mind.")]
+        [InlineData("Can't you see my pain?", "You can't see my pain.")]
+        [InlineData("Canst thou not see the loss of loe painful is?", "Thou can't not see the loss of loe painful is.")]
+        [InlineData("Cant you see what this does to me?", "You can't see what this does to me.")]
+        [InlineData("Could a dangerous toy be infallible?", "A dangerous toy could be infallible.")]
+        [InlineData("Couldn't we just sit and share a smoke again?", "We couldn't just sit and share a smoke again.")]
+        [InlineData("Did anybody coach you?", "Some people did coach you.")]
+        [InlineData("Didn't I do a good job of pretending?", "I didn't do a good job of pretending.")]
+        [InlineData("Didst thou unlock in silence of the deep?", "Thou did unlock in silence of the deep.")]
+        [InlineData("Do angels have to depend on luck?", "Angels do have to depend on luck.")]
+        [InlineData("Does any of this make fucking sense?", "This does make fucking sense.")]
+        /*[InlineData("doesn't anybody stay in one place anymore?")]
         [InlineData("doest thou perceive ye desperate call from ye fathomless pits?")]
         [InlineData("d'ya think we're on our own?")]
         [InlineData("d'you know what she told me?")]
@@ -89,23 +87,17 @@ namespace Paraphrasing.Tests.English
         [InlineData("won't it make you glad when they're calling me crazy?")]
         [InlineData("wont you tell me what are we fighting for?")]
         [InlineData("would this song live on forever?")]
-        [InlineData("wouldn't it be a glorious day?")]
-        public void GivenInterrogativeSentence_ShouldBeDetectedRegardlessQuestionMark(string sentence)
+        [InlineData("wouldn't it be a glorious day?")]*/
+        public void GivenInterrogativeSentence_ShouldBeDetectedRegardlessQuestionMark(string interrogativeSentence, string expectedAffirmativeSentence)
         {
             // Arrange
-            sentence = sentence.Replace("?", "");
-            SentenceTypeDetector sentenceDetector = new EnglishSentenceTypeDetector();
-            SentenceType expectedSentenceType = SentenceType.Interrogative;
+            EnglishInterrogativeToAffirmative englishInterrogativeToAffirmative = new EnglishInterrogativeToAffirmative();
 
             // Act
-            SentenceType actualSentenceType = sentenceDetector.GetSentenceType(sentence);
+            string actualAffirmativeSentence = englishInterrogativeToAffirmative.Convert(interrogativeSentence);
 
             // Assert
-            if (expectedSentenceType != actualSentenceType)
-            {
-                Assert.Equal("should be interrogative sentence", sentence); // hack pour afficher dans la console de xUnit
-            }
-            Assert.Equal(expectedSentenceType, actualSentenceType);
+            Assert.Equal(expectedAffirmativeSentence, actualAffirmativeSentence);
         }
     }
 }
