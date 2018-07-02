@@ -12,7 +12,7 @@ namespace Paraphrasing.Tests
         [Theory]
         [InlineData("I listen")]
         [InlineData("whatever you say")]
-        [InlineData("what you say is weird")]
+        [InlineData("I think what you say is weird")]
         [InlineData("whether you like it or not")]
         public void GivenSentence_ShouldDetectAffirmative(string sentence)
         {
