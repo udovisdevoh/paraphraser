@@ -13,22 +13,17 @@ namespace Paraphrasing.Tests.English
         [InlineData("Ain't it about time?", "It ain't about time.")]
         [InlineData("Aint you the guy with the master plan?", "You ain't the guy with the master plan.")]
         [InlineData("Am I the one?", "I am the one.")]
-        [InlineData("Any last words to say?", "There are last words to say.")]
-        [InlineData("Anybody ever say no?", "Some people say no.")]
         [InlineData("Aren't we all to you just near lost causes?", "We aren't all to you just near lost causes.")]
         [InlineData("Can't you see my pain?", "You can't see my pain.")]
         [InlineData("Canst thou not see the loss of loe painful is?", "You can't not see the loss of loe painful is.")]
         [InlineData("Cant you see what this does to me?", "You can't see what this does to me.")]
         [InlineData("Couldn't we just sit and share a smoke again?", "We couldn't just sit and share a smoke again.")]
-        [InlineData("Did anybody coach you?", "Some people did coach you.")]
         [InlineData("Didn't I do a good job of pretending?", "I didn't do a good job of pretending.")]
         [InlineData("Didst thou unlock in silence of the deep?", "You did unlock in silence of the deep.")]
         [InlineData("Do angels have to depend on luck?", "Angels do have to depend on luck.")]
-        [InlineData("Doesn't anybody stay in one place anymore?", "Some people doesn't stay in one place anymore.")]
-        [InlineData("doest thou perceive thy desperate call from thy fathomless pits?", "You do perceive your desperate call from your fathomless pits.")]
+        [InlineData("Doest thou perceive thy desperate call from thy fathomless pits?", "You do perceive your desperate call from your fathomless pits.")]
         [InlineData("D'ya think we're on our own?", "You do think we're on our own.")]
         [InlineData("D'you know what she told me?", "You do know what she told me.")]
-        [InlineData("got some guts to break free?", "Some got guts to break free.")]
         [InlineData("Had it crossed your mind that your heroes are failures in the end?", "It had crossed your mind that your heroes are failures in the end.")]
         [InlineData("Have I already tasted my piece of one sweet love?", "I have already tasted my piece of one sweet love.")]
         [InlineData("Haven't I seen you here before ?", "I haven't seen you here before.")]
@@ -46,7 +41,25 @@ namespace Paraphrasing.Tests.English
         [InlineData("Won't it make you glad when they're calling me crazy?", "It won't make you glad when they're calling me crazy.")]
         [InlineData("Wont you tell me what are we fighting for?", "You won't tell me what are we fighting for.")]
         [InlineData("Wouldn't it be a glorious day?", "It wouldn't be a glorious day.")]
-        public void GivenInterrogativeSentence_ShouldBeDetectedRegardlessQuestionMark(string interrogativeSentence, string expectedAffirmativeSentence)
+        public void GivenInterrogativeSentence_ShouldConvertShortSwap(string interrogativeSentence, string expectedAffirmativeSentence)
+        {
+            // Arrange
+            EnglishInterrogativeToAffirmative englishInterrogativeToAffirmative = new EnglishInterrogativeToAffirmative();
+
+            // Act
+            string actualAffirmativeSentence = englishInterrogativeToAffirmative.Convert(interrogativeSentence);
+
+            // Assert
+            Assert.Equal(expectedAffirmativeSentence, actualAffirmativeSentence);
+        }
+
+        [Theory]
+        [InlineData("Any last words to say?", "There are last words to say.")]
+        [InlineData("Anybody ever say no?", "Some people say no.")]
+        [InlineData("Did anybody coach you?", "Some people did coach you.")]
+        [InlineData("Doesn't anybody stay in one place anymore?", "Some people doesn't stay in one place anymore.")]
+        [InlineData("Got some guts to break free?", "Some got guts to break free.")]
+        public void GivenInterrogativeSentence_ShouldConvertReplaceWordGroup(string interrogativeSentence, string expectedAffirmativeSentence)
         {
             // Arrange
             EnglishInterrogativeToAffirmative englishInterrogativeToAffirmative = new EnglishInterrogativeToAffirmative();
@@ -65,7 +78,7 @@ namespace Paraphrasing.Tests.English
         [InlineData("Has all your self respect been lost?", "All your self respect has been lost.")]
         [InlineData("Will a wasteland remain?", "A wasteland will remain.")]
         [InlineData("Would this song live on forever?", "This song would live on forever.")]
-        public void GivenInterrogativeSentence_ShouldBeDetectedRegardlessQuestionMarkLongSwap(string interrogativeSentence, string expectedAffirmativeSentence)
+        public void GivenInterrogativeSentence_ShouldConvertLongSwap(string interrogativeSentence, string expectedAffirmativeSentence)
         {
             // Arrange
             EnglishInterrogativeToAffirmative englishInterrogativeToAffirmative = new EnglishInterrogativeToAffirmative();
@@ -113,8 +126,8 @@ namespace Paraphrasing.Tests.English
         [InlineData("Who's to blame for your low self esteem?", "Someone is to blame for your low self esteem.")]
         [InlineData("whose banner will stand in victory ?", "Someone's banner will stand in victory.")]
         [InlineData("Whut is the dead like?", "The dead is like.")]
-        [InlineData("Why do you think the poor loved him so much?", "Do you do think the poor loved him so much because.")]
-        public void GivenInterrogativeSentence_ShouldBeDetectedRegardlessQuestionMarkComplex(string interrogativeSentence, string expectedAffirmativeSentence)
+        [InlineData("Why do you think the poor loved him so much?", "You do think the poor loved him so much.")]
+        public void GivenInterrogativeSentence_ShouldConvertComplex(string interrogativeSentence, string expectedAffirmativeSentence)
         {
             // Arrange
             EnglishInterrogativeToAffirmative englishInterrogativeToAffirmative = new EnglishInterrogativeToAffirmative();
