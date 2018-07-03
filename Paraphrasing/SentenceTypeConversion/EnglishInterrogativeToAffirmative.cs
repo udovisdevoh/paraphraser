@@ -54,6 +54,7 @@ namespace Paraphrasing
             {
                 { "y'all","you" },
                 { "thou","you" },
+                { "u","you" },
                 { "thy","your" },
                 { "thine","your" },
                 { "thee","you" },
