@@ -63,11 +63,26 @@ namespace Paraphrasing.Tests.English
         [InlineData("Can a device read your mind?", "A device can read your mind.")]
         [InlineData("Could a dangerous toy be infallible?", "A dangerous toy could be infallible.")]
         [InlineData("Has all your self respect been lost?", "All your self respect has been lost.")]
-        [InlineData("How long did you stay?", "You did stay long.")]
-        [InlineData("How'd I get back here at this? Another cheap attempt at bliss", "I did get back here at this. Another cheap attempt at bliss")]
-        [InlineData("How'm i supposed to be positive?", "I am supposed to be positive.")]
+        [InlineData("Will a wasteland remain?", "A wasteland will remain.")]
+        [InlineData("Would this song live on forever?", "This song would live on forever.")]
+        public void GivenInterrogativeSentence_ShouldBeDetectedRegardlessQuestionMarkLongSwap(string interrogativeSentence, string expectedAffirmativeSentence)
+        {
+            // Arrange
+            EnglishInterrogativeToAffirmative englishInterrogativeToAffirmative = new EnglishInterrogativeToAffirmative();
+
+            // Act
+            string actualAffirmativeSentence = englishInterrogativeToAffirmative.Convert(interrogativeSentence);
+
+            // Assert
+            Assert.Equal(expectedAffirmativeSentence, actualAffirmativeSentence);
+        }
+
+        [Theory]
+        [InlineData("How long did you stay?", "You did stay.")]
+        [InlineData("How'd I get back here at this?", "I did get back here at this by.")]
+        [InlineData("How'm i supposed to be positive?", "I am supposed to be positive by.")]
         [InlineData("Does any of this make sense?", "This does make sense.")]
-        [InlineData("How's anybody supposed to love you baby 'til you do?", "Some people supposed to love you baby 'til you do.")]
+        [InlineData("How's anybody supposed to love you baby 'til you do?", "Some people are supposed to love you baby 'til you do.")]
         [InlineData("Wanna copy me and do exactly like I did?", "Copy me and do exactly like I did.")]
         [InlineData("Want a root beer?", "You want a root beer.")]
         [InlineData("Want beef?", "You want beef.")]
@@ -85,23 +100,21 @@ namespace Paraphrasing.Tests.English
         [InlineData("What're you saying?", "You are saying.")]
         [InlineData("Whats left of the hope we have?", "It is left of the hope we have.")]
         [InlineData("When is enough better?", "Enough is better when.")]
-        [InlineData("When's the last time you seen the rain?", "The last time you seen the rain.")]
-        [InlineData("Where did all the good times go and why?", "All the good times did go because.")]
+        [InlineData("When's the last time you seen the rain?", "The last time you seen the rain is when.")]
+        [InlineData("Where did all the good times go and why?", "All the good times did go.")]
         [InlineData("Where'd all the good people go?", "All the good people did go.")]
         [InlineData("Where're my friends?", "My friends are.")]
         [InlineData("Where've you been hiding?", "You have been hiding.")]
         [InlineData("Which came first the music or the misery?", "The music came first.")]
-        [InlineData("Will a wasteland remain?", "A wasteland will remain.")]
         [InlineData("Who am I talking to?", "I am talking to.")]
         [InlineData("Who'd empty out my dustbins?", "Someone would empty out my dustbins.")]
         [InlineData("Who'll be around when the limelight's faded?", "Someone will be around when the limelight's faded.")]
         [InlineData("Whom does it care what do i need?", "It does care.")]
         [InlineData("Who's to blame for your low self esteem?", "Someone is to blame for your low self esteem.")]
         [InlineData("whose banner will stand in victory ?", "Someone's banner will stand in victory.")]
-        [InlineData("Whut the dead like?", "The dead is like.")]
+        [InlineData("Whut is the dead like?", "The dead is like.")]
         [InlineData("Why do you think the poor loved him so much?", "Do you do think the poor loved him so much because.")]
-        [InlineData("Would this song live on forever?", "This song would live on forever.")]
-        public void GivenInterrogativeSentence_ShouldBeDetectedRegardlessQuestionMarkAdvanced(string interrogativeSentence, string expectedAffirmativeSentence)
+        public void GivenInterrogativeSentence_ShouldBeDetectedRegardlessQuestionMarkComplex(string interrogativeSentence, string expectedAffirmativeSentence)
         {
             // Arrange
             EnglishInterrogativeToAffirmative englishInterrogativeToAffirmative = new EnglishInterrogativeToAffirmative();
