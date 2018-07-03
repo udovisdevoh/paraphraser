@@ -11,6 +11,8 @@ namespace Paraphrasing
     {
         private static Dictionary<string, string> wordsToCorrect;
 
+        private static Dictionary<string, string> oldEnglishWords;
+
         private static HashSet<string> interrogativeStartingWordListsToSwapWithNextWord;
 
         private static HashSet<string> interrogativeWordsToRemove;
@@ -23,10 +25,7 @@ namespace Paraphrasing
             {
                 //{ "ain't", "isn't" },
                 { "aint", "ain't" },
-                { "canst", "can't" },
                 { "cant", "can't" },
-                { "didst", "did" },
-                { "doest", "do" },
                 { "d'ya", "do you" },
                 { "d'you", "do you" },
                 { "how'd", "how did" },
@@ -51,13 +50,29 @@ namespace Paraphrasing
                 { "wont", "won't" }
             };
 
+            EnglishInterrogativeToAffirmative.oldEnglishWords = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+            {
+                { "y'all","you" },
+                { "thou","you" },
+                { "thy","your" },
+                { "thine","your" },
+                { "thee","you" },
+                { "ye","you" },
+                { "thyself","yourself" },
+                { "canst", "can't" },
+                { "didst", "did" },
+                { "shall", "will" },
+                { "shan't", "will not" },
+                { "doest", "do" }
+            };
+
             EnglishInterrogativeToAffirmative.firstWordsToReplaceInterrogativeToAffirmative = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
             {
                 { "any", "there are" },
                 { "anybody", "some people" }
             };
 
-            EnglishInterrogativeToAffirmative.interrogativeWordsToRemove = new HashSet<string>(StringComparer.OrdinalIgnoreCase) { "ever" };
+            EnglishInterrogativeToAffirmative.interrogativeWordsToRemove = new HashSet<string>(StringComparer.OrdinalIgnoreCase) { "ever", "wanna" };
 
             EnglishInterrogativeToAffirmative.interrogativeStartingWordListsToSwapWithNextWord = new HashSet<string>(StringComparer.OrdinalIgnoreCase) { "ain't", "aint", "am", "are",
                 "aren't", "can", "can't", "canst", "cant", "could", "couldn't", "did", "didn't", "didst",
@@ -79,6 +94,7 @@ namespace Paraphrasing
             text = text.Replace(" ,", ",");
             text = StringFormatter.RemoveDoubleTabsSpacesAndEnters(text);
 
+            text = StringFormatter.ReplaceWords(text, EnglishInterrogativeToAffirmative.oldEnglishWords);
             text = StringFormatter.ReplaceWords(text, EnglishInterrogativeToAffirmative.wordsToCorrect);
             text = StringFormatter.SwapWordOrder(text, interrogativeStartingWordListsToSwapWithNextWord, 1, 1);
 
