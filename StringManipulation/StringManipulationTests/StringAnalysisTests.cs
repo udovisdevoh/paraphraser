@@ -31,6 +31,13 @@ namespace StringManipulation.Tests
         }
 
         [Fact]
+        public void Given_LetterChar_DetectPunctuationWithExclusionList_ShouldReturnFalse()
+        {
+            // Assert
+            Assert.False(StringAnalysis.IsPunctuationOrSpace(',', '.', ','));
+        }
+
+        [Fact]
         public void GivenWord_ShouldGetIdenticalWordRegardlessPunctuation()
         {
             // Arrange
@@ -142,6 +149,28 @@ namespace StringManipulation.Tests
 
             // Assert
             Assert.False(isStartWithPunctuationOrSpace);
+        }
+
+        [Fact]
+        public void GivenTwoSentenceWithSameFirstWords_ShouldReturnTrue()
+        {
+            // Arrange
+            string sentence1 = "this is an apple";
+            string sentence2 = "this is a banana";
+
+            // Act, Assert
+            Assert.True(StringAnalysis.ContainsSameFirstWords(sentence1, sentence2, 2));
+        }
+
+        [Fact]
+        public void GivenTwoSentenceWithSameFirstWordsExceptOne_ShouldReturnFalse()
+        {
+            // Arrange
+            string sentence1 = "this is an apple";
+            string sentence2 = "this is a banana";
+
+            // Act, Assert
+            Assert.False(StringAnalysis.ContainsSameFirstWords(sentence1, sentence2, 3));
         }
     }
 }

@@ -31,8 +31,6 @@ namespace StringManipulation
 
         public static bool IsPunctuationOrSpace(char character, params char[] excludePunctuationCharacters)
         {
-            #warning Add unit tests for excludePunctuationCharacters
-
             if (excludePunctuationCharacters.Contains(character))
             {
                 return false;
@@ -79,8 +77,6 @@ namespace StringManipulation
 
         public static bool ContainsSameFirstWords(string line1, string line2, int repeatingWords)
         {
-            #warning Add unit tests
-
             string[] words1 = WordExtractor.GetLowerInvariantWords(line1);
             string[] words2 = WordExtractor.GetLowerInvariantWords(line2);
             int wordCount = Math.Min(repeatingWords, Math.Min(words1.Length, words2.Length));

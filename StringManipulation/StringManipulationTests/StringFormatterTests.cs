@@ -225,5 +225,88 @@ namespace StringManipulation.Tests
                 string actualFixedText = StringFormatter.ReplaceWords(sourceText, wordsToReplace, 2, 1);
             });
         }
+
+        [Fact]
+        public void GivenText_ShouldSwapWordOrderTwice()
+        {
+            // Arrange
+            string sourceText = "is this text to swap word order";
+            string expectedText = "this text is to swap word order";
+
+            // Act
+            string actualText = StringFormatter.SwapWordOrder(sourceText, new HashSet<string>(StringComparer.OrdinalIgnoreCase) { "word", "is" }, 1, 2);
+
+            // Assert
+            Assert.Equal(expectedText, actualText);
+        }
+
+        [Fact]
+        public void GivenText_ShouldSwapWordOrderOnce()
+        {
+            // Arrange
+            string sourceText = "is this text to swap word order";
+            string expectedText = "this is text to swap word order";
+
+            // Act
+            string actualText = StringFormatter.SwapWordOrder(sourceText, new HashSet<string>(StringComparer.OrdinalIgnoreCase) { "word", "is" }, 1, 1);
+
+            // Assert
+            Assert.Equal(expectedText, actualText);
+        }
+
+        [Fact]
+        public void GivenText_ShouldSwapWordWithLargeOffset()
+        {
+            // Arrange
+            string sourceText = "is this text to swap word order";
+            string expectedText = "is this word to swap text order";
+
+            // Act
+            string actualText = StringFormatter.SwapWordOrder(sourceText, new HashSet<string>(StringComparer.OrdinalIgnoreCase) { "text" }, 3, 1);
+
+            // Assert
+            Assert.Equal(expectedText, actualText);
+        }
+
+        [Fact]
+        public void GivenText_ShouldNotSwapOutOfBoundWord()
+        {
+            // Arrange
+            string sourceText = "is this text to swap word order";
+            string expectedText = "is this text to swap word order";
+
+            // Act
+            string actualText = StringFormatter.SwapWordOrder(sourceText, new HashSet<string>(StringComparer.OrdinalIgnoreCase) { "word" }, 2, 1);
+
+            // Assert
+            Assert.Equal(expectedText, actualText);
+        }
+
+        [Fact]
+        public void GivenTextWithNegativeOffset_ShouldThrow()
+        {
+            // Arrange
+            string sourceText = "is this text to swap word order";
+
+            Assert.Throws<ArgumentOutOfRangeException>(() =>
+            {
+                // Assert, Act
+                string actualText = StringFormatter.SwapWordOrder(sourceText, new HashSet<string>(StringComparer.OrdinalIgnoreCase) { "text" }, -1, 1);
+            });
+        }
+
+        [Fact]
+        public void GivenText_ShouldRemoveWords()
+        {
+            // Arrange
+            string sourceText = "remove words from this, text,  other    word  .";
+            string expectedText = "remove  from , ,      word  .";
+
+            // Act
+            string actualText = StringFormatter.RemoveWords(sourceText, new HashSet<string>(StringComparer.OrdinalIgnoreCase) { "words", "this", "text", "other" });
+
+            // Assert
+            Assert.Equal(expectedText, actualText);
+        }
     }
 }
