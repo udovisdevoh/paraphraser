@@ -165,5 +165,65 @@ namespace StringManipulation.Tests
             // Assert
             Assert.Equal(expectedFixedText, actualFixedText);
         }
+
+        [Fact]
+        public void GivenText_ShouldReplaceWords()
+        {
+            // Arrange
+            string sourceText = "this is text";
+            string expectedFixedText = "these are text";
+            Dictionary<string, string> wordsToReplace = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { { "is", "are" }, { "this", "these" } };
+
+            // Act
+            string actualFixedText = StringFormatter.ReplaceWords(sourceText, wordsToReplace);
+
+            // Assert
+            Assert.Equal(expectedFixedText, actualFixedText);
+        }
+
+        [Fact]
+        public void GivenTextWithValidBounds_ShouldReplaceWords()
+        {
+            // Arrange
+            string sourceText = "this is text this is text this is text";
+            string expectedFixedText = "this is text these are text this is text";
+            Dictionary<string, string> wordsToReplace = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { { "is", "are" }, { "this", "these" } };
+
+            // Act
+            string actualFixedText = StringFormatter.ReplaceWords(sourceText, wordsToReplace, 3, 5);
+
+            // Assert
+            Assert.Equal(expectedFixedText, actualFixedText);
+        }
+
+        [Fact]
+        public void GivenTextWithLowInvalidBounds_ShouldThrow()
+        {
+            // Arrange
+            string sourceText = "this is text this is text this is text";
+            Dictionary<string, string> wordsToReplace = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { { "is", "are" }, { "this", "these" } };
+
+            // Assert
+            Assert.Throws<ArgumentOutOfRangeException>(() =>
+            {
+                // Act
+                string actualFixedText = StringFormatter.ReplaceWords(sourceText, wordsToReplace, -2, 5);
+            });
+        }
+
+        [Fact]
+        public void GivenTextWithInvertedBounds_ShouldThrow()
+        {
+            // Arrange
+            string sourceText = "this is text this is text this is text";
+            Dictionary<string, string> wordsToReplace = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { { "is", "are" }, { "this", "these" } };
+
+            // Assert
+            Assert.Throws<ArgumentException>(() =>
+            {
+                // Act
+                string actualFixedText = StringFormatter.ReplaceWords(sourceText, wordsToReplace, 2, 1);
+            });
+        }
     }
 }

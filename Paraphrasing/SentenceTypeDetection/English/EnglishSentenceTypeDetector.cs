@@ -20,8 +20,6 @@ namespace Paraphrasing
 
         public override SentenceType GetSentenceType(string sentence)
         {
-            #warning Implement
-
             if (sentence.Contains('?'))
             {
                 return SentenceType.Interrogative;

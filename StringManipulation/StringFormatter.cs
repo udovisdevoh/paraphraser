@@ -30,23 +30,29 @@ namespace StringManipulation
 
         public static string ReplaceWords(string text, Dictionary<string, string> wordsToReplace)
         {
-            #warning Add unit tests
             return StringFormatter.ReplaceWords(text, wordsToReplace, -1, -1);
         }
 
         public static string ReplaceWords(string text, Dictionary<string, string> wordsToReplace, int firstIndex, int lastIndex)
         {
-            #warning Add unit tests
-
             string[] words = WordExtractor.GetWordsAndPunctuationTokens(text, '\'');
+
+            if (lastIndex < firstIndex)
+            {
+                throw new ArgumentException("firstIndex must be smaller or equal to lastIndex.");
+            }
+            else if (firstIndex < -1)
+            {
+                throw new ArgumentOutOfRangeException("firstIndex must not be negative.");
+            }
 
             StringBuilder stringBuilder = new StringBuilder();
             for (int index = 0; index < words.Length;++index)
             {
                 string word = words[index];
-                if (firstIndex == -1 || (index * 2) >= firstIndex)
+                if (firstIndex == -1 || (index / 2) >= firstIndex)
                 {
-                    if (lastIndex == -1 || (index * 2) <= lastIndex)
+                    if (lastIndex == -1 || (index / 2) <= lastIndex)
                     {                      
                         string replacedWord;
                         if (wordsToReplace.TryGetValue(word, out replacedWord))
