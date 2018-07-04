@@ -112,7 +112,11 @@ namespace StringManipulation
             StringBuilder stringBuilder = new StringBuilder();
             for (int index = 0; index < words.Length; ++index)
             {
-                if (swapCount < maxSwapCount && wordsToSwap.Contains(words[index]) && index < words.Length - (offset * 2))
+                bool isAllowSwappingByCount = swapCount < maxSwapCount;
+                bool isAllowSwappingByWordsToSwap = wordsToSwap.Contains(words[index]);
+                bool isAllowSwappingByWordIndex = index < words.Length - (offset * 2);
+
+                if (isAllowSwappingByWordsToSwap && isAllowSwappingByWordIndex && isAllowSwappingByCount)
                 {
                     string nextWord = words[index + (offset * 2)];
                     words[index + (offset * 2)] = words[index];
