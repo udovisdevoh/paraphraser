@@ -19,7 +19,7 @@ namespace MarkovMatrices
 
         public IMarkovMatrix<char, double> Transform(IMarkovMatrix<char, double> sourceMatrix)
         {
-            MarkovMatrix<double> newMatrix = new MarkovMatrix<double>();
+            CharMarkovMatrix<double> newMatrix = new CharMarkovMatrix<double>();
 
             foreach (KeyValuePair<Tuple<char, char>, double> twoCharsAndCount in sourceMatrix)
             {
@@ -46,7 +46,7 @@ namespace MarkovMatrices
 
         public IMarkovMatrix<char, double> Normalize(IMarkovMatrix<char, double> sourceMatrix)
         {
-            MarkovMatrix<double> normalizedMatrix = new MarkovMatrix<double>();
+            CharMarkovMatrix<double> normalizedMatrix = new CharMarkovMatrix<double>();
 
             foreach (KeyValuePair<Tuple<char, char>, double> twoCharsAndCount in sourceMatrix)
             {

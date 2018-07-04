@@ -40,16 +40,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FromBinary\BinaryMarkovMatrixLoader.cs" />
-    <Compile Include="FromBinary\BinaryMarkovMatrixSaver.cs" />
-    <Compile Include="FromText\LanguageDictionaryFileMatrixLoader.cs" />
-    <Compile Include="LanguageMatrixBuilder.cs" />
+    <Compile Include="Char\FromBinary\BinaryMarkovMatrixLoader.cs" />
+    <Compile Include="Char\FromBinary\BinaryMarkovMatrixSaver.cs" />
+    <Compile Include="Char\FromText\LanguageDictionaryFileMatrixLoader.cs" />
+    <Compile Include="Char\LanguageMatrixBuilder.cs" />
+    <Compile Include="Char\CharMarkovMatrix.cs" />
+    <Compile Include="Char\MarkovMatrixCharacterCombiner.cs" />
+    <Compile Include="Char\MarkovMatrixNormalizer.cs" />
+    <Compile Include="Char\FromText\NormalizedTextMarkovMatrixLoader.cs" />
+    <Compile Include="Char\FromText\TextMarkovMatrixLoader.cs" />
     <Compile Include="MarkovMatrix.cs" />
-    <Compile Include="MarkovMatrixCharacterCombiner.cs" />
-    <Compile Include="MarkovMatrixNormalizer.cs" />
-    <Compile Include="FromText\NormalizedTextMarkovMatrixLoader.cs" />
-    <Compile Include="FromText\TextMarkovMatrixLoader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="String\StringMarkovMatrix.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ParaphraserMath\ParaphraserMath.csproj">
@@ -65,5 +67,6 @@
       <Name>MarkovMatrixInterfaces</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

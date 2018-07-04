@@ -15,7 +15,7 @@ namespace MarkovMatrices.Tests
         {
             // Arrange
             double expectedOccurrence = 3.0;
-            MarkovMatrix<double> markovMatrix = new MarkovMatrix<double>();
+            CharMarkovMatrix<double> markovMatrix = new CharMarkovMatrix<double>();
             markovMatrix.IncrementOccurrence('A', 'B', 2);
             markovMatrix.IncrementOccurrence('C', 'D', expectedOccurrence);
             MemoryStream memoryStream = new MemoryStream();

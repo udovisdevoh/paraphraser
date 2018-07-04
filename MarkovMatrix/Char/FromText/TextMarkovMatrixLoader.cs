@@ -11,7 +11,7 @@ namespace MarkovMatrices
     {
         public IMarkovMatrix<char, ulong> LoadMatrix(Stream inputStream)
         {
-            MarkovMatrix<ulong> markovMatrix = new MarkovMatrix<ulong>();
+            CharMarkovMatrix<ulong> markovMatrix = new CharMarkovMatrix<ulong>();
             using (StreamReader streamReader = new StreamReader(inputStream))
             {
                 string line;
@@ -28,7 +28,7 @@ namespace MarkovMatrices
             return markovMatrix;
         }
 
-        private void PopulateMatrixFromLine(MarkovMatrix<ulong> markovMatrix, string line)
+        private void PopulateMatrixFromLine(CharMarkovMatrix<ulong> markovMatrix, string line)
         {
             line = this.PerformLineTransformations(line);
 

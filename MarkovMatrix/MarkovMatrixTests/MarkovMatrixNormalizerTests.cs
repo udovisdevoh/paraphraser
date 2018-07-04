@@ -16,7 +16,7 @@ namespace MarkovMatrices.Tests
             // Arrange
             double expectedOccurence = 0.25;
             MarkovMatrixNormalizer markovMatrixNormalizer = new MarkovMatrixNormalizer();
-            MarkovMatrix<ulong> markovMatrix = new MarkovMatrix<ulong>();
+            CharMarkovMatrix<ulong> markovMatrix = new CharMarkovMatrix<ulong>();
             markovMatrix.IncrementOccurrence('A', 'B');
             markovMatrix.IncrementOccurrence('A', 'C');
             markovMatrix.IncrementOccurrence('A', 'D');
@@ -41,7 +41,7 @@ namespace MarkovMatrices.Tests
             // Arrange
             double expectedOccurence = 0.5f;
             MarkovMatrixNormalizer markovMatrixNormalizer = new MarkovMatrixNormalizer();
-            MarkovMatrix<ulong> markovMatrix = new MarkovMatrix<ulong>();
+            CharMarkovMatrix<ulong> markovMatrix = new CharMarkovMatrix<ulong>();
             markovMatrix.IncrementOccurrence('A', 'B');
             markovMatrix.IncrementOccurrence('A', 'C');
             markovMatrix.IncrementOccurrence('A', 'D');

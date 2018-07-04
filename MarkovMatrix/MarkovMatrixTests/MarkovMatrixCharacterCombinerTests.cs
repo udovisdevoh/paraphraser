@@ -16,7 +16,7 @@ namespace MarkovMatrices.Tests
             // Arrange
             double expectedOccurence = 0.5f;
             MarkovMatrixCharacterCombiner markovMatrixCharacterCombiner = new MarkovMatrixCharacterCombiner(letter => letter);
-            MarkovMatrix<double> markovMatrix = new MarkovMatrix<double>();
+            CharMarkovMatrix<double> markovMatrix = new CharMarkovMatrix<double>();
             markovMatrix.IncrementOccurrence('A', 'B');
             markovMatrix.IncrementOccurrence('A', 'C');
             markovMatrix.IncrementOccurrence('A', 'D');
@@ -41,7 +41,7 @@ namespace MarkovMatrices.Tests
             // Arrange
             double expectedOccurence = Math.Round(0.666666, 3);
             MarkovMatrixCharacterCombiner markovMatrixCharacterCombiner = new MarkovMatrixCharacterCombiner(letter => StringFormatter.RemoveDiacritics(letter));
-            MarkovMatrix<double> markovMatrix = new MarkovMatrix<double>();
+            CharMarkovMatrix<double> markovMatrix = new CharMarkovMatrix<double>();
             markovMatrix.IncrementOccurrence('a', 'e');
             markovMatrix.IncrementOccurrence('à', 'ê');
             markovMatrix.IncrementOccurrence('ä', 'è');

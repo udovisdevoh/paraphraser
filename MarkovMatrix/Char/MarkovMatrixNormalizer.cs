@@ -10,7 +10,7 @@ namespace MarkovMatrices
     {
         public IMarkovMatrix<char, double> Normalize(IMarkovMatrix<char, ulong> sourceMatrix)
         {
-            MarkovMatrix<double> normalizedMatrix = new MarkovMatrix<double>();
+            CharMarkovMatrix<double> normalizedMatrix = new CharMarkovMatrix<double>();
 
             foreach (KeyValuePair<Tuple<char, char>, ulong> twoCharsAndCount in sourceMatrix)
             {

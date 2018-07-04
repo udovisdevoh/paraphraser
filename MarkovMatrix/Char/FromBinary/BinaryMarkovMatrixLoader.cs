@@ -12,7 +12,7 @@ namespace MarkovMatrices
     {
         public IMarkovMatrix<char, double> LoadMatrix(Stream inputStream)
         {
-            MarkovMatrix<double> markovMatrix = new MarkovMatrix<double>();
+            CharMarkovMatrix<double> markovMatrix = new CharMarkovMatrix<double>();
 
             using (BinaryReader binaryReader = new BinaryReader(inputStream))
             {
