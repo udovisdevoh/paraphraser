@@ -12,10 +12,11 @@ namespace ParaphraserMath.Tests
     public class MatrixMathHelperTests
     {
         [Fact]
-        public void Given_CombineChars_GetUint()
+        public void GivenTwoChars_CombineChars_GetUint()
         {
             // Arrange
             uint expectedCombinedChars = 4259906;
+
             // Act
             uint actualCombinedChars = MatrixMathHelper.CombineChars('A', 'B');
 
@@ -24,7 +25,7 @@ namespace ParaphraserMath.Tests
         }
 
         [Fact]
-        public void Given_SplitUint_GetFirstChar()
+        public void GivenUint_SplitUint_GetFirstChar()
         {
             // Arrange
             char expectedChar1 = 'A';
@@ -49,6 +50,48 @@ namespace ParaphraserMath.Tests
 
             // Assert
             Assert.Equal(expectedChar2, actualChars.Item2);
+        }
+
+        [Fact]
+        public void GivenTwoUShorts_CombineUShorts_GetUint()
+        {
+            // Arrange
+            uint expectedCombinedUShorts = 4259906;
+
+            // Act
+            uint actualCombinedUShorts = MatrixMathHelper.CombineUShorts('A', 'B');
+
+            // Assert
+            Assert.Equal(expectedCombinedUShorts, actualCombinedUShorts);
+        }
+
+
+        [Fact]
+        public void Given_SplitUint_GetFirstUShort()
+        {
+            // Arrange
+            ushort expectedUShort1 = 'A';
+            uint combinedUShorts = 4259906;
+
+            // Act
+            Tuple<ushort, ushort> actualChars = MatrixMathHelper.SplitUShorts(combinedUShorts);
+
+            // Assert
+            Assert.Equal(expectedUShort1, actualChars.Item1);
+        }
+
+        [Fact]
+        public void Given_SplitUint_GetSecondUShort()
+        {
+            // Arrange
+            ushort expectedUShort2 = 'B';
+            uint combinedUShorts = 4259906;
+
+            // Act
+            Tuple<ushort, ushort> actualChars = MatrixMathHelper.SplitUShorts(combinedUShorts);
+
+            // Assert
+            Assert.Equal(expectedUShort2, actualChars.Item2);
         }
 
         [Fact]

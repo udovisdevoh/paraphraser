@@ -15,17 +15,28 @@ namespace ParaphraserMath
 
         public static uint CombineChars(char fromChar, char toChar)
         {
-            return ((uint)fromChar * sixteenBitsMaxValue) + (uint)toChar;
+            return MatrixMathHelper.CombineUShorts(fromChar, toChar);
+        }
+
+        public static uint CombineUShorts(ushort fromNumber, ushort toNumber)
+        {
+            return ((uint)fromNumber * sixteenBitsMaxValue) + (uint)toNumber;
         }
 
         public static Tuple<char, char> SplitChars(uint combinedChars)
         {
-            uint largeComponent = combinedChars / sixteenBitsMaxValue;
+            Tuple<ushort, ushort> tuple = MatrixMathHelper.SplitUShorts(combinedChars);
+            return new Tuple<char, char>((char)tuple.Item1, (char)tuple.Item2);
+        }
 
-            char char1 = (char)largeComponent;
-            char char2 = (char)(combinedChars - (largeComponent * sixteenBitsMaxValue));
+        public static Tuple<ushort, ushort> SplitUShorts(uint combinedUShorts)
+        {
+            uint largeComponent = combinedUShorts / sixteenBitsMaxValue;
 
-            return new Tuple<char, char>(char1, char2);
+            ushort uShort1 = (ushort)largeComponent;
+            ushort uShort2 = (ushort)(combinedUShorts - (largeComponent * sixteenBitsMaxValue));
+
+            return new Tuple<ushort, ushort>(uShort1, uShort2);
         }
 
         public static double GetDotProduct<TKey>(IMarkovMatrix<TKey, double> smallMatrix, IMarkovMatrix<TKey, double> largeMatrix)
