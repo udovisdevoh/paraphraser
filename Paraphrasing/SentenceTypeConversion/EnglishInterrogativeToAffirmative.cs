@@ -17,6 +17,10 @@ namespace Paraphrasing
 
         private static HashSet<string> interrogativeWordsToRemove;
 
+        private static HashSet<string> interrogativeFirstWordsToRemove;
+
+        private static Dictionary<string, string> interrogativeFirstWordsToReplace;
+
         private static Dictionary<string, string> firstWordsToReplaceInterrogativeToAffirmative;
 
         static EnglishInterrogativeToAffirmative()
@@ -32,8 +36,9 @@ namespace Paraphrasing
                 { "how'm", "how am" },
                 { "how's", "how is" },
                 { "wha'", "what" },
-                { "wha'cha", "what do you" },
-                { "whacha", "what do you" },
+                { "wha'cha", "what are you" },
+                { "whacha", "what are you" },
+                { "whatcha", "what are you" },
                 { "wha's", "what is" },
                 { "what's", "what is" },
                 { "whats", "what is" },
@@ -70,12 +75,23 @@ namespace Paraphrasing
             EnglishInterrogativeToAffirmative.firstWordsToReplaceInterrogativeToAffirmative = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
             {
                 { "any", "there are" },
-                { "anybody", "some people" }
+                { "anybody", "somebody" }
             };
 
-            EnglishInterrogativeToAffirmative.interrogativeWordsToRemove = new HashSet<string>(StringComparer.OrdinalIgnoreCase) { "ever", "wanna" };
+            EnglishInterrogativeToAffirmative.interrogativeWordsToRemove = new HashSet<string>(StringComparer.OrdinalIgnoreCase) {
+                "ever", "wanna", "how", "why" };
 
-            EnglishInterrogativeToAffirmative.interrogativeStartingWordListsToSwapWithNextWord = new HashSet<string>(StringComparer.OrdinalIgnoreCase) { "ain't", "aint", "am", "are",
+            EnglishInterrogativeToAffirmative.interrogativeFirstWordsToReplace = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+            {
+                {  "want", "do you want" },
+                {  "how's", "how is" }
+            };
+
+            EnglishInterrogativeToAffirmative.interrogativeFirstWordsToRemove = new HashSet<string>(StringComparer.OrdinalIgnoreCase) {
+                "what", "where", "who", "whom" };
+
+            EnglishInterrogativeToAffirmative.interrogativeStartingWordListsToSwapWithNextWord = new HashSet<string>(StringComparer.OrdinalIgnoreCase) {
+                "ain't", "aint", "am", "are",
                 "aren't", "can", "can't", "canst", "cant", "could", "couldn't", "did", "didn't", "didst",
                 "do", "does", "doesn't", "doest", "d'ya", "d'you", "got", "had", "has", "have", "haven't",
                 "how", "how'd", "how's", "how'm", "is", "isn't", "may", "must", "shall", "should", "shouldn't",
@@ -91,12 +107,16 @@ namespace Paraphrasing
             bool originallyEndsWithQuestionMark = text.Trim().EndsWith("?");
             text = StringFormatter.RemovePunctuation(text, '&', '\'', ',');
             text = StringFormatter.RemoveLigatures(text);
+            text = StringFormatter.ReplaceWords(text, EnglishInterrogativeToAffirmative.oldEnglishWords);
+            text = StringFormatter.ReplaceWords(text, EnglishInterrogativeToAffirmative.wordsToCorrect);
+
+            text = StringFormatter.ReplaceWords(text, EnglishInterrogativeToAffirmative.interrogativeFirstWordsToReplace, 0, 0);
+
             text = StringFormatter.RemoveWords(text, EnglishInterrogativeToAffirmative.interrogativeWordsToRemove);
+            text = StringFormatter.RemoveWords(text, EnglishInterrogativeToAffirmative.interrogativeFirstWordsToRemove, 0);
             text = text.Replace(" ,", ",");
             text = StringFormatter.RemoveDoubleTabsSpacesAndEnters(text);
 
-            text = StringFormatter.ReplaceWords(text, EnglishInterrogativeToAffirmative.oldEnglishWords);
-            text = StringFormatter.ReplaceWords(text, EnglishInterrogativeToAffirmative.wordsToCorrect);
             text = StringFormatter.SwapWordOrder(text, interrogativeStartingWordListsToSwapWithNextWord, 1, 1);
 
             text = StringFormatter.ReplaceWords(text, EnglishInterrogativeToAffirmative.firstWordsToReplaceInterrogativeToAffirmative, 0, 0);

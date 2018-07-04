@@ -128,12 +128,19 @@ namespace StringManipulation
 
         public static string RemoveWords(string text, HashSet<string> wordsToRemove)
         {
+            return StringFormatter.RemoveWords(text, wordsToRemove, -1);
+        }
+
+        public static string RemoveWords(string text, HashSet<string> wordsToRemove, int maxIndex)
+        {
+            #warning Add unit tests for maxIndex
+
             string[] words = WordExtractor.GetWordsAndPunctuationTokens(text, '\'');
 
             StringBuilder stringBuilder = new StringBuilder();
             for (int index = 0; index < words.Length; ++index)
             {
-                if (wordsToRemove.Contains(words[index]))
+                if ((maxIndex == -1 || (index/2) <= maxIndex) && wordsToRemove.Contains(words[index]))
                 {
                     words[index] = string.Empty;
                 }
