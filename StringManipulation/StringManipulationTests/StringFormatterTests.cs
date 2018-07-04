@@ -308,5 +308,19 @@ namespace StringManipulation.Tests
             // Assert
             Assert.Equal(expectedText, actualText);
         }
+
+        [Fact]
+        public void GivenTextWithMaxIndex_ShouldRemoveWords()
+        {
+            // Arrange
+            string sourceText = "remove words from this, text,  other    word  .";
+            string expectedText = "remove  from this, text,  other    word  .";
+
+            // Act
+            string actualText = StringFormatter.RemoveWords(sourceText, new HashSet<string>(StringComparer.OrdinalIgnoreCase) { "words", "this", "text", "other" }, 2);
+
+            // Assert
+            Assert.Equal(expectedText, actualText);
+        }
     }
 }

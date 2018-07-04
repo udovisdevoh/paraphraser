@@ -137,8 +137,6 @@ namespace StringManipulation
 
         public static string RemoveWords(string text, HashSet<string> wordsToRemove, int maxIndex)
         {
-            #warning Add unit tests for maxIndex
-
             string[] words = WordExtractor.GetWordsAndPunctuationTokens(text, '\'');
 
             StringBuilder stringBuilder = new StringBuilder();
