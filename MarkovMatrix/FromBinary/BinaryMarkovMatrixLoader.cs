@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace MarkovMatrices
 {
-    public class BinaryMarkovMatrixLoader : IMarkovMatrixLoader<double>
+    public class BinaryMarkovMatrixLoader : IMarkovMatrixLoader<char, double>
     {
-        public IMarkovMatrix<double> LoadMatrix(Stream inputStream)
+        public IMarkovMatrix<char, double> LoadMatrix(Stream inputStream)
         {
             MarkovMatrix<double> markovMatrix = new MarkovMatrix<double>();
 
@@ -30,7 +30,7 @@ namespace MarkovMatrices
             return markovMatrix;
         }
 
-        public IMarkovMatrix<double> LoadMatrix(string text)
+        public IMarkovMatrix<char, double> LoadMatrix(string text)
         {
             throw new NotSupportedException();
         }

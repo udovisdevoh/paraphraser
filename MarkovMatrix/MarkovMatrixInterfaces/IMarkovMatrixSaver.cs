@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace MarkovMatrices
 {
-    public interface IMarkovMatrixSaver<T>
+    public interface IMarkovMatrixSaver<TKey, TValue>
     {
-        void SaveMatrix(IMarkovMatrix<T> markovMatrix, Stream outputStream);
+        void SaveMatrix(IMarkovMatrix<TKey, TValue> markovMatrix, Stream outputStream);
     }
 }

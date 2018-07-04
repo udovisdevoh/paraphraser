@@ -12,14 +12,14 @@ namespace MarkovMatrices
     public class LanguageMatrixBuilder : ILanguageMatrixBuilder
     {
         #region Members
-        private IMarkovMatrixLoader<double> normalizedTextMarkovMatrixLoader;
+        private IMarkovMatrixLoader<char, double> normalizedTextMarkovMatrixLoader;
 
-        private IMarkovMatrixSaver<double> binaryMarkovMatrixSaver;
+        private IMarkovMatrixSaver<char, double> binaryMarkovMatrixSaver;
         #endregion
 
         #region Constructors
-        public LanguageMatrixBuilder(IMarkovMatrixLoader<double> normalizedTextMarkovMatrixLoader,
-            IMarkovMatrixSaver<double> binaryMarkovMatrixSaver)
+        public LanguageMatrixBuilder(IMarkovMatrixLoader<char, double> normalizedTextMarkovMatrixLoader,
+            IMarkovMatrixSaver<char, double> binaryMarkovMatrixSaver)
         {
             this.normalizedTextMarkovMatrixLoader = normalizedTextMarkovMatrixLoader;
             this.binaryMarkovMatrixSaver = binaryMarkovMatrixSaver;
@@ -37,13 +37,13 @@ namespace MarkovMatrices
 
                 if (!File.Exists(outputFile))
                 {
-                    IMarkovMatrix<double> languageMatrix = this.BuildLanguageMatrix(inputFile);
+                    IMarkovMatrix<char, double> languageMatrix = this.BuildLanguageMatrix(inputFile);
                     this.SaveMatrix(languageMatrix, outputFile);
                 }
             }
         }
 
-        private void SaveMatrix(IMarkovMatrix<double> languageMatrix, string outputFile)
+        private void SaveMatrix(IMarkovMatrix<char, double> languageMatrix, string outputFile)
         {
             using (FileStream fileStream = File.Create(outputFile))
             {
@@ -51,7 +51,7 @@ namespace MarkovMatrices
             }
         }
 
-        private IMarkovMatrix<double> BuildLanguageMatrix(string inputFile)
+        private IMarkovMatrix<char, double> BuildLanguageMatrix(string inputFile)
         {
             string text = File.ReadAllText(inputFile);
 
@@ -59,7 +59,7 @@ namespace MarkovMatrices
             text = StringFormatter.RemoveDoubleTabsSpacesAndEnters(text);
             text = StringFormatter.RemoveLigatures(text);
 
-            IMarkovMatrix<double> matrix;
+            IMarkovMatrix<char, double> matrix;
             matrix = this.normalizedTextMarkovMatrixLoader.LoadMatrix(text);
             return matrix;
         }

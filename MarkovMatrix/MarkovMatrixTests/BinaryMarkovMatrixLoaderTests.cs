@@ -20,7 +20,7 @@ namespace MarkovMatrices.Tests
             BinaryMarkovMatrixLoader binaryMarkovMatrixLoader = new BinaryMarkovMatrixLoader();
 
             // Act
-            IMarkovMatrix<double> markovMatrix = binaryMarkovMatrixLoader.LoadMatrix(memoryStream);
+            IMarkovMatrix<char, double> markovMatrix = binaryMarkovMatrixLoader.LoadMatrix(memoryStream);
             int actualInputCount = markovMatrix.InputCount;
 
             // Assert
@@ -36,7 +36,7 @@ namespace MarkovMatrices.Tests
             BinaryMarkovMatrixLoader binaryMarkovMatrixLoader = new BinaryMarkovMatrixLoader();
 
             // Act
-            IMarkovMatrix<double> markovMatrix = binaryMarkovMatrixLoader.LoadMatrix(memoryStream);
+            IMarkovMatrix<char, double> markovMatrix = binaryMarkovMatrixLoader.LoadMatrix(memoryStream);
             double actualOccurence = markovMatrix.GetOccurrence('A', 'B');
 
             // Assert
@@ -52,7 +52,7 @@ namespace MarkovMatrices.Tests
             BinaryMarkovMatrixLoader binaryMarkovMatrixLoader = new BinaryMarkovMatrixLoader();
 
             // Act
-            IMarkovMatrix<double> markovMatrix = binaryMarkovMatrixLoader.LoadMatrix(memoryStream);
+            IMarkovMatrix<char, double> markovMatrix = binaryMarkovMatrixLoader.LoadMatrix(memoryStream);
             double actualOccurence = markovMatrix.GetOccurrence('C', 'D');
 
             // Assert
@@ -69,7 +69,7 @@ namespace MarkovMatrices.Tests
             // Act, Assert
             Assert.Throws<NotSupportedException>(() =>
             {
-                IMarkovMatrix<double> markovMatrix = binaryMarkovMatrixLoader.LoadMatrix(text);
+                IMarkovMatrix<char, double> markovMatrix = binaryMarkovMatrixLoader.LoadMatrix(text);
             });
         }
     }

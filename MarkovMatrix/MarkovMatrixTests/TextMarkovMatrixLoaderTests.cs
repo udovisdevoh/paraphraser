@@ -19,7 +19,7 @@ namespace MarkovMatrices.Tests
             TextMarkovMatrixLoader textMarkovMatrixLoader = new TextMarkovMatrixLoader();
 
             // Act
-            IMarkovMatrix<ulong> markovMatrix = textMarkovMatrixLoader.LoadMatrix(stream);
+            IMarkovMatrix<char, ulong> markovMatrix = textMarkovMatrixLoader.LoadMatrix(stream);
 
             // Assert
             Assert.True(markovMatrix.InputCount > 0);
@@ -33,7 +33,7 @@ namespace MarkovMatrices.Tests
             TextMarkovMatrixLoader textMarkovMatrixLoader = new TextMarkovMatrixLoader();
 
             // Act
-            IMarkovMatrix<ulong> markovMatrix = textMarkovMatrixLoader.LoadMatrix(text);
+            IMarkovMatrix<char, ulong> markovMatrix = textMarkovMatrixLoader.LoadMatrix(text);
 
             // Assert
             Assert.True(markovMatrix.InputCount > 0);
@@ -48,7 +48,7 @@ namespace MarkovMatrices.Tests
             ulong expectedOccurrence = 3;
 
             // Act
-            IMarkovMatrix<ulong> markovMatrix = textMarkovMatrixLoader.LoadMatrix(stream);
+            IMarkovMatrix<char, ulong> markovMatrix = textMarkovMatrixLoader.LoadMatrix(stream);
             ulong actualOccurrence = markovMatrix.GetOccurrence('l', 'a');
 
             // Assert

@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace MarkovMatrices
 {
-    public interface IMarkovMatrix<T> : IEnumerable<KeyValuePair<Tuple<char, char>, T>>
+    public interface IMarkovMatrix<TKey, TValue> : IEnumerable<KeyValuePair<Tuple<TKey, TKey>, TValue>>
     {
         int InputCount { get; }
 
-        T GetSum(char fromChar);
+        TValue GetSum(TKey fromChar);
 
-        T GetOccurrence(char fromChar, char toChar);
+        TValue GetOccurrence(TKey fromChar, TKey toChar);
     }
 }

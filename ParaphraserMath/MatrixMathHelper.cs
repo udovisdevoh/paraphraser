@@ -28,18 +28,18 @@ namespace ParaphraserMath
             return new Tuple<char, char>(char1, char2);
         }
 
-        public static double GetDotProduct(IMarkovMatrix<double> smallMatrix, IMarkovMatrix<double> largeMatrix)
+        public static double GetDotProduct<TKey>(IMarkovMatrix<TKey, double> smallMatrix, IMarkovMatrix<TKey, double> largeMatrix)
         {
             double dotProduct = 0.0;
 
-            foreach (KeyValuePair<Tuple<char, char>, double> charsAndProbability in smallMatrix)
+            foreach (KeyValuePair<Tuple<TKey, TKey>, double> charsAndProbability in smallMatrix)
             {
-                Tuple<char, char> characters = charsAndProbability.Key;
+                Tuple<TKey, TKey> characters = charsAndProbability.Key;
                 double probability = charsAndProbability.Value;
-                char char1 = characters.Item1;
-                char char2 = characters.Item2;
+                TKey sourceComponent = characters.Item1;
+                TKey destinationComponent = characters.Item2;
 
-                double otherMatrixProbability = largeMatrix.GetOccurrence(char1, char2);
+                double otherMatrixProbability = largeMatrix.GetOccurrence(sourceComponent, destinationComponent);
 
                 dotProduct += probability * otherMatrixProbability;
             }
@@ -59,19 +59,19 @@ namespace ParaphraserMath
             return standardDeviation;
         }
 
-        public static double GetDistance(IMarkovMatrix<double> smallMatrix, IMarkovMatrix<double> largeMatrix)
+        public static double GetDistance<TKey>(IMarkovMatrix<TKey, double> smallMatrix, IMarkovMatrix<TKey, double> largeMatrix)
         {
             double distance = 0.0;
             double maxDistance = 0.0;
 
-            foreach (KeyValuePair<Tuple<char, char>, double> charsAndProbability in smallMatrix)
+            foreach (KeyValuePair<Tuple<TKey, TKey>, double> charsAndProbability in smallMatrix)
             {
-                Tuple<char, char> characters = charsAndProbability.Key;
+                Tuple<TKey, TKey> characters = charsAndProbability.Key;
                 double probability = charsAndProbability.Value;
-                char char1 = characters.Item1;
-                char char2 = characters.Item2;
+                TKey sourceComponent = characters.Item1;
+                TKey destinationComponent = characters.Item2;
 
-                double otherMatrixProbability = largeMatrix.GetOccurrence(char1, char2);
+                double otherMatrixProbability = largeMatrix.GetOccurrence(sourceComponent, destinationComponent);
 
                 distance += Math.Pow(Math.Abs(probability - otherMatrixProbability), 2.0);
                 maxDistance += 1.0;

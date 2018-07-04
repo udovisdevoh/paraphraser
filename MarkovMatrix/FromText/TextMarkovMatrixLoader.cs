@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace MarkovMatrices
 {
-    public class TextMarkovMatrixLoader : IMarkovMatrixLoader<ulong>
+    public class TextMarkovMatrixLoader : IMarkovMatrixLoader<char, ulong>
     {
-        public IMarkovMatrix<ulong> LoadMatrix(Stream inputStream)
+        public IMarkovMatrix<char, ulong> LoadMatrix(Stream inputStream)
         {
             MarkovMatrix<ulong> markovMatrix = new MarkovMatrix<ulong>();
             using (StreamReader streamReader = new StreamReader(inputStream))
@@ -52,7 +52,7 @@ namespace MarkovMatrices
             return line;
         }
 
-        public IMarkovMatrix<ulong> LoadMatrix(string text)
+        public IMarkovMatrix<char, ulong> LoadMatrix(string text)
         {
             MemoryStream stream = new MemoryStream();
             StreamWriter writer = new StreamWriter(stream);

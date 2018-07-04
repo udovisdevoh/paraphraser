@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace MarkovMatrices
 {
-    public interface IMarkovMatrixNormalizer
+    public interface IMarkovMatrixNormalizer<TKey>
     {
-        IMarkovMatrix<double> Normalize(IMarkovMatrix<ulong> sourceMatrix);
+        IMarkovMatrix<TKey, double> Normalize(IMarkovMatrix<TKey, ulong> sourceMatrix);
     }
 }

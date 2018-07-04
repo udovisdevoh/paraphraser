@@ -18,8 +18,8 @@ namespace LanguageDetectionTests
         public void GivenLanguageDetectorByLeastCorrection_AddLanguage_ShouldAddLanguage()
         {
             // Arrange
-            IMarkovMatrix<double> outputMatrix = LanguageDetectorTestHelper.BuildEnglishLanguageMatrixMock();
-            IMarkovMatrixLoader<double> comparisonMatrixLoader = LanguageDetectorTestHelper.BuildNormalizedTextMarkovMatrixLoader(outputMatrix);
+            IMarkovMatrix<char, double> outputMatrix = LanguageDetectorTestHelper.BuildEnglishLanguageMatrixMock();
+            IMarkovMatrixLoader<char, double> comparisonMatrixLoader = LanguageDetectorTestHelper.BuildNormalizedTextMarkovMatrixLoader(outputMatrix);
 
             LanguageDetectorByLeastCorrection languageDetectorByLeastCorrection = new LanguageDetectorByLeastCorrection(comparisonMatrixLoader);
             Mock<ISpellChecker> frenchSpellCheckingMock = new Mock<ISpellChecker>();
@@ -36,8 +36,8 @@ namespace LanguageDetectionTests
         public void GivenLanguageDetectorByLeastCorrectionAndTwoLanguages_ShouldGetLanguages()
         {
             // Arrange
-            IMarkovMatrix<double> outputMatrix = LanguageDetectorTestHelper.BuildEnglishLanguageMatrixMock();
-            IMarkovMatrixLoader<double> comparisonMatrixLoader = LanguageDetectorTestHelper.BuildNormalizedTextMarkovMatrixLoader(outputMatrix);
+            IMarkovMatrix<char, double> outputMatrix = LanguageDetectorTestHelper.BuildEnglishLanguageMatrixMock();
+            IMarkovMatrixLoader<char, double> comparisonMatrixLoader = LanguageDetectorTestHelper.BuildNormalizedTextMarkovMatrixLoader(outputMatrix);
 
             LanguageDetectorByLeastCorrection languageDetectorByLeastCorrection = new LanguageDetectorByLeastCorrection(comparisonMatrixLoader);
             Mock<ISpellChecker> frenchSpellCheckingMock = new Mock<ISpellChecker>();
@@ -59,8 +59,8 @@ namespace LanguageDetectionTests
         public void GivenTwoLanguagesAndText_ShouldGetLanguageProximities()
         {
             // Arrange
-            IMarkovMatrix<double> outputMatrix = LanguageDetectorTestHelper.BuildEnglishLanguageMatrixMock();
-            IMarkovMatrixLoader<double> comparisonMatrixLoader = LanguageDetectorTestHelper.BuildNormalizedTextMarkovMatrixLoader(outputMatrix);
+            IMarkovMatrix<char, double> outputMatrix = LanguageDetectorTestHelper.BuildEnglishLanguageMatrixMock();
+            IMarkovMatrixLoader<char, double> comparisonMatrixLoader = LanguageDetectorTestHelper.BuildNormalizedTextMarkovMatrixLoader(outputMatrix);
 
             // Arrange
             LanguageDetectorByLeastCorrection languageDetector = new LanguageDetectorByLeastCorrection(comparisonMatrixLoader);

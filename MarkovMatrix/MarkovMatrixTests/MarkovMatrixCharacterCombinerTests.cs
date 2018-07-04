@@ -28,7 +28,7 @@ namespace MarkovMatrices.Tests
             markovMatrix.IncrementOccurrence('B', 'B');
 
             // Act
-            IMarkovMatrix<double> normalizedMatrix = markovMatrixCharacterCombiner.Normalize(markovMatrix);
+            IMarkovMatrix<char, double> normalizedMatrix = markovMatrixCharacterCombiner.Normalize(markovMatrix);
             double actualOccurrence = Math.Round(normalizedMatrix.GetOccurrence('A', 'D'), 2);
 
             // Assert
@@ -52,7 +52,7 @@ namespace MarkovMatrices.Tests
             markovMatrix.IncrementOccurrence('b', 'i');
 
             // Act
-            IMarkovMatrix<double> transformedMatrix = markovMatrixCharacterCombiner.Transform(markovMatrix);
+            IMarkovMatrix<char, double> transformedMatrix = markovMatrixCharacterCombiner.Transform(markovMatrix);
             double actualOccurrence = Math.Round(transformedMatrix.GetOccurrence('a', 'e'), 3);
 
             // Assert

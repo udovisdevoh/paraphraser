@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace MarkovMatrices
 {
-    public class BinaryMarkovMatrixSaver : IMarkovMatrixSaver<double>
+    public class BinaryMarkovMatrixSaver : IMarkovMatrixSaver<char, double>
     {
-        public void SaveMatrix(IMarkovMatrix<double> markovMatrix, Stream outputStream)
+        public void SaveMatrix(IMarkovMatrix<char, double> markovMatrix, Stream outputStream)
         {
             BinaryWriter binaryWriter = new BinaryWriter(outputStream);
             binaryWriter.Write(markovMatrix.InputCount);

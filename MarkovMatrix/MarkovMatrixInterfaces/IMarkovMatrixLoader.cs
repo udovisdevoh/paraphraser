@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace MarkovMatrices
 {
-    public interface IMarkovMatrixLoader<T>
-        where T : struct
+    public interface IMarkovMatrixLoader<TKey, TValue>
+        where TValue : struct
     {
-        IMarkovMatrix<T> LoadMatrix(Stream inputStream);
+        IMarkovMatrix<TKey, TValue> LoadMatrix(Stream inputStream);
 
-        IMarkovMatrix<T> LoadMatrix(string text);
+        IMarkovMatrix<TKey, TValue> LoadMatrix(string text);
     }
 }

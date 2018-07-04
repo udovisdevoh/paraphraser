@@ -10,9 +10,9 @@ namespace LanguageDetection
 {
     public class LanguageDetectorNoDiacritics : LanguageDetectorByMarkovMatrix
     {
-        private IMarkovMatrixTransformer markovMatrixTransformer;
+        private IMarkovMatrixTransformer<char> markovMatrixTransformer;
 
-        public LanguageDetectorNoDiacritics(IMarkovMatrixLoader<double> languageDetectionMatrixLoader, IMarkovMatrixTransformer markovMatrixTransformer) : base(languageDetectionMatrixLoader)
+        public LanguageDetectorNoDiacritics(IMarkovMatrixLoader<char, double> languageDetectionMatrixLoader, IMarkovMatrixTransformer<char> markovMatrixTransformer) : base(languageDetectionMatrixLoader)
         {
             this.markovMatrixTransformer = markovMatrixTransformer;
         }
@@ -22,7 +22,7 @@ namespace LanguageDetection
             return StringFormatter.RemoveDiacritics(text);
         }
 
-        public override IMarkovMatrix<double> TransformMatrix(IMarkovMatrix<double> matrix)
+        public override IMarkovMatrix<char, double> TransformMatrix(IMarkovMatrix<char, double> matrix)
         {
             return this.markovMatrixTransformer.Transform(matrix);
         }

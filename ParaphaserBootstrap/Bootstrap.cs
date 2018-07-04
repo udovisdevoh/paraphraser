@@ -15,10 +15,10 @@ namespace ParaphaserBootstrap
     {
         public LanguageDetectorByMarkovMatrix BuildLanguageDetectorByMarkovMatrix()
         {
-            IMarkovMatrixLoader<ulong> languageDetectionMatrixLoader = new TextMarkovMatrixLoader();
-            IMarkovMatrixNormalizer markovMatrixNormalizer = new MarkovMatrixNormalizer();
+            IMarkovMatrixLoader<char, ulong> languageDetectionMatrixLoader = new TextMarkovMatrixLoader();
+            IMarkovMatrixNormalizer<char> markovMatrixNormalizer = new MarkovMatrixNormalizer();
 
-            IMarkovMatrixLoader<double> normalizedLanguageDetectionMatrixLoader = new NormalizedTextMarkovMatrixLoader(languageDetectionMatrixLoader, markovMatrixNormalizer);
+            IMarkovMatrixLoader<char, double> normalizedLanguageDetectionMatrixLoader = new NormalizedTextMarkovMatrixLoader(languageDetectionMatrixLoader, markovMatrixNormalizer);
 
             LanguageDetectorByMarkovMatrix languageDetectorByMarkovMatrix = new LanguageDetectorByMarkovMatrix(normalizedLanguageDetectionMatrixLoader);
 
@@ -34,11 +34,11 @@ namespace ParaphaserBootstrap
 
         public ILanguageDetector BuildLanguageDetectorNoDiacritics()
         {
-            IMarkovMatrixLoader<ulong> languageDetectionMatrixLoader = new TextMarkovMatrixLoader();
-            IMarkovMatrixNormalizer markovMatrixNormalizer = new MarkovMatrixNormalizer();
+            IMarkovMatrixLoader<char, ulong> languageDetectionMatrixLoader = new TextMarkovMatrixLoader();
+            IMarkovMatrixNormalizer<char> markovMatrixNormalizer = new MarkovMatrixNormalizer();
 
-            IMarkovMatrixLoader<double> normalizedLanguageDetectionMatrixLoader = new NormalizedTextMarkovMatrixLoader(languageDetectionMatrixLoader, markovMatrixNormalizer);
-            IMarkovMatrixTransformer markovMatrixCharacterCombiner = new MarkovMatrixCharacterCombiner(letter => StringFormatter.RemoveDiacritics(letter));
+            IMarkovMatrixLoader<char, double> normalizedLanguageDetectionMatrixLoader = new NormalizedTextMarkovMatrixLoader(languageDetectionMatrixLoader, markovMatrixNormalizer);
+            IMarkovMatrixTransformer<char> markovMatrixCharacterCombiner = new MarkovMatrixCharacterCombiner(letter => StringFormatter.RemoveDiacritics(letter));
 
             LanguageDetectorByMarkovMatrix languageDetectorByMarkovMatrix = new LanguageDetectorNoDiacritics(normalizedLanguageDetectionMatrixLoader, markovMatrixCharacterCombiner);
 
@@ -47,9 +47,9 @@ namespace ParaphaserBootstrap
 
         public ILanguageDetector BuildLanguageDetectorByLeastCorrection(string spellCheckDictionaries)
         {
-            IMarkovMatrixLoader<ulong> languageDetectionMatrixLoader = new TextMarkovMatrixLoader();
-            IMarkovMatrixNormalizer markovMatrixNormalizer = new MarkovMatrixNormalizer();
-            IMarkovMatrixLoader<double> normalizedLanguageDetectionMatrixLoader = new NormalizedTextMarkovMatrixLoader(languageDetectionMatrixLoader, markovMatrixNormalizer);
+            IMarkovMatrixLoader<char, ulong> languageDetectionMatrixLoader = new TextMarkovMatrixLoader();
+            IMarkovMatrixNormalizer<char> markovMatrixNormalizer = new MarkovMatrixNormalizer();
+            IMarkovMatrixLoader<char, double> normalizedLanguageDetectionMatrixLoader = new NormalizedTextMarkovMatrixLoader(languageDetectionMatrixLoader, markovMatrixNormalizer);
 
             LanguageDetectorByLeastCorrection languageDetectorByLeastCorrection = new LanguageDetectorByLeastCorrection(normalizedLanguageDetectionMatrixLoader);
 
@@ -99,19 +99,19 @@ namespace ParaphaserBootstrap
             return spellChecker;
         }
 
-        public IMarkovMatrixLoader<double> BuildBinaryMarkovMatrixLoader()
+        public IMarkovMatrixLoader<char, double> BuildBinaryMarkovMatrixLoader()
         {
-            IMarkovMatrixLoader<double> binaryMarkovMatrixLoader = new BinaryMarkovMatrixLoader();
+            IMarkovMatrixLoader<char, double> binaryMarkovMatrixLoader = new BinaryMarkovMatrixLoader();
             return binaryMarkovMatrixLoader;
         }
 
         public ILanguageMatrixBuilder BuildLanguageMatrixBuilder()
         {
-            IMarkovMatrixLoader<ulong> languageDetectionMatrixLoader = new TextMarkovMatrixLoader();
-            IMarkovMatrixNormalizer markovMatrixNormalizer = new MarkovMatrixNormalizer();
+            IMarkovMatrixLoader<char, ulong> languageDetectionMatrixLoader = new TextMarkovMatrixLoader();
+            IMarkovMatrixNormalizer<char> markovMatrixNormalizer = new MarkovMatrixNormalizer();
 
-            IMarkovMatrixLoader<double> normalizedLanguageDetectionMatrixLoader = new NormalizedTextMarkovMatrixLoader(languageDetectionMatrixLoader, markovMatrixNormalizer);
-            IMarkovMatrixSaver<double> binaryMarkovMatrixSaver = new BinaryMarkovMatrixSaver();
+            IMarkovMatrixLoader<char, double> normalizedLanguageDetectionMatrixLoader = new NormalizedTextMarkovMatrixLoader(languageDetectionMatrixLoader, markovMatrixNormalizer);
+            IMarkovMatrixSaver<char, double> binaryMarkovMatrixSaver = new BinaryMarkovMatrixSaver();
 
             ILanguageMatrixBuilder languageMatrixBuilder = new LanguageMatrixBuilder(normalizedLanguageDetectionMatrixLoader, binaryMarkovMatrixSaver);
             return languageMatrixBuilder;
@@ -138,7 +138,7 @@ namespace ParaphaserBootstrap
         {
             LanguageDetectorByMarkovMatrix languageDetectorByMarkovMatrix = this.BuildLanguageDetectorByMarkovMatrix();
 
-            IMarkovMatrixLoader<double> binaryMarkovMatrixLoader = this.BuildBinaryMarkovMatrixLoader();
+            IMarkovMatrixLoader<char, double> binaryMarkovMatrixLoader = this.BuildBinaryMarkovMatrixLoader();
 
             string[] matrixFiles = Directory.EnumerateFiles(matricesDirectory, "*.bin").Select(file => Path.GetFileName(file)).ToArray();
 
@@ -146,7 +146,7 @@ namespace ParaphaserBootstrap
             {
                 string languageName = StringFormatter.FormatLanguageName(matrixFile.Substring(0, matrixFile.LastIndexOf('.')));
 
-                IMarkovMatrix<double> matrix;
+                IMarkovMatrix<char, double> matrix;
                 using (FileStream fileStream = File.Open(matricesDirectory + matrixFile, FileMode.Open))
                 {
                     matrix = binaryMarkovMatrixLoader.LoadMatrix(fileStream);

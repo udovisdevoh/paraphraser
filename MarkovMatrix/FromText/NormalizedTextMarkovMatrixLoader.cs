@@ -7,30 +7,30 @@ using System.Threading.Tasks;
 
 namespace MarkovMatrices
 {
-    public class NormalizedTextMarkovMatrixLoader : IMarkovMatrixLoader<double>
+    public class NormalizedTextMarkovMatrixLoader : IMarkovMatrixLoader<char, double>
     {
         #region Members
-        private IMarkovMatrixLoader<ulong> internalMarkovMatrixLoader;
+        private IMarkovMatrixLoader<char, ulong> internalMarkovMatrixLoader;
 
-        private IMarkovMatrixNormalizer markovMatrixNormalizer;
+        private IMarkovMatrixNormalizer<char> markovMatrixNormalizer;
         #endregion
 
         #region Constructors
-        public NormalizedTextMarkovMatrixLoader(IMarkovMatrixLoader<ulong> internalMarkovMatrixLoader, IMarkovMatrixNormalizer markovMatrixNormalizer)
+        public NormalizedTextMarkovMatrixLoader(IMarkovMatrixLoader<char, ulong> internalMarkovMatrixLoader, IMarkovMatrixNormalizer<char> markovMatrixNormalizer)
         {
             this.internalMarkovMatrixLoader = internalMarkovMatrixLoader;
             this.markovMatrixNormalizer = markovMatrixNormalizer;
         }
         #endregion
 
-        public IMarkovMatrix<double> LoadMatrix(Stream inputStream)
+        public IMarkovMatrix<char, double> LoadMatrix(Stream inputStream)
         {
-            IMarkovMatrix<ulong> markovMatrix = this.internalMarkovMatrixLoader.LoadMatrix(inputStream);
-            IMarkovMatrix<double> normalizedMatrix = this.markovMatrixNormalizer.Normalize(markovMatrix);
+            IMarkovMatrix<char, ulong> markovMatrix = this.internalMarkovMatrixLoader.LoadMatrix(inputStream);
+            IMarkovMatrix<char, double> normalizedMatrix = this.markovMatrixNormalizer.Normalize(markovMatrix);
             return normalizedMatrix;
         }
 
-        public IMarkovMatrix<double> LoadMatrix(string text)
+        public IMarkovMatrix<char, double> LoadMatrix(string text)
         {
             MemoryStream stream = new MemoryStream();
             StreamWriter writer = new StreamWriter(stream);

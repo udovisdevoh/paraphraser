@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace MarkovMatrices
 {
-    public interface IMarkovMatrixTransformer
+    public interface IMarkovMatrixTransformer<TKey>
     {
-        IMarkovMatrix<double> Transform(IMarkovMatrix<double> matrix);
+        IMarkovMatrix<TKey, double> Transform(IMarkovMatrix<TKey, double> matrix);
     }
 }

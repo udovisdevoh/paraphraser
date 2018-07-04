@@ -14,9 +14,9 @@ namespace LanguageDetection
     {
         private Dictionary<string, ISpellChecker> spellCheckers = new Dictionary<string, ISpellChecker>();
 
-        private IMarkovMatrixLoader<double> comparisonMatrixLoader;
+        private IMarkovMatrixLoader<char, double> comparisonMatrixLoader;
 
-        public LanguageDetectorByLeastCorrection(IMarkovMatrixLoader<double> resultComparisonMatrixLoader)
+        public LanguageDetectorByLeastCorrection(IMarkovMatrixLoader<char, double> resultComparisonMatrixLoader)
         {
             this.comparisonMatrixLoader = resultComparisonMatrixLoader;
         }
@@ -65,8 +65,8 @@ namespace LanguageDetection
 
         private double GetMarkovMatrixProximity(string fromText, string toText)
         {
-            IMarkovMatrix<double> fromMatrix = comparisonMatrixLoader.LoadMatrix(fromText);
-            IMarkovMatrix<double> toMatrix = comparisonMatrixLoader.LoadMatrix(toText);
+            IMarkovMatrix<char, double> fromMatrix = comparisonMatrixLoader.LoadMatrix(fromText);
+            IMarkovMatrix<char, double> toMatrix = comparisonMatrixLoader.LoadMatrix(toText);
 
             //double proximity = MatrixMathHelper.GetDotProduct(fromMatrix, toMatrix);
             double proximity = 1.0 - MatrixMathHelper.GetDistance(fromMatrix, toMatrix);

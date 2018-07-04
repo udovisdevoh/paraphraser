@@ -19,7 +19,7 @@ namespace MarkovMatrices.Tests
             NormalizedTextMarkovMatrixLoader textMarkovMatrixLoader = new NormalizedTextMarkovMatrixLoader(new TextMarkovMatrixLoader(), new MarkovMatrixNormalizer());
 
             // Act
-            IMarkovMatrix<double> markovMatrix = textMarkovMatrixLoader.LoadMatrix(stream);
+            IMarkovMatrix<char, double> markovMatrix = textMarkovMatrixLoader.LoadMatrix(stream);
 
             // Assert
             Assert.True(markovMatrix.InputCount > 0);
@@ -34,7 +34,7 @@ namespace MarkovMatrices.Tests
             double expectedProbability = 0.6;
 
             // Act
-            IMarkovMatrix<double> markovMatrix = textMarkovMatrixLoader.LoadMatrix(stream);
+            IMarkovMatrix<char, double> markovMatrix = textMarkovMatrixLoader.LoadMatrix(stream);
             double actualProbability = markovMatrix.GetOccurrence('l', 'a');
 
             // Assert
@@ -49,7 +49,7 @@ namespace MarkovMatrices.Tests
             NormalizedTextMarkovMatrixLoader textMarkovMatrixLoader = new NormalizedTextMarkovMatrixLoader(new TextMarkovMatrixLoader(), new MarkovMatrixNormalizer());
 
             // Act
-            IMarkovMatrix<double> markovMatrix = textMarkovMatrixLoader.LoadMatrix(text);
+            IMarkovMatrix<char, double> markovMatrix = textMarkovMatrixLoader.LoadMatrix(text);
 
             // Assert
             Assert.True(markovMatrix.InputCount > 0);

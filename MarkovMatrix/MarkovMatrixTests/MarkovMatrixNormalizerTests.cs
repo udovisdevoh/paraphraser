@@ -28,7 +28,7 @@ namespace MarkovMatrices.Tests
             markovMatrix.IncrementOccurrence('B', 'B');
 
             // Act
-            IMarkovMatrix<double> normalizedMatrix = markovMatrixNormalizer.Normalize(markovMatrix);
+            IMarkovMatrix<char, double> normalizedMatrix = markovMatrixNormalizer.Normalize(markovMatrix);
             double actualOccurrence = Math.Round(normalizedMatrix.GetOccurrence('A', 'B'), 2);
 
             // Assert
@@ -53,7 +53,7 @@ namespace MarkovMatrices.Tests
             markovMatrix.IncrementOccurrence('B', 'B');
 
             // Act
-            IMarkovMatrix<double> normalizedMatrix = markovMatrixNormalizer.Normalize(markovMatrix);
+            IMarkovMatrix<char, double> normalizedMatrix = markovMatrixNormalizer.Normalize(markovMatrix);
             double actualOccurrence = Math.Round(normalizedMatrix.GetOccurrence('A', 'D'), 2);
 
             // Assert

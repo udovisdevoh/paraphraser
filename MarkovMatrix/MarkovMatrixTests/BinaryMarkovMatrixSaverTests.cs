@@ -27,7 +27,7 @@ namespace MarkovMatrices.Tests
             // Assert
             memoryStream.Position = 0;
             BinaryMarkovMatrixLoader binaryMarkovMatrixLoader = new BinaryMarkovMatrixLoader();
-            IMarkovMatrix<double> loadedMatrix = binaryMarkovMatrixLoader.LoadMatrix(memoryStream);
+            IMarkovMatrix<char, double> loadedMatrix = binaryMarkovMatrixLoader.LoadMatrix(memoryStream);
             double actualOccurrence = loadedMatrix.GetOccurrence('C', 'D');
             Assert.Equal(expectedOccurrence, actualOccurrence);
         }

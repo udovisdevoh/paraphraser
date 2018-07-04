@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace MarkovMatrices
 {
-    public class MarkovMatrix<T> : IMarkovMatrix<T>
+    public class MarkovMatrix<TValue> : IMarkovMatrix<char, TValue>
     {
         #region Members
-        private Dictionary<uint, T> occurrenceCountMap;
+        private Dictionary<uint, TValue> occurrenceCountMap;
 
-        private Dictionary<char, T> sumsFromChars;
+        private Dictionary<char, TValue> sumsFromChars;
         #endregion
 
         #region Properties
@@ -29,70 +29,70 @@ namespace MarkovMatrices
         #region Constructors
         public MarkovMatrix()
         {
-            if (!GenericNumberHelper.ValidateNumberType<T>())
+            if (!GenericNumberHelper.ValidateNumberType<TValue>())
             {
-                throw new ArgumentException(string.Format("Unsupported type {0}. Use numeric types only.", typeof(T).FullName));
+                throw new ArgumentException(string.Format("Unsupported type {0}. Use numeric types only.", typeof(TValue).FullName));
             }
-            this.occurrenceCountMap = new Dictionary<uint, T>();
-            this.sumsFromChars = new Dictionary<char, T>();
+            this.occurrenceCountMap = new Dictionary<uint, TValue>();
+            this.sumsFromChars = new Dictionary<char, TValue>();
         }
         #endregion
 
-        public T GetOccurrence(char fromChar, char toChar)
+        public TValue GetOccurrence(char fromChar, char toChar)
         {
-            T occurrence;
+            TValue occurrence;
             uint twoCharSet = MatrixMathHelper.CombineChars(fromChar, toChar);
             if (!this.occurrenceCountMap.TryGetValue(twoCharSet, out occurrence))
             {
-                GenericNumberHelper.GetValue<T>(0);
+                GenericNumberHelper.GetValue<TValue>(0);
             }
             return occurrence;
         }
 
         public void IncrementOccurrence(char fromChar, char toChar)
         {
-            this.IncrementOccurrence(fromChar, toChar, GenericNumberHelper.GetValue<T>(1));
+            this.IncrementOccurrence(fromChar, toChar, GenericNumberHelper.GetValue<TValue>(1));
         }
 
-        public void IncrementOccurrence(char fromChar, char toChar, T valueToAdd)
+        public void IncrementOccurrence(char fromChar, char toChar, TValue valueToAdd)
         {
             uint twoCharSet = MatrixMathHelper.CombineChars(fromChar, toChar);
             this.IncrementSum(fromChar, valueToAdd);
             this.IncrementOccurrence(twoCharSet, valueToAdd);
         }
 
-        private void IncrementSum(char fromChar, T valueToAdd)
+        private void IncrementSum(char fromChar, TValue valueToAdd)
         {
-            T sum;
+            TValue sum;
 
             if (!this.sumsFromChars.TryGetValue(fromChar, out sum))
             {
-                sum = GenericNumberHelper.GetValue<T>(0);
+                sum = GenericNumberHelper.GetValue<TValue>(0);
             }
-            sum = GenericNumberHelper.Add<T>(sum, valueToAdd);
+            sum = GenericNumberHelper.Add<TValue>(sum, valueToAdd);
 
             this.sumsFromChars[fromChar] = sum;
         }
 
-        private void IncrementOccurrence(uint twoCharSet, T valueToAdd)
+        private void IncrementOccurrence(uint twoCharSet, TValue valueToAdd)
         {
-            T occurrence;
+            TValue occurrence;
 
             if (!this.occurrenceCountMap.TryGetValue(twoCharSet, out occurrence))
             {
-                occurrence = GenericNumberHelper.GetValue<T>(0);
+                occurrence = GenericNumberHelper.GetValue<TValue>(0);
             }
-            occurrence = GenericNumberHelper.Add<T>(occurrence, valueToAdd);
+            occurrence = GenericNumberHelper.Add<TValue>(occurrence, valueToAdd);
 
             this.occurrenceCountMap[twoCharSet] = occurrence;
         }
 
-        public IEnumerator<KeyValuePair<Tuple<char, char>, T>> GetEnumerator()
+        public IEnumerator<KeyValuePair<Tuple<char, char>, TValue>> GetEnumerator()
         {
-            foreach (KeyValuePair<uint, T> twoCharsAndCount in this.occurrenceCountMap)
+            foreach (KeyValuePair<uint, TValue> twoCharsAndCount in this.occurrenceCountMap)
             {
                 Tuple<char, char> chars = MatrixMathHelper.SplitChars(twoCharsAndCount.Key);
-                yield return new KeyValuePair<Tuple<char, char>, T>(chars, twoCharsAndCount.Value);
+                yield return new KeyValuePair<Tuple<char, char>, TValue>(chars, twoCharsAndCount.Value);
             }
         }
 
@@ -101,13 +101,13 @@ namespace MarkovMatrices
             return this.occurrenceCountMap.GetEnumerator();
         }
 
-        public T GetSum(char fromChar)
+        public TValue GetSum(char fromChar)
         {
-            T sum;
+            TValue sum;
 
             if (!this.sumsFromChars.TryGetValue(fromChar, out sum))
             {
-                sum = GenericNumberHelper.GetValue<T>(0);
+                sum = GenericNumberHelper.GetValue<TValue>(0);
             }
 
             return sum;

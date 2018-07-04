@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MarkovMatrices
 {
-    public class MarkovMatrixCharacterCombiner : IMarkovMatrixTransformer
+    public class MarkovMatrixCharacterCombiner : IMarkovMatrixTransformer<char>
     {
         public delegate char TransformCharacterDelegate(char character);
 
@@ -17,7 +17,7 @@ namespace MarkovMatrices
             this.transformCharacterDelegate = transformCharacterDelegate;
         }
 
-        public IMarkovMatrix<double> Transform(IMarkovMatrix<double> sourceMatrix)
+        public IMarkovMatrix<char, double> Transform(IMarkovMatrix<char, double> sourceMatrix)
         {
             MarkovMatrix<double> newMatrix = new MarkovMatrix<double>();
 
@@ -39,12 +39,12 @@ namespace MarkovMatrices
                 }
             }
 
-            IMarkovMatrix<double> normalizedNewMatrix = this.Normalize(newMatrix);
+            IMarkovMatrix<char, double> normalizedNewMatrix = this.Normalize(newMatrix);
 
             return normalizedNewMatrix;
         }
 
-        public IMarkovMatrix<double> Normalize(IMarkovMatrix<double> sourceMatrix)
+        public IMarkovMatrix<char, double> Normalize(IMarkovMatrix<char, double> sourceMatrix)
         {
             MarkovMatrix<double> normalizedMatrix = new MarkovMatrix<double>();
 

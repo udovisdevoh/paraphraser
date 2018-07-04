@@ -13,15 +13,15 @@ namespace LanguageDetection
     public class LanguageDetectorByMarkovMatrix : LanguageDetector
     {
         #region Members
-        private Dictionary<string, IMarkovMatrix<double>> languages;
+        private Dictionary<string, IMarkovMatrix<char, double>> languages;
 
-        private IMarkovMatrixLoader<double> languageDetectionMatrixLoader;
+        private IMarkovMatrixLoader<char, double> languageDetectionMatrixLoader;
         #endregion
 
         #region Constructors
-        public LanguageDetectorByMarkovMatrix(IMarkovMatrixLoader<double> languageDetectionMatrixLoader)
+        public LanguageDetectorByMarkovMatrix(IMarkovMatrixLoader<char, double> languageDetectionMatrixLoader)
         {
-            this.languages = new Dictionary<string, IMarkovMatrix<double>>();
+            this.languages = new Dictionary<string, IMarkovMatrix<char, double>>();
             this.languageDetectionMatrixLoader = languageDetectionMatrixLoader;
         }
         #endregion
@@ -33,7 +33,7 @@ namespace LanguageDetection
         }
         #endregion
 
-        public void AddLanguage(string name, IMarkovMatrix<double> languageMatrix)
+        public void AddLanguage(string name, IMarkovMatrix<char, double> languageMatrix)
         {
             name = StringFormatter.FormatLanguageName(name);
             this.languages.Add(name, this.TransformMatrix(languageMatrix));
@@ -53,14 +53,14 @@ namespace LanguageDetection
             }
 
             MemoryStream memoryStream = MemoryStreamBuilder.BuildMemoryStreamFromText(text);
-            IMarkovMatrix<double> inputMatrix = this.languageDetectionMatrixLoader.LoadMatrix(memoryStream);
+            IMarkovMatrix<char, double> inputMatrix = this.languageDetectionMatrixLoader.LoadMatrix(memoryStream);
 
             List<KeyValuePair<string, double>> languageProximities = new List<KeyValuePair<string, double>>();
 
-            foreach (KeyValuePair<string, IMarkovMatrix<double>> nameAndLanguageMatrix in this.languages)
+            foreach (KeyValuePair<string, IMarkovMatrix<char, double>> nameAndLanguageMatrix in this.languages)
             {
                 string languageName = nameAndLanguageMatrix.Key;
-                IMarkovMatrix<double> languageMatrix = nameAndLanguageMatrix.Value;
+                IMarkovMatrix<char, double> languageMatrix = nameAndLanguageMatrix.Value;
                 //double proximity = MatrixMathHelper.GetDotProduct(inputMatrix, languageMatrix);
                 double proximity = 1.0 - MatrixMathHelper.GetDistance(inputMatrix, languageMatrix);
 
@@ -75,7 +75,7 @@ namespace LanguageDetection
             return text;
         }
 
-        public virtual IMarkovMatrix<double> TransformMatrix(IMarkovMatrix<double> matrix)
+        public virtual IMarkovMatrix<char, double> TransformMatrix(IMarkovMatrix<char, double> matrix)
         {
             return matrix;
         }

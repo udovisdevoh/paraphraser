@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace MarkovMatrices
 {
-    public class MarkovMatrixNormalizer : IMarkovMatrixNormalizer
+    public class MarkovMatrixNormalizer : IMarkovMatrixNormalizer<char>
     {
-        public IMarkovMatrix<double> Normalize(IMarkovMatrix<ulong> sourceMatrix)
+        public IMarkovMatrix<char, double> Normalize(IMarkovMatrix<char, ulong> sourceMatrix)
         {
             MarkovMatrix<double> normalizedMatrix = new MarkovMatrix<double>();
 
