@@ -88,3 +88,8 @@
 /ExtractSentenceTypesApp/bin
 /ExtractSentenceTypesApp/LanguageSamples/lyrics.en.txt
 /ExtractSentenceTypesApp/LanguageSamples/lyrics.fr.txt
+/WordMatrixConstructionApp/obj
+/WordMatrixConstructionApp/.vs
+/WordMatrixConstructionApp/bin
+/WordMatrixConstructionApp/LanguageSamples/lyrics.fr.txt
+/WordMatrixConstructionApp/LanguageSamples/lyrics.en.txt
