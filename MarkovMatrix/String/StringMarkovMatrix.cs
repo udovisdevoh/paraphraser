@@ -27,8 +27,6 @@ namespace MarkovMatrices
 
         public override uint CombineElements(string fromWord, string toWord)
         {
-            #warning Add unit tests
-
             fromWord = StringFormatter.RemoveDoubleTabsSpacesAndEnters(fromWord).ToLowerInvariant();
             toWord = StringFormatter.RemoveDoubleTabsSpacesAndEnters(toWord).ToLowerInvariant();
 
@@ -40,8 +38,6 @@ namespace MarkovMatrices
 
         public override Tuple<string, string> SplitElements(uint combinedWords)
         {
-            #warning Add unit tests
-
             Tuple<ushort, ushort> wordIds = MatrixMathHelper.SplitUShorts(combinedWords);
 
             string fromWord = this.GetWord(wordIds.Item1);
@@ -52,8 +48,6 @@ namespace MarkovMatrices
 
         public string GetWord(ushort wordId)
         {
-            #warning Add unit tests
-
             lock (this.wordIds)
             {
                 lock (this.wordDictionary)
@@ -65,7 +59,7 @@ namespace MarkovMatrices
 
         public ushort GetWordId(string word)
         {
-            #warning Add unit tests
+            word = StringFormatter.RemoveDoubleTabsSpacesAndEnters(word).ToLowerInvariant();
 
             ushort wordId;
             lock (this.wordIds)

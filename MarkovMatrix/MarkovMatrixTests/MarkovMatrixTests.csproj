@@ -74,9 +74,10 @@
     <Compile Include="LanguageDictionaryFileMatrixLoaderTests.cs" />
     <Compile Include="MarkovMatrixCharacterCombinerTests.cs" />
     <Compile Include="MarkovMatrixNormalizerTests.cs" />
-    <Compile Include="MarkovMatrixTests.cs" />
+    <Compile Include="CharMarkovMatrixTests.cs" />
     <Compile Include="NormalizedTextMarkovMatrixLoaderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StringMarkovMatrixTests.cs" />
     <Compile Include="TextMarkovMatrixLoaderTests.cs" />
   </ItemGroup>
   <ItemGroup>
