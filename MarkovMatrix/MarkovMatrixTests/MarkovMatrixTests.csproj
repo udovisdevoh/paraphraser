@@ -69,16 +69,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BinaryMarkovMatrixLoaderTests.cs" />
-    <Compile Include="BinaryMarkovMatrixSaverTests.cs" />
+    <Compile Include="Char\BinaryMarkovMatrixLoaderTests.cs" />
+    <Compile Include="Char\BinaryMarkovMatrixSaverTests.cs" />
+    <Compile Include="String\BinaryStringMarkovMatrixLoaderTests.cs" />
     <Compile Include="LanguageDictionaryFileMatrixLoaderTests.cs" />
-    <Compile Include="MarkovMatrixCharacterCombinerTests.cs" />
-    <Compile Include="MarkovMatrixNormalizerTests.cs" />
-    <Compile Include="CharMarkovMatrixTests.cs" />
-    <Compile Include="NormalizedTextMarkovMatrixLoaderTests.cs" />
+    <Compile Include="Char\MarkovMatrixCharacterCombinerTests.cs" />
+    <Compile Include="Char\MarkovMatrixNormalizerTests.cs" />
+    <Compile Include="Char\CharMarkovMatrixTests.cs" />
+    <Compile Include="Char\NormalizedTextMarkovMatrixLoaderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StringMarkovMatrixTests.cs" />
-    <Compile Include="TextMarkovMatrixLoaderTests.cs" />
+    <Compile Include="String\StringMarkovMatrixLoaderFromTextTests.cs" />
+    <Compile Include="String\StringMarkovMatrixTests.cs" />
+    <Compile Include="Char\TextMarkovMatrixLoaderTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\ParaphraserMath\ParaphraserMath.csproj">

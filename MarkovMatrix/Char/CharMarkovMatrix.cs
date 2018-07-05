@@ -16,6 +16,16 @@ namespace MarkovMatrices
         }
         #endregion
 
+        #region Properties
+        public override Dictionary<char, ushort> ValueMap
+        {
+            get
+            {
+                throw new NotSupportedException();
+            }
+        }
+        #endregion
+
         public override uint CombineElements(char fromElement, char toElement)
         {
             return MatrixMathHelper.CombineChars(fromElement, toElement);

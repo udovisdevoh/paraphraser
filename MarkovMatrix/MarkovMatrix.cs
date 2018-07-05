@@ -24,6 +24,8 @@ namespace MarkovMatrices
                 return occurrenceCountMap.Count;
             }
         }
+
+        public abstract Dictionary<TKey, ushort> ValueMap { get; }
         #endregion
 
         #region Constructors
@@ -39,7 +41,7 @@ namespace MarkovMatrices
         #endregion
 
         public abstract uint CombineElements(TKey fromElement, TKey toElement);
-
+        
         public abstract Tuple<TKey, TKey> SplitElements(uint key);
 
         public TValue GetOccurrence(TKey fromElement, TKey toElement)
@@ -60,9 +62,17 @@ namespace MarkovMatrices
 
         public void IncrementOccurrence(TKey fromElement, TKey toElement, TValue valueToAdd)
         {
+            fromElement = this.FormatElement(fromElement);
+            toElement = this.FormatElement(toElement);
+
             uint twoElementSet = this.CombineElements(fromElement, toElement);
             this.IncrementSum(fromElement, valueToAdd);
             this.IncrementOccurrence(twoElementSet, valueToAdd);
+        }
+
+        protected virtual TKey FormatElement(TKey element)
+        {
+            return element;
         }
 
         private void IncrementSum(TKey fromElement, TValue valueToAdd)

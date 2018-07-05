@@ -12,8 +12,6 @@ namespace MarkovMatrices
     {
         public IMarkovMatrix<string, double> LoadMatrix(Stream inputStream)
         {
-            #warning Todo add unit tests
-
             StringMarkovMatrix<ulong> markovMatrix = new StringMarkovMatrix<ulong>();
             using (StreamReader streamReader = new StreamReader(inputStream))
             {
@@ -46,28 +44,26 @@ namespace MarkovMatrices
             }
         }
 
-        public StringMarkovMatrix<double> Normalize(StringMarkovMatrix<ulong> sourceMatrix)
+        public IMarkovMatrix<string, double> Normalize(IMarkovMatrix<string, ulong> sourceMatrix)
         {
-            #warning Todo add unit tests
-
             StringMarkovMatrix<double> normalizedMatrix = new StringMarkovMatrix<double>();
 
             foreach (KeyValuePair<Tuple<string, string>, ulong> twoWordsAndCount in sourceMatrix)
             {
                 Tuple<string, string> twoWords = twoWordsAndCount.Key;
 
-                string fromChar = twoWords.Item1;
-                string toChar = twoWords.Item2;
+                string fromWord = twoWords.Item1;
+                string toWord = twoWords.Item2;
 
                 ulong count = twoWordsAndCount.Value;
 
-                ulong sum = sourceMatrix.GetSum(fromChar);
+                ulong sum = sourceMatrix.GetSum(fromWord);
 
                 if (sum != 0)
                 {
                     double ratio = (double)count / (double)sum;
 
-                    normalizedMatrix.IncrementOccurrence(fromChar, toChar, (double)ratio);
+                    normalizedMatrix.IncrementOccurrence(fromWord, toWord, (double)ratio);
                 }
             }
 
@@ -76,8 +72,6 @@ namespace MarkovMatrices
 
         public IMarkovMatrix<string, double> LoadMatrix(string text)
         {
-            #warning Todo add unit tests
-
             MemoryStream stream = new MemoryStream();
             StreamWriter writer = new StreamWriter(stream);
             writer.Write(text);

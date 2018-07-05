@@ -126,5 +126,19 @@ namespace MarkovMatrices.Tests
             // Assert
             Assert.Equal(expectedSum, actualSum);
         }
+
+        [Fact]
+        public void GivenCharMarkovMatrix_GetValueMap_ShouldThrow()
+        {
+            // Arrange
+            CharMarkovMatrix<ulong> markovMatrix = new CharMarkovMatrix<ulong>();
+
+            // Assert
+            Assert.Throws<NotSupportedException>(() =>
+            {
+                // Act
+                Dictionary<char, ushort> valueMap = markovMatrix.ValueMap;
+            });
+        }
     }
 }

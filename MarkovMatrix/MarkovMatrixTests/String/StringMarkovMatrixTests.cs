@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace MarkovMatrices
+namespace MarkovMatrices.Tests
 {
     public class StringMarkovMatrixTests
     {

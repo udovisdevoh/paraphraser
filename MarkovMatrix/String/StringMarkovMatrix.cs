@@ -19,16 +19,31 @@ namespace MarkovMatrices
         #region Constructors
         public StringMarkovMatrix() : base()
         {
-            this.wordDictionary = new Dictionary<string, ushort>();
+            this.wordDictionary = new Dictionary<string, ushort>(StringComparer.OrdinalIgnoreCase);
             this.wordIds = new List<string>();
         }
 
         #endregion
 
+        #region Properties
+        public override Dictionary<string, ushort> ValueMap
+        {
+            get
+            {
+                return wordDictionary;
+            }
+        }
+        #endregion
+
+        protected override string FormatElement(string element)
+        {
+            return StringFormatter.RemoveDoubleTabsSpacesAndEnters(element).ToLowerInvariant();
+        }
+
         public override uint CombineElements(string fromWord, string toWord)
         {
-            fromWord = StringFormatter.RemoveDoubleTabsSpacesAndEnters(fromWord).ToLowerInvariant();
-            toWord = StringFormatter.RemoveDoubleTabsSpacesAndEnters(toWord).ToLowerInvariant();
+            fromWord = FormatElement(fromWord);
+            toWord = FormatElement(toWord);
 
             ushort fromWordId = this.GetWordId(fromWord);
             ushort toWordId = this.GetWordId(toWord);
@@ -59,7 +74,7 @@ namespace MarkovMatrices
 
         public ushort GetWordId(string word)
         {
-            word = StringFormatter.RemoveDoubleTabsSpacesAndEnters(word).ToLowerInvariant();
+            word = FormatElement(word);
 
             ushort wordId;
             lock (this.wordIds)
