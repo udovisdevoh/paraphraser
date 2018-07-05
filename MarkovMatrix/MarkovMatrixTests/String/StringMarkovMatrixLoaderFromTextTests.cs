@@ -1,5 +1,7 @@
-﻿using System;
+﻿using MarkovMatrices.TestHelper;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +21,23 @@ namespace MarkovMatrices.Tests
 
             // Act
             IMarkovMatrix<string, double> markovMatrix = binaryStringMarkovMatrixLoader.LoadMatrix(text);
+            double actualProbability = markovMatrix.GetOccurrence("zarf", "zorf");
+
+            // Assert
+            Assert.Equal(expectedProbability, actualProbability);
+        }
+
+        [Fact]
+        public void GivenStream_ShouldLoadMatrix()
+        {
+            // Arrange
+            string text = "zarF! Zorf zUrf? zArf zeRf zi'RF ZARF zyRF ZarF zARff.";
+            StringMarkovMatrixLoaderFromText binaryStringMarkovMatrixLoader = new StringMarkovMatrixLoaderFromText();
+            double expectedProbability = 0.25;
+            Stream stream = StreamBuilder.BuildTextStream(text);
+
+            // Act
+            IMarkovMatrix<string, double> markovMatrix = binaryStringMarkovMatrixLoader.LoadMatrix(stream);
             double actualProbability = markovMatrix.GetOccurrence("zarf", "zorf");
 
             // Assert

@@ -26,6 +26,8 @@ namespace MarkovMatrices
         }
 
         public abstract Dictionary<TKey, ushort> ValueMap { get; }
+
+        public abstract Dictionary<ushort, TKey> ReverseValueMap { get; }
         #endregion
 
         #region Constructors

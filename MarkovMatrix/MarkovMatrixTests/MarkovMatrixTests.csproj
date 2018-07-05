@@ -78,6 +78,7 @@
     <Compile Include="Char\CharMarkovMatrixTests.cs" />
     <Compile Include="Char\NormalizedTextMarkovMatrixLoaderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="String\BinaryStringMarkovMatrixSaverTests.cs" />
     <Compile Include="String\StringMarkovMatrixLoaderFromTextTests.cs" />
     <Compile Include="String\StringMarkovMatrixTests.cs" />
     <Compile Include="Char\TextMarkovMatrixLoaderTests.cs" />

@@ -24,6 +24,14 @@ namespace MarkovMatrices
                 throw new NotSupportedException();
             }
         }
+
+        public override Dictionary<ushort, char> ReverseValueMap
+        {
+            get
+            {
+                throw new NotSupportedException();
+            }
+        }
         #endregion
 
         public override uint CombineElements(char fromElement, char toElement)

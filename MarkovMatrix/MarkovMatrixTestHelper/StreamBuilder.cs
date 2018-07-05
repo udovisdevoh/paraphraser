@@ -33,5 +33,37 @@ namespace MarkovMatrices.TestHelper
             stream.Position = 0;
             return stream;
         }
+
+        public static MemoryStream BuildBinaryStream(int wordCount,
+            string word1,
+            ushort word1Id,
+            string word2,
+            ushort word2Id,
+            string word3,
+            ushort word3Id,
+            int occurrenceCount,
+            uint word1And2,
+            double occurrence1,
+            uint word2And3,
+            double occurrence2)
+        {
+            MemoryStream stream = new MemoryStream();
+            BinaryWriter writer = new BinaryWriter(stream);
+            writer.Write(wordCount);
+            writer.Write(word1);
+            writer.Write(word1Id);
+            writer.Write(word2);
+            writer.Write(word2Id);
+            writer.Write(word3);
+            writer.Write(word3Id);
+            writer.Write(occurrenceCount);
+            writer.Write(word1And2);
+            writer.Write(occurrence1);
+            writer.Write(word2And3);
+            writer.Write(occurrence2);
+            writer.Flush();
+            stream.Position = 0;
+            return stream;
+        }
     }
 }

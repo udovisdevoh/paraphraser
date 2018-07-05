@@ -11,16 +11,16 @@ namespace MarkovMatrices
     public class StringMarkovMatrix<TValue> : MarkovMatrix<string, TValue>
     {
         #region Members
-        private Dictionary<string, ushort> wordDictionary;
+        private Dictionary<string, ushort> valueMap;
 
-        private List<string> wordIds;
+        private Dictionary<ushort, string> reverseValueMap;
         #endregion
 
         #region Constructors
         public StringMarkovMatrix() : base()
         {
-            this.wordDictionary = new Dictionary<string, ushort>(StringComparer.OrdinalIgnoreCase);
-            this.wordIds = new List<string>();
+            this.valueMap = new Dictionary<string, ushort>(StringComparer.OrdinalIgnoreCase);
+            this.reverseValueMap = new Dictionary<ushort, string>();
         }
 
         #endregion
@@ -30,7 +30,15 @@ namespace MarkovMatrices
         {
             get
             {
-                return wordDictionary;
+                return valueMap;
+            }
+        }
+
+        public override Dictionary<ushort, string> ReverseValueMap
+        {
+            get
+            {
+                return reverseValueMap;
             }
         }
         #endregion
@@ -63,11 +71,11 @@ namespace MarkovMatrices
 
         public string GetWord(ushort wordId)
         {
-            lock (this.wordIds)
+            lock (this.reverseValueMap)
             {
-                lock (this.wordDictionary)
+                lock (this.valueMap)
                 {
-                    return this.wordIds[wordId];
+                    return this.reverseValueMap[wordId];
                 }
             }
         }
@@ -77,20 +85,20 @@ namespace MarkovMatrices
             word = FormatElement(word);
 
             ushort wordId;
-            lock (this.wordIds)
+            lock (this.reverseValueMap)
             {
-                lock (this.wordDictionary)
+                lock (this.valueMap)
                 {
-                    if (!this.wordDictionary.TryGetValue(word, out wordId))
+                    if (!this.valueMap.TryGetValue(word, out wordId))
                     {
-                        if (wordIds.Count >= (int)ushort.MaxValue)
+                        if (reverseValueMap.Count >= (int)ushort.MaxValue)
                         {
                             throw new Exception("Matrix cannot have more than {0} words");
                         }
 
-                        wordId = (ushort)this.wordIds.Count;
-                        this.wordDictionary.Add(word, wordId);
-                        this.wordIds.Add(word);
+                        wordId = (ushort)this.reverseValueMap.Count;
+                        this.valueMap.Add(word, wordId);
+                        this.reverseValueMap.Add(wordId, word);
                     }
                 }
             }

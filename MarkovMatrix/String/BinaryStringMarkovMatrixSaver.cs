@@ -12,10 +12,8 @@ namespace MarkovMatrices
     {
         public void SaveMatrix(IMarkovMatrix<string, double> markovMatrix, Stream outputStream)
         {
-            #warning Add unit tests
-
             BinaryWriter binaryWriter = new BinaryWriter(outputStream);
-            binaryWriter.Write(markovMatrix.InputCount);
+            binaryWriter.Write(markovMatrix.ValueMap.Count);
 
             foreach (KeyValuePair<string, ushort> wordAndId in markovMatrix.ValueMap)
             {
@@ -24,6 +22,8 @@ namespace MarkovMatrices
                 binaryWriter.Write(word);
                 binaryWriter.Write(wordId);
             }
+
+            binaryWriter.Write(markovMatrix.InputCount);
 
             foreach (KeyValuePair<Tuple<string, string>, double> twoWordsAndOccurrenceCount in markovMatrix)
             {
