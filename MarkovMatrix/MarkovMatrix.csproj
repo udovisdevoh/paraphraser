@@ -51,7 +51,10 @@
     <Compile Include="Char\FromText\TextMarkovMatrixLoader.cs" />
     <Compile Include="MarkovMatrix.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="String\BinaryStringMarkovMatrixLoader.cs" />
+    <Compile Include="String\BinaryStringMarkovMatrixSaver.cs" />
     <Compile Include="String\StringMarkovMatrix.cs" />
+    <Compile Include="String\StringMarkovMatrixLoaderFromText.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ParaphraserMath\ParaphraserMath.csproj">

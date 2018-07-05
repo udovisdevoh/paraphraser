@@ -53,12 +53,13 @@
       <Project>{78f39194-74d8-4848-b2d6-fc26fccff4ae}</Project>
       <Name>MarkovMatrixInterfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ParaphaserBootstrap\ParaphaserBootstrap.csproj">
+      <Project>{4c76be25-0a4b-407e-ba17-21ed5c2e5a94}</Project>
+      <Name>ParaphaserBootstrap</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="LanguageSamples\lyrics.en.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="LanguageSamples\lyrics.fr.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

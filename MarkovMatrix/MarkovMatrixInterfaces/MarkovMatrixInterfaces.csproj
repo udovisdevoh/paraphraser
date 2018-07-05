@@ -40,7 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ILanguageMatrixBuilder.cs" />
+    <Compile Include="Char\ILanguageMatrixBuilder.cs" />
     <Compile Include="IMarkovMatrix.cs" />
     <Compile Include="IMarkovMatrixLoader.cs" />
     <Compile Include="IMarkovMatrixNormalizer.cs" />
