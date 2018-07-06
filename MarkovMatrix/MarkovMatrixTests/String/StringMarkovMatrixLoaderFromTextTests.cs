@@ -28,6 +28,23 @@ namespace MarkovMatrices.Tests
         }
 
         [Fact]
+        public void GivenTextWithWhiteList_ShouldLoadMatrix()
+        {
+            // Arrange
+            string text = "zarF! Zorf zUrf? zArf zeRf zi'RF ZARF zyRF ZarF zARff.";
+            StringMarkovMatrixLoaderFromText stringMarkovMatrixLoaderFromText = new StringMarkovMatrixLoaderFromText();
+            double expectedProbability = 0.0;
+            HashSet<string> whiteList = new HashSet<string>(StringComparer.OrdinalIgnoreCase) { "zerf" };
+
+            // Act
+            IMarkovMatrix<string, double> markovMatrix = stringMarkovMatrixLoaderFromText.LoadMatrix(text, whiteList);
+            double actualProbability = markovMatrix.GetOccurrence("zarf", "zorf");
+
+            // Assert
+            Assert.Equal(expectedProbability, actualProbability);
+        }
+
+        [Fact]
         public void GivenStream_ShouldLoadMatrix()
         {
             // Arrange
@@ -38,6 +55,24 @@ namespace MarkovMatrices.Tests
 
             // Act
             IMarkovMatrix<string, double> markovMatrix = stringMarkovMatrixLoaderFromText.LoadMatrix(stream);
+            double actualProbability = markovMatrix.GetOccurrence("zarf", "zorf");
+
+            // Assert
+            Assert.Equal(expectedProbability, actualProbability);
+        }
+
+        [Fact]
+        public void GivenStreamWithWhiteList_ShouldLoadMatrix()
+        {
+            // Arrange
+            string text = "zarF! Zorf zUrf? zArf zeRf zi'RF ZARF zyRF ZarF zARff.";
+            StringMarkovMatrixLoaderFromText stringMarkovMatrixLoaderFromText = new StringMarkovMatrixLoaderFromText();
+            double expectedProbability = 0.0;
+            Stream stream = StreamBuilder.BuildTextStream(text);
+            HashSet<string> whiteList = new HashSet<string>(StringComparer.OrdinalIgnoreCase) { "zerf" };
+
+            // Act
+            IMarkovMatrix<string, double> markovMatrix = stringMarkovMatrixLoaderFromText.LoadMatrix(stream, whiteList);
             double actualProbability = markovMatrix.GetOccurrence("zarf", "zorf");
 
             // Assert

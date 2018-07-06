@@ -17,12 +17,29 @@ namespace MarkovMatrices.Tests
             // Arrange
             Stream stream = StreamBuilder.BuildTextStream("Pseudolachnostylis is a genus of plants in the Phyllanthaceae first described as a genus in 1899");
             TextMarkovMatrixLoader textMarkovMatrixLoader = new TextMarkovMatrixLoader();
+            int expectedInputCount = 69;
 
             // Act
             IMarkovMatrix<char, ulong> markovMatrix = textMarkovMatrixLoader.LoadMatrix(stream);
 
             // Assert
-            Assert.True(markovMatrix.InputCount > 0);
+            Assert.Equal(expectedInputCount, markovMatrix.InputCount);
+        }
+
+        [Fact]
+        public void GivenStreamAndWhiteList_LoadMatrix_ShouldFilter()
+        {
+            // Arrange
+            Stream stream = StreamBuilder.BuildTextStream("Pseudolachnostylis is a genus of plants in the Phyllanthaceae first described as a genus in 1899");
+            TextMarkovMatrixLoader textMarkovMatrixLoader = new TextMarkovMatrixLoader();
+            HashSet<char> ignoreList = new HashSet<char>() { 'a', 'e', 'i', 'o', 'u' };
+            int expectedInputCount = 37;
+
+            // Act
+            IMarkovMatrix<char, ulong> markovMatrix = textMarkovMatrixLoader.LoadMatrix(stream, ignoreList);
+
+            // Assert
+            Assert.Equal(expectedInputCount, markovMatrix.InputCount);
         }
 
         [Fact]
@@ -31,12 +48,29 @@ namespace MarkovMatrices.Tests
             // Arrange
             string text = "Pseudolachnostylis is a genus of plants in the Phyllanthaceae first described as a genus in 1899";
             TextMarkovMatrixLoader textMarkovMatrixLoader = new TextMarkovMatrixLoader();
+            int expectedInputCount = 69;
 
             // Act
             IMarkovMatrix<char, ulong> markovMatrix = textMarkovMatrixLoader.LoadMatrix(text);
 
             // Assert
-            Assert.True(markovMatrix.InputCount > 0);
+            Assert.Equal(expectedInputCount, markovMatrix.InputCount);
+        }
+
+        [Fact]
+        public void GivenTextAndWhiteList_LoadMatrix_ShouldFilter()
+        {
+            // Arrange
+            string text = "Pseudolachnostylis is a genus of plants in the Phyllanthaceae first described as a genus in 1899";
+            TextMarkovMatrixLoader textMarkovMatrixLoader = new TextMarkovMatrixLoader();
+            HashSet<char> ignoreList = new HashSet<char>() { 'a', 'e', 'i', 'o', 'u' };
+            int expectedInputCount = 37;
+
+            // Act
+            IMarkovMatrix<char, ulong> markovMatrix = textMarkovMatrixLoader.LoadMatrix(text, ignoreList);
+
+            // Assert
+            Assert.Equal(expectedInputCount, markovMatrix.InputCount);
         }
 
         [Fact]

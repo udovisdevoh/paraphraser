@@ -28,6 +28,23 @@ namespace MarkovMatrices.Tests
         }
 
         [Fact]
+        public void GivenBinaryStreamAndWhiteList_LoadMatrix_ShouldGetRightInputCount()
+        {
+            // Arrange
+            int expectedInputCount = 1;
+            MemoryStream memoryStream = StreamBuilder.BuildBinaryStream(expectedInputCount, 'A', 'B', (ulong)1, 'C', 'D', (ulong)3);
+            BinaryMarkovMatrixLoader binaryMarkovMatrixLoader = new BinaryMarkovMatrixLoader();
+            HashSet<char> whiteList = new HashSet<char>() { 'B' };
+
+            // Act
+            IMarkovMatrix<char, double> markovMatrix = binaryMarkovMatrixLoader.LoadMatrix(memoryStream, whiteList);
+            int actualInputCount = markovMatrix.InputCount;
+
+            // Assert
+            Assert.Equal(expectedInputCount, actualInputCount);
+        }
+
+        [Fact]
         public void GivenBinaryStream_LoadMatrix_ShouldGetRightOccurrenceFirstCharGroup()
         {
             // Arrange

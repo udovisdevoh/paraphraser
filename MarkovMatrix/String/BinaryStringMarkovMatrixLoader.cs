@@ -17,7 +17,6 @@ namespace MarkovMatrices
 
         public IMarkovMatrix<string, double> LoadMatrix(Stream inputStream, HashSet<string> optionalWhiteList)
         {
-            #warning Add unit tests for optionalWhiteList
 
             StringMarkovMatrix<double> markovMatrix = new StringMarkovMatrix<double>();
 

@@ -15,8 +15,6 @@ namespace MarkovMatrices
         }
         public IMarkovMatrix<char, ulong> LoadMatrix(Stream inputStream, HashSet<char> optionalWhiteList)
         {
-            #warning Add unit tests for optionalWhiteList
-
             CharMarkovMatrix<ulong> markovMatrix = new CharMarkovMatrix<ulong>();
             using (StreamReader streamReader = new StreamReader(inputStream))
             {
@@ -71,8 +69,6 @@ namespace MarkovMatrices
 
         public IMarkovMatrix<char, ulong> LoadMatrix(string text, HashSet<char> optionalWhiteList)
         {
-            #warning Add unit tests for optionalWhiteList
-
             MemoryStream stream = new MemoryStream();
             StreamWriter writer = new StreamWriter(stream);
             writer.Write(text);

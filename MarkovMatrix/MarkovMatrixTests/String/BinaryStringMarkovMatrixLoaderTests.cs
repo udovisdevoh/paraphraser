@@ -17,13 +17,31 @@ namespace MarkovMatrices.Tests
             // Arrange
             MemoryStream memoryStream = StreamBuilder.BuildBinaryStream(3, "aa", (uint)0, "bb", (uint)1, "cc", (uint)2, 2, (ulong)1, 0.25, (ulong)2, 0.75);
             BinaryStringMarkovMatrixLoader binaryMarkovMatrixLoader = new BinaryStringMarkovMatrixLoader();
+            int expectedInputCount = 2;
 
             // Act
             IMarkovMatrix<string, double> markovMatrix = binaryMarkovMatrixLoader.LoadMatrix(memoryStream);
             int actualInputCount = markovMatrix.InputCount;
 
             // Assert
-            Assert.Equal(2, actualInputCount);
+            Assert.Equal(expectedInputCount, actualInputCount);
+        }
+
+        [Fact]
+        public void GivenBinaryStreamWithWhiteList_LoadMatrix_ShouldGetRightInputCount()
+        {
+            // Arrange
+            MemoryStream memoryStream = StreamBuilder.BuildBinaryStream(3, "aa", (uint)0, "bb", (uint)1, "cc", (uint)2, 2, (ulong)1, 0.25, (ulong)2, 0.75);
+            BinaryStringMarkovMatrixLoader binaryMarkovMatrixLoader = new BinaryStringMarkovMatrixLoader();
+            int expectedInputCount = 1;
+            HashSet<string> whiteList = new HashSet<string>(StringComparer.OrdinalIgnoreCase) { "bb" };
+
+            // Act
+            IMarkovMatrix<string, double> markovMatrix = binaryMarkovMatrixLoader.LoadMatrix(memoryStream, whiteList);
+            int actualInputCount = markovMatrix.InputCount;
+
+            // Assert
+            Assert.Equal(expectedInputCount, actualInputCount);
         }
 
         [Fact]

@@ -17,8 +17,6 @@ namespace MarkovMatrices
 
         public IMarkovMatrix<char, double> LoadMatrix(Stream inputStream, HashSet<char> optionalWhiteList)
         {
-            #warning Add unit tests for optionalWhiteList
-
             CharMarkovMatrix<double> markovMatrix = new CharMarkovMatrix<double>();
 
             using (BinaryReader binaryReader = new BinaryReader(inputStream))
