@@ -15,10 +15,10 @@ namespace ParaphraserMath.Tests
         public void GivenTwoChars_CombineChars_GetUint()
         {
             // Arrange
-            uint expectedCombinedChars = 4259906;
+            ulong expectedCombinedChars = 279172874241;
 
             // Act
-            uint actualCombinedChars = MatrixMathHelper.CombineChars('A', 'B');
+            ulong actualCombinedChars = MatrixMathHelper.CombineChars('A', 'B');
 
             // Assert
             Assert.Equal(expectedCombinedChars, actualCombinedChars);
@@ -29,7 +29,7 @@ namespace ParaphraserMath.Tests
         {
             // Arrange
             char expectedChar1 = 'A';
-            uint combinedChars = 4259906;
+            ulong combinedChars = 279172874241;
 
             // Act
             Tuple<char, char> actualChars = MatrixMathHelper.SplitChars(combinedChars);
@@ -43,7 +43,7 @@ namespace ParaphraserMath.Tests
         {
             // Arrange
             char expectedChar2 = 'B';
-            uint combinedChars = 4259906;
+            ulong combinedChars = 279172874241;
 
             // Act
             Tuple<char, char> actualChars = MatrixMathHelper.SplitChars(combinedChars);
@@ -53,45 +53,45 @@ namespace ParaphraserMath.Tests
         }
 
         [Fact]
-        public void GivenTwoUShorts_CombineUShorts_GetUint()
+        public void GivenTwoUInts_CombineUInts_GetULong()
         {
             // Arrange
-            uint expectedCombinedUShorts = 4259906;
+            ulong expectedCombinedUInts = 279172874241;
 
             // Act
-            uint actualCombinedUShorts = MatrixMathHelper.CombineUShorts('A', 'B');
+            ulong actualCombinedUInts = MatrixMathHelper.CombineUInts('A', 'B');
 
             // Assert
-            Assert.Equal(expectedCombinedUShorts, actualCombinedUShorts);
+            Assert.Equal(expectedCombinedUInts, actualCombinedUInts);
         }
 
 
         [Fact]
-        public void Given_SplitUint_GetFirstUShort()
+        public void Given_SplitULong_GetFirstUInt()
         {
             // Arrange
-            ushort expectedUShort1 = 'A';
-            uint combinedUShorts = 4259906;
+            uint expectedUInt1 = 'A';
+            ulong combinedUInts = 279172874241;
 
             // Act
-            Tuple<ushort, ushort> actualChars = MatrixMathHelper.SplitUShorts(combinedUShorts);
+            Tuple<uint, uint> actualChars = MatrixMathHelper.SplitUInts(combinedUInts);
 
             // Assert
-            Assert.Equal(expectedUShort1, actualChars.Item1);
+            Assert.Equal(expectedUInt1, actualChars.Item1);
         }
 
         [Fact]
-        public void Given_SplitUint_GetSecondUShort()
+        public void Given_SplitUint_GetSecondUInt()
         {
             // Arrange
-            ushort expectedUShort2 = 'B';
-            uint combinedUShorts = 4259906;
+            uint expectedUInt2 = 'B';
+            ulong combinedUInts = 279172874241;
 
             // Act
-            Tuple<ushort, ushort> actualChars = MatrixMathHelper.SplitUShorts(combinedUShorts);
+            Tuple<uint, uint> actualChars = MatrixMathHelper.SplitUInts(combinedUInts);
 
             // Assert
-            Assert.Equal(expectedUShort2, actualChars.Item2);
+            Assert.Equal(expectedUInt2, actualChars.Item2);
         }
 
         [Fact]

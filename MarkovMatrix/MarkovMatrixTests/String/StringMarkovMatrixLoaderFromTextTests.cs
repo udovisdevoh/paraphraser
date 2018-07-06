@@ -16,11 +16,11 @@ namespace MarkovMatrices.Tests
         {
             // Arrange
             string text = "zarF! Zorf zUrf? zArf zeRf zi'RF ZARF zyRF ZarF zARff.";
-            StringMarkovMatrixLoaderFromText binaryStringMarkovMatrixLoader = new StringMarkovMatrixLoaderFromText();
+            StringMarkovMatrixLoaderFromText stringMarkovMatrixLoaderFromText = new StringMarkovMatrixLoaderFromText();
             double expectedProbability = 0.25;
 
             // Act
-            IMarkovMatrix<string, double> markovMatrix = binaryStringMarkovMatrixLoader.LoadMatrix(text);
+            IMarkovMatrix<string, double> markovMatrix = stringMarkovMatrixLoaderFromText.LoadMatrix(text);
             double actualProbability = markovMatrix.GetOccurrence("zarf", "zorf");
 
             // Assert
@@ -32,12 +32,12 @@ namespace MarkovMatrices.Tests
         {
             // Arrange
             string text = "zarF! Zorf zUrf? zArf zeRf zi'RF ZARF zyRF ZarF zARff.";
-            StringMarkovMatrixLoaderFromText binaryStringMarkovMatrixLoader = new StringMarkovMatrixLoaderFromText();
+            StringMarkovMatrixLoaderFromText stringMarkovMatrixLoaderFromText = new StringMarkovMatrixLoaderFromText();
             double expectedProbability = 0.25;
             Stream stream = StreamBuilder.BuildTextStream(text);
 
             // Act
-            IMarkovMatrix<string, double> markovMatrix = binaryStringMarkovMatrixLoader.LoadMatrix(stream);
+            IMarkovMatrix<string, double> markovMatrix = stringMarkovMatrixLoaderFromText.LoadMatrix(stream);
             double actualProbability = markovMatrix.GetOccurrence("zarf", "zorf");
 
             // Assert
@@ -48,7 +48,7 @@ namespace MarkovMatrices.Tests
         public void GivenMatrix_ShouldNormalize()
         {
             // Arrange
-            StringMarkovMatrixLoaderFromText binaryStringMarkovMatrixLoader = new StringMarkovMatrixLoaderFromText();
+            StringMarkovMatrixLoaderFromText stringMarkovMatrixLoaderFromText = new StringMarkovMatrixLoaderFromText();
             StringMarkovMatrix<ulong> markovMatrix = new StringMarkovMatrix<ulong>();
             markovMatrix.IncrementOccurrence("Zarf", "zoRf");
             markovMatrix.IncrementOccurrence("zArf", "zerF");
@@ -58,7 +58,7 @@ namespace MarkovMatrices.Tests
             double expectedProbability = 0.5;
 
             // Act
-            IMarkovMatrix<string, double> normalizedMarkovMatrix = binaryStringMarkovMatrixLoader.Normalize(markovMatrix);
+            IMarkovMatrix<string, double> normalizedMarkovMatrix = stringMarkovMatrixLoaderFromText.Normalize(markovMatrix);
             double actualProbability = normalizedMarkovMatrix.GetOccurrence("zarF", "zErf");
 
             // Assert

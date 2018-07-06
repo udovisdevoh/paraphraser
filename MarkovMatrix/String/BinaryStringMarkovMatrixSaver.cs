@@ -15,10 +15,10 @@ namespace MarkovMatrices
             BinaryWriter binaryWriter = new BinaryWriter(outputStream);
             binaryWriter.Write(markovMatrix.ValueMap.Count);
 
-            foreach (KeyValuePair<string, ushort> wordAndId in markovMatrix.ValueMap)
+            foreach (KeyValuePair<string, uint> wordAndId in markovMatrix.ValueMap)
             {
                 string word = wordAndId.Key;
-                ushort wordId = wordAndId.Value;
+                uint wordId = wordAndId.Value;
                 binaryWriter.Write(word);
                 binaryWriter.Write(wordId);
             }
@@ -29,7 +29,7 @@ namespace MarkovMatrices
             {
                 Tuple<string, string> twoWords = twoWordsAndOccurrenceCount.Key;
                 double occurrenceCount = twoWordsAndOccurrenceCount.Value;
-                uint combinedChars = markovMatrix.CombineElements(twoWords.Item1, twoWords.Item2);
+                ulong combinedChars = markovMatrix.CombineElements(twoWords.Item1, twoWords.Item2);
                 binaryWriter.Write(combinedChars);
                 GenericNumberHelper.WriteValue<double>(binaryWriter, occurrenceCount);
             }

@@ -20,14 +20,22 @@ namespace MarkovMatrices.TestHelper
             return stream;
         }
 
-        public static MemoryStream BuildBinaryStream(int count, char fromChar1, char toChar1, double occurrence1, char fromChar2, char toChar2, double occurrence2)
+        public static MemoryStream BuildBinaryStream(int count,
+            char fromChar1,
+            char toChar1,
+            double occurrence1,
+            char fromChar2,
+            char toChar2,
+            double occurrence2)
         {
             MemoryStream stream = new MemoryStream();
             BinaryWriter writer = new BinaryWriter(stream);
             writer.Write(count);
-            writer.Write(MatrixMathHelper.CombineChars(fromChar1, toChar1));
+            ulong combinedChars1 = MatrixMathHelper.CombineChars(fromChar1, toChar1);
+            writer.Write(combinedChars1);
             writer.Write(occurrence1);
-            writer.Write(MatrixMathHelper.CombineChars(fromChar2, toChar2));
+            ulong combinedChars2 = MatrixMathHelper.CombineChars(fromChar2, toChar2);
+            writer.Write(combinedChars2);
             writer.Write(occurrence2);
             writer.Flush();
             stream.Position = 0;
@@ -36,15 +44,15 @@ namespace MarkovMatrices.TestHelper
 
         public static MemoryStream BuildBinaryStream(int wordCount,
             string word1,
-            ushort word1Id,
+            uint word1Id,
             string word2,
-            ushort word2Id,
+            uint word2Id,
             string word3,
-            ushort word3Id,
+            uint word3Id,
             int occurrenceCount,
-            uint word1And2,
+            ulong word1And2,
             double occurrence1,
-            uint word2And3,
+            ulong word2And3,
             double occurrence2)
         {
             MemoryStream stream = new MemoryStream();

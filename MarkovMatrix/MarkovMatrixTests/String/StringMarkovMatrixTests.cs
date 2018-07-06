@@ -18,7 +18,7 @@ namespace MarkovMatrices.Tests
             uint expectedCombinedStrings = 1;
 
             // Act
-            uint actualCombinedStrings = markovMatrix.CombineElements("Aa", "Bb");
+            ulong actualCombinedStrings = markovMatrix.CombineElements("Aa", "Bb");
 
             // Assert
             Assert.Equal(expectedCombinedStrings, actualCombinedStrings);
@@ -31,10 +31,10 @@ namespace MarkovMatrices.Tests
             StringMarkovMatrix<ulong> markovMatrix = new StringMarkovMatrix<ulong>();
             markovMatrix.IncrementOccurrence("Aa", "Bb");
             markovMatrix.IncrementOccurrence("Bb", "Cc");
-            ushort expectedWordId = 2;
+            uint expectedWordId = 2;
 
             // Act
-            ushort actualWordId = markovMatrix.GetWordId("Cc");
+            uint actualWordId = markovMatrix.GetWordId("Cc");
 
             // Assert
             Assert.Equal(expectedWordId, actualWordId);

@@ -10,12 +10,12 @@ namespace MarkovMatrices
     {
         int InputCount { get; }
 
-        Dictionary<TKey, ushort> ValueMap { get; }
+        Dictionary<TKey, uint> ValueMap { get; }
 
         TValue GetSum(TKey fromElement);
 
         TValue GetOccurrence(TKey fromElement, TKey toElement);
 
-        uint CombineElements(TKey fromElement, TKey toElement);
+        ulong CombineElements(TKey fromElement, TKey toElement);
     }
 }

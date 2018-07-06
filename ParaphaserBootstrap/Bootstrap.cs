@@ -25,6 +25,16 @@ namespace ParaphaserBootstrap
             return languageDetectorByMarkovMatrix;
         }
 
+        public IMarkovMatrixSaver<string, double> BuildBinaryStringMarkovMatrixSaver()
+        {
+            return new BinaryStringMarkovMatrixSaver();
+        }
+
+        public IMarkovMatrixLoader<string, double> BuildStringMarkovMatrixLoaderFromText()
+        {
+            return new StringMarkovMatrixLoaderFromText();
+        }
+
         public ICompositeLanguageDetector BuildCompositeLanguageDetector()
         {
             CompositeLanguageDetector compositeLanguageDetector = new CompositeLanguageDetector();

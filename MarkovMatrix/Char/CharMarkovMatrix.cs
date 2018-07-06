@@ -17,7 +17,7 @@ namespace MarkovMatrices
         #endregion
 
         #region Properties
-        public override Dictionary<char, ushort> ValueMap
+        public override Dictionary<char, uint> ValueMap
         {
             get
             {
@@ -25,7 +25,7 @@ namespace MarkovMatrices
             }
         }
 
-        public override Dictionary<ushort, char> ReverseValueMap
+        public override Dictionary<uint, char> ReverseValueMap
         {
             get
             {
@@ -34,12 +34,12 @@ namespace MarkovMatrices
         }
         #endregion
 
-        public override uint CombineElements(char fromElement, char toElement)
+        public override ulong CombineElements(char fromElement, char toElement)
         {
             return MatrixMathHelper.CombineChars(fromElement, toElement);
         }
 
-        public override Tuple<char, char> SplitElements(uint key)
+        public override Tuple<char, char> SplitElements(ulong key)
         {
             return MatrixMathHelper.SplitChars(key);
         }

@@ -18,7 +18,7 @@ namespace MarkovMatrices
             {
                 Tuple<char, char> twoChars = twoCharsAndOccurrenceCount.Key;
                 double occurrenceCount = twoCharsAndOccurrenceCount.Value;
-                uint combinedChars = MatrixMathHelper.CombineChars(twoChars.Item1, twoChars.Item2);
+                ulong combinedChars = MatrixMathHelper.CombineChars(twoChars.Item1, twoChars.Item2);
                 binaryWriter.Write(combinedChars);
                 GenericNumberHelper.WriteValue<double>(binaryWriter, occurrenceCount);
             }

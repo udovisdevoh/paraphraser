@@ -11,32 +11,32 @@ namespace ParaphraserMath
     {
         public delegate double MatrixComparer(double probability1, double probability2);
 
-        private const int sixteenBitsMaxValue = 65536;
+        private const uint thirtyTwoBitsMaxValue = uint.MaxValue;
 
-        public static uint CombineChars(char fromChar, char toChar)
+        public static ulong CombineChars(char fromChar, char toChar)
         {
-            return MatrixMathHelper.CombineUShorts(fromChar, toChar);
+            return MatrixMathHelper.CombineUInts(fromChar, toChar);
         }
 
-        public static uint CombineUShorts(ushort fromNumber, ushort toNumber)
+        public static ulong CombineUInts(uint fromNumber, uint toNumber)
         {
-            return ((uint)fromNumber * sixteenBitsMaxValue) + (uint)toNumber;
+            return ((ulong)fromNumber * thirtyTwoBitsMaxValue) + (ulong)toNumber;
         }
 
-        public static Tuple<char, char> SplitChars(uint combinedChars)
+        public static Tuple<char, char> SplitChars(ulong combinedChars)
         {
-            Tuple<ushort, ushort> tuple = MatrixMathHelper.SplitUShorts(combinedChars);
+            Tuple<uint, uint> tuple = MatrixMathHelper.SplitUInts(combinedChars);
             return new Tuple<char, char>((char)tuple.Item1, (char)tuple.Item2);
         }
 
-        public static Tuple<ushort, ushort> SplitUShorts(uint combinedUShorts)
+        public static Tuple<uint, uint> SplitUInts(ulong combinedUInts)
         {
-            uint largeComponent = combinedUShorts / sixteenBitsMaxValue;
+            ulong largeComponent = combinedUInts / thirtyTwoBitsMaxValue;
 
-            ushort uShort1 = (ushort)largeComponent;
-            ushort uShort2 = (ushort)(combinedUShorts - (largeComponent * sixteenBitsMaxValue));
+            uint uInt1 = (uint)largeComponent;
+            uint uInt2 = (uint)(combinedUInts - (largeComponent * thirtyTwoBitsMaxValue));
 
-            return new Tuple<ushort, ushort>(uShort1, uShort2);
+            return new Tuple<uint, uint>(uInt1, uInt2);
         }
 
         public static double GetDotProduct<TKey>(IMarkovMatrix<TKey, double> smallMatrix, IMarkovMatrix<TKey, double> largeMatrix)

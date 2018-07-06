@@ -20,7 +20,7 @@ namespace MarkovMatrices
 
                 for (int elementId = 0; elementId < elementCount; ++elementId)
                 {
-                    uint combinedChars = binaryReader.ReadUInt32();
+                    ulong combinedChars = binaryReader.ReadUInt64();
                     Tuple<char, char> twoChars = MatrixMathHelper.SplitChars(combinedChars);
                     double occurrenceCount = GenericNumberHelper.ReadValue<double>(binaryReader);
                     markovMatrix.IncrementOccurrence(twoChars.Item1, twoChars.Item2, occurrenceCount);

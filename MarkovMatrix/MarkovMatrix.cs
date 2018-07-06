@@ -11,7 +11,7 @@ namespace MarkovMatrices
     public abstract class MarkovMatrix<TKey, TValue> : IMarkovMatrix<TKey, TValue>
     {
         #region Members
-        private Dictionary<uint, TValue> occurrenceCountMap;
+        private Dictionary<ulong, TValue> occurrenceCountMap;
 
         private Dictionary<TKey, TValue> sumsFromSource;
         #endregion
@@ -25,9 +25,9 @@ namespace MarkovMatrices
             }
         }
 
-        public abstract Dictionary<TKey, ushort> ValueMap { get; }
+        public abstract Dictionary<TKey, uint> ValueMap { get; }
 
-        public abstract Dictionary<ushort, TKey> ReverseValueMap { get; }
+        public abstract Dictionary<uint, TKey> ReverseValueMap { get; }
         #endregion
 
         #region Constructors
@@ -37,19 +37,19 @@ namespace MarkovMatrices
             {
                 throw new ArgumentException(string.Format("Unsupported type {0}. Use numeric types only.", typeof(TValue).FullName));
             }
-            this.occurrenceCountMap = new Dictionary<uint, TValue>();
+            this.occurrenceCountMap = new Dictionary<ulong, TValue>();
             this.sumsFromSource = new Dictionary<TKey, TValue>();
         }
         #endregion
 
-        public abstract uint CombineElements(TKey fromElement, TKey toElement);
+        public abstract ulong CombineElements(TKey fromElement, TKey toElement);
         
-        public abstract Tuple<TKey, TKey> SplitElements(uint key);
+        public abstract Tuple<TKey, TKey> SplitElements(ulong key);
 
         public TValue GetOccurrence(TKey fromElement, TKey toElement)
         {
             TValue occurrence;
-            uint twoElementSet = this.CombineElements(fromElement, toElement);
+            ulong twoElementSet = this.CombineElements(fromElement, toElement);
             if (!this.occurrenceCountMap.TryGetValue(twoElementSet, out occurrence))
             {
                 GenericNumberHelper.GetValue<TValue>(0);
@@ -67,7 +67,7 @@ namespace MarkovMatrices
             fromElement = this.FormatElement(fromElement);
             toElement = this.FormatElement(toElement);
 
-            uint twoElementSet = this.CombineElements(fromElement, toElement);
+            ulong twoElementSet = this.CombineElements(fromElement, toElement);
             this.IncrementSum(fromElement, valueToAdd);
             this.IncrementOccurrence(twoElementSet, valueToAdd);
         }
@@ -90,7 +90,7 @@ namespace MarkovMatrices
             this.sumsFromSource[fromElement] = sum;
         }
 
-        private void IncrementOccurrence(uint twoCharSet, TValue valueToAdd)
+        private void IncrementOccurrence(ulong twoCharSet, TValue valueToAdd)
         {
             TValue occurrence;
 
@@ -105,7 +105,7 @@ namespace MarkovMatrices
 
         public IEnumerator<KeyValuePair<Tuple<TKey, TKey>, TValue>> GetEnumerator()
         {
-            foreach (KeyValuePair<uint, TValue> twoCharsAndCount in this.occurrenceCountMap)
+            foreach (KeyValuePair<ulong, TValue> twoCharsAndCount in this.occurrenceCountMap)
             {
                 Tuple<TKey, TKey> elements = this.SplitElements(twoCharsAndCount.Key);
                 yield return new KeyValuePair<Tuple<TKey, TKey>, TValue>(elements, twoCharsAndCount.Value);

@@ -21,7 +21,7 @@ namespace MarkovMatrices
                 for (int tokenId = 0; tokenId < tokenCount; ++tokenId)
                 {
                     string word = binaryReader.ReadString();
-                    ushort wordId = binaryReader.ReadUInt16();
+                    uint wordId = binaryReader.ReadUInt32();
 
                     markovMatrix.ValueMap.Add(word, wordId);
                     markovMatrix.ReverseValueMap.Add(wordId, word);
@@ -31,7 +31,7 @@ namespace MarkovMatrices
 
                 for (int occurrenceId = 0; occurrenceId < occurrenceCount; ++occurrenceId)
                 {
-                    uint combinedStrings = binaryReader.ReadUInt32();
+                    ulong combinedStrings = binaryReader.ReadUInt64();
                     Tuple<string, string> twoStrings = markovMatrix.SplitElements(combinedStrings);
                     double occurrence = GenericNumberHelper.ReadValue<double>(binaryReader);
                     markovMatrix.IncrementOccurrence(twoStrings.Item1, twoStrings.Item2, occurrence);

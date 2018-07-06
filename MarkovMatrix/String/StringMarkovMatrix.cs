@@ -11,22 +11,22 @@ namespace MarkovMatrices
     public class StringMarkovMatrix<TValue> : MarkovMatrix<string, TValue>
     {
         #region Members
-        private Dictionary<string, ushort> valueMap;
+        private Dictionary<string, uint> valueMap;
 
-        private Dictionary<ushort, string> reverseValueMap;
+        private Dictionary<uint, string> reverseValueMap;
         #endregion
 
         #region Constructors
         public StringMarkovMatrix() : base()
         {
-            this.valueMap = new Dictionary<string, ushort>(StringComparer.OrdinalIgnoreCase);
-            this.reverseValueMap = new Dictionary<ushort, string>();
+            this.valueMap = new Dictionary<string, uint>(StringComparer.OrdinalIgnoreCase);
+            this.reverseValueMap = new Dictionary<uint, string>();
         }
 
         #endregion
 
         #region Properties
-        public override Dictionary<string, ushort> ValueMap
+        public override Dictionary<string, uint> ValueMap
         {
             get
             {
@@ -34,7 +34,7 @@ namespace MarkovMatrices
             }
         }
 
-        public override Dictionary<ushort, string> ReverseValueMap
+        public override Dictionary<uint, string> ReverseValueMap
         {
             get
             {
@@ -48,20 +48,20 @@ namespace MarkovMatrices
             return StringFormatter.RemoveDoubleTabsSpacesAndEnters(element).ToLowerInvariant();
         }
 
-        public override uint CombineElements(string fromWord, string toWord)
+        public override ulong CombineElements(string fromWord, string toWord)
         {
             fromWord = FormatElement(fromWord);
             toWord = FormatElement(toWord);
 
-            ushort fromWordId = this.GetWordId(fromWord);
-            ushort toWordId = this.GetWordId(toWord);
+            uint fromWordId = this.GetWordId(fromWord);
+            uint toWordId = this.GetWordId(toWord);
 
-            return MatrixMathHelper.CombineUShorts(fromWordId, toWordId);
+            return MatrixMathHelper.CombineUInts(fromWordId, toWordId);
         }
 
-        public override Tuple<string, string> SplitElements(uint combinedWords)
+        public override Tuple<string, string> SplitElements(ulong combinedWords)
         {
-            Tuple<ushort, ushort> wordIds = MatrixMathHelper.SplitUShorts(combinedWords);
+            Tuple<uint, uint> wordIds = MatrixMathHelper.SplitUInts(combinedWords);
 
             string fromWord = this.GetWord(wordIds.Item1);
             string toWord = this.GetWord(wordIds.Item2);
@@ -69,7 +69,7 @@ namespace MarkovMatrices
             return new Tuple<string, string>(fromWord, toWord);
         }
 
-        public string GetWord(ushort wordId)
+        public string GetWord(uint wordId)
         {
             lock (this.reverseValueMap)
             {
@@ -80,23 +80,18 @@ namespace MarkovMatrices
             }
         }
 
-        public ushort GetWordId(string word)
+        public uint GetWordId(string word)
         {
             word = FormatElement(word);
 
-            ushort wordId;
+            uint wordId;
             lock (this.reverseValueMap)
             {
                 lock (this.valueMap)
                 {
                     if (!this.valueMap.TryGetValue(word, out wordId))
                     {
-                        if (reverseValueMap.Count >= (int)ushort.MaxValue)
-                        {
-                            throw new Exception("Matrix cannot have more than {0} words");
-                        }
-
-                        wordId = (ushort)this.reverseValueMap.Count;
+                        wordId = (uint)this.reverseValueMap.Count;
                         this.valueMap.Add(word, wordId);
                         this.reverseValueMap.Add(wordId, word);
                     }

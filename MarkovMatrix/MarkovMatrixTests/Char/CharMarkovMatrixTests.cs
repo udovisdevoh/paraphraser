@@ -137,7 +137,7 @@ namespace MarkovMatrices.Tests
             Assert.Throws<NotSupportedException>(() =>
             {
                 // Act
-                Dictionary<char, ushort> valueMap = markovMatrix.ValueMap;
+                Dictionary<char, uint> valueMap = markovMatrix.ValueMap;
             });
         }
     }

@@ -15,7 +15,7 @@ namespace MarkovMatrices.Tests
         public void GivenBinaryStream_LoadMatrix_ShouldGetRightInputCount()
         {
             // Arrange
-            MemoryStream memoryStream = StreamBuilder.BuildBinaryStream(3, "aa", (ushort)0, "bb", (ushort)1, "cc", (ushort)2, 2, (uint)1, 0.25, (uint)2, 0.75);
+            MemoryStream memoryStream = StreamBuilder.BuildBinaryStream(3, "aa", (uint)0, "bb", (uint)1, "cc", (uint)2, 2, (ulong)1, 0.25, (ulong)2, 0.75);
             BinaryStringMarkovMatrixLoader binaryMarkovMatrixLoader = new BinaryStringMarkovMatrixLoader();
 
             // Act
@@ -31,7 +31,7 @@ namespace MarkovMatrices.Tests
         {
             // Arrange
             double expectedOccurrence = 0.25;
-            MemoryStream memoryStream = StreamBuilder.BuildBinaryStream(3, "aa", (ushort)0, "bb", (ushort)1, "cc", (ushort)2, 2, (uint)1, 0.25, (uint)65538, 0.75);
+            MemoryStream memoryStream = StreamBuilder.BuildBinaryStream(3, "aa", (uint)0, "bb", (uint)1, "cc", (uint)2, 2, (ulong)1, 0.25, (ulong)4294967297, 0.75);
             BinaryStringMarkovMatrixLoader binaryMarkovMatrixLoader = new BinaryStringMarkovMatrixLoader();
 
             // Act
@@ -48,7 +48,7 @@ namespace MarkovMatrices.Tests
         {
             // Arrange
             double expectedOccurrence = 0.75;
-            MemoryStream memoryStream = StreamBuilder.BuildBinaryStream(3, "aa", (ushort)0, "bb", (ushort)1, "cc", (ushort)2, 2, (uint)1, 0.25, (uint)65538, 0.75);
+            MemoryStream memoryStream = StreamBuilder.BuildBinaryStream(3, "aa", (uint)0, "bb", (uint)1, "cc", (uint)2, 2, (ulong)1, 0.25, (ulong)4294967297, 0.75);
             BinaryStringMarkovMatrixLoader binaryMarkovMatrixLoader = new BinaryStringMarkovMatrixLoader();
 
             // Act
