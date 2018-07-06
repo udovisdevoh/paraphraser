@@ -9,6 +9,7 @@ namespace Paraphrasing
 {
     public class EnglishInterrogativeToAffirmative : IEnglishInterrogativeToAffirmative
     {
+        #region Members
         private static Dictionary<string, string> wordsToCorrect;
 
         private static Dictionary<string, string> oldEnglishWords;
@@ -23,6 +24,10 @@ namespace Paraphrasing
 
         private static Dictionary<string, string> firstWordsToReplaceInterrogativeToAffirmative;
 
+        private IWordOrderSwapper wordOrderSwapper;
+        #endregion
+
+        #region Constructors
         static EnglishInterrogativeToAffirmative()
         {
             EnglishInterrogativeToAffirmative.wordsToCorrect = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
@@ -100,6 +105,12 @@ namespace Paraphrasing
                 "where've", "which", "who", "who'd", "who'll", "whom", "who's", "whose", "whut", "why", "will",
                 "won't", "wont", "would", "wouldn't", "what's" };
         }
+        
+        public EnglishInterrogativeToAffirmative(IWordOrderSwapper wordOrderSwapper)
+        {
+            this.wordOrderSwapper = wordOrderSwapper;
+        }
+        #endregion
 
         public string Convert(string text)
         {
@@ -117,11 +128,9 @@ namespace Paraphrasing
             text = text.Replace(" ,", ",");
             text = StringFormatter.RemoveDoubleTabsSpacesAndEnters(text);
 
-            text = StringFormatter.SwapWordOrder(text, interrogativeStartingWordListsToSwapWithNextWord, 1, 1);
+            text = this.wordOrderSwapper.SwapWordOrder(text, interrogativeStartingWordListsToSwapWithNextWord, 1);
 
             text = StringFormatter.ReplaceWords(text, EnglishInterrogativeToAffirmative.firstWordsToReplaceInterrogativeToAffirmative, 0, 0);
-
-
 
             if (originallyEndsWithQuestionMark)
             {

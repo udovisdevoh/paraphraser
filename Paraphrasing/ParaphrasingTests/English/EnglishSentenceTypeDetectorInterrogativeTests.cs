@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace Paraphrasing.Tests.English
+namespace Paraphrasing.Tests
 {
     public class EnglishSentenceTypeDetectorInterrogativeTests
     {

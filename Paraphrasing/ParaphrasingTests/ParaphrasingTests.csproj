@@ -72,9 +72,14 @@
     <Compile Include="English\EnglishInterrogativeToAffirmativeTests.cs" />
     <Compile Include="English\EnglishSentenceTypeDetectorAffirmativeTests.cs" />
     <Compile Include="English\EnglishSentenceTypeDetectorInterrogativeTests.cs" />
+    <Compile Include="WordOrderSwapping\WordSwapperTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\MarkovMatrix\MarkovMatrixInterfaces\MarkovMatrixInterfaces.csproj">
+      <Project>{78f39194-74d8-4848-b2d6-fc26fccff4ae}</Project>
+      <Name>MarkovMatrixInterfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Paraphrasing.csproj">
       <Project>{65819d05-9b53-4f9f-893b-ffb62495cf1b}</Project>
       <Name>Paraphrasing</Name>
@@ -83,17 +88,16 @@
       <Project>{62290bc4-c27b-4927-9553-e09d9d7a6439}</Project>
       <Name>ParaphrasingInterfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ParaphrasingTestHelpers\ParaphrasingTestHelpers.csproj">
+      <Project>{4ff286b4-13fd-42ff-8d17-f79105762729}</Project>
+      <Name>ParaphrasingTestHelpers</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\packages\xunit.analyzers.0.7.0\analyzers\dotnet\cs\xunit.analyzers.dll" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="SentencesSamples\en.interrogative.short.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

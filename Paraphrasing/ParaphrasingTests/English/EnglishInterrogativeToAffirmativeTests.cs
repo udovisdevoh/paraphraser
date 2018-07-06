@@ -1,11 +1,14 @@
-﻿using System;
+﻿using MarkovMatrices;
+using Moq;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace Paraphrasing.Tests.English
+namespace Paraphrasing.Tests
 {
     public class EnglishInterrogativeToAffirmativeTests
     {
@@ -44,7 +47,7 @@ namespace Paraphrasing.Tests.English
         public void GivenInterrogativeSentence_ShouldConvertShortSwap(string interrogativeSentence, string expectedAffirmativeSentence)
         {
             // Arrange
-            EnglishInterrogativeToAffirmative englishInterrogativeToAffirmative = new EnglishInterrogativeToAffirmative();
+            EnglishInterrogativeToAffirmative englishInterrogativeToAffirmative = new EnglishInterrogativeToAffirmative(ParaphrasingTestHelper.BuildWordSwapperMock());
 
             // Act
             string actualAffirmativeSentence = englishInterrogativeToAffirmative.Convert(interrogativeSentence);
@@ -77,7 +80,7 @@ namespace Paraphrasing.Tests.English
         public void GivenInterrogativeSentence_ShouldConvertReplaceWordGroup(string interrogativeSentence, string expectedAffirmativeSentence)
         {
             // Arrange
-            EnglishInterrogativeToAffirmative englishInterrogativeToAffirmative = new EnglishInterrogativeToAffirmative();
+            EnglishInterrogativeToAffirmative englishInterrogativeToAffirmative = new EnglishInterrogativeToAffirmative(ParaphrasingTestHelper.BuildWordSwapperMock());
 
             // Act
             string actualAffirmativeSentence = englishInterrogativeToAffirmative.Convert(interrogativeSentence);
@@ -100,7 +103,7 @@ namespace Paraphrasing.Tests.English
         public void GivenInterrogativeSentence_ShouldConvertLongSwap(string interrogativeSentence, string expectedAffirmativeSentence)
         {
             // Arrange
-            EnglishInterrogativeToAffirmative englishInterrogativeToAffirmative = new EnglishInterrogativeToAffirmative();
+            EnglishInterrogativeToAffirmative englishInterrogativeToAffirmative = new EnglishInterrogativeToAffirmative(ParaphrasingTestHelper.BuildWordSwapperMock());
 
             // Act
             string actualAffirmativeSentence = englishInterrogativeToAffirmative.Convert(interrogativeSentence);
@@ -130,7 +133,7 @@ namespace Paraphrasing.Tests.English
         public void GivenInterrogativeSentence_ShouldConvertComplex(string interrogativeSentence, string expectedAffirmativeSentence)
         {
             // Arrange
-            EnglishInterrogativeToAffirmative englishInterrogativeToAffirmative = new EnglishInterrogativeToAffirmative();
+            EnglishInterrogativeToAffirmative englishInterrogativeToAffirmative = new EnglishInterrogativeToAffirmative(ParaphrasingTestHelper.BuildWordSwapperMock());
 
             // Act
             string actualAffirmativeSentence = englishInterrogativeToAffirmative.Convert(interrogativeSentence);
