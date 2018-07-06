@@ -18,6 +18,7 @@ namespace WordMatrixConstructionApp
             IMarkovMatrixLoader<string, double> stringMarkovMatrixLoaderFromText = bootstrap.BuildStringMarkovMatrixLoaderFromText();
             IMarkovMatrixSaver<string, double> binaryStringMarkovMatrixSaver = bootstrap.BuildBinaryStringMarkovMatrixSaver();
 
+            const int maxMatrixSize = 100_000;
             const string inputFile = "./LanguageSamples/lyrics.en.txt";
             const string outputFile = "./english.word.matrix.bin";
 
@@ -37,7 +38,8 @@ namespace WordMatrixConstructionApp
             {
                 using (FileStream outputFileStream = new FileStream(outputFile, FileMode.Create))
                 {
-                    IMarkovMatrix<string, double> matrix = stringMarkovMatrixLoaderFromText.LoadMatrix(inputFileStream, whiteListedWords);
+                    //IMarkovMatrix<string, double> matrix = stringMarkovMatrixLoaderFromText.LoadMatrix(inputFileStream, whiteListedWords, maxMatrixSize);
+                    IMarkovMatrix<string, double> matrix = stringMarkovMatrixLoaderFromText.LoadMatrix(inputFileStream, maxMatrixSize);
                     binaryStringMarkovMatrixSaver.SaveMatrix(matrix, outputFileStream);
                 }
             }

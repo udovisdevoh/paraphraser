@@ -88,5 +88,20 @@ namespace MarkovMatrices.Tests
             // Assert
             Assert.Equal(expectedOccurrence, actualOccurrence);
         }
+
+        [Fact]
+        public void GivenStreamAndMaxSize_LoadMatrix_ShouldThrow()
+        {
+            // Arrange
+            Stream stream = StreamBuilder.BuildTextStream("Pseudolachnostylis is a genus of plants in the Phyllanthaceae first described as a genus in 1899");
+            TextMarkovMatrixLoader textMarkovMatrixLoader = new TextMarkovMatrixLoader();
+
+            // Assert
+            Assert.Throws<NotSupportedException>(() =>
+            {
+                // Act
+                IMarkovMatrix<char, ulong> markovMatrix = textMarkovMatrixLoader.LoadMatrix(stream, 27);
+            });
+        }
     }
 }

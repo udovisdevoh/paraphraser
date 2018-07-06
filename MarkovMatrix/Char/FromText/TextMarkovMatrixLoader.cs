@@ -77,5 +77,10 @@ namespace MarkovMatrices
 
             return this.LoadMatrix(stream, optionalWhiteList);
         }
+
+        public IMarkovMatrix<char, ulong> LoadMatrix(Stream inputStream, int maxSize)
+        {
+            throw new NotSupportedException();
+        }
     }
 }

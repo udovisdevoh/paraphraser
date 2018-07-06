@@ -50,5 +50,10 @@ namespace MarkovMatrices
 
             return this.LoadMatrix(stream);
         }
+
+        public IMarkovMatrix<char, double> LoadMatrix(Stream inputStream, int maxSize)
+        {
+            throw new NotSupportedException();
+        }
     }
 }

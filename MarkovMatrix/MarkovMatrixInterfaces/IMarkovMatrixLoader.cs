@@ -12,6 +12,8 @@ namespace MarkovMatrices
     {
         IMarkovMatrix<TKey, TValue> LoadMatrix(Stream inputStream);
 
+        IMarkovMatrix<TKey, TValue> LoadMatrix(Stream inputStream, int maxSize);
+
         IMarkovMatrix<TKey, TValue> LoadMatrix(Stream inputStream, HashSet<TKey> optionalWhiteList);
 
         IMarkovMatrix<TKey, TValue> LoadMatrix(string text);
