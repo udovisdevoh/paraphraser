@@ -8,7 +8,7 @@ using Xunit;
 
 namespace Paraphrasing.Tests
 {
-    public class WordSwapperTests
+    public class WordOrderSwapperTests
     {
         [Fact]
         public void GivenWordSwapperAndMatrix_ShouldPerformLongSwaps()

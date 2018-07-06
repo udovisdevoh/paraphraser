@@ -12,6 +12,13 @@ namespace MarkovMatrices
     {
         public IMarkovMatrix<string, double> LoadMatrix(Stream inputStream)
         {
+            return this.LoadMatrix(inputStream, null);
+        }
+
+        public IMarkovMatrix<string, double> LoadMatrix(Stream inputStream, HashSet<string> optionalWhiteList)
+        {
+            #warning Add unit tests for optionalWhiteList
+
             StringMarkovMatrix<double> markovMatrix = new StringMarkovMatrix<double>();
 
             using (BinaryReader binaryReader = new BinaryReader(inputStream))
@@ -34,11 +41,19 @@ namespace MarkovMatrices
                     ulong combinedStrings = binaryReader.ReadUInt64();
                     Tuple<string, string> twoStrings = markovMatrix.SplitElements(combinedStrings);
                     double occurrence = GenericNumberHelper.ReadValue<double>(binaryReader);
-                    markovMatrix.IncrementOccurrence(twoStrings.Item1, twoStrings.Item2, occurrence);
+                    if (optionalWhiteList == null || optionalWhiteList.Contains(twoStrings.Item1) || optionalWhiteList.Contains(twoStrings.Item2))
+                    {
+                        markovMatrix.IncrementOccurrence(twoStrings.Item1, twoStrings.Item2, occurrence);
+                    }
                 }
             }
 
             return markovMatrix;
+        }
+
+        public IMarkovMatrix<string, double> LoadMatrix(string text, HashSet<string> optionalWhiteList)
+        {
+            return this.LoadMatrix(text, null);
         }
 
         public IMarkovMatrix<string, double> LoadMatrix(string text)

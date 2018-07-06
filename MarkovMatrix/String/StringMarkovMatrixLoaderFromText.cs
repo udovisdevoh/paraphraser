@@ -12,6 +12,13 @@ namespace MarkovMatrices
     {
         public IMarkovMatrix<string, double> LoadMatrix(Stream inputStream)
         {
+            return this.LoadMatrix(inputStream, null);
+        }
+
+        public IMarkovMatrix<string, double> LoadMatrix(Stream inputStream, HashSet<string> optionalWhiteList)
+        {
+            #warning Add unit tests for optionalWhiteList
+
             StringMarkovMatrix<ulong> markovMatrix = new StringMarkovMatrix<ulong>();
             using (StreamReader streamReader = new StreamReader(inputStream))
             {
@@ -21,7 +28,7 @@ namespace MarkovMatrices
                     line = line.Trim();
                     if (!string.IsNullOrEmpty(line))
                     {
-                        this.PopulateMatrixFromLine(markovMatrix, line);
+                        this.PopulateMatrixFromLine(markovMatrix, line, optionalWhiteList);
                     }
                 }
             }
@@ -29,7 +36,7 @@ namespace MarkovMatrices
             return Normalize(markovMatrix);
         }
 
-        private void PopulateMatrixFromLine(StringMarkovMatrix<ulong> markovMatrix, string line)
+        private void PopulateMatrixFromLine(StringMarkovMatrix<ulong> markovMatrix, string line, HashSet<string> optionalWhiteList)
         {
             string[] words = WordExtractor.GetLowerInvariantWords(line, '\'');
             if (words.Length > 0)
@@ -37,10 +44,16 @@ namespace MarkovMatrices
                 string previousWord = " ";
                 foreach (string currentWord in words)
                 {
-                    markovMatrix.IncrementOccurrence(previousWord, currentWord);
+                    if (optionalWhiteList == null || optionalWhiteList.Contains(previousWord) || optionalWhiteList.Contains(currentWord))
+                    {
+                        markovMatrix.IncrementOccurrence(previousWord, currentWord);
+                    }
                     previousWord = currentWord;
                 }
-                markovMatrix.IncrementOccurrence(previousWord, " ");
+                if (optionalWhiteList == null || optionalWhiteList.Contains(previousWord) || optionalWhiteList.Contains(" "))
+                {
+                    markovMatrix.IncrementOccurrence(previousWord, " ");
+                }
             }
         }
 
@@ -72,12 +85,19 @@ namespace MarkovMatrices
 
         public IMarkovMatrix<string, double> LoadMatrix(string text)
         {
+            return this.LoadMatrix(text, null);
+        }
+
+        public IMarkovMatrix<string, double> LoadMatrix(string text, HashSet<string> optionalWhiteList)
+        {
+            #warning Add unit tests for optionalWhiteList
+
             MemoryStream stream = new MemoryStream();
             StreamWriter writer = new StreamWriter(stream);
             writer.Write(text);
             writer.Flush();
             stream.Position = 0;
-            return this.LoadMatrix(stream);
+            return this.LoadMatrix(stream, optionalWhiteList);
         }
     }
 }

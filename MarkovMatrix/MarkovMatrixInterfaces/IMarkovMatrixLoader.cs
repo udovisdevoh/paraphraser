@@ -12,6 +12,10 @@ namespace MarkovMatrices
     {
         IMarkovMatrix<TKey, TValue> LoadMatrix(Stream inputStream);
 
+        IMarkovMatrix<TKey, TValue> LoadMatrix(Stream inputStream, HashSet<TKey> optionalWhiteList);
+
         IMarkovMatrix<TKey, TValue> LoadMatrix(string text);
+
+        IMarkovMatrix<TKey, TValue> LoadMatrix(string text, HashSet<TKey> optionalWhiteList);
     }
 }

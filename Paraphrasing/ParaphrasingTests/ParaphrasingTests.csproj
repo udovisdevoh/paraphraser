@@ -72,7 +72,7 @@
     <Compile Include="English\EnglishInterrogativeToAffirmativeTests.cs" />
     <Compile Include="English\EnglishSentenceTypeDetectorAffirmativeTests.cs" />
     <Compile Include="English\EnglishSentenceTypeDetectorInterrogativeTests.cs" />
-    <Compile Include="WordOrderSwapping\WordSwapperTests.cs" />
+    <Compile Include="WordOrderSwapping\WordOrderSwapperTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
