@@ -3,6 +3,7 @@ using Moq;
 using StringManipulation;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,13 +12,11 @@ namespace Paraphrasing.Tests
 {
     public static class ParaphrasingTestHelper
     {
-        public static IWordOrderSwapper BuildWordSwapperMock()
-        {
-            Mock<IWordOrderSwapper> wordOrderSwapperMockFactory = new Mock<IWordOrderSwapper>();
-            wordOrderSwapperMockFactory.Setup(swapper => swapper.SwapWordOrder(It.IsAny<string>(), It.IsAny<HashSet<string>>(), It.IsAny<int>())).Returns<string, HashSet<string>, int>((text, wordsToSwap, offset) => StringFormatter.SwapWordOrder(text, wordsToSwap, offset, 1));
+        private static IWordOrderSwapper wordOrderSwapperByMatrix = null;
 
-            IWordOrderSwapper wordOrderSwapper = wordOrderSwapperMockFactory.Object;
-            return wordOrderSwapper;
+        public static IWordOrderSwapper BuildWordOrderSwapper()
+        {
+            return new WordOrderSwapper();
         }
 
         public static IMarkovMatrix<string, double> BuildLanguageWordMatrixMock(string fromWord1,
@@ -46,6 +45,27 @@ namespace Paraphrasing.Tests
         {
             IMarkovMatrixLoader<string, double> markovMatrixLoader = new StringMarkovMatrixLoaderFromText();
             return markovMatrixLoader;
+        }
+
+        public static IWordOrderSwapper BuildWordOrderSwapperByMatrix(string matrixFileName)
+        {
+            if (ParaphrasingTestHelper.wordOrderSwapperByMatrix == null)
+            {
+                IMarkovMatrix<string, double> languageWordMatrix = ParaphrasingTestHelper.BuildLanguageWordMatrix(matrixFileName);
+                IMarkovMatrixLoader<string, double> textMatrixLoader = ParaphrasingTestHelper.BuildStringMarkovMatrixLoader();
+                ParaphrasingTestHelper.wordOrderSwapperByMatrix = new WordOrderSwapperByMatrix(languageWordMatrix, textMatrixLoader);
+            }
+
+            return ParaphrasingTestHelper.wordOrderSwapperByMatrix;
+        }
+
+        private static IMarkovMatrix<string, double> BuildLanguageWordMatrix(string matrixFileName)
+        {
+            IMarkovMatrixLoader<string, double> binaryMatrixLoader = new BinaryStringMarkovMatrixLoader();
+            using (FileStream stream = new FileStream(matrixFileName, FileMode.Open))
+            {
+                return binaryMatrixLoader.LoadMatrix(stream);
+            }
         }
     }
 }

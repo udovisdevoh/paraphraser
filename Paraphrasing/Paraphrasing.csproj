@@ -45,6 +45,7 @@
     <Compile Include="SentenceTypeDetection\English\EnglishSentenceTypeDetector.cs" />
     <Compile Include="SentenceTypeDetection\SentenceTypeDetector.cs" />
     <Compile Include="WordOrderSwapping\WordOrderSwapper.cs" />
+    <Compile Include="WordOrderSwapping\WordOrderSwapperByMatrix.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MarkovMatrix\MarkovMatrixInterfaces\MarkovMatrixInterfaces.csproj">

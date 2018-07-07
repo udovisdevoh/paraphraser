@@ -20,6 +20,8 @@ namespace Paraphrasing
 
         private static HashSet<string> interrogativeFirstWordsToRemove;
 
+        private static HashSet<string> wordSwappingSuffixMagnets;
+
         private static Dictionary<string, string> interrogativeFirstWordsToReplace;
 
         private static Dictionary<string, string> firstWordsToReplaceInterrogativeToAffirmative;
@@ -70,7 +72,7 @@ namespace Paraphrasing
                 { "thee","you" },
                 { "ye","you" },
                 { "thyself","yourself" },
-                { "canst", "can't" },
+                { "canst", "can" },
                 { "didst", "did" },
                 { "shall", "will" },
                 { "shan't", "will not" },

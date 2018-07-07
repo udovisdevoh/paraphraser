@@ -15,10 +15,18 @@ namespace WordMatrixConstructionApp
         {
             Bootstrap bootstrap = new Bootstrap();
 
+            //Program.TestLoadPerformance(bootstrap);
+            Program.GenerateWordMatrix(bootstrap);
+        }
+
+        private static void GenerateWordMatrix(Bootstrap bootstrap)
+        {
             IMarkovMatrixLoader<string, double> stringMarkovMatrixLoaderFromText = bootstrap.BuildStringMarkovMatrixLoaderFromText();
             IMarkovMatrixSaver<string, double> binaryStringMarkovMatrixSaver = bootstrap.BuildBinaryStringMarkovMatrixSaver();
 
-            const int maxMatrixSize = 100_000;
+            //const int maxMatrixSize = 100_000;
+            //const int maxMatrixSize = 0;
+            const int maxMatrixSize = -1;
             const string inputFile = "./LanguageSamples/lyrics.en.txt";
             const string outputFile = "./english.word.matrix.bin";
 
@@ -41,6 +49,21 @@ namespace WordMatrixConstructionApp
                     //IMarkovMatrix<string, double> matrix = stringMarkovMatrixLoaderFromText.LoadMatrix(inputFileStream, whiteListedWords, maxMatrixSize);
                     IMarkovMatrix<string, double> matrix = stringMarkovMatrixLoaderFromText.LoadMatrix(inputFileStream, whiteListedWords, maxMatrixSize);
                     binaryStringMarkovMatrixSaver.SaveMatrix(matrix, outputFileStream);
+                }
+            }
+        }
+
+        private static void TestLoadPerformance(Bootstrap bootstrap)
+        {
+            IMarkovMatrixLoader<string, double> binaryStringMarkovMatrixLoader = bootstrap.BuildBinaryStringMarkovMatrixLoader();
+
+            const string inputFile = "./english.word.matrix.with.interrogation.bin";
+
+            for (int i = 0; i < 100; ++i)
+            {
+                using (FileStream inputFileStream = new FileStream(inputFile, FileMode.Open))
+                {
+                    IMarkovMatrix<string, double> matrix = binaryStringMarkovMatrixLoader.LoadMatrix(inputFileStream);
                 }
             }
         }

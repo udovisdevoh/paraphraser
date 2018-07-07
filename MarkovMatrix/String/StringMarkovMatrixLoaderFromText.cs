@@ -27,6 +27,8 @@ namespace MarkovMatrices
 
         public IMarkovMatrix<string, double> LoadMatrix(Stream inputStream, HashSet<string> optionalWhiteList, int maxSize)
         {
+            #warning Add unit tests for maxSize 0 + whiteList
+
             StringMarkovMatrix<ulong> markovMatrix = new StringMarkovMatrix<ulong>();
             using (StreamReader streamReader = new StreamReader(inputStream))
             {
@@ -36,7 +38,7 @@ namespace MarkovMatrices
                     line = line.Trim();
                     if (!string.IsNullOrEmpty(line))
                     {
-                        this.PopulateMatrixFromLine(markovMatrix, line);
+                        this.PopulateMatrixFromLine(markovMatrix, line, optionalWhiteList, maxSize);
                     }
                 }
             }
@@ -78,7 +80,7 @@ namespace MarkovMatrices
             return trimmedMatrix;
         }
 
-        private void PopulateMatrixFromLine(StringMarkovMatrix<ulong> markovMatrix, string line)
+        private void PopulateMatrixFromLine(StringMarkovMatrix<ulong> markovMatrix, string line, HashSet<string> optionalWhiteList, int maxSize)
         {
             string[] words = WordExtractor.GetLowerInvariantWords(line, '\'');
             if (words.Length > 0)
@@ -86,10 +88,17 @@ namespace MarkovMatrices
                 string previousWord = " ";
                 foreach (string currentWord in words)
                 {
-                    markovMatrix.IncrementOccurrence(previousWord, currentWord);
+                    if (maxSize != 0 || optionalWhiteList is null || optionalWhiteList.Contains(previousWord) || optionalWhiteList.Contains(currentWord))
+                    {
+                        markovMatrix.IncrementOccurrence(previousWord, currentWord);
+                    }
                     previousWord = currentWord;
                 }
-                markovMatrix.IncrementOccurrence(previousWord, " ");
+
+                if (maxSize != 0 || optionalWhiteList is null || optionalWhiteList.Contains(previousWord))
+                {
+                    markovMatrix.IncrementOccurrence(previousWord, " ");
+                }
             }
         }
 

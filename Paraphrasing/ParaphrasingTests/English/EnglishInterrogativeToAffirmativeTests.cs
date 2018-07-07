@@ -12,13 +12,15 @@ namespace Paraphrasing.Tests
 {
     public class EnglishInterrogativeToAffirmativeTests
     {
+        private const string languageMatrixFileName = "./english.word.matrix.interrogation.only.bin"; // 50 fail
+
         [Theory]
         [InlineData("Ain't it about time?", "It ain't about time.")]
         [InlineData("Aint you the guy with the master plan?", "You ain't the guy with the master plan.")]
         [InlineData("Am I the one?", "I am the one.")]
         [InlineData("Aren't we all to you just near lost causes?", "We aren't all to you just near lost causes.")]
         [InlineData("Can't you see my pain?", "You can't see my pain.")]
-        [InlineData("Canst thou not see the loss of loe painful is?", "You can't not see the loss of loe painful is.")]
+        [InlineData("Canst thou not see the loss of loe painful is?", "You can not see the loss of loe painful is.")]
         [InlineData("Cant you see what this does to me?", "You can't see what this does to me.")]
         [InlineData("Couldn't we just sit and share a smoke again?", "We couldn't just sit and share a smoke again.")]
         [InlineData("Didn't I do a good job of pretending?", "I didn't do a good job of pretending.")]
@@ -47,7 +49,7 @@ namespace Paraphrasing.Tests
         public void GivenInterrogativeSentence_ShouldConvertShortSwap(string interrogativeSentence, string expectedAffirmativeSentence)
         {
             // Arrange
-            EnglishInterrogativeToAffirmative englishInterrogativeToAffirmative = new EnglishInterrogativeToAffirmative(ParaphrasingTestHelper.BuildWordSwapperMock());
+            EnglishInterrogativeToAffirmative englishInterrogativeToAffirmative = new EnglishInterrogativeToAffirmative(this.BuildWordOrderSwapper());
 
             // Act
             string actualAffirmativeSentence = englishInterrogativeToAffirmative.Convert(interrogativeSentence);
@@ -80,7 +82,7 @@ namespace Paraphrasing.Tests
         public void GivenInterrogativeSentence_ShouldConvertReplaceWordGroup(string interrogativeSentence, string expectedAffirmativeSentence)
         {
             // Arrange
-            EnglishInterrogativeToAffirmative englishInterrogativeToAffirmative = new EnglishInterrogativeToAffirmative(ParaphrasingTestHelper.BuildWordSwapperMock());
+            EnglishInterrogativeToAffirmative englishInterrogativeToAffirmative = new EnglishInterrogativeToAffirmative(this.BuildWordOrderSwapper());
 
             // Act
             string actualAffirmativeSentence = englishInterrogativeToAffirmative.Convert(interrogativeSentence);
@@ -103,7 +105,7 @@ namespace Paraphrasing.Tests
         public void GivenInterrogativeSentence_ShouldConvertLongSwap(string interrogativeSentence, string expectedAffirmativeSentence)
         {
             // Arrange
-            EnglishInterrogativeToAffirmative englishInterrogativeToAffirmative = new EnglishInterrogativeToAffirmative(ParaphrasingTestHelper.BuildWordSwapperMock());
+            EnglishInterrogativeToAffirmative englishInterrogativeToAffirmative = new EnglishInterrogativeToAffirmative(this.BuildWordOrderSwapper());
 
             // Act
             string actualAffirmativeSentence = englishInterrogativeToAffirmative.Convert(interrogativeSentence);
@@ -133,13 +135,19 @@ namespace Paraphrasing.Tests
         public void GivenInterrogativeSentence_ShouldConvertComplex(string interrogativeSentence, string expectedAffirmativeSentence)
         {
             // Arrange
-            EnglishInterrogativeToAffirmative englishInterrogativeToAffirmative = new EnglishInterrogativeToAffirmative(ParaphrasingTestHelper.BuildWordSwapperMock());
+            EnglishInterrogativeToAffirmative englishInterrogativeToAffirmative = new EnglishInterrogativeToAffirmative(this.BuildWordOrderSwapper());
 
             // Act
             string actualAffirmativeSentence = englishInterrogativeToAffirmative.Convert(interrogativeSentence);
 
             // Assert
             Assert.Equal(expectedAffirmativeSentence, actualAffirmativeSentence);
+        }
+
+        private IWordOrderSwapper BuildWordOrderSwapper()
+        {
+            //return ParaphrasingTestHelper.BuildWordOrderSwapperByMatrix(languageMatrixFileName);
+            return ParaphrasingTestHelper.BuildWordOrderSwapper();
         }
     }
 }

@@ -30,6 +30,11 @@ namespace ParaphaserBootstrap
             return new BinaryStringMarkovMatrixSaver();
         }
 
+        public IMarkovMatrixLoader<string, double> BuildBinaryStringMarkovMatrixLoader()
+        {
+            return new BinaryStringMarkovMatrixLoader();
+        }
+
         public IMarkovMatrixLoader<string, double> BuildStringMarkovMatrixLoaderFromText()
         {
             return new StringMarkovMatrixLoaderFromText();

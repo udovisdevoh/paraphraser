@@ -72,7 +72,7 @@
     <Compile Include="English\EnglishInterrogativeToAffirmativeTests.cs" />
     <Compile Include="English\EnglishSentenceTypeDetectorAffirmativeTests.cs" />
     <Compile Include="English\EnglishSentenceTypeDetectorInterrogativeTests.cs" />
-    <Compile Include="WordOrderSwapping\WordOrderSwapperTests.cs" />
+    <Compile Include="WordOrderSwapping\WordOrderSwapperByMatrixTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -94,6 +94,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="english.word.matrix.interrogation.only.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
