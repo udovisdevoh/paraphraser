@@ -108,5 +108,20 @@ namespace MarkovMatrices.Tests
             });
         }
 
+        [Fact]
+        public void GivenBinaryStreamWhileListAndMaxSize_LoadMatrix_ShouldThrow()
+        {
+            // Arrange
+            MemoryStream memoryStream = StreamBuilder.BuildBinaryStream(3, "aa", (uint)0, "bb", (uint)1, "cc", (uint)2, 2, (ulong)1, 0.25, (ulong)2, 0.75);
+            BinaryStringMarkovMatrixLoader binaryMarkovMatrixLoader = new BinaryStringMarkovMatrixLoader();
+            HashSet<string> whiteList = new HashSet<string>(StringComparer.OrdinalIgnoreCase) { "bb" };
+
+            // Assert
+            Assert.Throws<NotSupportedException>(() =>
+            {
+                // Act
+                IMarkovMatrix<string, double> markovMatrix = binaryMarkovMatrixLoader.LoadMatrix(memoryStream, whiteList, 27);
+            });
+        }
     }
 }

@@ -33,7 +33,7 @@ namespace MarkovMatrices.Tests
             // Arrange
             string text = "zarF! Zorf zUrf? zArf zeRf zi'RF ZARF zyRF ZarF zARff.";
             StringMarkovMatrixLoaderFromText stringMarkovMatrixLoaderFromText = new StringMarkovMatrixLoaderFromText();
-            double expectedProbability = 0.0;
+            double expectedProbability = 0.25;
             HashSet<string> whiteList = new HashSet<string>(StringComparer.OrdinalIgnoreCase) { "zerf" };
 
             // Act
@@ -101,12 +101,48 @@ namespace MarkovMatrices.Tests
             // Arrange
             string text = "zarF! Zorf zUrf? zArf zeRf zi'RF ZARF zyRF ZarF zARff.";
             StringMarkovMatrixLoaderFromText stringMarkovMatrixLoaderFromText = new StringMarkovMatrixLoaderFromText();
-            double expectedProbability = 0.0;
+            double expectedProbability = 0.25;
             Stream stream = StreamBuilder.BuildTextStream(text);
             HashSet<string> whiteList = new HashSet<string>(StringComparer.OrdinalIgnoreCase) { "zerf" };
 
             // Act
             IMarkovMatrix<string, double> markovMatrix = stringMarkovMatrixLoaderFromText.LoadMatrix(stream, whiteList);
+            double actualProbability = markovMatrix.GetOccurrence("zarf", "zorf");
+
+            // Assert
+            Assert.Equal(expectedProbability, actualProbability);
+        }
+
+        [Fact]
+        public void GivenStreamWithWhiteListAndSmallMaxSize_ShouldLoadSmallMatrix()
+        {
+            // Arrange
+            string text = "zarF! Zorf zUrf? zArf zeRf zi'RF ZARF zyRF ZarF zARff.";
+            StringMarkovMatrixLoaderFromText stringMarkovMatrixLoaderFromText = new StringMarkovMatrixLoaderFromText();
+            double expectedProbability = 0.0;
+            Stream stream = StreamBuilder.BuildTextStream(text);
+            HashSet<string> whiteList = new HashSet<string>(StringComparer.OrdinalIgnoreCase) { "zerf" };
+
+            // Act
+            IMarkovMatrix<string, double> markovMatrix = stringMarkovMatrixLoaderFromText.LoadMatrix(stream, whiteList, 1);
+            double actualProbability = markovMatrix.GetOccurrence("zarf", "zorf");
+
+            // Assert
+            Assert.Equal(expectedProbability, actualProbability);
+        }
+
+        [Fact]
+        public void GivenStreamWithWhiteListAndMediumMaxSize_ShouldLoadMediumMatrix()
+        {
+            // Arrange
+            string text = "zarF! Zorf zUrf? zArf zeRf zi'RF ZARF zyRF ZarF zARff.";
+            StringMarkovMatrixLoaderFromText stringMarkovMatrixLoaderFromText = new StringMarkovMatrixLoaderFromText();
+            double expectedProbability = 0.5;
+            Stream stream = StreamBuilder.BuildTextStream(text);
+            HashSet<string> whiteList = new HashSet<string>(StringComparer.OrdinalIgnoreCase) { "zerf" };
+
+            // Act
+            IMarkovMatrix<string, double> markovMatrix = stringMarkovMatrixLoaderFromText.LoadMatrix(stream, whiteList, 2);
             double actualProbability = markovMatrix.GetOccurrence("zarf", "zorf");
 
             // Assert
@@ -135,7 +171,29 @@ namespace MarkovMatrices.Tests
         }
 
         [Fact]
-        public void GivenMatrixAndMaxSize_Normalize_ShouldReduceMatrix()
+        public void GivenMatrixAndMaxSizeAndWhiteList_Trim_ShouldReduceMatrix()
+        {
+            // Arrange
+            StringMarkovMatrixLoaderFromText stringMarkovMatrixLoaderFromText = new StringMarkovMatrixLoaderFromText();
+            StringMarkovMatrix<ulong> markovMatrix = new StringMarkovMatrix<ulong>();
+            markovMatrix.IncrementOccurrence("Zarf", "zoRf");
+            markovMatrix.IncrementOccurrence("zArf", "zerF");
+            markovMatrix.IncrementOccurrence("zuRf", "zoRf");
+            markovMatrix.IncrementOccurrence("zurF", "zErf");
+            markovMatrix.IncrementOccurrence("zurf", "Zirf");
+            int expectedInputCount = 4;
+
+            HashSet<string> whiteList = new HashSet<string>(StringComparer.OrdinalIgnoreCase) { "zerf" };
+
+            // Act
+            IMarkovMatrix<string, ulong> normalizedMarkovMatrix = stringMarkovMatrixLoaderFromText.TrimMatrix(markovMatrix, whiteList, expectedInputCount);
+
+            // Assert
+            Assert.Equal(expectedInputCount, normalizedMarkovMatrix.InputCount);
+        }
+
+        [Fact]
+        public void GivenMatrixAndMaxSize_Trim_ShouldReduceMatrix()
         {
             // Arrange
             StringMarkovMatrixLoaderFromText stringMarkovMatrixLoaderFromText = new StringMarkovMatrixLoaderFromText();
@@ -148,7 +206,7 @@ namespace MarkovMatrices.Tests
             int expectedInputCount = 3;
 
             // Act
-            IMarkovMatrix<string, double> normalizedMarkovMatrix = stringMarkovMatrixLoaderFromText.Normalize(markovMatrix, expectedInputCount);
+            IMarkovMatrix<string, ulong> normalizedMarkovMatrix = stringMarkovMatrixLoaderFromText.TrimMatrix(markovMatrix, null, expectedInputCount);
 
             // Assert
             Assert.Equal(expectedInputCount, normalizedMarkovMatrix.InputCount);

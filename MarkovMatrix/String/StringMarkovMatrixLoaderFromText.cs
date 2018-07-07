@@ -25,7 +25,7 @@ namespace MarkovMatrices
             return this.LoadMatrix(inputStream, optionalWhiteList, -1);
         }
 
-        private IMarkovMatrix<string, double> LoadMatrix(Stream inputStream, HashSet<string> optionalWhiteList, int maxSize)
+        public IMarkovMatrix<string, double> LoadMatrix(Stream inputStream, HashSet<string> optionalWhiteList, int maxSize)
         {
             StringMarkovMatrix<ulong> markovMatrix = new StringMarkovMatrix<ulong>();
             using (StreamReader streamReader = new StreamReader(inputStream))
@@ -36,15 +36,49 @@ namespace MarkovMatrices
                     line = line.Trim();
                     if (!string.IsNullOrEmpty(line))
                     {
-                        this.PopulateMatrixFromLine(markovMatrix, line, optionalWhiteList);
+                        this.PopulateMatrixFromLine(markovMatrix, line);
                     }
                 }
             }
 
-            return Normalize(markovMatrix, maxSize);
+            markovMatrix = this.TrimMatrix(markovMatrix, optionalWhiteList, maxSize);
+
+            IMarkovMatrix<string, double> normalizedMatrix = this.Normalize(markovMatrix);
+            return normalizedMatrix;
         }
 
-        private void PopulateMatrixFromLine(StringMarkovMatrix<ulong> markovMatrix, string line, HashSet<string> optionalWhiteList)
+        public StringMarkovMatrix<ulong> TrimMatrix(StringMarkovMatrix<ulong> sourceMatrix, HashSet<string> optionalWhiteList, int maxSize)
+        {
+            if (maxSize == -1)
+            {
+                return sourceMatrix;
+            }
+
+            IEnumerable<KeyValuePair<Tuple<string, string>, ulong>> twoWordsAndCounts = sourceMatrix.OrderByDescending(keyValuePair => keyValuePair.Value);
+
+            StringMarkovMatrix<ulong> trimmedMatrix = new StringMarkovMatrix<ulong>();
+
+            int counter = 0;
+            foreach (KeyValuePair<Tuple<string, string>, ulong> twoWordsAndCount in sourceMatrix)
+            {
+                Tuple<string, string> twoWords = twoWordsAndCount.Key;
+
+                string fromWord = twoWords.Item1;
+                string toWord = twoWords.Item2;
+
+                ulong count = twoWordsAndCount.Value;
+
+                if (counter < maxSize || (optionalWhiteList != null && (optionalWhiteList.Contains(fromWord) || optionalWhiteList.Contains(toWord))))
+                {
+                    trimmedMatrix.IncrementOccurrence(fromWord, toWord, count);
+                    ++counter;
+                }
+            }
+
+            return trimmedMatrix;
+        }
+
+        private void PopulateMatrixFromLine(StringMarkovMatrix<ulong> markovMatrix, string line)
         {
             string[] words = WordExtractor.GetLowerInvariantWords(line, '\'');
             if (words.Length > 0)
@@ -52,31 +86,18 @@ namespace MarkovMatrices
                 string previousWord = " ";
                 foreach (string currentWord in words)
                 {
-                    if (optionalWhiteList == null || optionalWhiteList.Contains(previousWord) || optionalWhiteList.Contains(currentWord))
-                    {
-                        markovMatrix.IncrementOccurrence(previousWord, currentWord);
-                    }
+                    markovMatrix.IncrementOccurrence(previousWord, currentWord);
                     previousWord = currentWord;
                 }
-                if (optionalWhiteList == null || optionalWhiteList.Contains(previousWord) || optionalWhiteList.Contains(" "))
-                {
-                    markovMatrix.IncrementOccurrence(previousWord, " ");
-                }
+                markovMatrix.IncrementOccurrence(previousWord, " ");
             }
         }
 
-        public IMarkovMatrix<string, double> Normalize(IMarkovMatrix<string, ulong> sourceMatrix, int maxSize = -1)
+        public IMarkovMatrix<string, double> Normalize(IMarkovMatrix<string, ulong> sourceMatrix)
         {
             StringMarkovMatrix<double> normalizedMatrix = new StringMarkovMatrix<double>();
 
-            IEnumerable<KeyValuePair<Tuple<string, string>, ulong>> twoWordsAndCounts = sourceMatrix;
-
-            if (maxSize != -1)
-            {
-                twoWordsAndCounts = twoWordsAndCounts.OrderByDescending(keyValuePair => keyValuePair.Value).Take(maxSize);
-            }
-
-            foreach (KeyValuePair<Tuple<string, string>, ulong> twoWordsAndCount in twoWordsAndCounts)
+            foreach (KeyValuePair<Tuple<string, string>, ulong> twoWordsAndCount in sourceMatrix)
             {
                 Tuple<string, string> twoWords = twoWordsAndCount.Key;
 

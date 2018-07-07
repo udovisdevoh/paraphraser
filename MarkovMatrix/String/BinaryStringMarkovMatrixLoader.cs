@@ -64,5 +64,10 @@ namespace MarkovMatrices
         {
             throw new NotSupportedException();
         }
+
+        public IMarkovMatrix<string, double> LoadMatrix(Stream inputStream, HashSet<string> optionalWhiteList, int maxSize)
+        {
+            throw new NotSupportedException();
+        }
     }
 }

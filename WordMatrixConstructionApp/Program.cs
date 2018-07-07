@@ -39,7 +39,7 @@ namespace WordMatrixConstructionApp
                 using (FileStream outputFileStream = new FileStream(outputFile, FileMode.Create))
                 {
                     //IMarkovMatrix<string, double> matrix = stringMarkovMatrixLoaderFromText.LoadMatrix(inputFileStream, whiteListedWords, maxMatrixSize);
-                    IMarkovMatrix<string, double> matrix = stringMarkovMatrixLoaderFromText.LoadMatrix(inputFileStream, maxMatrixSize);
+                    IMarkovMatrix<string, double> matrix = stringMarkovMatrixLoaderFromText.LoadMatrix(inputFileStream, whiteListedWords, maxMatrixSize);
                     binaryStringMarkovMatrixSaver.SaveMatrix(matrix, outputFileStream);
                 }
             }

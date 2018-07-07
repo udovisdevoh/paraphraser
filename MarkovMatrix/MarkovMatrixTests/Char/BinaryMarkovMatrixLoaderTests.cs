@@ -103,5 +103,20 @@ namespace MarkovMatrices.Tests
                 IMarkovMatrix<char, double> markovMatrix = binaryMarkovMatrixLoader.LoadMatrix(memoryStream, 27);
             });
         }
+
+        [Fact]
+        public void GivenStreamWhiteListAndMaxSize_LoadMatrix_ShouldThrow()
+        {
+            // Arrange
+            MemoryStream memoryStream = StreamBuilder.BuildBinaryStream(2, 'A', 'B', 2.0, 'C', 'D', 3.0);
+            BinaryMarkovMatrixLoader binaryMarkovMatrixLoader = new BinaryMarkovMatrixLoader();
+            HashSet<char> whiteList = new HashSet<char>() { 'A' };
+
+            // Act, Assert
+            Assert.Throws<NotSupportedException>(() =>
+            {
+                IMarkovMatrix<char, double> markovMatrix = binaryMarkovMatrixLoader.LoadMatrix(memoryStream, whiteList, 27);
+            });
+        }
     }
 }
