@@ -75,6 +75,7 @@
     <Compile Include="English\YodaInterrogativeToAffirmativeTests.cs" />
     <Compile Include="WordOrderSwapping\WordOrderSwapperByMatrixTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WordOrderSwapping\YodaWordOrderSwapperTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\MarkovMatrix\MarkovMatrixInterfaces\MarkovMatrixInterfaces.csproj">
