@@ -22,7 +22,6 @@ namespace Paraphrasing
 
         public string SwapWordOrder(string text, HashSet<string> wordsToSwap, HashSet<string> wordsToSkip, List<Regex> wordsRegexToSkipWhileSwapping, int offset)
         {
-            #warning Implement
             #warning Add unit tests
 
             text = this.SwapQuestionWord(text, wordsToSwap, wordsToSkip, offset);
@@ -36,7 +35,6 @@ namespace Paraphrasing
 
         private string DeleteWordsFromStart(string text, HashSet<string> wordsToDeleteFromStart)
         {
-            #warning Implement
             #warning Add unit tests
 
             string[] words = WordExtractor.GetWordsAndPunctuationTokens(text, '\'');
@@ -61,7 +59,6 @@ namespace Paraphrasing
 
         private string MoveWordsToEnd(string text, HashSet<string> wordsToMoveToEnd)
         {
-            #warning Implement
             #warning Add unit tests
 
             string[] words = WordExtractor.GetWordsAndPunctuationTokens(text, '\'');
@@ -89,7 +86,6 @@ namespace Paraphrasing
 
         public string SwapQuestionWord(string text, HashSet<string> wordsToSwap, HashSet<string> wordsToSkip, int offset)
         {
-            #warning Implement
             #warning Add unit tests
 
             const int maxSwapCount = 1;

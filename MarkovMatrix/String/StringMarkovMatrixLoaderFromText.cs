@@ -27,8 +27,6 @@ namespace MarkovMatrices
 
         public IMarkovMatrix<string, double> LoadMatrix(Stream inputStream, HashSet<string> optionalWhiteList, int maxSize)
         {
-            #warning Add unit tests for maxSize 0 + whiteList
-
             StringMarkovMatrix<ulong> markovMatrix = new StringMarkovMatrix<ulong>();
             using (StreamReader streamReader = new StreamReader(inputStream))
             {

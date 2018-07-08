@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -234,7 +235,7 @@ namespace StringManipulation.Tests
             string expectedText = "this text is to swap word order";
 
             // Act
-            string actualText = StringFormatter.SwapWordOrder(sourceText, new HashSet<string>(StringComparer.OrdinalIgnoreCase) { "word", "is" }, 1, 2);
+            string actualText = StringFormatter.SwapWordOrder(sourceText, new HashSet<string>(StringComparer.OrdinalIgnoreCase) { "word", "is" }, null, null, 1, 2);
 
             // Assert
             Assert.Equal(expectedText, actualText);
@@ -248,7 +249,37 @@ namespace StringManipulation.Tests
             string expectedText = "this is text to swap word order";
 
             // Act
-            string actualText = StringFormatter.SwapWordOrder(sourceText, new HashSet<string>(StringComparer.OrdinalIgnoreCase) { "word", "is" }, 1, 1);
+            string actualText = StringFormatter.SwapWordOrder(sourceText, new HashSet<string>(StringComparer.OrdinalIgnoreCase) { "word", "is" }, null, null, 1, 1);
+
+            // Assert
+            Assert.Equal(expectedText, actualText);
+        }
+
+        [Fact]
+        public void GivenTextAndWordsToSkip_ShouldSwapWordOrderAndSkip()
+        {
+            // Arrange
+            string sourceText = "is aa bb cc this text to swap word order";
+            string expectedText = "aa bb cc this is text to swap word order";
+            HashSet<string> wordsToSkip = new HashSet<string>(StringComparer.OrdinalIgnoreCase) { "aa", "bb", "cc" };
+
+            // Act
+            string actualText = StringFormatter.SwapWordOrder(sourceText, new HashSet<string>(StringComparer.OrdinalIgnoreCase) { "word", "is" }, wordsToSkip, null, 1, 1);
+
+            // Assert
+            Assert.Equal(expectedText, actualText);
+        }
+
+        [Fact]
+        public void GivenTextAndRegexToSkip_ShouldSwapWordOrderAndSkip()
+        {
+            // Arrange
+            string sourceText = "is aa bb cc this text to swap word order";
+            string expectedText = "aa bb cc this is text to swap word order";
+            List<Regex> regexesToSkip = new List<Regex>() { new Regex(@"\baa\b", RegexOptions.IgnoreCase), new Regex(@"\bbb\b", RegexOptions.IgnoreCase), new Regex(@"\bcc\b", RegexOptions.IgnoreCase) };
+
+            // Act
+            string actualText = StringFormatter.SwapWordOrder(sourceText, new HashSet<string>(StringComparer.OrdinalIgnoreCase) { "word", "is" }, null, regexesToSkip, 1, 1);
 
             // Assert
             Assert.Equal(expectedText, actualText);
@@ -262,7 +293,7 @@ namespace StringManipulation.Tests
             string expectedText = "is this word to swap text order";
 
             // Act
-            string actualText = StringFormatter.SwapWordOrder(sourceText, new HashSet<string>(StringComparer.OrdinalIgnoreCase) { "text" }, 3, 1);
+            string actualText = StringFormatter.SwapWordOrder(sourceText, new HashSet<string>(StringComparer.OrdinalIgnoreCase) { "text" }, null, null, 3, 1);
 
             // Assert
             Assert.Equal(expectedText, actualText);
@@ -276,7 +307,7 @@ namespace StringManipulation.Tests
             string expectedText = "is this text to swap word order";
 
             // Act
-            string actualText = StringFormatter.SwapWordOrder(sourceText, new HashSet<string>(StringComparer.OrdinalIgnoreCase) { "word" }, 2, 1);
+            string actualText = StringFormatter.SwapWordOrder(sourceText, new HashSet<string>(StringComparer.OrdinalIgnoreCase) { "word" }, null, null, 2, 1);
 
             // Assert
             Assert.Equal(expectedText, actualText);
@@ -291,7 +322,7 @@ namespace StringManipulation.Tests
             Assert.Throws<ArgumentOutOfRangeException>(() =>
             {
                 // Assert, Act
-                string actualText = StringFormatter.SwapWordOrder(sourceText, new HashSet<string>(StringComparer.OrdinalIgnoreCase) { "text" }, -1, 1);
+                string actualText = StringFormatter.SwapWordOrder(sourceText, new HashSet<string>(StringComparer.OrdinalIgnoreCase) { "text" }, null, null, -1, 1);
             });
         }
 
@@ -321,6 +352,30 @@ namespace StringManipulation.Tests
 
             // Assert
             Assert.Equal(expectedText, actualText);
+        }
+
+        [Fact]
+        public void GivenRegexAndMatch_ShouldMatch()
+        {
+            // Arrange
+            string word = "callous";
+            Regex regex = new Regex(@"\w*(ous)\b", RegexOptions.IgnoreCase);
+            List<Regex> regularExpressions = new List<Regex>() { regex };
+
+            // Act, Assert
+            Assert.True(regularExpressions.IsMatch(word));
+        }
+
+        [Fact]
+        public void GivenRegexAndNonMatch_ShouldNotMatch()
+        {
+            // Arrange
+            string word = "zarf";
+            Regex regex = new Regex(@"\w*(ous)\b", RegexOptions.IgnoreCase);
+            List<Regex> regularExpressions = new List<Regex>() { regex };
+
+            // Act, Assert
+            Assert.False(regularExpressions.IsMatch(word));
         }
     }
 }

@@ -117,7 +117,8 @@ namespace Paraphrasing
             };
 
             EnglishInterrogativeToAffirmative.wordsRegexToSkipWhileSwapping = new List<Regex>() {
-                new Regex(@"\w*(ous)\b", RegexOptions.IgnoreCase)
+                new Regex(@"\w*(ous)\b", RegexOptions.IgnoreCase),
+                new Regex(@"\w*(ing)\b", RegexOptions.IgnoreCase)
             };
         }
         

@@ -14,7 +14,7 @@ namespace StringManipulation.Tests
         {
             // Arrange
             string text = "'Oh, you & can't.";
-            string[] expectedWords = { "'", "Oh", ",", " ", "you", " ", "&", " ", "can", "'", "t", "." };
+            string[] expectedWords = { "'", "oh", ",", " ", "you", " ", "&", " ", "can", "'", "t", "." };
 
             // Act
             string[] actualWords = WordExtractor.GetWordsAndPunctuationTokens(text);
@@ -42,7 +42,7 @@ namespace StringManipulation.Tests
         {
             // Arrange
             string text = "Oh, you & can't. zarf";
-            string[] expectedWords = { "Oh", ",", " ", "you", " ", "&", " ", "can", "'", "t", ".", " ", "zarf" };
+            string[] expectedWords = { "oh", ",", " ", "you", " ", "&", " ", "can", "'", "t", ".", " ", "zarf" };
 
             // Act
             string[] actualWords = WordExtractor.GetWordsAndPunctuationTokens(text);

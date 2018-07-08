@@ -12,8 +12,6 @@ namespace Paraphrasing
     {
         public string SwapWordOrder(string text, HashSet<string> wordsToSwap, HashSet<string> wordsToSkip, List<Regex> wordsRegexToSkipWhileSwapping, int offset)
         {
-            #warning Add unit tests
-
             return StringFormatter.SwapWordOrder(text, wordsToSwap, wordsToSkip, wordsRegexToSkipWhileSwapping, offset, 1);
         }
     }

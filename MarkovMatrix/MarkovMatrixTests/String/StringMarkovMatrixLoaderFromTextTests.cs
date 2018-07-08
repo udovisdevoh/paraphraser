@@ -96,6 +96,25 @@ namespace MarkovMatrices.Tests
         }
 
         [Fact]
+        public void GivenStreamWithMaxSizeZeroAndWhiteList_ShouldLoadOnlyWhiteList()
+        {
+            // Arrange
+            string text = "zarF! Zorf zUrf? zArf zeRf zi'RF ZARF zyRF ZarF zARff.";
+            StringMarkovMatrixLoaderFromText stringMarkovMatrixLoaderFromText = new StringMarkovMatrixLoaderFromText();
+            int expectedInputCount = 2;
+            Stream stream = StreamBuilder.BuildTextStream(text);
+            int maxSize = 0;
+            HashSet<string> whiteList = new HashSet<string>(StringComparer.OrdinalIgnoreCase) { "zerf" };
+
+            // Act
+            IMarkovMatrix<string, double> markovMatrix = stringMarkovMatrixLoaderFromText.LoadMatrix(stream, whiteList, maxSize);
+            double actualProbability = markovMatrix.GetOccurrence("zyrf", "zarf");
+
+            // Assert
+            Assert.Equal(expectedInputCount, markovMatrix.InputCount);
+        }
+
+        [Fact]
         public void GivenStreamWithWhiteList_ShouldLoadMatrix()
         {
             // Arrange
