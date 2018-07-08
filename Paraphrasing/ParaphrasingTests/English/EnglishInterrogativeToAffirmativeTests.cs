@@ -14,16 +14,14 @@ namespace Paraphrasing.Tests
     {
         private const string languageMatrixFileName = "./english.word.matrix.interrogation.only.bin"; // 50 fail
 
-        #warning Uncomment unit tests
-
         [Theory]
-        [InlineData("Ain't it about time?", "about time, it ain't.")]
-        [InlineData("Aint you the guy with the master plan?", "The guy with the master plan, you ain't.")]
-        [InlineData("Am I the one?", "The one, I am.")]
-        [InlineData("Aren't we all to you just near lost causes?", "All to you just near lost causes, we aren't.")]
-        [InlineData("Can't you see my pain?", "See my pain, you can't.")]
+        [InlineData("Ain't it about time?", "It ain't about time.")]
+        [InlineData("Aint you the guy with the master plan?", "You ain't the guy with the master plan.")]
+        [InlineData("Am I the one?", "I am the one.")]
+        [InlineData("Aren't we all to you just near lost causes?", "We aren't all to you just near lost causes.")]
+        [InlineData("Can't you see my pain?", "You can't see my pain.")]
         [InlineData("Canst thou not see the loss of loe painful is?", "You can not see the loss of loe painful is.")]
-        /*[InlineData("Cant you see what this does to me?", "You can't see what this does to me.")]
+        [InlineData("Cant you see what this does to me?", "You can't see what this does to me.")]
         [InlineData("Couldn't we just sit and share a smoke again?", "We couldn't just sit and share a smoke again.")]
         [InlineData("Didn't I do a good job of pretending?", "I didn't do a good job of pretending.")]
         [InlineData("Didst thou unlock in silence of the deep?", "You did unlock in silence of the deep.")]
@@ -48,7 +46,7 @@ namespace Paraphrasing.Tests
         [InlineData("Won't it make you glad when they're calling me crazy?", "It won't make you glad when they're calling me crazy.")]
         [InlineData("Wont you tell me what are we fighting for?", "You won't tell me what are we fighting for.")]
         [InlineData("Wouldn't it be a glorious day?", "It wouldn't be a glorious day.")]
-        [InlineData("Wanna copy me and exactly like I did?", "Copy me and exactly like I did.")]*/
+        [InlineData("Wanna copy me and exactly like I did?", "Copy me and exactly like I did.")]
         public void GivenInterrogativeSentence_ShouldConvertShortSwap(string interrogativeSentence, string expectedAffirmativeSentence)
         {
             // Arrange
@@ -60,7 +58,7 @@ namespace Paraphrasing.Tests
             // Assert
             Assert.Equal(expectedAffirmativeSentence.ToLowerInvariant(), actualAffirmativeSentence.ToLowerInvariant());
         }
-        /*
+
         [Theory]
         [InlineData("Any last words to say?", "There are last words to say.")]
         [InlineData("Anybody ever say no?", "Somebody say no.")]
@@ -145,13 +143,11 @@ namespace Paraphrasing.Tests
             // Assert
             Assert.Equal(expectedAffirmativeSentence, actualAffirmativeSentence);
         }
-        */
 
         private IWordOrderSwapper BuildWordOrderSwapper()
         {
             //return ParaphrasingTestHelper.BuildWordOrderSwapperByMatrix(languageMatrixFileName);
-            //return ParaphrasingTestHelper.BuildWordOrderSwapper();
-            return ParaphrasingTestHelper.BuildYodaWordOrderSwapper();
+            return ParaphrasingTestHelper.BuildWordOrderSwapper();
         }
     }
 }

@@ -10,8 +10,8 @@ namespace StringManipulation
     {
         public static string[] GetWordsAndPunctuationTokens(string originalText, params char[] excludePunctuationCharacters)
         {
+            originalText = originalText.ToLowerInvariant();
             List<string> wordsAndPunctuationTokens = new List<string>();
-
             StringBuilder stringBuilder = new StringBuilder();
 
             foreach (char character in originalText)

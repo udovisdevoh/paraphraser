@@ -91,6 +91,7 @@ namespace Paraphrasing
             EnglishInterrogativeToAffirmative.interrogativeFirstWordsToReplace = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
             {
                 {  "want", "do you want" },
+                {  "any", "are there" },
                 {  "how's", "how is" },
                 { "got", "do you have"}
             };
@@ -109,7 +110,7 @@ namespace Paraphrasing
                 "won't", "wont", "would", "wouldn't", "what's" };
 
             EnglishInterrogativeToAffirmative.wordsToSkipWhileSwapping = new HashSet<string>(StringComparer.OrdinalIgnoreCase) {
-                "a", "all", "these", "the", "that", "those", "this", "some", "not"
+                "a", "all", "these", "the", "that", "those", "this", "some"
             };
         }
         

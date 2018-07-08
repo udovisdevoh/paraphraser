@@ -9,7 +9,84 @@ namespace Paraphrasing
 {
     public class YodaWordOrderSwapper : IWordOrderSwapper
     {
+        private static HashSet<string> wordsToMoveToEnd = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
+        {
+            "not", "do", "be"
+        };
+
+        private static HashSet<string> wordsToDeleteFromStart = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
+        {
+            "and"
+        };
+
         public string SwapWordOrder(string text, HashSet<string> wordsToSwap, HashSet<string> wordsToSkip, int offset)
+        {
+            #warning Implement
+            #warning Add unit tests
+
+            text = this.SwapQuestionWord(text, wordsToSwap, wordsToSkip, offset);
+
+            text = this.MoveWordsToEnd(text, wordsToMoveToEnd);
+
+            text = this.DeleteWordsFromStart(text, wordsToDeleteFromStart);
+
+            return text;
+        }
+
+        private string DeleteWordsFromStart(string text, HashSet<string> wordsToDeleteFromStart)
+        {
+            #warning Implement
+            #warning Add unit tests
+
+            string[] words = WordExtractor.GetWordsAndPunctuationTokens(text, '\'');
+
+            if (words.Length >= 2)
+            {
+                if (wordsToDeleteFromStart.Contains(words[0]))
+                {
+                    words[0] = string.Empty;
+                    words[1] = string.Empty;
+                }
+            }
+
+            StringBuilder stringBuilder = new StringBuilder();
+            foreach (string word in words)
+            {
+                stringBuilder.Append(word);
+            }
+
+            return stringBuilder.ToString();
+        }
+
+        private string MoveWordsToEnd(string text, HashSet<string> wordsToMoveToEnd)
+        {
+            #warning Implement
+            #warning Add unit tests
+
+            string[] words = WordExtractor.GetWordsAndPunctuationTokens(text, '\'');
+
+            if (words.Length >= 2)
+            {
+                if (wordsToMoveToEnd.Contains(words[0]))
+                {
+                    string endingWord = words[0];
+                    words[0] = string.Empty;
+                    words[1] = string.Empty;
+
+                    words[words.Length - 1] = words[words.Length - 1] + " " + endingWord;
+                }
+            }
+
+            StringBuilder stringBuilder = new StringBuilder();
+            foreach (string word in words)
+            {
+                stringBuilder.Append(word);
+            }
+
+            return stringBuilder.ToString();
+        }
+
+        public string SwapQuestionWord(string text, HashSet<string> wordsToSwap, HashSet<string> wordsToSkip, int offset)
         {
             #warning Implement
             #warning Add unit tests
@@ -23,7 +100,6 @@ namespace Paraphrasing
 
             int swapCount = 0;
             int swappingPosition = -1;
-            bool hasFoundSwapping = false;
 
             string[] words = WordExtractor.GetWordsAndPunctuationTokens(text, '\'');
 

@@ -25,7 +25,7 @@ namespace Paraphrasing.Tests
             string actualSwappedText = wordOrderSwapper.SwapWordOrder(sourceText, wordsToSwap, null, 1);
 
             // Assert
-            Assert.Equal(expectedSwappedText, actualSwappedText);
+            Assert.Equal(expectedSwappedText.ToLowerInvariant(), actualSwappedText.ToLowerInvariant());
         }
 
         [Fact]
@@ -44,7 +44,7 @@ namespace Paraphrasing.Tests
             string actualSwappedText = wordOrderSwapper.SwapWordOrder(sourceText, wordsToSwap, wordsToSkipWhileSwapping, 1);
 
             // Assert
-            Assert.Equal(expectedSwappedText, actualSwappedText);
+            Assert.Equal(expectedSwappedText.ToLowerInvariant(), actualSwappedText.ToLowerInvariant());
         }
     }
 }
