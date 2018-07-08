@@ -67,5 +67,10 @@ namespace Paraphrasing.Tests
                 return binaryMatrixLoader.LoadMatrix(stream);
             }
         }
+
+        public static IWordOrderSwapper BuildYodaWordOrderSwapper()
+        {
+            return new YodaWordOrderSwapper();
+        }
     }
 }

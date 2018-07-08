@@ -109,7 +109,7 @@ namespace Paraphrasing
                 "won't", "wont", "would", "wouldn't", "what's" };
 
             EnglishInterrogativeToAffirmative.wordsToSkipWhileSwapping = new HashSet<string>(StringComparer.OrdinalIgnoreCase) {
-                "a", "all", "these", "the", "that", "those", "this", "some"
+                "a", "all", "these", "the", "that", "those", "this", "some", "not"
             };
         }
         

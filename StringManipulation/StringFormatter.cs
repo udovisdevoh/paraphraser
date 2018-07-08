@@ -100,6 +100,8 @@ namespace StringManipulation
 
         public static string SwapWordOrder(string text, HashSet<string> wordsToSwap, HashSet<string> wordsToSkip, int offset, int maxSwapCount)
         {
+            #warning Add unit tests for words to skip
+
             if (offset < 0)
             {
                 throw new ArgumentOutOfRangeException("offset must not be negative");
