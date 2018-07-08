@@ -8,6 +8,6 @@ namespace Paraphrasing
 {
     public interface IWordOrderSwapper
     {
-        string SwapWordOrder(string text, HashSet<string> wordsToSwap, int offset);
+        string SwapWordOrder(string text, HashSet<string> wordsToSwap, HashSet<string> wordsToSkip, int offset);
     }
 }

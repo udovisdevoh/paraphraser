@@ -9,9 +9,11 @@ namespace Paraphrasing
 {
     public class WordOrderSwapper : IWordOrderSwapper
     {
-        public string SwapWordOrder(string text, HashSet<string> wordsToSwap, int offset)
+        public string SwapWordOrder(string text, HashSet<string> wordsToSwap, HashSet<string> wordsToSkip, int offset)
         {
-            return StringFormatter.SwapWordOrder(text, wordsToSwap, offset, 1);
+            #warning Add unit tests
+
+            return StringFormatter.SwapWordOrder(text, wordsToSwap, wordsToSkip, offset, 1);
         }
     }
 }

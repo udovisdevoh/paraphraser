@@ -20,7 +20,7 @@ namespace Paraphrasing
 
         private static HashSet<string> interrogativeFirstWordsToRemove;
 
-        private static HashSet<string> wordSwappingSuffixMagnets;
+        private static HashSet<string> wordsToSkipWhileSwapping;
 
         private static Dictionary<string, string> interrogativeFirstWordsToReplace;
 
@@ -91,7 +91,8 @@ namespace Paraphrasing
             EnglishInterrogativeToAffirmative.interrogativeFirstWordsToReplace = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
             {
                 {  "want", "do you want" },
-                {  "how's", "how is" }
+                {  "how's", "how is" },
+                { "got", "do you have"}
             };
 
             EnglishInterrogativeToAffirmative.interrogativeFirstWordsToRemove = new HashSet<string>(StringComparer.OrdinalIgnoreCase) {
@@ -106,6 +107,10 @@ namespace Paraphrasing
                 "whatcha", "what'll", "what're", "whats", "when", "when's", "where", "where'd", "where're",
                 "where've", "which", "who", "who'd", "who'll", "whom", "who's", "whose", "whut", "why", "will",
                 "won't", "wont", "would", "wouldn't", "what's" };
+
+            EnglishInterrogativeToAffirmative.wordsToSkipWhileSwapping = new HashSet<string>(StringComparer.OrdinalIgnoreCase) {
+                "a", "all", "these", "the", "that", "those", "this", "some"
+            };
         }
         
         public EnglishInterrogativeToAffirmative(IWordOrderSwapper wordOrderSwapper)
@@ -130,7 +135,7 @@ namespace Paraphrasing
             text = text.Replace(" ,", ",");
             text = StringFormatter.RemoveDoubleTabsSpacesAndEnters(text);
 
-            text = this.wordOrderSwapper.SwapWordOrder(text, interrogativeStartingWordListsToSwapWithNextWord, 1);
+            text = this.wordOrderSwapper.SwapWordOrder(text, interrogativeStartingWordListsToSwapWithNextWord, wordsToSkipWhileSwapping, 1);
 
             text = StringFormatter.ReplaceWords(text, EnglishInterrogativeToAffirmative.firstWordsToReplaceInterrogativeToAffirmative, 0, 0);
 

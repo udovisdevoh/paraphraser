@@ -98,7 +98,7 @@ namespace StringManipulation
             return stringBuilder.ToString();
         }
 
-        public static string SwapWordOrder(string text, HashSet<string> wordsToSwap, int offset, int maxSwapCount)
+        public static string SwapWordOrder(string text, HashSet<string> wordsToSwap, HashSet<string> wordsToSkip, int offset, int maxSwapCount)
         {
             if (offset < 0)
             {
@@ -121,7 +121,11 @@ namespace StringManipulation
                     string nextWord = words[index + (offset * 2)];
                     words[index + (offset * 2)] = words[index];
                     words[index] = nextWord;
-                    ++swapCount;
+
+                    if (wordsToSkip == null || !wordsToSkip.Contains(nextWord))
+                    {
+                        ++swapCount;
+                    }
                 }
 
                 stringBuilder.Append(words[index]);
