@@ -138,7 +138,8 @@ namespace Paraphrasing
 
             text = this.wordOrderSwapper.SwapWordOrder(text, interrogativeStartingWordListsToSwapWithNextWord, wordsToSkipWhileSwapping, 1);
 
-            text = StringFormatter.ReplaceWords(text, EnglishInterrogativeToAffirmative.firstWordsToReplaceInterrogativeToAffirmative, 0, 0);
+            //text = StringFormatter.ReplaceWords(text, EnglishInterrogativeToAffirmative.firstWordsToReplaceInterrogativeToAffirmative, 0, 0);
+            text = StringFormatter.ReplaceWords(text, EnglishInterrogativeToAffirmative.firstWordsToReplaceInterrogativeToAffirmative, -1, -1);
 
             if (originallyEndsWithQuestionMark)
             {

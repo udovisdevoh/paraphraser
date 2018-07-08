@@ -117,7 +117,7 @@ namespace Paraphrasing
                     words[index + (offset * 2)] = words[index];
                     words[index] = nextWord;
 
-                    if (wordsToSkip == null || !wordsToSkip.Contains(nextWord))
+                    if (wordsToSkip == null || (!wordsToSkip.Contains(nextWord)))
                     {
                         ++swapCount;
                         swappingPosition = index;
@@ -126,15 +126,27 @@ namespace Paraphrasing
 
                 if (index > swappingPosition + 3)
                 {
+                    stringBuilderForBeginning.Append(" ");
                     stringBuilderForBeginning.Append(words[index]);
                 }
                 else
                 {
+                    stringBuilderForEnding.Append(" ");
                     stringBuilderForEnding.Append(words[index]);
                 }
             }
 
-            return stringBuilderForBeginning.ToString().Trim() + ", " + stringBuilderForEnding.ToString().Trim();
+            string firstPart = stringBuilderForBeginning.ToString().Trim();
+
+            if (!string.IsNullOrWhiteSpace(firstPart))
+            {
+                text = StringFormatter.RemoveDoubleTabsSpacesAndEnters(firstPart + ", " + stringBuilderForEnding.ToString().Trim());
+            }
+            else
+            {
+                text = StringFormatter.RemoveDoubleTabsSpacesAndEnters(stringBuilderForEnding.ToString().Trim());
+            }
+            return text;
         }
     }
 }
