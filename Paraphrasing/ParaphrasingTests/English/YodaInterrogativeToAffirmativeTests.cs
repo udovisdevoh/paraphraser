@@ -103,7 +103,7 @@ namespace Paraphrasing.Tests
         [InlineData("Would this song live on forever?", "Live on forever, this song would.")]
         [InlineData("Whut is the dead like?", "Like, the dead is.")]
         [InlineData("Where'd all the good people go?", "People go, all the good did.")]
-        [InlineData("Where're my friends?", "Friends, my are.")]
+        [InlineData("Where're my friends?", "My friends are.")]
         public void GivenInterrogativeSentence_ShouldConvertLongSwap(string interrogativeSentence, string expectedAffirmativeSentence)
         {
             // Arrange

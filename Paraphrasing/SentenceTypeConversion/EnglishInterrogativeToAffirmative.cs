@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Paraphrasing
@@ -21,6 +22,8 @@ namespace Paraphrasing
         private static HashSet<string> interrogativeFirstWordsToRemove;
 
         private static HashSet<string> wordsToSkipWhileSwapping;
+
+        private static List<Regex> wordsRegexToSkipWhileSwapping;
 
         private static Dictionary<string, string> interrogativeFirstWordsToReplace;
 
@@ -110,7 +113,11 @@ namespace Paraphrasing
                 "won't", "wont", "would", "wouldn't", "what's" };
 
             EnglishInterrogativeToAffirmative.wordsToSkipWhileSwapping = new HashSet<string>(StringComparer.OrdinalIgnoreCase) {
-                "a", "all", "these", "the", "that", "those", "this", "some"
+                "a", "all", "these", "the", "that", "those", "this", "some", "my", "self"
+            };
+
+            EnglishInterrogativeToAffirmative.wordsRegexToSkipWhileSwapping = new List<Regex>() {
+                new Regex(@"\w*(ous)\b", RegexOptions.IgnoreCase)
             };
         }
         
@@ -136,7 +143,7 @@ namespace Paraphrasing
             text = text.Replace(" ,", ",");
             text = StringFormatter.RemoveDoubleTabsSpacesAndEnters(text);
 
-            text = this.wordOrderSwapper.SwapWordOrder(text, interrogativeStartingWordListsToSwapWithNextWord, wordsToSkipWhileSwapping, 1);
+            text = this.wordOrderSwapper.SwapWordOrder(text, interrogativeStartingWordListsToSwapWithNextWord, wordsToSkipWhileSwapping, wordsRegexToSkipWhileSwapping, 1);
 
             //text = StringFormatter.ReplaceWords(text, EnglishInterrogativeToAffirmative.firstWordsToReplaceInterrogativeToAffirmative, 0, 0);
             text = StringFormatter.ReplaceWords(text, EnglishInterrogativeToAffirmative.firstWordsToReplaceInterrogativeToAffirmative, -1, -1);

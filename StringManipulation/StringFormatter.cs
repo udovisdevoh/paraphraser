@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace StringManipulation
@@ -98,9 +99,9 @@ namespace StringManipulation
             return stringBuilder.ToString();
         }
 
-        public static string SwapWordOrder(string text, HashSet<string> wordsToSwap, HashSet<string> wordsToSkip, int offset, int maxSwapCount)
+        public static string SwapWordOrder(string text, HashSet<string> wordsToSwap, HashSet<string> wordsToSkip, List<Regex> wordsRegexToSkipWhileSwapping, int offset, int maxSwapCount)
         {
-            #warning Add unit tests for words to skip
+            #warning Add unit tests for words and regex to skip
 
             if (offset < 0)
             {
@@ -126,6 +127,7 @@ namespace StringManipulation
 
                     if (wordsToSkip == null || !wordsToSkip.Contains(nextWord))
                     {
+                        if (wordsRegexToSkipWhileSwapping == null || !IsMatch(wordsRegexToSkipWhileSwapping, nextWord))
                         ++swapCount;
                     }
                 }
@@ -134,6 +136,19 @@ namespace StringManipulation
             }
 
             return stringBuilder.ToString();
+        }
+
+        public static bool IsMatch(this IEnumerable<Regex> regularExpressions, string word)
+        {
+            #warning Add unit tests
+            foreach (Regex regex in regularExpressions)
+            {
+                if (regex.IsMatch(word))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         public static string RemoveWords(string text, HashSet<string> wordsToRemove)

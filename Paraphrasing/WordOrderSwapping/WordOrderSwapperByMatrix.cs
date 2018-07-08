@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Paraphrasing
@@ -21,7 +22,7 @@ namespace Paraphrasing
             this.textMatrixLoader = textMatrixLoader;
         }
 
-        public string SwapWordOrder(string text, HashSet<string> wordsToSwap, HashSet<string> wordsToSkip, int offset)
+        public string SwapWordOrder(string text, HashSet<string> wordsToSwap, HashSet<string> wordsToSkip, List<Regex> wordsRegexToSkipWhileSwapping, int offset)
         {
             Dictionary<string, double> matrixDistances = new Dictionary<string, double>();
             string previousSwappedText = null;
@@ -34,7 +35,7 @@ namespace Paraphrasing
             while (true)
             {
                 previousSwappedText = currentSwappedText;
-                currentSwappedText = StringFormatter.SwapWordOrder(previousSwappedText, wordsToSwap, wordsToSkip, offset, 1);
+                currentSwappedText = StringFormatter.SwapWordOrder(previousSwappedText, wordsToSwap, wordsToSkip, wordsRegexToSkipWhileSwapping, offset, 1);
                 if (currentSwappedText == previousSwappedText)
                 {
                     break;

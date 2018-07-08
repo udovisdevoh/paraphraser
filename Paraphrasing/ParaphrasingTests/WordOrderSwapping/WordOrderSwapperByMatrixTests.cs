@@ -22,7 +22,7 @@ namespace Paraphrasing.Tests
             HashSet<string> wordsToSwap = new HashSet<string>(StringComparer.OrdinalIgnoreCase) { "red" };
 
             // Act
-            string actualSwappedText = wordOrderSwapper.SwapWordOrder(sourceText, wordsToSwap, null, 1);
+            string actualSwappedText = wordOrderSwapper.SwapWordOrder(sourceText, wordsToSwap, null, null, 1);
 
             // Assert
             Assert.Equal(expectedSwappedText.ToLowerInvariant(), actualSwappedText.ToLowerInvariant());
@@ -41,7 +41,7 @@ namespace Paraphrasing.Tests
             HashSet<string> wordsToSkipWhileSwapping = new HashSet<string>(StringComparer.OrdinalIgnoreCase) { "a" };
 
             // Act
-            string actualSwappedText = wordOrderSwapper.SwapWordOrder(sourceText, wordsToSwap, wordsToSkipWhileSwapping, 1);
+            string actualSwappedText = wordOrderSwapper.SwapWordOrder(sourceText, wordsToSwap, wordsToSkipWhileSwapping, null, 1);
 
             // Assert
             Assert.Equal(expectedSwappedText.ToLowerInvariant(), actualSwappedText.ToLowerInvariant());
