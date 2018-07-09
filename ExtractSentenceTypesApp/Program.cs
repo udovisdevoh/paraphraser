@@ -12,8 +12,59 @@ namespace ExtractSentenceTypesApp
     {
         static void Main(string[] args)
         {
-            Program.ExtractInterrogativeSentences("./LanguageSamples/lyrics.en.txt", "./en.interrogative.2.txt", 2);
-            Program.ExtractInterrogativeSentences("./LanguageSamples/lyrics.fr.txt", "./fr.interrogative.2.txt", 2);
+
+            //Program.ExtractInterrogativeSentences("./LanguageSamples/lyrics.en.txt", "./en.interrogative.2.txt", 2);
+            //Program.ExtractInterrogativeSentences("./LanguageSamples/lyrics.fr.txt", "./fr.interrogative.2.txt", 2);
+
+            // https://en.wikipedia.org/wiki/English_personal_pronouns
+            string[] personalPronouns = new string[] {
+                "i", "me", "my", "mine", "myself",
+                "you", "your", "yours", "yourself", "yourselves",
+                "we", "us", "our", "ours", "ourselves",
+                "thou", "thee", "thyself", "thine", "thy",
+                "ye", "you all", "y'all", "y'all's"
+            };
+
+            foreach (string personalPronoun in personalPronouns)
+            {
+                Program.ExtractSentenceHavingWord("./LanguageSamples/lyrics.en.txt", "./en." + personalPronoun  + ".txt", personalPronoun);
+            }
+        }
+
+        public static void ExtractSentenceHavingWord(string inputFileName, string outputFileName, string wordToFind)
+        {
+            wordToFind = wordToFind.ToLowerInvariant();
+            using (StreamReader streamReader = new StreamReader(inputFileName))
+            {
+                using (StreamWriter streamWriter = new StreamWriter(outputFileName))
+                {
+                    string line;
+                    while ((line = streamReader.ReadLine()) != null)
+                    {
+                        line = StringFormatter.FixApostrophe(line);
+                        line = StringFormatter.RemovePunctuation(line, '&', '\'', '?');
+                        line = StringFormatter.RemoveLigatures(line);
+                        line = StringFormatter.RemoveDoubleTabsSpacesAndEnters(line);
+                        line = line.Trim();
+                        string[] words = WordExtractor.GetLowerInvariantWords(line, '\'');
+
+                        bool isFoundWord = false;
+                        foreach (string word in words)
+                        {
+                            if (word == wordToFind)
+                            {
+                                isFoundWord = true;
+                                break;
+                            }
+                        }
+
+                        if (isFoundWord)
+                        {
+                            streamWriter.WriteLine(line);
+                        }
+                    }
+                }
+            }
         }
 
         public static void ExtractInterrogativeSentences(string inputFileName, string outputFileName, int repeatingWords)

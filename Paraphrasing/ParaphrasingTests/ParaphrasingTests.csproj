@@ -73,6 +73,7 @@
     <Compile Include="English\EnglishSentenceTypeDetectorAffirmativeTests.cs" />
     <Compile Include="English\EnglishSentenceTypeDetectorInterrogativeTests.cs" />
     <Compile Include="English\YodaInterrogativeToAffirmativeTests.cs" />
+    <Compile Include="FirstSecondPersonInversion\FirstSecondPersonInverterTests.cs" />
     <Compile Include="WordOrderSwapping\WordOrderSwapperByMatrixTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WordOrderSwapping\YodaWordOrderSwapperTests.cs" />

@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FirstSecondPersonInversion\IFirstSecondPersonInverter.cs" />
     <Compile Include="SentenceTypeConversion\IEnglishInterrogativeToAffirmative.cs" />
     <Compile Include="SentenceTypeDetection\ISentenceTypeDetector.cs" />
     <Compile Include="SentenceTypeDetection\SentenceType.cs" />
