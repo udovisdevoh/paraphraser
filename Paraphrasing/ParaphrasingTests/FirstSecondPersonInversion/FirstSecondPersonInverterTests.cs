@@ -333,6 +333,7 @@ namespace Paraphrasing.Tests
         [InlineData("Steve talks without you.", "Steve talks without me.")]
         [InlineData("Steves follows you.", "Steves follows me.")]
         [InlineData("Steves follows you, it is obvious.", "Steves follows me, it is obvious.")]
+        [InlineData("Steves follows you and it is obvious.", "Steves follows me and it is obvious.")]
         public void GivenSentenceWithYou_ShouldConvertToMe(string input, string expectedOutput)
         {
             // Arrange

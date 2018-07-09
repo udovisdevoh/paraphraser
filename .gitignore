@@ -95,3 +95,6 @@
 /WordMatrixConstructionApp/LanguageSamples/lyrics.en.txt
 /Paraphrasing/ParaphrasingTestHelpers/bin
 /Paraphrasing/ParaphrasingTestHelpers/obj
+/ChatConsoleApp/obj
+/ChatConsoleApp/.vs
+/ChatConsoleApp/bin

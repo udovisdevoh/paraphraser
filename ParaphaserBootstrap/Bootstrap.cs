@@ -38,7 +38,7 @@ namespace ParaphaserBootstrap
 
         public IEnglishInterrogativeToAffirmative BuildEnglishInterrogativeToAffirmative()
         {
-            return new EnglishInterrogativeToAffirmative(new WordOrderSwapper());
+            return new EnglishInterrogativeToAffirmative(new YodaWordOrderSwapper());
         }
 
         public IMarkovMatrixLoader<string, double> BuildBinaryStringMarkovMatrixLoader()

@@ -38,10 +38,25 @@ namespace Paraphrasing
                     continue;
                 }
 
+                if (index + 4 < words.Length)
+                {
+                    string nextWord = words[index + 2];
+                    string nextNextWord = words[index + 4];
+                    Tuple<string, string, string> replacedWordTrio;
+                    if (this.TryReplaceWordTrio(currentWord, nextWord, nextNextWord, out replacedWordTrio))
+                    {
+                        words[index] = replacedWordTrio.Item1;
+                        words[index + 2] = replacedWordTrio.Item2;
+                        words[index + 4] = replacedWordTrio.Item3;
+
+                        index += 4; // Skip next two word
+                        continue;
+                    }
+                }
+
                 if (index + 2 < words.Length)
                 {
                     string nextWord = words[index + 2];
-
                     Tuple<string, string> replacedWordPair;
                     if (this.TryReplaceWordPair(currentWord, nextWord, out replacedWordPair))
                     {
@@ -58,7 +73,8 @@ namespace Paraphrasing
                     }
                 }
 
-                words[index] = this.TryReplaceWord(words[index]);
+                string nextToken = index + 1 < words.Length ? words[index + 1] : null;
+                words[index] = this.TryReplaceWord(words[index], nextToken);
             }
 
             StringBuilder stringBuilder = new StringBuilder();
@@ -70,7 +86,7 @@ namespace Paraphrasing
             return stringBuilder.ToString();
         }
 
-        private string TryReplaceWord(string word)
+        private string TryReplaceWord(string word, string nextToken)
         {
             if (word == "i" || word == "me" || word == "we")
             {
@@ -100,7 +116,18 @@ namespace Paraphrasing
             {
                 return "you're";
             }
-            else if (word == "you" || word == "thou" || word == "ye")
+            else if (word == "you")
+            {
+                if (nextToken == null || StringAnalysis.IsPunctuationOrSpace(nextToken, ' '))
+                {
+                    return "me";
+                }
+                else
+                {
+                    return "i";
+                }
+            }
+            else if (word == "thou" || word == "ye")
             {
                 return "i";
             }
@@ -170,6 +197,11 @@ namespace Paraphrasing
                     replacedWordPair = new Tuple<string, string>("i", "was");
                     return true;
                 }
+                else if (word2 == "and")
+                {
+                    replacedWordPair = new Tuple<string, string>("me", "and");
+                    return true;
+                }
             }
 
             if (word2 == "you")
@@ -178,6 +210,24 @@ namespace Paraphrasing
                 {
                     replacedWordPair = new Tuple<string, string>(word1, "me");
                     return true;
+                }
+            }
+
+            return false;
+        }
+
+        private bool TryReplaceWordTrio(string word1, string word2, string word3, out Tuple<string, string, string> replacedWordTrio)
+        {
+            replacedWordTrio = null;
+            if (word1 == "and")
+            {
+                if (word2 == "you")
+                {
+                    if (word3 == "are")
+                    {
+                        replacedWordTrio = new Tuple<string, string, string>("and", "i", "are");
+                        return true;
+                    }
                 }
             }
 
