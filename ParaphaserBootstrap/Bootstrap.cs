@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using LanguageDetection;
 using MarkovMatrices;
+using Paraphrasing;
 using SpellChecking;
 using StringManipulation;
 
@@ -30,6 +31,16 @@ namespace ParaphaserBootstrap
             return new BinaryStringMarkovMatrixSaver();
         }
 
+        public ISentenceTypeDetector BuildSentenceTypeDetector()
+        {
+            return new EnglishSentenceTypeDetector();
+        }
+
+        public IEnglishInterrogativeToAffirmative BuildEnglishInterrogativeToAffirmative()
+        {
+            return new EnglishInterrogativeToAffirmative(new WordOrderSwapper());
+        }
+
         public IMarkovMatrixLoader<string, double> BuildBinaryStringMarkovMatrixLoader()
         {
             return new BinaryStringMarkovMatrixLoader();
@@ -38,6 +49,11 @@ namespace ParaphaserBootstrap
         public IMarkovMatrixLoader<string, double> BuildStringMarkovMatrixLoaderFromText()
         {
             return new StringMarkovMatrixLoaderFromText();
+        }
+
+        public IFirstSecondPersonInverter BuildFirstSecondPersonInverter()
+        {
+            return new FirstSecondPersonInverter();
         }
 
         public ICompositeLanguageDetector BuildCompositeLanguageDetector()

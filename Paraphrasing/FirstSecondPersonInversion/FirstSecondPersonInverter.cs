@@ -104,6 +104,10 @@ namespace Paraphrasing
             {
                 return "i";
             }
+            else if (word == "you're")
+            {
+                return "i'm";
+            }
             else if (word == "thee")
             {
                 return "me";
@@ -154,6 +158,16 @@ namespace Paraphrasing
                 if (word2 == "guys" || word2 == "all" || word2 == "people")
                 {
                     replacedWordPair = new Tuple<string, string>("us", string.Empty);
+                    return true;
+                }
+                else if (word2 == "are")
+                {
+                    replacedWordPair = new Tuple<string, string>("i", "am");
+                    return true;
+                }
+                else if (word2 == "were")
+                {
+                    replacedWordPair = new Tuple<string, string>("i", "was");
                     return true;
                 }
             }

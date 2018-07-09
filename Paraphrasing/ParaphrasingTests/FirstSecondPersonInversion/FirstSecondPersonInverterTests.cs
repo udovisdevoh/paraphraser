@@ -44,7 +44,7 @@ namespace Paraphrasing.Tests
         [Theory]
         [InlineData("I'm great.", "You're great.")]
         [InlineData("Steve says I'm great.", "Steve says you're great.")]
-        public void GivenSentenceWithIm_ShouldConvertToYouAre(string input, string expectedOutput)
+        public void GivenSentenceWithIm_ShouldConvertToYouRe(string input, string expectedOutput)
         {
             // Arrange
             FirstSecondPersonInverter firstSecondPersonInverter = new FirstSecondPersonInverter();
@@ -331,7 +331,72 @@ namespace Paraphrasing.Tests
         [InlineData("Steve talks with you.", "Steve talks with me.")]
         [InlineData("Steve talks within you.", "Steve talks within me.")]
         [InlineData("Steve talks without you.", "Steve talks without me.")]
+        [InlineData("Steves follows you.", "Steves follows me.")]
+        [InlineData("Steves follows you, it is obvious.", "Steves follows me, it is obvious.")]
         public void GivenSentenceWithYou_ShouldConvertToMe(string input, string expectedOutput)
+        {
+            // Arrange
+            FirstSecondPersonInverter firstSecondPersonInverter = new FirstSecondPersonInverter();
+
+            // Act
+            string actualOutput = firstSecondPersonInverter.Convert(input);
+
+            // Assert
+            Assert.Equal(expectedOutput.ToLowerInvariant(), actualOutput.ToLowerInvariant());
+        }
+        #endregion
+
+        #region From You to I
+        [Theory]
+        [InlineData("You say this is great.", "I say this is great.")]
+        [InlineData("Do you say this is great.", "Do I say this is great.")]
+        [InlineData("Steve and you are going.", "Steve and I are going.")]
+        public void GivenSentenceWithYou_ShouldConvertToI(string input, string expectedOutput)
+        {
+            // Arrange
+            FirstSecondPersonInverter firstSecondPersonInverter = new FirstSecondPersonInverter();
+
+            // Act
+            string actualOutput = firstSecondPersonInverter.Convert(input);
+
+            // Assert
+            Assert.Equal(expectedOutput.ToLowerInvariant(), actualOutput.ToLowerInvariant());
+        }
+
+        [Theory]
+        [InlineData("You are great.", "I am great.")]
+        [InlineData("Steve says you are great.", "Steve says I am great.")]
+        public void GivenSentenceWithYouAre_ShouldConvertToIam(string input, string expectedOutput)
+        {
+            // Arrange
+            FirstSecondPersonInverter firstSecondPersonInverter = new FirstSecondPersonInverter();
+
+            // Act
+            string actualOutput = firstSecondPersonInverter.Convert(input);
+
+            // Assert
+            Assert.Equal(expectedOutput.ToLowerInvariant(), actualOutput.ToLowerInvariant());
+        }
+
+        [Theory]
+        [InlineData("You're great.", "I'm great.")]
+        [InlineData("Steve says you're great.", "Steve says I'm great.")]
+        public void GivenSentenceWithYouRe_ShouldConvertToIm(string input, string expectedOutput)
+        {
+            // Arrange
+            FirstSecondPersonInverter firstSecondPersonInverter = new FirstSecondPersonInverter();
+
+            // Act
+            string actualOutput = firstSecondPersonInverter.Convert(input);
+
+            // Assert
+            Assert.Equal(expectedOutput.ToLowerInvariant(), actualOutput.ToLowerInvariant());
+        }
+
+        [Theory]
+        [InlineData("You were great.", "I was great.")]
+        [InlineData("Steve says you were great.", "Steve says I was great.")]
+        public void GivenSentenceWithYouWere_ShouldConvertToIWas(string input, string expectedOutput)
         {
             // Arrange
             FirstSecondPersonInverter firstSecondPersonInverter = new FirstSecondPersonInverter();

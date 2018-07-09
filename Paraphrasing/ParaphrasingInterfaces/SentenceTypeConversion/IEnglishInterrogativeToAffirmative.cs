@@ -8,5 +8,6 @@ namespace Paraphrasing
 {
     public interface IEnglishInterrogativeToAffirmative
     {
+        string Convert(string text);
     }
 }

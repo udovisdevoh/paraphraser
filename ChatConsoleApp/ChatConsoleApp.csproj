@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B2F6FE59-C5ED-48B8-9B34-90F165BA008C}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>ChatConsoleApp</RootNamespace>
+    <AssemblyName>ChatConsoleApp</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LanguageDetection\LanguageDetectionInterfaces\LanguageDetectionInterfaces.csproj">
+      <Project>{2a94e485-0ff0-49a6-8472-466d3e23a797}</Project>
+      <Name>LanguageDetectionInterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ParaphaserBootstrap\ParaphaserBootstrap.csproj">
+      <Project>{4c76be25-0a4b-407e-ba17-21ed5c2e5a94}</Project>
+      <Name>ParaphaserBootstrap</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Paraphrasing\ParaphrasingInterfaces\ParaphrasingInterfaces.csproj">
+      <Project>{62290bc4-c27b-4927-9553-e09d9d7a6439}</Project>
+      <Name>ParaphrasingInterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StringManipulation\StringManipulation.csproj">
+      <Project>{8033F5BF-DCD2-4193-B1A9-BA6E98D937CE}</Project>
+      <Name>StringManipulation</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
