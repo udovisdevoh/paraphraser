@@ -38,6 +38,34 @@ namespace StringManipulation.Tests
         }
 
         [Fact]
+        public void Given_SpaceString_DetectPunctuation_ShouldReturnTrue()
+        {
+            // Assert
+            Assert.True(StringAnalysis.IsPunctuationOrSpace(" "));
+        }
+
+        [Fact]
+        public void Given_PunctuationString_DetectPunctuation_ShouldReturnTrue()
+        {
+            // Assert
+            Assert.True(StringAnalysis.IsPunctuationOrSpace(","));
+        }
+
+        [Fact]
+        public void Given_LetterString_DetectPunctuation_ShouldReturnFalse()
+        {
+            // Assert
+            Assert.False(StringAnalysis.IsPunctuationOrSpace("A"));
+        }
+
+        [Fact]
+        public void Given_LetterString_DetectPunctuationWithExclusionList_ShouldReturnFalse()
+        {
+            // Assert
+            Assert.False(StringAnalysis.IsPunctuationOrSpace(",", '.', ','));
+        }
+
+        [Fact]
         public void GivenWord_ShouldGetIdenticalWordRegardlessPunctuation()
         {
             // Arrange

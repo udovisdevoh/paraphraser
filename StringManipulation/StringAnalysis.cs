@@ -31,8 +31,6 @@ namespace StringManipulation
 
         public static bool IsPunctuationOrSpace(string character, params char[] excludePunctuationCharacters)
         {
-            #warning Add unit tests
-
             if (character.Length != 1)
             {
                 return false;

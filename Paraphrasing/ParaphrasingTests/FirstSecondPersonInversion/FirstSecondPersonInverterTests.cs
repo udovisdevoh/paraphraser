@@ -9,8 +9,6 @@ namespace Paraphrasing.Tests
 {
     public class FirstSecondPersonInverterTests
     {
-        #warning Todo Add unit tests
-
         #region From I to You
         [Theory]
         [InlineData("I say this is great.", "You say this is great.")]
@@ -220,7 +218,7 @@ namespace Paraphrasing.Tests
 
         #region From Ourselves to Yourselves
         [Theory]
-        [InlineData("Steve told that your ourselves.", "Steve told that your yourselves.")]
+        [InlineData("Steve told that to ourselves.", "Steve told that to yourselves.")]
         public void GivenSentenceWithOurselves_ShouldConvertToYourselves(string input, string expectedOutput)
         {
             // Arrange
@@ -334,6 +332,187 @@ namespace Paraphrasing.Tests
         [InlineData("Steve talks within you.", "Steve talks within me.")]
         [InlineData("Steve talks without you.", "Steve talks without me.")]
         public void GivenSentenceWithYou_ShouldConvertToMe(string input, string expectedOutput)
+        {
+            // Arrange
+            FirstSecondPersonInverter firstSecondPersonInverter = new FirstSecondPersonInverter();
+
+            // Act
+            string actualOutput = firstSecondPersonInverter.Convert(input);
+
+            // Assert
+            Assert.Equal(expectedOutput.ToLowerInvariant(), actualOutput.ToLowerInvariant());
+        }
+        #endregion
+
+        #region From Your to My
+        [Theory]
+        [InlineData("This is your car.", "This is my car.")]
+        [InlineData("Your car is the best.", "My car is the best.")]
+        public void GivenSentenceWithYour_ShouldConvertToMy(string input, string expectedOutput)
+        {
+            // Arrange
+            FirstSecondPersonInverter firstSecondPersonInverter = new FirstSecondPersonInverter();
+
+            // Act
+            string actualOutput = firstSecondPersonInverter.Convert(input);
+
+            // Assert
+            Assert.Equal(expectedOutput.ToLowerInvariant(), actualOutput.ToLowerInvariant());
+        }
+        #endregion
+
+        #region From Yours to Mine
+        [Theory]
+        [InlineData("This car is yours.", "This car is mine.")]
+        public void GivenSentenceWithYours_ShouldConvertToMine(string input, string expectedOutput)
+        {
+            // Arrange
+            FirstSecondPersonInverter firstSecondPersonInverter = new FirstSecondPersonInverter();
+
+            // Act
+            string actualOutput = firstSecondPersonInverter.Convert(input);
+
+            // Assert
+            Assert.Equal(expectedOutput.ToLowerInvariant(), actualOutput.ToLowerInvariant());
+        }
+        #endregion
+
+        #region From Yourself to Myself
+        [Theory]
+        [InlineData("Steve told that to yourself.", "Steve told that to myself.")]
+        public void GivenSentenceWithYourself_ShouldConvertToMyself(string input, string expectedOutput)
+        {
+            // Arrange
+            FirstSecondPersonInverter firstSecondPersonInverter = new FirstSecondPersonInverter();
+
+            // Act
+            string actualOutput = firstSecondPersonInverter.Convert(input);
+
+            // Assert
+            Assert.Equal(expectedOutput.ToLowerInvariant(), actualOutput.ToLowerInvariant());
+        }
+        #endregion
+
+        #region From Yourselves to Ourselves
+        [Theory]
+        [InlineData("Steve told that to yourselves.", "Steve told that to ourselves.")]
+        public void GivenSentenceWithYourselves_ShouldConvertToOurselves(string input, string expectedOutput)
+        {
+            // Arrange
+            FirstSecondPersonInverter firstSecondPersonInverter = new FirstSecondPersonInverter();
+
+            // Act
+            string actualOutput = firstSecondPersonInverter.Convert(input);
+
+            // Assert
+            Assert.Equal(expectedOutput.ToLowerInvariant(), actualOutput.ToLowerInvariant());
+        }
+        #endregion
+
+        #region From Thou to I
+        [Theory]
+        [InlineData("Thou told that.", "I told that.")]
+        public void GivenSentenceWithThou_ShouldConvertToI(string input, string expectedOutput)
+        {
+            // Arrange
+            FirstSecondPersonInverter firstSecondPersonInverter = new FirstSecondPersonInverter();
+
+            // Act
+            string actualOutput = firstSecondPersonInverter.Convert(input);
+
+            // Assert
+            Assert.Equal(expectedOutput.ToLowerInvariant(), actualOutput.ToLowerInvariant());
+        }
+        #endregion
+
+        #region From Thou to I
+        [Theory]
+        [InlineData("Steve told thee.", "Steve told me.")]
+        public void GivenSentenceWithThee_ShouldConvertToMe(string input, string expectedOutput)
+        {
+            // Arrange
+            FirstSecondPersonInverter firstSecondPersonInverter = new FirstSecondPersonInverter();
+
+            // Act
+            string actualOutput = firstSecondPersonInverter.Convert(input);
+
+            // Assert
+            Assert.Equal(expectedOutput.ToLowerInvariant(), actualOutput.ToLowerInvariant());
+        }
+        #endregion
+
+        #region From Thy to My
+        [Theory]
+        [InlineData("Thy car is the best.", "My car is the best.")]
+        public void GivenSentenceWithThy_ShouldConvertToMy(string input, string expectedOutput)
+        {
+            // Arrange
+            FirstSecondPersonInverter firstSecondPersonInverter = new FirstSecondPersonInverter();
+
+            // Act
+            string actualOutput = firstSecondPersonInverter.Convert(input);
+
+            // Assert
+            Assert.Equal(expectedOutput.ToLowerInvariant(), actualOutput.ToLowerInvariant());
+        }
+        #endregion
+
+        #region From Thyself to Myself
+        [Theory]
+        [InlineData("Steve told that to thyself.", "Steve told that to myself.")]
+        public void GivenSentenceWithThyself_ShouldConvertToMyself(string input, string expectedOutput)
+        {
+            // Arrange
+            FirstSecondPersonInverter firstSecondPersonInverter = new FirstSecondPersonInverter();
+
+            // Act
+            string actualOutput = firstSecondPersonInverter.Convert(input);
+
+            // Assert
+            Assert.Equal(expectedOutput.ToLowerInvariant(), actualOutput.ToLowerInvariant());
+        }
+        #endregion
+
+        #region From Thine to Mine
+        [Theory]
+        [InlineData("This car is thine.", "This car is mine.")]
+        public void GivenSentenceWithThine_ShouldConvertToMine(string input, string expectedOutput)
+        {
+            // Arrange
+            FirstSecondPersonInverter firstSecondPersonInverter = new FirstSecondPersonInverter();
+
+            // Act
+            string actualOutput = firstSecondPersonInverter.Convert(input);
+
+            // Assert
+            Assert.Equal(expectedOutput.ToLowerInvariant(), actualOutput.ToLowerInvariant());
+        }
+        #endregion
+
+        #region From Ye to I
+        [Theory]
+        [InlineData("Ye told that.", "I told that.")]
+        public void GivenSentenceWithYe_ShouldConvertToI(string input, string expectedOutput)
+        {
+            // Arrange
+            FirstSecondPersonInverter firstSecondPersonInverter = new FirstSecondPersonInverter();
+
+            // Act
+            string actualOutput = firstSecondPersonInverter.Convert(input);
+
+            // Assert
+            Assert.Equal(expectedOutput.ToLowerInvariant(), actualOutput.ToLowerInvariant());
+        }
+        #endregion
+
+        #region From "you all", "y'all", "y'all's" and "you guys", "you people" to "us"
+        [Theory]
+        [InlineData("Steve told you all.", "Steve told us.")]
+        [InlineData("Steve told you guys.", "Steve told us.")]
+        [InlineData("Steve told you people.", "Steve told us.")]
+        [InlineData("Steve told y'all.", "Steve told us.")]
+        [InlineData("Steve told y'all's.", "Steve told us.")]
+        public void GivenSentenceWithYouGuys_ShouldConvertToUs(string input, string expectedOutput)
         {
             // Arrange
             FirstSecondPersonInverter firstSecondPersonInverter = new FirstSecondPersonInverter();

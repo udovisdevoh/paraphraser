@@ -47,6 +47,12 @@ namespace Paraphrasing
                     {
                         words[index] = replacedWordPair.Item1;
                         words[index + 2] = replacedWordPair.Item2;
+
+                        if (string.IsNullOrEmpty(words[index + 2])) // second word is removed, we remove space after it
+                        {
+                            words[index + 1] = string.Empty;
+                        }
+
                         index += 2; // Skip next word
                         continue;
                     }
@@ -94,6 +100,34 @@ namespace Paraphrasing
             {
                 return "you're";
             }
+            else if (word == "you" || word == "thou" || word == "ye")
+            {
+                return "i";
+            }
+            else if (word == "thee")
+            {
+                return "me";
+            }
+            else if (word == "your" || word == "thy")
+            {
+                return "my";
+            }
+            else if (word == "yours" || word == "thine")
+            {
+                return "mine";
+            }
+            else if (word == "yourself" || word == "thyself")
+            {
+                return "myself";
+            }
+            else if (word == "yourselves")
+            {
+                return "ourselves";
+            }
+            else if (word == "y'all" || word == "y'all's")
+            {
+                return "us";
+            }
 
             return word;
         }
@@ -115,16 +149,20 @@ namespace Paraphrasing
                 }
             }
 
+            if (word1 == "you")
+            {
+                if (word2 == "guys" || word2 == "all" || word2 == "people")
+                {
+                    replacedWordPair = new Tuple<string, string>("us", string.Empty);
+                    return true;
+                }
+            }
+
             if (word2 == "you")
             {
                 if (FirstSecondPersonInverter.prepositons.Contains(word1))
                 {
                     replacedWordPair = new Tuple<string, string>(word1, "me");
-                    return true;
-                }
-                else
-                {
-                    replacedWordPair = new Tuple<string, string>(word1, "I");
                     return true;
                 }
             }
