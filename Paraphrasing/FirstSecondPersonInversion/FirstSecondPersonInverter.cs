@@ -9,9 +9,25 @@ namespace Paraphrasing
 {
     public class FirstSecondPersonInverter : IFirstSecondPersonInverter
     {
+        private static HashSet<string> prepositons = new HashSet<string>(StringComparer.OrdinalIgnoreCase) {
+            "aboard", "about", "above", "across", "cross", "after", "against", "'gainst", "gainst", "along",
+            "alongst", "'long", "alongside", "amid", "amidst", "midst", "among", "amongst", "'mong", "mong",
+            "'mongst", "mongst", "of", "apud", "around", "'round", "round", "as", "astride", "at",
+            "atop", "ontop", "before", "afore", "tofore", "b4", "behind", "ahind", "below", "ablow", "allow",
+            "beneath", "'neath", "neath", "beside", "besides", "between", "atween", "beyond", "ayond", "by",
+            "chez", "circa", "despite", "spite", "down", "during", "except", "for", "4", "from", "in",
+            "inside", "into", "less", "like", "minus", "near", "nearer", "anear", "notwithstanding", "of",
+            "off", "onto", "opposite", "out", "outen", "outside", "over", "pace", "past", "per", "plus",
+            "post", "pre", "pro", "qua", "sans", "save", "sauf", "short", "since", "sithence", "than",
+            "through", "thru", "throughout", "thruout", "till", "to", "2", "toward", "towards", "under",
+            "underneath", "unlike", "until", "'till", "unto", "up", "upon", "pon", "'pon", "upside",
+            "versus", "vs", "via", "vice", "vis-à-vis", "vis-a-vis", "with", "within", "without", "worth",
+            "on"
+        };
+
         public string Convert(string text)
         {
-            string[] words = WordExtractor.GetWordsAndPunctuationTokens(text.ToLowerInvariant(), '\'');
+            string[] words = WordExtractor.GetWordsAndPunctuationTokens(text.ToLowerInvariant(), '\'', '-');
 
             for (int index = 0; index < words.Length; ++index)
             {
@@ -31,6 +47,7 @@ namespace Paraphrasing
                     {
                         words[index] = replacedWordPair.Item1;
                         words[index + 2] = replacedWordPair.Item2;
+                        index += 2; // Skip next word
                         continue;
                     }
                 }
@@ -38,24 +55,51 @@ namespace Paraphrasing
                 words[index] = this.TryReplaceWord(words[index]);
             }
 
-            #warning Implement
-            #warning Add unit tests
-            throw new NotImplementedException();
+            StringBuilder stringBuilder = new StringBuilder();
+            for (int index = 0; index < words.Length; ++index)
+            {
+                stringBuilder.Append(words[index]);
+            }
+
+            return stringBuilder.ToString();
         }
 
-        public string TryReplaceWord(string word)
+        private string TryReplaceWord(string word)
         {
-            #warning Implement
-            #warning Add unit tests
+            if (word == "i" || word == "me" || word == "we")
+            {
+                return "you";
+            }
+            else if (word == "us")
+            {
+                return "you guys";
+            }
+            else if (word == "my" || word == "our")
+            {
+                return "your";
+            }
+            else if (word == "mine" || word == "ours")
+            {
+                return "yours";
+            }
+            else if (word == "myself")
+            {
+                return "yourself";
+            }
+            else if (word == "ourselves")
+            {
+                return "yourselves";
+            }
+            else if (word == "i'm" || word == "we're")
+            {
+                return "you're";
+            }
 
-            throw new NotImplementedException();
+            return word;
         }
 
-        public bool TryReplaceWordPair(string word1, string word2, out Tuple<string, string> replacedWordPair)
+        private bool TryReplaceWordPair(string word1, string word2, out Tuple<string, string> replacedWordPair)
         {
-            #warning Implement
-            #warning Add unit tests
-
             replacedWordPair = null;
             if (word1 == "i")
             {
@@ -64,7 +108,27 @@ namespace Paraphrasing
                     replacedWordPair = new Tuple<string, string>("you", "are");
                     return true;
                 }
+                else if (word2 == "was")
+                {
+                    replacedWordPair = new Tuple<string, string>("you", "were");
+                    return true;
+                }
             }
+
+            if (word2 == "you")
+            {
+                if (FirstSecondPersonInverter.prepositons.Contains(word1))
+                {
+                    replacedWordPair = new Tuple<string, string>(word1, "me");
+                    return true;
+                }
+                else
+                {
+                    replacedWordPair = new Tuple<string, string>(word1, "I");
+                    return true;
+                }
+            }
+
             return false;
         }
     }

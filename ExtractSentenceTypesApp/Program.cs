@@ -19,10 +19,10 @@ namespace ExtractSentenceTypesApp
             // https://en.wikipedia.org/wiki/English_personal_pronouns
             string[] personalPronouns = new string[] {
                 "i", "me", "my", "mine", "myself",
-                "you", "your", "yours", "yourself", "yourselves",
                 "we", "us", "our", "ours", "ourselves",
+                "you", "your", "yours", "yourself", "yourselves",
                 "thou", "thee", "thyself", "thine", "thy",
-                "ye", "you all", "y'all", "y'all's"
+                "ye", "you all", "y'all", "y'all's", "you guys"
             };
 
             foreach (string personalPronoun in personalPronouns)
