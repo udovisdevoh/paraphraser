@@ -179,5 +179,51 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LanguageDetection\LanguageDetection.csproj">
+      <Project>{b4094762-6250-4ae3-b93a-57bc519b5b39}</Project>
+      <Name>LanguageDetection</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LanguageDetection\LanguageDetectionInterfaces\LanguageDetectionInterfaces.csproj">
+      <Project>{2a94e485-0ff0-49a6-8472-466d3e23a797}</Project>
+      <Name>LanguageDetectionInterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MarkovMatrix\MarkovMatrix.csproj">
+      <Project>{7e1254fe-2e13-4d68-b337-8460dab633cd}</Project>
+      <Name>MarkovMatrix</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MarkovMatrix\MarkovMatrixInterfaces\MarkovMatrixInterfaces.csproj">
+      <Project>{78f39194-74d8-4848-b2d6-fc26fccff4ae}</Project>
+      <Name>MarkovMatrixInterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ParaphaserBootstrap\ParaphaserBootstrap.csproj">
+      <Project>{4c76be25-0a4b-407e-ba17-21ed5c2e5a94}</Project>
+      <Name>ParaphaserBootstrap</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ParaphraserMath\ParaphraserMath.csproj">
+      <Project>{b30bc99a-57a9-4778-ad79-88d06b6bac6e}</Project>
+      <Name>ParaphraserMath</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Paraphrasing\Paraphrasing.csproj">
+      <Project>{65819d05-9b53-4f9f-893b-ffb62495cf1b}</Project>
+      <Name>Paraphrasing</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Paraphrasing\ParaphrasingInterfaces\ParaphrasingInterfaces.csproj">
+      <Project>{62290bc4-c27b-4927-9553-e09d9d7a6439}</Project>
+      <Name>ParaphrasingInterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SpellChecking\SpellChecking.csproj">
+      <Project>{5e1a7fab-461b-4df6-975f-b000f12066ac}</Project>
+      <Name>SpellChecking</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SpellChecking\SpellCheckingInterfaces\SpellCheckingInterfaces.csproj">
+      <Project>{2c71b30c-c3bc-4efa-8144-e8fc8476a78f}</Project>
+      <Name>SpellCheckingInterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StringManipulation\StringManipulation.csproj">
+      <Project>{8033f5bf-dcd2-4193-b1a9-ba6e98d937ce}</Project>
+      <Name>StringManipulation</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

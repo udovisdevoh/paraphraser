@@ -73,7 +73,6 @@ namespace ParaphraserMath
         public static double GetDistance<TKey>(IMarkovMatrix<TKey, double> smallMatrix, IMarkovMatrix<TKey, double> largeMatrix)
         {
             double distance = 0.0;
-            double maxDistance = 0.0;
 
             foreach (KeyValuePair<Tuple<TKey, TKey>, double> charsAndProbability in smallMatrix)
             {
@@ -85,17 +84,10 @@ namespace ParaphraserMath
                 double otherMatrixProbability = largeMatrix.GetOccurrence(sourceComponent, destinationComponent);
 
                 distance += Math.Pow(Math.Abs(probability - otherMatrixProbability), 2.0);
-                maxDistance += 1.0;
+                //distance += Math.Abs(probability - otherMatrixProbability);
             }
 
-            maxDistance = Math.Sqrt(maxDistance);
-
-            if (maxDistance == 0)
-            {
-                return 1.0;
-            }
-
-            return Math.Sqrt(distance) / maxDistance;
+            return distance;
         }
     }
 }

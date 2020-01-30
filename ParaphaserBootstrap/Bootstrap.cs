@@ -63,15 +63,32 @@ namespace ParaphaserBootstrap
             return compositeLanguageDetector;
         }
 
-        public ILanguageDetector BuildLanguageDetectorNoDiacritics()
+        public ILanguageDetector BuildLanguageDetectorNoDiacritics(string matricesDirectory)
         {
             IMarkovMatrixLoader<char, ulong> languageDetectionMatrixLoader = new TextMarkovMatrixLoader();
             IMarkovMatrixNormalizer<char> markovMatrixNormalizer = new MarkovMatrixNormalizer();
+            IMarkovMatrixLoader<char, double> binaryMarkovMatrixLoader = this.BuildBinaryMarkovMatrixLoader();
 
             IMarkovMatrixLoader<char, double> normalizedLanguageDetectionMatrixLoader = new NormalizedTextMarkovMatrixLoader(languageDetectionMatrixLoader, markovMatrixNormalizer);
             IMarkovMatrixTransformer<char> markovMatrixCharacterCombiner = new MarkovMatrixCharacterCombiner(letter => StringFormatter.RemoveDiacritics(letter));
 
             LanguageDetectorByMarkovMatrix languageDetectorByMarkovMatrix = new LanguageDetectorNoDiacritics(normalizedLanguageDetectionMatrixLoader, markovMatrixCharacterCombiner);
+
+            string[] matrixFiles = Directory.EnumerateFiles(matricesDirectory, "*.bin").Select(file => Path.GetFileName(file)).ToArray();
+
+            foreach (string matrixFile in matrixFiles)
+            {
+                string languageName = StringFormatter.FormatLanguageName(matrixFile.Substring(0, matrixFile.LastIndexOf('.')));
+
+                IMarkovMatrix<char, double> matrix;
+                using (FileStream fileStream = File.Open(matricesDirectory + matrixFile, FileMode.Open))
+                {
+                    matrix = binaryMarkovMatrixLoader.LoadMatrix(fileStream);
+                }
+
+                languageDetectorByMarkovMatrix.AddLanguage(languageName, matrix);
+            }
+
 
             return languageDetectorByMarkovMatrix;
         }
