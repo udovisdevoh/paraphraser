@@ -33,5 +33,26 @@ namespace MarkovMatrices
 
             return normalizedMatrix;
         }
+
+        public IMarkovMatrix<char, double> Convert(IMarkovMatrix<char, ulong> sourceMatrix)
+        {
+            CharMarkovMatrix<double> convertedMatrix = new CharMarkovMatrix<double>();
+
+            foreach (KeyValuePair<Tuple<char, char>, ulong> twoCharsAndCount in sourceMatrix)
+            {
+                Tuple<char, char> twoChars = twoCharsAndCount.Key;
+
+                char fromChar = twoChars.Item1;
+                char toChar = twoChars.Item2;
+
+                ulong count = twoCharsAndCount.Value;
+
+                double ratio = (double)count;
+
+                convertedMatrix.IncrementOccurrence(fromChar, toChar, (double)ratio);
+            }
+
+            return convertedMatrix;
+        }
     }
 }

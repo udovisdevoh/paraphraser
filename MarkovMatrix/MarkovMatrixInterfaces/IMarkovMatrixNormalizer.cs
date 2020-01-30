@@ -9,5 +9,7 @@ namespace MarkovMatrices
     public interface IMarkovMatrixNormalizer<TKey>
     {
         IMarkovMatrix<TKey, double> Normalize(IMarkovMatrix<TKey, ulong> sourceMatrix);
+
+        IMarkovMatrix<char, double> Convert(IMarkovMatrix<char, ulong> sourceMatrix);
     }
 }

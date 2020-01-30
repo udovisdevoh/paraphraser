@@ -35,16 +35,10 @@ namespace LanguageDetectorApp
         {
             this.bootstrap = new Bootstrap();
 
-            ILanguageDetector languageDetectorByMarkovMatrix = this.bootstrap.BuildLanguageDetectorByMarkovMatrix(matricesFolder);
-            //ILanguageDetector languageDetectorByDictionary = this.bootstrap.BuildLanguageDetectorByDictionary(spellCheckFolder);
-            //ILanguageDetector languageDetectorByHash = this.bootstrap.BuildLanguageDetectorByHash(wordListsFolder);
-            ILanguageDetector languageDetectorByLeastCorrection = this.bootstrap.BuildLanguageDetectorByLeastCorrection(spellCheckFolder);
+            ILanguageDetector languageDetectorFromTextFiles = this.bootstrap.BuildLanguageDetectorByMarkovMatrixBasedOnTextFiles(wordListsFolder);
 
             this.languageDetector = this.bootstrap.BuildCompositeLanguageDetector();
-            this.languageDetector.AddLanguageDetector(languageDetectorByMarkovMatrix);
-            //this.languageDetector.AddLanguageDetector(languageDetectorByDictionary);
-            //this.languageDetector.AddLanguageDetector(languageDetectorByHash);
-            this.languageDetector.AddLanguageDetector(languageDetectorByLeastCorrection);
+            this.languageDetector.AddLanguageDetector(languageDetectorFromTextFiles);
 
             InitializeComponent();
 

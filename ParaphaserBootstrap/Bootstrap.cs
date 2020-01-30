@@ -46,6 +46,31 @@ namespace ParaphaserBootstrap
             return new BinaryStringMarkovMatrixLoader();
         }
 
+        public ILanguageDetector BuildLanguageDetectorByMarkovMatrixBasedOnTextFiles(string textDirectory)
+        {
+            LanguageDetectorByMarkovMatrix languageDetectorByMarkovMatrix = BuildLanguageDetectorByMarkovMatrix();
+
+            IMarkovMatrixLoader<char, ulong> markovMatrixLoader = new TextMarkovMatrixLoader();
+            IMarkovMatrixNormalizer<char> markovMatrixConverter = new MarkovMatrixNormalizer();
+
+            string[] textFiles = Directory.EnumerateFiles(textDirectory, "*.txt").Select(file => Path.GetFileName(file)).ToArray();
+
+            foreach (string textFile in textFiles)
+            {
+                string languageName = StringFormatter.FormatLanguageName(textFile.Substring(0, textFile.LastIndexOf('.')));
+
+                IMarkovMatrix<char, ulong> matrix;
+                using (FileStream fileStream = File.Open(textDirectory + textFile, FileMode.Open))
+                {
+                    matrix = markovMatrixLoader.LoadMatrix(fileStream);
+                }
+
+                languageDetectorByMarkovMatrix.AddLanguage(languageName, markovMatrixConverter.Convert(matrix));
+            }
+
+            return languageDetectorByMarkovMatrix;
+        }
+
         public IMarkovMatrixLoader<string, double> BuildStringMarkovMatrixLoaderFromText()
         {
             return new StringMarkovMatrixLoaderFromText();
