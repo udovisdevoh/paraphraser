@@ -33,6 +33,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParaphrasingInterfaces", ".
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpellCheckingInterfaces", "..\SpellChecking\SpellCheckingInterfaces\SpellCheckingInterfaces.csproj", "{2C71B30C-C3BC-4EFA-8144-E8FC8476A78F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PathFinding", "..\PathFinding\PathFinding.csproj", "{7C0A1F28-212C-4D67-8A59-B5C833F4FBB9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LanguageDetectionPathFinding", "..\LanguageDetectionPathFinding\LanguageDetectionPathFinding.csproj", "{5A1CC6EA-53E2-42FE-B33A-FA7700CB3A15}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +91,14 @@ Global
 		{2C71B30C-C3BC-4EFA-8144-E8FC8476A78F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2C71B30C-C3BC-4EFA-8144-E8FC8476A78F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2C71B30C-C3BC-4EFA-8144-E8FC8476A78F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C0A1F28-212C-4D67-8A59-B5C833F4FBB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C0A1F28-212C-4D67-8A59-B5C833F4FBB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C0A1F28-212C-4D67-8A59-B5C833F4FBB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C0A1F28-212C-4D67-8A59-B5C833F4FBB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A1CC6EA-53E2-42FE-B33A-FA7700CB3A15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A1CC6EA-53E2-42FE-B33A-FA7700CB3A15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A1CC6EA-53E2-42FE-B33A-FA7700CB3A15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A1CC6EA-53E2-42FE-B33A-FA7700CB3A15}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -103,6 +115,8 @@ Global
 		{65819D05-9B53-4F9F-893B-FFB62495CF1B} = {A9C64D1A-4B54-4376-95B3-C02EBF01709A}
 		{62290BC4-C27B-4927-9553-E09D9D7A6439} = {A9C64D1A-4B54-4376-95B3-C02EBF01709A}
 		{2C71B30C-C3BC-4EFA-8144-E8FC8476A78F} = {A9C64D1A-4B54-4376-95B3-C02EBF01709A}
+		{7C0A1F28-212C-4D67-8A59-B5C833F4FBB9} = {A9C64D1A-4B54-4376-95B3-C02EBF01709A}
+		{5A1CC6EA-53E2-42FE-B33A-FA7700CB3A15} = {A9C64D1A-4B54-4376-95B3-C02EBF01709A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {199117AD-C387-4AA5-A17E-8B3FF149AE60}
