@@ -180,6 +180,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LanguageDetectionPathFinding\LanguageDetectionPathFinding.csproj">
+      <Project>{5a1cc6ea-53e2-42fe-b33a-fa7700cb3a15}</Project>
+      <Name>LanguageDetectionPathFinding</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LanguageDetection\LanguageDetection.csproj">
       <Project>{b4094762-6250-4ae3-b93a-57bc519b5b39}</Project>
       <Name>LanguageDetection</Name>
@@ -211,6 +215,10 @@
     <ProjectReference Include="..\Paraphrasing\ParaphrasingInterfaces\ParaphrasingInterfaces.csproj">
       <Project>{62290bc4-c27b-4927-9553-e09d9d7a6439}</Project>
       <Name>ParaphrasingInterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PathFinding\PathFinding.csproj">
+      <Project>{7c0a1f28-212c-4d67-8a59-b5c833f4fbb9}</Project>
+      <Name>PathFinding</Name>
     </ProjectReference>
     <ProjectReference Include="..\SpellChecking\SpellChecking.csproj">
       <Project>{5e1a7fab-461b-4df6-975f-b000f12066ac}</Project>
