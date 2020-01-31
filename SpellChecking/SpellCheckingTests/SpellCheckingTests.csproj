@@ -73,12 +73,6 @@
     <Compile Include="SpellCheckerTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SpellChecking.csproj">
-      <Project>{5e1a7fab-461b-4df6-975f-b000f12066ac}</Project>
-      <Name>SpellChecking</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Dictionaries\english.aff">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

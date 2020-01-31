@@ -23,7 +23,7 @@ namespace LanguageDetectorApp
 
         private bool isNeedRecalculation = false;
 
-        public LanguageDetectionBackgroundWorker(ICompositeLanguageDetector languageDetector, TextBox textBox)
+        public LanguageDetectionBackgroundWorker(ILanguageDetector languageDetector, TextBox textBox)
         {
             this.languageDetector = languageDetector;
             this.textBox = textBox;

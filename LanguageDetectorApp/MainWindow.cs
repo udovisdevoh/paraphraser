@@ -1,7 +1,6 @@
 ﻿using LanguageDetection;
 using MarkovMatrices;
 using ParaphaserBootstrap;
-using SpellChecking;
 using StringManipulation;
 using System;
 using System.Collections.Generic;
@@ -27,7 +26,7 @@ namespace LanguageDetectorApp
 
         private LanguageDetectionBackgroundWorker languageDetectionBackgroundWorker;
 
-        private ICompositeLanguageDetector languageDetector;
+        private ILanguageDetector languageDetector;
 
         private Bootstrap bootstrap;
 
@@ -35,10 +34,7 @@ namespace LanguageDetectorApp
         {
             this.bootstrap = new Bootstrap();
 
-            ILanguageDetector languageDetectorFromTextFiles = this.bootstrap.BuildLanguageDetectorByMarkovMatrixBasedOnTextFiles(wordListsFolder);
-
-            this.languageDetector = this.bootstrap.BuildCompositeLanguageDetector();
-            this.languageDetector.AddLanguageDetector(languageDetectorFromTextFiles);
+            this.languageDetector = this.bootstrap.BuildLanguageDetectorByMarkovMatrixBasedOnTextFiles(wordListsFolder);
 
             InitializeComponent();
 
@@ -50,11 +46,10 @@ namespace LanguageDetectorApp
         {
             string text = this.textBoxInput.Text;
 
-            text = text.ToLowerInvariant();
             text = StringFormatter.RemoveDoubleTabsSpacesAndEnters(text);
             text = StringFormatter.RemoveLigatures(text);
-            //text = StringFormatter.RemovePunctuation(text);
-            //text = StringFormatter.FormatInputText(text);
+            //text = StringFormatter.RemoveDiacritics(text);
+            text = text.ToLowerInvariant();
 
             this.languageDetectionBackgroundWorker.NotifyText(text);
         }

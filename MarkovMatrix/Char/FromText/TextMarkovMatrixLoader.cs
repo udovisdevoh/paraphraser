@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StringManipulation;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -57,9 +58,13 @@ namespace MarkovMatrices
             }
         }
 
-        public virtual string PerformLineTransformations(string line)
+        public virtual string PerformLineTransformations(string text)
         {
-            return line;
+            text = StringFormatter.RemoveDoubleTabsSpacesAndEnters(text);
+            text = StringFormatter.RemoveLigatures(text);
+            //text = StringFormatter.RemoveDiacritics(text);
+            text = text.ToLowerInvariant();
+            return text;
         }
 
         public IMarkovMatrix<char, ulong> LoadMatrix(string text)

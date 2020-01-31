@@ -43,16 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ByLeastCorrection\LanguageDetectorByLeastCorrection.cs" />
-    <Compile Include="CompositeLanguageDetector.cs" />
     <Compile Include="ByMarkovMatrix\LanguageDetectorByMarkovMatrix.cs" />
-    <Compile Include="ByDictionary\LanguageDetectorByDictionary.cs" />
-    <Compile Include="ByHash\LanguageDetectorByHash.cs" />
-    <Compile Include="ByMarkovMatrix\LanguageDetectorNoDiacritics.cs" />
     <Compile Include="LanguageDetector.cs" />
     <Compile Include="MemoryStreamBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ByHash\WordListReader.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MarkovMatrix\MarkovMatrixInterfaces\MarkovMatrixInterfaces.csproj">
@@ -62,10 +56,6 @@
     <ProjectReference Include="..\ParaphraserMath\ParaphraserMath.csproj">
       <Project>{B30BC99A-57A9-4778-AD79-88D06B6BAC6E}</Project>
       <Name>ParaphraserMath</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SpellChecking\SpellCheckingInterfaces\SpellCheckingInterfaces.csproj">
-      <Project>{2c71b30c-c3bc-4efa-8144-e8fc8476a78f}</Project>
-      <Name>SpellCheckingInterfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\StringManipulation\StringManipulation.csproj">
       <Project>{8033f5bf-dcd2-4193-b1a9-ba6e98d937ce}</Project>

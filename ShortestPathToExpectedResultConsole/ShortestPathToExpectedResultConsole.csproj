@@ -220,6 +220,10 @@
       <Project>{7c0a1f28-212c-4d67-8a59-b5c833f4fbb9}</Project>
       <Name>PathFinding</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PhonologicalTransformations\PhonologicalTransformations.csproj">
+      <Project>{f709eb85-06a4-46b5-9623-0eb2c8aff2fe}</Project>
+      <Name>PhonologicalTransformations</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SpellChecking\SpellChecking.csproj">
       <Project>{5e1a7fab-461b-4df6-975f-b000f12066ac}</Project>
       <Name>SpellChecking</Name>
