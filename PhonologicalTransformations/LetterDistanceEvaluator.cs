@@ -10,7 +10,7 @@ namespace PhonologicalTransformations
     public class LetterDistanceEvaluator : ILetterDistanceEvaluator
     {
         #region Constants
-        private const int cardinality = 1024;
+        private const int cardinality = 512;
 
         private const int nonLetterDistance = 1000;
 
@@ -42,17 +42,25 @@ namespace PhonologicalTransformations
             {
                 for (int to = 0; to < cardinality; ++to)
                 {
-                    if (from == to)
+                    this.letterDistances[from, to] = nonLetterDistance;
+                    this.letterDistances[to, from] = nonLetterDistance;
+                }
+            }
+
+            for (int from = 0; from < cardinality; ++from)
+            {
+                for (int to = 0; to < cardinality; ++to)
+                {
+                    if (Char.IsLetter((char)from) && Char.IsLetter((char)to))
                     {
-                        this.letterDistances[from, to] = 0;
-                    }
-                    else if (Char.IsLetter((char)from) && Char.IsLetter((char)to))
-                    {
-                        this.letterDistances[from, to] = defaultLongestDistanceValue;
-                    }
-                    else
-                    {
-                        this.letterDistances[from, to] = nonLetterDistance;
+                        if (Char.ToLower((char)from) == Char.ToLower((char)to))
+                        {
+                            this.letterDistances[from, to] = 0;
+                        }
+                        else
+                        {
+                            this.SetCustomDistance((char)from, (char)to, defaultLongestDistanceValue);
+                        }
                     }
                 }
             }
@@ -149,25 +157,40 @@ namespace PhonologicalTransformations
 
         private void SetCustomDistance(char letter1, char letter2, int distance)
         {
+            letter1 = Char.ToLower(letter1);
+            letter2 = Char.ToLower(letter2);
+
             if (letter1 < cardinality && letter2 < cardinality)
             {
-                letter1 = Char.ToLower(letter1);
-                letter2 = Char.ToLower(letter2);
-
-                char letter1Upper = Char.ToUpper(letter1);
-                char letter2Upper = Char.ToUpper(letter2);
-
                 this.letterDistances[letter1, letter2] = distance;
                 this.letterDistances[letter2, letter1] = distance;
+            }
 
-                this.letterDistances[letter1Upper, letter2Upper] = distance;
-                this.letterDistances[letter2Upper, letter1Upper] = distance;
+            char letter1Upper = Char.ToUpper(letter1);
+            char letter2Upper = Char.ToUpper(letter2);
 
-                this.letterDistances[letter1, letter2Upper] = distance;
-                this.letterDistances[letter2, letter1Upper] = distance;
-
+            if (letter1Upper < cardinality && letter2 < cardinality)
+            {
                 this.letterDistances[letter1Upper, letter2] = distance;
+            }
+
+            if (letter2Upper < cardinality && letter1 < cardinality)
+            {
                 this.letterDistances[letter2Upper, letter1] = distance;
+            }
+        }
+
+        public IEnumerable<char> GetReplacementLetters(char sourceLetter)
+        {
+            int sourceLetterIndex = (int)sourceLetter;
+            for (int index = 0; index < cardinality;++index)
+            {
+                char destinationLetter = (char)index;
+                int distance = this.letterDistances[sourceLetterIndex, index];
+                if (distance != nonLetterDistance && sourceLetter != destinationLetter)
+                {
+                    yield return destinationLetter;
+                }
             }
         }
     }

@@ -9,5 +9,7 @@ namespace PhonologicalTransformations
     public interface ILetterDistanceEvaluator
     {
         int GetDistance(char letter1, char letter2);
+
+        IEnumerable<char> GetReplacementLetters(char letter);
     }
 }

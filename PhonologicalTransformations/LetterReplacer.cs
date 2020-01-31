@@ -10,8 +10,6 @@ namespace PhonologicalTransformations
     {
         #region Members
         private ILetterDistanceEvaluator letterDistanceEvaluator;
-
-        private char[] letters = new char[26];
         #endregion
 
         #region Constructors
@@ -47,10 +45,8 @@ namespace PhonologicalTransformations
 
         private IEnumerable<KeyValuePair<char, int>> GetSingleLetterReplacements(char letter)
         {
-            for (int index = 0; index < 26;++index)
-            {
-                char replacementLetter = this.letters[index];
-
+            foreach (char replacementLetter in letterDistanceEvaluator.GetReplacementLetters(letter))
+            { 
                 if (letter != replacementLetter)
                 {
                     int distance = this.letterDistanceEvaluator.GetDistance(letter, replacementLetter);
