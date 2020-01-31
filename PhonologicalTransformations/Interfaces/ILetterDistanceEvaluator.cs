@@ -10,6 +10,6 @@ namespace PhonologicalTransformations
     {
         int GetDistance(char letter1, char letter2);
 
-        IEnumerable<char> GetReplacementLetters(char letter);
+        IEnumerable<KeyValuePair<char, int>> GetReplacementLetters(char letter);
     }
 }

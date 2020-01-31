@@ -17,7 +17,7 @@ namespace ShortestPathToExpectedResultConsole
         static void Main(string[] args)
         {
             LetterDistanceEvaluator letterDistanceEvaluator = new LetterDistanceEvaluator();
-            List<char> letters = letterDistanceEvaluator.GetReplacementLetters('Z').ToList();
+            List<KeyValuePair<char, int>> letters = letterDistanceEvaluator.GetReplacementLetters('Q').OrderBy(keyValuePair => keyValuePair.Value).ToList();
 
             Bootstrap bootstrap = new Bootstrap();
 

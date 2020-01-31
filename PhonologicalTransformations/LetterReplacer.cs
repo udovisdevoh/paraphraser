@@ -45,11 +45,12 @@ namespace PhonologicalTransformations
 
         private IEnumerable<KeyValuePair<char, int>> GetSingleLetterReplacements(char letter)
         {
-            foreach (char replacementLetter in letterDistanceEvaluator.GetReplacementLetters(letter))
-            { 
+            foreach (KeyValuePair<char, int> replacementLetterAndDistance in letterDistanceEvaluator.GetReplacementLetters(letter))
+            {
+                char replacementLetter = replacementLetterAndDistance.Key;
+                int distance = replacementLetterAndDistance.Value;
                 if (letter != replacementLetter)
                 {
-                    int distance = this.letterDistanceEvaluator.GetDistance(letter, replacementLetter);
                     yield return new KeyValuePair<char, int>(replacementLetter, distance);
                 }
             }

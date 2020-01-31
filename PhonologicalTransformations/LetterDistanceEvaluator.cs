@@ -180,16 +180,16 @@ namespace PhonologicalTransformations
             }
         }
 
-        public IEnumerable<char> GetReplacementLetters(char sourceLetter)
+        public IEnumerable<KeyValuePair<char, int>> GetReplacementLetters(char sourceLetter)
         {
             int sourceLetterIndex = (int)sourceLetter;
             for (int index = 0; index < cardinality;++index)
             {
                 char destinationLetter = (char)index;
                 int distance = this.letterDistances[sourceLetterIndex, index];
-                if (distance != nonLetterDistance && sourceLetter != destinationLetter)
+                if (distance != nonLetterDistance && sourceLetter != destinationLetter && distance != 0)
                 {
-                    yield return destinationLetter;
+                    yield return new KeyValuePair<char, int>(destinationLetter, distance);
                 }
             }
         }
