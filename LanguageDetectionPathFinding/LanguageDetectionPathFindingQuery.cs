@@ -14,13 +14,15 @@ namespace PathFinding
     public class LanguageDetectionPathFindingQuery : IPathfindingQuery<LanguageDetectionState>
     {
         #region Members
+        private string targetLanguage;
+
         private LanguageDetectionState source;
 
         private LanguageDetectionState destination;
 
         private bool isTimeOut = false;
 
-        private IMarkovMatrix<char, double> targetLanguageMatrix;
+        private LanguageDetector languageDetector;
 
         private TextMarkovMatrixLoader matrixLoader;
 
@@ -32,14 +34,16 @@ namespace PathFinding
         #region Constructors
         public LanguageDetectionPathFindingQuery(LanguageDetectionState source,
             LanguageDetectionState destination,
-            IMarkovMatrix<char, double> targetLanguageMatrix,
+            LanguageDetector languageDetector,
             TextMarkovMatrixLoader matrixLoader,
             IMarkovMatrixNormalizer<char> markovMatrixConverter,
-            ILetterDistanceEvaluator letterDistanceEvaluator)
+            ILetterDistanceEvaluator letterDistanceEvaluator,
+            string targetLanguage)
         {
+            this.targetLanguage = targetLanguage;
             this.source = source;
             this.destination = destination;
-            this.targetLanguageMatrix = targetLanguageMatrix;
+            this.languageDetector = languageDetector;
             this.matrixLoader = matrixLoader;
             this.markovMatrixConverter = markovMatrixConverter;
             this.letterDistanceEvaluator = letterDistanceEvaluator;
@@ -92,26 +96,13 @@ namespace PathFinding
                     string modifiedText = new string(letters);
 
                     float movementCost = (float)replacementLetterAndDistance.Value;
-                    double languageProximity = this.GetLanguageProximity(modifiedText);
+                    double currentLanguageDetectionScore = this.languageDetector.GetLanguageDetectionScore(modifiedText, this.targetLanguage);
 
-                    LanguageDetectionState adjacentLanguagDetectionState = new LanguageDetectionState(modifiedText, languageProximity);
+                    LanguageDetectionState adjacentLanguagDetectionState = new LanguageDetectionState(modifiedText, currentLanguageDetectionScore);
                     AdjacentState<LanguageDetectionState> adjacentState = new AdjacentState<LanguageDetectionState>(adjacentLanguagDetectionState, movementCost);
                     adjacentStates.Add(adjacentState);
                 }
             }
-        }
-
-        public double GetLanguageProximity(string text)
-        {
-            MemoryStream memoryStream = MemoryStreamBuilder.BuildMemoryStreamFromText(text);
-            IMarkovMatrix<char, ulong> inputMatrixLong = this.matrixLoader.LoadMatrix(memoryStream);
-            IMarkovMatrix<char, double> inputMatrixDouble = markovMatrixConverter.Normalize(inputMatrixLong);
-
-            List<KeyValuePair<string, double>> languageProximities = new List<KeyValuePair<string, double>>();
-            
-            double proximity = MatrixMathHelper.GetDotProduct(inputMatrixDouble, this.targetLanguageMatrix);
-
-            return proximity;
         }
     }
 }

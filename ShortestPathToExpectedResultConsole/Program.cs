@@ -22,22 +22,22 @@ namespace ShortestPathToExpectedResultConsole
             Bootstrap bootstrap = new Bootstrap();
 
             const int maxNodeCount = int.MaxValue;
-            const string targetLanguage = "English";
+            const string targetLanguage = "Spanish";
             //const string textInput = "Text summarization aims to extract essential information from a piece of text and transform it into a concise version.";
             const string textInput = "Ceci est une poule, je suis une banane. Gros jambon à l'école.";
             //const string textInput = "Ceci est une poule.";
             //const string textInput = "rickstend verlact make torfield mory.";
-            LanguageDetectorByMarkovMatrix languageDetector = bootstrap.BuildLanguageDetectorByMarkovMatrixBasedOnTextFiles("./TextSamples/");
+            LanguageDetector languageDetector = bootstrap.BuildLanguageDetectorByMarkovMatrixBasedOnTextFiles("./TextSamples/");
 
             KeyValuePair<string, double>[] languageProximities = languageDetector.GetLanguageProximities(textInput);
 
             string detectedLanguage = languageProximities.OrderByDescending(keyValuePair => keyValuePair.Value).First().Key;
-            double targetLanguageProximity = languageProximities.Where(keyValuePair => keyValuePair.Key == targetLanguage).First().Value;
-            double detectedLanguageProximity = languageProximities.OrderByDescending(keyValuePair => keyValuePair.Value).First().Value;
-            
+            double targetLanguageDetectionScore = languageDetector.GetLanguageDetectionScore(textInput, targetLanguage);
+            double detectedLanguageDectectionScore = languageDetector.GetLanguageDetectionScore(textInput, detectedLanguage);
 
-            LanguageDetectionState sourceNode = new LanguageDetectionState(textInput, targetLanguageProximity);
-            LanguageDetectionState destinationNode = new LanguageDetectionState(textInput, detectedLanguageProximity);
+
+            LanguageDetectionState sourceNode = new LanguageDetectionState(textInput, targetLanguageDetectionScore);
+            LanguageDetectionState destinationNode = new LanguageDetectionState(textInput, detectedLanguageDectectionScore);
             TextMarkovMatrixLoader matrixLoader = new TextMarkovMatrixLoader();
             ILetterDistanceEvaluator letterDistanceEvaluator = new LetterDistanceEvaluator();
 
@@ -45,10 +45,11 @@ namespace ShortestPathToExpectedResultConsole
             IMarkovMatrixNormalizer<char> markovMatrixNormalizer = new MarkovMatrixNormalizer();
             LanguageDetectionPathFindingQuery languageDetectionPathFindingQuery = new LanguageDetectionPathFindingQuery(sourceNode,
                 destinationNode,
-                languageDetector.GetLanguageMatrix(targetLanguage),
+                languageDetector,
                 matrixLoader,
                 markovMatrixNormalizer,
-                letterDistanceEvaluator);
+                letterDistanceEvaluator,
+                targetLanguage);
 
             LanguageDetectionState[] path = pathfinder.Find(languageDetectionPathFindingQuery);
         }
