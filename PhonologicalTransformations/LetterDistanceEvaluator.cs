@@ -70,41 +70,6 @@ namespace PhonologicalTransformations
                 }
             }
 
-            /*
-            for (int from = 0; from < cardinality; ++from)
-            {
-                for (int to = 0; to < cardinality; ++to)
-                {
-                    this.letterDistances[from, to] = nonLetterDistance;
-                    this.letterDistances[to, from] = nonLetterDistance;
-                }
-            }
-
-            for (int from = 0; from < cardinality; ++from)
-            {
-                for (int to = 0; to < cardinality; ++to)
-                {
-                    if (Char.IsLetter((char)from) && Char.IsLetter((char)to))
-                    {
-                        char fromCharacterWithoutLigature = StringFormatter.RemoveLigatures("" + from)[0];
-                        char toCharacterWithoutLigature = StringFormatter.RemoveLigatures("" + to)[0];
-                        if (to != toCharacterWithoutLigature || from != fromCharacterWithoutLigature)
-                        {
-                            this.SetCustomDistance((char)from, (char)to, nonLetterDistance);
-                        }
-                        else if (Char.ToLower((char)from) == Char.ToLower((char)to))
-                        {
-                            this.letterDistances[from, to] = 0;
-                        }
-                        else
-                        {
-                            this.SetCustomDistance((char)from, (char)to, defaultLongestDistanceValue);
-                        }
-                    }
-                }
-            }
-            */
-
             this.SetCustomDistance('C', 'K', almostIdenticalDistance);
             this.SetCustomDistance('C', 'Q', almostIdenticalDistance);
             this.SetCustomDistance('K', 'Q', almostIdenticalDistance);
@@ -134,52 +99,6 @@ namespace PhonologicalTransformations
             this.SetCustomDistance('O', 'U', closelyRelatedVowelDistance);
             this.SetCustomDistance('U', 'I', closelyRelatedVowelDistance);
             this.SetCustomDistance('E', 'I', closelyRelatedVowelDistance);
-
-            /*
-            for (int characterIndex = 0; characterIndex < cardinality;++characterIndex)
-            {
-                char character = (char)characterIndex;
-                char characterWithoutDiacritics = StringFormatter.RemoveDiacritics(character);
-
-                if (character != characterWithoutDiacritics && (Char.IsLetter(characterWithoutDiacritics) || Char.IsLetter(character)))
-                {
-                    this.SetCustomDistance(character, characterWithoutDiacritics, diacriticsChangeDistance);
-                }
-            }
-            */
-            /*
-            for (int characterIndex1 = 0; characterIndex1 < cardinality; ++characterIndex1)
-            {
-                char character1 = (char)characterIndex1;
-                char character1WithoutDiacritics = StringFormatter.RemoveDiacritics(character1);
-                if (Char.IsLetter(character1WithoutDiacritics))
-                {
-                    for (int characterIndex2 = 0; characterIndex2 < cardinality; ++characterIndex2)
-                    {
-                        char character2 = (char)characterIndex2;
-
-                        if (character1 != character2)
-                        {
-                            char character2WithoutDiacritics = StringFormatter.RemoveDiacritics(character2);
-
-                            if (character1WithoutDiacritics == character2WithoutDiacritics)
-                            {
-                                if (Char.IsLetter(character2WithoutDiacritics))
-                                {
-                                    char character1WithoutLigature = StringFormatter.RemoveLigatures("" + character1)[0];
-                                    char character2WithoutLigature = StringFormatter.RemoveLigatures("" + character2)[0];
-
-                                    if (character1WithoutLigature == character1 && character2WithoutLigature == character2)
-                                    {
-                                        this.SetCustomDistance(character1, character2, diacriticsChangeDistance);
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            */
         }
         #endregion
 

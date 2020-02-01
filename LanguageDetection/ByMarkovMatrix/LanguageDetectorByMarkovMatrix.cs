@@ -57,15 +57,20 @@ namespace LanguageDetection
 
             List<KeyValuePair<string, double>> languageProximities = new List<KeyValuePair<string, double>>();
 
-            foreach (KeyValuePair<string, IMarkovMatrix<char, double>> nameAndLanguageMatrix in this.languages)
+            object listLock = new object();
+
+            //foreach (KeyValuePair<string, IMarkovMatrix<char, double>> nameAndLanguageMatrix in this.languages)
+            Parallel.ForEach(this.languages, nameAndLanguageMatrix =>
             {
                 string languageName = nameAndLanguageMatrix.Key;
                 IMarkovMatrix<char, double> languageMatrix = nameAndLanguageMatrix.Value;
                 double proximity = MatrixMathHelper.GetDotProduct(inputMatrix, languageMatrix);
-                //double proximity = -MatrixMathHelper.GetDistance(inputMatrix, languageMatrix);
 
-                languageProximities.Add(new KeyValuePair<string, double>(languageName, proximity));
-            }
+                lock (listLock)
+                {
+                    languageProximities.Add(new KeyValuePair<string, double>(languageName, proximity));
+                }
+            });
 
             return languageProximities.OrderByDescending(keyValuePair => keyValuePair.Value).ToArray();
         }
