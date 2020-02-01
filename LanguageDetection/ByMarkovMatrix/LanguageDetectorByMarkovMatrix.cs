@@ -84,5 +84,10 @@ namespace LanguageDetection
         {
             return this.languages.Keys;
         }
+
+        public IMarkovMatrix<char, double> GetLanguageMatrix(string languageName)
+        {
+            return this.languages[languageName];
+        }
     }
 }

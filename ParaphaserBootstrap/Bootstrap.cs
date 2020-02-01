@@ -35,7 +35,7 @@ namespace ParaphaserBootstrap
             return new EnglishInterrogativeToAffirmative(new WordOrderSwapper());
         }
 
-        public ILanguageDetector BuildLanguageDetectorByMarkovMatrixBasedOnTextFiles(string textDirectory)
+        public LanguageDetectorByMarkovMatrix BuildLanguageDetectorByMarkovMatrixBasedOnTextFiles(string textDirectory)
         {
             LanguageDetectorByMarkovMatrix languageDetectorByMarkovMatrix = BuildLanguageDetectorByMarkovMatrix();
 

@@ -43,7 +43,7 @@ namespace PhonologicalTransformations
             }
         }
 
-        private IEnumerable<KeyValuePair<char, int>> GetSingleLetterReplacements(char letter)
+        public IEnumerable<KeyValuePair<char, int>> GetSingleLetterReplacements(char letter)
         {
             foreach (KeyValuePair<char, int> replacementLetterAndDistance in letterDistanceEvaluator.GetReplacementLetters(letter))
             {

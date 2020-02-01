@@ -756,10 +756,6 @@
       <Project>{8033f5bf-dcd2-4193-b1a9-ba6e98d937ce}</Project>
       <Name>StringManipulation</Name>
     </ProjectReference>
-    <ProjectReference Include="SpellCheckingInterfaces\SpellCheckingInterfaces.csproj">
-      <Project>{2c71b30c-c3bc-4efa-8144-e8fc8476a78f}</Project>
-      <Name>SpellCheckingInterfaces</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Hunspellx64.dll">

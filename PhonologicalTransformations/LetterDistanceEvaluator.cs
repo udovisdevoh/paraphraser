@@ -53,7 +53,13 @@ namespace PhonologicalTransformations
                 {
                     if (Char.IsLetter((char)from) && Char.IsLetter((char)to))
                     {
-                        if (Char.ToLower((char)from) == Char.ToLower((char)to))
+                        char fromCharacterWithoutLigature = StringFormatter.RemoveLigatures("" + from)[0];
+                        char toCharacterWithoutLigature = StringFormatter.RemoveLigatures("" + to)[0];
+                        if (to != toCharacterWithoutLigature || from != fromCharacterWithoutLigature)
+                        {
+                            this.SetCustomDistance((char)from, (char)to, nonLetterDistance);
+                        }
+                        else if (Char.ToLower((char)from) == Char.ToLower((char)to))
                         {
                             this.letterDistances[from, to] = 0;
                         }
@@ -120,11 +126,18 @@ namespace PhonologicalTransformations
                         if (character1 != character2)
                         {
                             char character2WithoutDiacritics = StringFormatter.RemoveDiacritics(character2);
+
                             if (character1WithoutDiacritics == character2WithoutDiacritics)
                             {
                                 if (Char.IsLetter(character2WithoutDiacritics))
                                 {
-                                    this.SetCustomDistance(character1, character2, diacriticsChangeDistance);
+                                    char character1WithoutLigature = StringFormatter.RemoveLigatures("" + character1)[0];
+                                    char character2WithoutLigature = StringFormatter.RemoveLigatures("" + character2)[0];
+
+                                    if (character1WithoutLigature == character1 && character2WithoutLigature == character2)
+                                    {
+                                        this.SetCustomDistance(character1, character2, diacriticsChangeDistance);
+                                    }
                                 }
                             }
                         }
@@ -162,8 +175,14 @@ namespace PhonologicalTransformations
 
             if (letter1 < cardinality && letter2 < cardinality)
             {
-                this.letterDistances[letter1, letter2] = distance;
-                this.letterDistances[letter2, letter1] = distance;
+                /*if (StringFormatter.RemoveDiacritics(letter2) == letter2)
+                { */
+                    this.letterDistances[letter1, letter2] = distance;
+                /*}*/
+                /*if (StringFormatter.RemoveDiacritics(letter1) == letter1)
+                {*/
+                    this.letterDistances[letter2, letter1] = distance;
+                /*}*/
             }
 
             char letter1Upper = Char.ToUpper(letter1);
@@ -171,12 +190,18 @@ namespace PhonologicalTransformations
 
             if (letter1Upper < cardinality && letter2 < cardinality)
             {
-                this.letterDistances[letter1Upper, letter2] = distance;
+                /*if (StringFormatter.RemoveDiacritics(letter2) == letter2)
+                {*/
+                    this.letterDistances[letter1Upper, letter2] = distance;
+                /*}*/
             }
 
             if (letter2Upper < cardinality && letter1 < cardinality)
             {
-                this.letterDistances[letter2Upper, letter1] = distance;
+                /*if (StringFormatter.RemoveDiacritics(letter1) == letter1)
+                {*/
+                    this.letterDistances[letter2Upper, letter1] = distance;
+                /*}*/
             }
         }
 

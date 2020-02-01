@@ -53,10 +53,10 @@ namespace PathFinding
 
             Find(query, tempStateList);
 
-            if (tempStateList.Count > 0)
+            /*if (tempStateList.Count > 0)
             {
                 tempStateList.Add(query.Destination);//we add the path's destination if the path is not empty
-            }
+            }*/
 
             TState[] path = tempStateList.ToArray();
             tempStateList.Clear();
@@ -129,7 +129,7 @@ namespace PathFinding
 
         private void OpenAdjacentNodes(IPathfindingQuery<TState> query, PathNode<TState> node)
         {
-            query.GetAdjacentStates(node, tempAdjacentStateList);
+            query.PopulateAdjacentStatesTempList(node, tempAdjacentStateList);
             foreach (AdjacentState<TState> adjacentState in tempAdjacentStateList)
             {
                 float costFromSource = node.CostFromSource + adjacentState.MovementCost;

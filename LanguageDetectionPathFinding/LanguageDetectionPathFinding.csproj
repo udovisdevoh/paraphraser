@@ -46,6 +46,26 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LanguageDetection\LanguageDetection.csproj">
+      <Project>{b4094762-6250-4ae3-b93a-57bc519b5b39}</Project>
+      <Name>LanguageDetection</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LanguageDetection\LanguageDetectionInterfaces\LanguageDetectionInterfaces.csproj">
+      <Project>{2a94e485-0ff0-49a6-8472-466d3e23a797}</Project>
+      <Name>LanguageDetectionInterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MarkovMatrix\MarkovMatrix.csproj">
+      <Project>{7e1254fe-2e13-4d68-b337-8460dab633cd}</Project>
+      <Name>MarkovMatrix</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MarkovMatrix\MarkovMatrixInterfaces\MarkovMatrixInterfaces.csproj">
+      <Project>{78f39194-74d8-4848-b2d6-fc26fccff4ae}</Project>
+      <Name>MarkovMatrixInterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ParaphraserMath\ParaphraserMath.csproj">
+      <Project>{b30bc99a-57a9-4778-ad79-88d06b6bac6e}</Project>
+      <Name>ParaphraserMath</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PathFinding\PathFinding.csproj">
       <Project>{7c0a1f28-212c-4d67-8a59-b5c833f4fbb9}</Project>
       <Name>PathFinding</Name>

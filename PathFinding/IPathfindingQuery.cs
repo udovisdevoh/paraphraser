@@ -29,7 +29,7 @@ namespace PathFinding
         /// </summary>
         /// <param name="node">The pathfinding node of the state for which adjacent states are to be found.</param>
         /// <param name="adjacentStates">A collection in which to return the adjacent states.</param>
-        void GetAdjacentStates(PathNode<TState> node, List<AdjacentState<TState>> adjacentStates);
+        void PopulateAdjacentStatesTempList(PathNode<TState> node, List<AdjacentState<TState>> adjacentStates);
 
         /// <summary>
         /// Estimates the cost from a state to the destination state.
