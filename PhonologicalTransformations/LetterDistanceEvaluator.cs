@@ -10,11 +10,13 @@ namespace PhonologicalTransformations
     public class LetterDistanceEvaluator : ILetterDistanceEvaluator
     {
         #region Constants
+        private const bool isAllowConvertToDiacritics = false;
+
         private const int cardinality = 512;
 
         private const int nonLetterDistance = 1000;
 
-        private const int defaultLongestDistanceValue = 10;
+        private const int defaultLetterLongestDistanceValue = 10;
 
         private const int almostIdenticalDistance = 1;
 
@@ -38,6 +40,37 @@ namespace PhonologicalTransformations
         {
             this.letterDistances = new int[cardinality, cardinality];
 
+            for (int from = 0; from < cardinality; ++from)
+            {
+                char fromLetter = (char)from;
+                for (int to = 0; to < cardinality; ++to)
+                {
+                    char toLetter = (char)to;
+
+                    if (char.ToLower(fromLetter) == char.ToLower(toLetter))
+                    {
+                        this.SetCustomDistance(fromLetter, toLetter, 0);
+                    }
+                    else if (this.IsLigature(toLetter))
+                    {
+                        this.SetCustomDistance(fromLetter, toLetter, nonLetterDistance);
+                    }
+                    else if (this.IsSameWithoutDiacritics(fromLetter, toLetter))
+                    {
+                        this.SetCustomDistance(fromLetter, toLetter, diacriticsChangeDistance);
+                    }
+                    else if (Char.IsLetter(fromLetter) && Char.IsLetter(toLetter))
+                    {
+                        this.SetCustomDistance(fromLetter, toLetter, defaultLetterLongestDistanceValue);
+                    }
+                    else
+                    {
+                        this.SetCustomDistance(fromLetter, toLetter, nonLetterDistance);
+                    }
+                }
+            }
+
+            /*
             for (int from = 0; from < cardinality; ++from)
             {
                 for (int to = 0; to < cardinality; ++to)
@@ -70,6 +103,7 @@ namespace PhonologicalTransformations
                     }
                 }
             }
+            */
 
             this.SetCustomDistance('C', 'K', almostIdenticalDistance);
             this.SetCustomDistance('C', 'Q', almostIdenticalDistance);
@@ -113,6 +147,7 @@ namespace PhonologicalTransformations
                 }
             }
             */
+            /*
             for (int characterIndex1 = 0; characterIndex1 < cardinality; ++characterIndex1)
             {
                 char character1 = (char)characterIndex1;
@@ -144,8 +179,44 @@ namespace PhonologicalTransformations
                     }
                 }
             }
+            */
         }
         #endregion
+
+        private bool IsLigature(char letter)
+        {
+            letter = char.ToLower(letter);
+            char letterNoLigature = StringFormatter.RemoveLigatures("" + letter)[0];
+
+            return letter != letterNoLigature;
+        }
+
+        private bool IsDiacritic(char letter)
+        {
+            letter = char.ToLower(letter);
+            char letterWithoutDiacritics = StringFormatter.RemoveDiacritics(letter);
+            return letterWithoutDiacritics != letter;
+        }
+
+        private bool IsSameWithoutDiacritics(char letter1, char letter2)
+        {
+            letter1 = char.ToLower(letter1);
+            letter2 = char.ToLower(letter2);
+            if (!char.IsLetter(letter1) || !char.IsLetter(letter2))
+            {
+                return false;
+            }
+            
+            char letter1WithoutDiacritics = StringFormatter.RemoveDiacritics(letter1);
+            char letter2WithoutDiacritics = StringFormatter.RemoveDiacritics(letter2);
+
+            if (letter1 == letter1WithoutDiacritics && letter2 == letter2WithoutDiacritics)
+            {
+                return false;
+            }
+
+            return letter1WithoutDiacritics == letter2WithoutDiacritics;
+        }
 
         public int GetDistance(char letter1, char letter2)
         {
@@ -162,7 +233,7 @@ namespace PhonologicalTransformations
 
             if (index1 < 0 || letter2 < 0 || letter1 >= cardinality || letter2 >= cardinality)
             {
-                return defaultLongestDistanceValue;
+                return defaultLetterLongestDistanceValue;
             }
 
             return this.letterDistances[letter1, letter2];
@@ -175,14 +246,15 @@ namespace PhonologicalTransformations
 
             if (letter1 < cardinality && letter2 < cardinality)
             {
-                /*if (StringFormatter.RemoveDiacritics(letter2) == letter2)
-                { */
+                if (isAllowConvertToDiacritics || !this.IsDiacritic(letter2))
+                {
                     this.letterDistances[letter1, letter2] = distance;
-                /*}*/
-                /*if (StringFormatter.RemoveDiacritics(letter1) == letter1)
-                {*/
+                }
+                
+                if (isAllowConvertToDiacritics || !this.IsDiacritic(letter1))
+                {
                     this.letterDistances[letter2, letter1] = distance;
-                /*}*/
+                }
             }
 
             char letter1Upper = Char.ToUpper(letter1);
@@ -190,18 +262,18 @@ namespace PhonologicalTransformations
 
             if (letter1Upper < cardinality && letter2 < cardinality)
             {
-                /*if (StringFormatter.RemoveDiacritics(letter2) == letter2)
-                {*/
+                if (isAllowConvertToDiacritics || !this.IsDiacritic(letter2))
+                {
                     this.letterDistances[letter1Upper, letter2] = distance;
-                /*}*/
+                }
             }
 
             if (letter2Upper < cardinality && letter1 < cardinality)
             {
-                /*if (StringFormatter.RemoveDiacritics(letter1) == letter1)
-                {*/
+                if (isAllowConvertToDiacritics || !this.IsDiacritic(letter1))
+                {
                     this.letterDistances[letter2Upper, letter1] = distance;
-                /*}*/
+                }
             }
         }
 

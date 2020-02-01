@@ -28,20 +28,11 @@ namespace LanguageDetection
 
             double score = targetLanguageProximiy - detectedLanguageProximity;
 
-            if (score >= 0)
+            if (score >= 0) // target language detected
             {
-                foreach (KeyValuePair<string, double> otherLanguageProximity in proximities)
-                {
-                    double otherLanguageProximityValue = otherLanguageProximity.Value;
-
-                    if (otherLanguageProximityValue != targetLanguageProximiy)
-                    {
-                        double difference = targetLanguageProximiy - otherLanguageProximityValue;
-
-                        score += difference;
-                    }
-                }
+                score = proximities[0].Value - proximities[1].Value;
             }
+
             return score;
         }
     }

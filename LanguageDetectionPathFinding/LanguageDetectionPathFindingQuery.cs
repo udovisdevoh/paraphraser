@@ -77,7 +77,7 @@ namespace PathFinding
                 return 0.0f;
             }
 
-            return (float)Math.Abs(state.CurrentLanguageDetectionScore - destination.CurrentLanguageDetectionScore);
+            return (float)Math.Abs(state.CurrentLanguageDetectionScore - destination.CurrentLanguageDetectionScore) * 10.0f;
         }
 
         public void PopulateAdjacentStatesTempList(PathNode<LanguageDetectionState> node, List<AdjacentState<LanguageDetectionState>> adjacentStates)

@@ -17,16 +17,14 @@ namespace ShortestPathToExpectedResultConsole
     {
         static void Main(string[] args)
         {
-            //List<KeyValuePair<char, int>> letters = letterDistanceEvaluator.GetReplacementLetters('Q').OrderBy(keyValuePair => keyValuePair.Value).ToList();
-
             Bootstrap bootstrap = new Bootstrap();
 
             const int maxNodeCount = int.MaxValue;
-            const string targetLanguage = "Spanish";
+            const string targetLanguage = "French";
             //const string textInput = "Text summarization aims to extract essential information from a piece of text and transform it into a concise version.";
-            const string textInput = "Ceci est une poule, je suis une banane. Gros jambon à l'école.";
+            //const string textInput = "Ceci est une poule, je suis une banane. Gros jambon à l'école.";
             //const string textInput = "Ceci est une poule.";
-            //const string textInput = "rickstend verlact make torfield mory.";
+            const string textInput = "rickstend verlact make torfield mory.";
             LanguageDetector languageDetector = bootstrap.BuildLanguageDetectorByMarkovMatrixBasedOnTextFiles("./TextSamples/");
 
             KeyValuePair<string, double>[] languageProximities = languageDetector.GetLanguageProximities(textInput);
@@ -37,7 +35,7 @@ namespace ShortestPathToExpectedResultConsole
 
 
             LanguageDetectionState sourceNode = new LanguageDetectionState(textInput, targetLanguageDetectionScore);
-            LanguageDetectionState destinationNode = new LanguageDetectionState(textInput, detectedLanguageDectectionScore);
+            LanguageDetectionState destinationNode = new LanguageDetectionState(textInput, detectedLanguageDectectionScore * 2.0);
             TextMarkovMatrixLoader matrixLoader = new TextMarkovMatrixLoader();
             ILetterDistanceEvaluator letterDistanceEvaluator = new LetterDistanceEvaluator();
 
