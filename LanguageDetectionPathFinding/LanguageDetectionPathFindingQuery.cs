@@ -72,9 +72,19 @@ namespace PathFinding
 
         public float EstimateCostToDestination(LanguageDetectionState state)
         {
-            if (state.CurrentLanguageDetectionScore > destination.CurrentLanguageDetectionScore)
+            if (source.CurrentLanguageDetectionScore < destination.CurrentLanguageDetectionScore)
             {
-                return 0.0f;
+                if (state.CurrentLanguageDetectionScore > destination.CurrentLanguageDetectionScore)
+                {
+                    return 0.0f;
+                }
+            }
+            else
+            {
+                if (state.CurrentLanguageDetectionScore < destination.CurrentLanguageDetectionScore)
+                {
+                    return 0.0f;
+                }
             }
 
             return (float)Math.Abs(state.CurrentLanguageDetectionScore - destination.CurrentLanguageDetectionScore) * 10.0f;
