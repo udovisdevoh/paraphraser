@@ -31,7 +31,8 @@ namespace MarkovMatrices
         public IMarkovMatrix<char, double> LoadMatrix(Stream inputStream, HashSet<char> optionalWhiteList)
         {
             IMarkovMatrix<char, ulong> markovMatrix = this.internalMarkovMatrixLoader.LoadMatrix(inputStream, optionalWhiteList);
-            IMarkovMatrix<char, double> normalizedMatrix = this.markovMatrixNormalizer.Normalize(markovMatrix);
+            //IMarkovMatrix<char, double> normalizedMatrix = this.markovMatrixNormalizer.Normalize(markovMatrix);
+            IMarkovMatrix<char, double> normalizedMatrix = this.markovMatrixNormalizer.Convert(markovMatrix);
             return normalizedMatrix;
         }
 

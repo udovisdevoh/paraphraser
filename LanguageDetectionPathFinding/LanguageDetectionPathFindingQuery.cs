@@ -22,7 +22,7 @@ namespace PathFinding
 
         private bool isTimeOut = false;
 
-        private LanguageDetector languageDetector;
+        private ILanguageDetector languageDetector;
 
         private TextMarkovMatrixLoader matrixLoader;
 
@@ -34,7 +34,7 @@ namespace PathFinding
         #region Constructors
         public LanguageDetectionPathFindingQuery(LanguageDetectionState source,
             LanguageDetectionState destination,
-            LanguageDetector languageDetector,
+            ILanguageDetector languageDetector,
             TextMarkovMatrixLoader matrixLoader,
             IMarkovMatrixNormalizer<char> markovMatrixConverter,
             ILetterDistanceEvaluator letterDistanceEvaluator,

@@ -26,6 +26,8 @@ namespace LanguageDetectorApp
 
         private LanguageDetectionBackgroundWorker languageDetectionBackgroundWorker;
 
+        private PathFindingBackgroundWorker pathFindingBackgroundWorker;
+
         private ILanguageDetector languageDetector;
 
         private Bootstrap bootstrap;
@@ -40,6 +42,9 @@ namespace LanguageDetectorApp
 
             this.languageDetectionBackgroundWorker = new LanguageDetectionBackgroundWorker(languageDetector, this.textBoxDetectedLanguage);
             this.languageDetectionBackgroundWorker.Start();
+
+            this.pathFindingBackgroundWorker = new PathFindingBackgroundWorker(languageDetector, this.textBoxDetectedLanguage, this.richTextBoxPathFindingOutput);
+            this.pathFindingBackgroundWorker.Start();
         }
 
         private void textBoxInput_TextChanged(object sender, EventArgs e)
@@ -52,6 +57,7 @@ namespace LanguageDetectorApp
             text = text.ToLowerInvariant();
 
             this.languageDetectionBackgroundWorker.NotifyText(text);
+            this.pathFindingBackgroundWorker.NotifyText(text);
         }
     }
 }

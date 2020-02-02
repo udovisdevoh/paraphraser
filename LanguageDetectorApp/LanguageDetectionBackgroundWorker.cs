@@ -1,15 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LanguageDetection;
+using MarkovMatrices;
+using PathFinding;
+using PhonologicalTransformations;
 
 namespace LanguageDetectorApp
 {
-    internal class LanguageDetectionBackgroundWorker
+    public class LanguageDetectionBackgroundWorker
     {
         private ILanguageDetector languageDetector;
 
@@ -91,7 +95,6 @@ namespace LanguageDetectorApp
                 languageProximitiesStringBuilder.AppendLine(string.Format("{0}: {1}", languageName, formattedProximity));
             }
 
-            //string detectedLanguage = this.languageDetector.DetectLanguage(text);
             this.textBox.BeginInvoke((Action)(() =>
             {
                 this.textBox.Text = languageProximitiesStringBuilder.ToString();
