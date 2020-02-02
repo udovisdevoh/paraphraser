@@ -110,26 +110,31 @@ namespace LanguageDetectorApp
 
             this.textBox.BeginInvoke((Action)(() =>
             {
-                this.richTextBoxPathFindingOutput.Text = $"Processing \"{this.currentText}\"";
+                this.richTextBoxPathFindingOutput.Text = $"Processing \"{this.currentText}\"...";
             }));
 
-            LanguageDetectionState[] path = this.FindPath(pathFindingText);
+            string detectedLanguage;
+            string otherMatchLanguage;
+
+            LanguageDetectionState[] path = this.FindPath(pathFindingText, out detectedLanguage, out otherMatchLanguage);
 
             if (path.Length <= 0)
             {
                 return;
             }
 
+            string lastNodeText = path.Last().CurrentText;
+
             int[][] coloredPositions = this.GetColoredPositions(pathFindingText, path);
 
             this.textBox.BeginInvoke((Action)(() =>
             {
-                this.richTextBoxPathFindingOutput.Text = pathFindingText;
+                this.richTextBoxPathFindingOutput.Text = detectedLanguage + ":\r\n" + pathFindingText + "\r\n" + otherMatchLanguage + ":\r\n" + lastNodeText;
                 foreach (int[] currentColorPositions in coloredPositions)
                 {
                     foreach (int currentColorPosition in currentColorPositions)
                     {
-                        this.richTextBoxPathFindingOutput.Select(currentColorPosition, 1);
+                        this.richTextBoxPathFindingOutput.Select(currentColorPosition + detectedLanguage.Length + 2, 1);
                         this.richTextBoxPathFindingOutput.SelectionColor = Color.Green;
                     }
                 }
@@ -175,15 +180,15 @@ namespace LanguageDetectorApp
             return coloredPositions;
         }
 
-        private LanguageDetectionState[] FindPath(string currentText)
+        private LanguageDetectionState[] FindPath(string currentText, out string detectedLanguage, out string otherMatchLanguage)
         {
             TextMarkovMatrixLoader matrixLoader = new TextMarkovMatrixLoader();
             ILetterDistanceEvaluator letterDistanceEvaluator = new LetterDistanceEvaluator();
 
             KeyValuePair<string, double>[] languageProximities = languageDetector.GetLanguageProximities(currentText);
 
-            string detectedLanguage = languageProximities.OrderByDescending(keyValuePair => keyValuePair.Value).First().Key;
-            string otherMatchLanguage = languageProximities.OrderByDescending(keyValuePair => keyValuePair.Value).Last().Key;
+            detectedLanguage = languageProximities.OrderByDescending(keyValuePair => keyValuePair.Value).First().Key;
+            otherMatchLanguage = languageProximities.OrderByDescending(keyValuePair => keyValuePair.Value).Last().Key;
             //string otherMatchLanguage = languageProximities.OrderByDescending(keyValuePair => keyValuePair.Value).ToArray()[1].Key;
 
             double firstLanguageDectectionScore = languageDetector.GetLanguageDetectionScore(currentText, detectedLanguage);
