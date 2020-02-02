@@ -51,7 +51,7 @@ namespace PhonologicalTransformations
                     {
                         this.SetCustomDistance(fromLetter, toLetter, 0);
                     }
-                    else if (this.IsLigature(toLetter))
+                    else if (this.IsLigature(fromLetter) || this.IsLigature(toLetter))
                     {
                         this.SetCustomDistance(fromLetter, toLetter, nonLetterDistance);
                     }
