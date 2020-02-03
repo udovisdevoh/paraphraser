@@ -112,7 +112,10 @@ namespace PathFinding
                 }
             }
 
-            CreatePath(bestNode, path);
+            if (!isNeedToAbortNow)
+            {
+                CreatePath(bestNode, path);
+            }
             ClearCollections();
             GC.Collect();
         }
@@ -190,6 +193,7 @@ namespace PathFinding
         private void CreatePath(PathNode<TState> lastNode, List<TState> path)
         {
             PathNode<TState> node = lastNode;
+
             do
             {
                 path.Add(node.State);
