@@ -52,6 +52,7 @@ namespace LanguageDetectorApp
         public void Start()
         {
             Thread thread = new Thread(PathFindingWorker);
+            thread.Name = "PathFinding";
             thread.IsBackground = true;
             thread.Start();
         }
@@ -103,7 +104,7 @@ namespace LanguageDetectorApp
         private void Recalculate()
         {
             string pathFindingText = this.currentText;
-            lock (abortLock)
+            lock (this.abortLock)
             {
                 this.pathfinder.IsNeedToAbortNow = true;
             }
@@ -125,20 +126,28 @@ namespace LanguageDetectorApp
 
             string lastNodeText = path.Last().CurrentText;
 
+            string otherDetectedLanguage = this.languageDetector.DetectLanguage(lastNodeText);
+
             int[][] coloredPositions = this.GetColoredPositions(pathFindingText, path);
+
+            int firstOffset = 11 + detectedLanguage.Length;
+            int secondOffset = firstOffset + pathFindingText.Length + 24 + otherDetectedLanguage.Length;
 
             this.textBox.BeginInvoke((Action)(() =>
             {
-                this.richTextBoxPathFindingOutput.Text = detectedLanguage + " detected:\r\n" + pathFindingText + "\r\nWould be detected as " + otherMatchLanguage + ":\r\n" + lastNodeText;
-                const int firstOffset = 11;
+                this.richTextBoxPathFindingOutput.Text = detectedLanguage + " detected:\r\n" + pathFindingText + "\r\nWould be detected as " + otherDetectedLanguage + ":\r\n" + lastNodeText;
+
                 foreach (int[] currentColorPositions in coloredPositions)
                 {
                     foreach (int currentColorPosition in currentColorPositions)
                     {
-                        this.richTextBoxPathFindingOutput.Select(currentColorPosition + detectedLanguage.Length + firstOffset, 1);
+                        this.richTextBoxPathFindingOutput.Select(currentColorPosition + firstOffset, 1);
                         this.richTextBoxPathFindingOutput.SelectionColor = Color.Green;
+
+                        this.richTextBoxPathFindingOutput.Select(currentColorPosition + secondOffset, 1);
+                        this.richTextBoxPathFindingOutput.SelectionColor = Color.Red;
                     }
-                }
+                }                
             }));
 
             this.lastCalculatedText = pathFindingText;
@@ -207,7 +216,10 @@ namespace LanguageDetectorApp
                 letterDistanceEvaluator,
                 detectedLanguage);
 
-            this.pathfinder = new Pathfinder<LanguageDetectionState>(maxNodeCount);
+            lock (this.abortLock)
+            {
+                this.pathfinder = new Pathfinder<LanguageDetectionState>(maxNodeCount);
+            }
             LanguageDetectionState[] path = this.pathfinder.Find(languageDetectionPathFindingQuery);
 
             return path;

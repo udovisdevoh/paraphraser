@@ -93,6 +93,11 @@ namespace PathFinding
 
                 bestNode = PopBestOpenNode();
 
+                if (isNeedToAbortNow)
+                {
+                    break;
+                }
+
                 if (bestNode.EstimatedCostToDestination == 0)
                 {
                     break;
@@ -170,6 +175,11 @@ namespace PathFinding
                     bestOpenNode = node;
                     bestOpenNodeIndex = i;
                     lowestEstimatedTotalCost = bestOpenNode.EstimatedTotalCost;
+                }
+
+                if (this.isNeedToAbortNow)
+                {
+                    return null;
                 }
             }
 
