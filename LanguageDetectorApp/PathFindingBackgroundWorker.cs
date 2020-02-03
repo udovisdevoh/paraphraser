@@ -87,6 +87,11 @@ namespace LanguageDetectorApp
             {
                 if (newText != this.currentText)
                 {
+                    lock (this.abortLock)
+                    {
+                        this.pathfinder.IsNeedToAbortNow = true;
+                    }
+
                     this.currentText = newText;
                     this.NotifyTextChange();
                 }
@@ -104,10 +109,6 @@ namespace LanguageDetectorApp
         private void Recalculate()
         {
             string pathFindingText = this.currentText;
-            lock (this.abortLock)
-            {
-                this.pathfinder.IsNeedToAbortNow = true;
-            }
 
             this.textBox.BeginInvoke((Action)(() =>
             {
@@ -218,6 +219,7 @@ namespace LanguageDetectorApp
 
             lock (this.abortLock)
             {
+                this.pathfinder.IsNeedToAbortNow = true;
                 this.pathfinder = new Pathfinder<LanguageDetectionState>(maxNodeCount);
             }
             LanguageDetectionState[] path = this.pathfinder.Find(languageDetectionPathFindingQuery);

@@ -16,6 +16,8 @@ namespace LanguageDetection
         private Dictionary<string, IMarkovMatrix<char, double>> languages;
 
         private IMarkovMatrixLoader<char, double> languageDetectionMatrixLoader;
+
+        private object listLock = new object();
         #endregion
 
         #region Constructors
@@ -57,8 +59,6 @@ namespace LanguageDetection
 
             List<KeyValuePair<string, double>> languageProximities = new List<KeyValuePair<string, double>>();
 
-            object listLock = new object();
-
             //foreach (KeyValuePair<string, IMarkovMatrix<char, double>> nameAndLanguageMatrix in this.languages)
             Parallel.ForEach(this.languages, nameAndLanguageMatrix =>
             {
@@ -66,7 +66,7 @@ namespace LanguageDetection
                 IMarkovMatrix<char, double> languageMatrix = nameAndLanguageMatrix.Value;
                 double proximity = MatrixMathHelper.GetDotProduct(inputMatrix, languageMatrix);
 
-                lock (listLock)
+                lock (this.listLock)
                 {
                     languageProximities.Add(new KeyValuePair<string, double>(languageName, proximity));
                 }
