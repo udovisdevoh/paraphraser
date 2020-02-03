@@ -129,12 +129,13 @@ namespace LanguageDetectorApp
 
             this.textBox.BeginInvoke((Action)(() =>
             {
-                this.richTextBoxPathFindingOutput.Text = detectedLanguage + ":\r\n" + pathFindingText + "\r\nWould be detected as " + otherMatchLanguage + ":\r\n" + lastNodeText;
+                this.richTextBoxPathFindingOutput.Text = detectedLanguage + " detected:\r\n" + pathFindingText + "\r\nWould be detected as " + otherMatchLanguage + ":\r\n" + lastNodeText;
+                const int firstOffset = 11;
                 foreach (int[] currentColorPositions in coloredPositions)
                 {
                     foreach (int currentColorPosition in currentColorPositions)
                     {
-                        this.richTextBoxPathFindingOutput.Select(currentColorPosition + detectedLanguage.Length + 2, 1);
+                        this.richTextBoxPathFindingOutput.Select(currentColorPosition + detectedLanguage.Length + firstOffset, 1);
                         this.richTextBoxPathFindingOutput.SelectionColor = Color.Green;
                     }
                 }

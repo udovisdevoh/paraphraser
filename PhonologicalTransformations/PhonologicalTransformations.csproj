@@ -43,7 +43,6 @@
   <ItemGroup>
     <Compile Include="Interfaces\ILetterDistanceEvaluator.cs" />
     <Compile Include="LetterDistanceEvaluator.cs" />
-    <Compile Include="LetterReplacer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
