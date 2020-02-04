@@ -29,10 +29,20 @@ namespace PhonologicalTransformations
         private const int differentVoicingMissingLetterDistance = 3;
 
         private const int closelyRelatedVowelDistance = 2;
+
+        private const int changeArticulationPointConsonantDistance = 4;
+
+        private const int changeMannerConsonantDistance = 4;
+
+        private const int affricativeDistance = 3;
+
+        private const int letterSwapCost = 10;
         #endregion
 
         #region Members
         private int[,] letterDistances;
+
+        public float LetterSwapCost => letterSwapCost;
         #endregion
 
         #region Constructors
@@ -55,11 +65,11 @@ namespace PhonologicalTransformations
                     {
                         this.SetCustomDistance(fromLetter, toLetter, nonLetterDistance);
                     }
-                    else if (this.IsSameWithoutDiacritics(fromLetter, toLetter))
+                    else if (this.IsSameWithoutDiacritics(fromLetter, toLetter)/* && this.IsDiacritic(fromLetter) != this.IsDiacritic(toLetter)*/)
                     {
                         this.SetCustomDistance(fromLetter, toLetter, diacriticsChangeDistance);
                     }
-                    else if (Char.IsLetter(fromLetter) && Char.IsLetter(toLetter))
+                    else if (Char.IsLetter(fromLetter) && Char.IsLetter(toLetter)/* && !this.IsDiacritic(fromLetter) && !this.IsDiacritic(toLetter)*/)
                     {
                         this.SetCustomDistance(fromLetter, toLetter, defaultLetterLongestDistanceValue);
                     }
@@ -93,14 +103,74 @@ namespace PhonologicalTransformations
             this.SetCustomDistance('L', 'R', ethnicalVariance);
             this.SetCustomDistance('J', 'Y', ethnicalVariance);
             this.SetCustomDistance('J', 'I', ethnicalVariance);
+            this.SetCustomDistance('J', 'G', ethnicalVariance);
+
+            this.SetCustomDistance('X', 'S', affricativeDistance);
+            this.SetCustomDistance('X', 'K', affricativeDistance);
+            this.SetCustomDistance('X', 'C', affricativeDistance);
 
             this.SetCustomDistance('A', 'O', closelyRelatedVowelDistance);
             this.SetCustomDistance('A', 'E', closelyRelatedVowelDistance);
             this.SetCustomDistance('O', 'U', closelyRelatedVowelDistance);
             this.SetCustomDistance('U', 'I', closelyRelatedVowelDistance);
             this.SetCustomDistance('E', 'I', closelyRelatedVowelDistance);
+
+            // Stop / Plosives consonants voiceless
+            HashSet<char> voicelessPlosives = new HashSet<char>() { 'P', 'T', 'C', 'K', 'Q' };
+            this.SetCustomDistances(voicelessPlosives, changeArticulationPointConsonantDistance);
+
+            // Stop / Plosives consonants voiced
+            HashSet<char> voicedPlosives = new HashSet<char>() { 'B', 'D', 'G' };
+            this.SetCustomDistances(voicedPlosives, changeArticulationPointConsonantDistance);
+
+            // Nasal
+            HashSet<char> nasal = new HashSet<char>() { 'N', 'M' };
+            this.SetCustomDistances(nasal, changeArticulationPointConsonantDistance);
+
+            // Fricative voiceless
+            HashSet<char> voicelessFricatives = new HashSet<char>() { 'S', 'F', 'H', 'C', 'L' };
+            this.SetCustomDistances(voicelessFricatives, changeArticulationPointConsonantDistance);
+
+            // Fricative voiced
+            HashSet<char> voicedFricatives = new HashSet<char>() { 'Z', 'V', 'J' };
+            this.SetCustomDistances(voicedFricatives, changeArticulationPointConsonantDistance);
+
+            // Approximant
+            HashSet<char> approximants = new HashSet<char>() { 'R', 'L' };
+            this.SetCustomDistances(approximants, changeArticulationPointConsonantDistance);
+
+
+            // Labial
+            HashSet<char> labialsVoiced = new HashSet<char>() { 'M', 'B' };
+            this.SetCustomDistances(labialsVoiced, changeArticulationPointConsonantDistance);
+
+            // Dental Voiced
+            HashSet<char> dentalVoiced = new HashSet<char>() { 'D', 'N' };
+            this.SetCustomDistances(dentalVoiced, changeArticulationPointConsonantDistance);
+
+            // Alveolar ridge voicless
+            HashSet<char> alveolarRidgeVoiceless = new HashSet<char>() { 'T', 'S' };
+            this.SetCustomDistances(alveolarRidgeVoiceless, changeArticulationPointConsonantDistance);
+
+            // Alveolar ridge voiced
+            HashSet<char> alveolarRidgeVoiced = new HashSet<char>() { 'D', 'Z', 'N', 'L' };
+            this.SetCustomDistances(alveolarRidgeVoiced, changeArticulationPointConsonantDistance);
         }
         #endregion
+
+        private void SetCustomDistances(HashSet<char> letters, int distance)
+        {
+            foreach (char char1 in letters)
+            {
+                foreach (char char2 in letters)
+                {
+                    if (char1 != char2)
+                    {
+                        this.SetCustomDistance(char1, char2, distance);
+                    }
+                }
+            }
+        }
 
         private bool IsLigature(char letter)
         {

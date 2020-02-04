@@ -8,6 +8,8 @@ namespace PhonologicalTransformations
 {
     public interface ILetterDistanceEvaluator
     {
+        float LetterSwapCost { get; }
+
         int GetDistance(char letter1, char letter2);
 
         IEnumerable<KeyValuePair<char, int>> GetReplacementLetters(char letter);

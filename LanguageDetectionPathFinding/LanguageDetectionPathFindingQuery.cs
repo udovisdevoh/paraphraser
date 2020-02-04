@@ -93,8 +93,41 @@ namespace PathFinding
         public void PopulateAdjacentStatesTempList(PathNode<LanguageDetectionState> node, List<AdjacentState<LanguageDetectionState>> adjacentStates)
         {
             string sourceText = node.State.CurrentText;
+            this.PopulateLetterReplaceAdjacentStates(adjacentStates, sourceText);
+            //this.PopulateLetterSwapAdjacentStates(adjacentStates, sourceText);
+        }
 
-            for (int letterIndex = 0; letterIndex < sourceText.Length;++letterIndex)
+        private void PopulateLetterSwapAdjacentStates(List<AdjacentState<LanguageDetectionState>> adjacentStates, string sourceText)
+        {
+            int letterIndex2;
+            for (int letterIndex1 = 0; letterIndex1 < sourceText.Length - 1; ++letterIndex1)
+            {
+                letterIndex2 = letterIndex1 + 1;
+
+                char letter1 = char.ToLowerInvariant(sourceText[letterIndex1]);
+                char letter2 = char.ToLowerInvariant(sourceText[letterIndex2]);
+
+                if (letter1 != letter2 && char.IsLetter(letter1) && char.IsLetter(letter2))
+                {
+                    char[] letters = sourceText.ToCharArray();
+                    letters[letterIndex1] = letter2;
+                    letters[letterIndex2] = letter1;
+
+                    string modifiedText = new string(letters);
+
+                    float movementCost = letterDistanceEvaluator.LetterSwapCost;
+                    double currentLanguageDetectionScore = this.languageDetector.GetLanguageDetectionScore(modifiedText, this.targetLanguage);
+
+                    LanguageDetectionState adjacentLanguagDetectionState = new LanguageDetectionState(modifiedText, currentLanguageDetectionScore);
+                    AdjacentState<LanguageDetectionState> adjacentState = new AdjacentState<LanguageDetectionState>(adjacentLanguagDetectionState, movementCost);
+                    adjacentStates.Add(adjacentState);
+                }
+            }
+        }
+
+        private void PopulateLetterReplaceAdjacentStates(List<AdjacentState<LanguageDetectionState>> adjacentStates, string sourceText)
+        {
+            for (int letterIndex = 0; letterIndex < sourceText.Length; ++letterIndex)
             {
                 char currentLetter = sourceText[letterIndex];
 
